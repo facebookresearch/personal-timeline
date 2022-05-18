@@ -5,8 +5,8 @@ In the explanation, we'll assume three directories all sitting within the applic
  All code should be run in the code directory
 
 ## Step 0: Create environment
-   conda create --name <env> --file requirements.txt
-   conda activate
+    conda create --name <env> --file requirements.txt
+    conda activate
 
 ## Step 1: Downloading your photos
 
@@ -16,21 +16,21 @@ When downloaded, you'll get .json files (one for every photo) that has the meta-
 
 .HEIC files are not very useful, so you need to turn them into .jpeg. The easiet way to do this on a mac is:
 
- -- select the .HEIC files you want to convert.
- -- right click and choose "quick actions" and then you'll have an option to covert the image.
- -- if you're converting many photos, this may take a few minutes.
+ -- Select the .HEIC files you want to convert.
+ -- Right click and choose "quick actions" and then you'll have an option to covert the image.
+ -- If you're converting many photos, this may take a few minutes.
 
 Put all the photos and all the json files in a folder called photos. The photos folder should be a sibling of the code folder.
 
 ## Step 2: Generating captions
 
-### Step 2.1: find all the jpegs that also have json files (recall that Google doesn't always give you all the files onveniently in one folder, so this step is necessary to ensure that you have both the json and the .jpeg going forward)
+### Step 2.1: Find all the jpegs that also have json files (recall that Google doesn't always give you all the files onveniently in one folder, so this step is necessary to ensure that you have both the json and the .jpeg going forward)
 Run find_jpegs.py
 The output of find_jpegs.py will be photo_filenames.json
 
-### Step 2.2: generate the captions
+### Step 2.2: Generate the captions
 Run get_captions.py
 The output of this step is photo_captions.json -- put that file in the ../data directory       
 
-## Step 3: create a json file with LLEntry for your photos (this is what will go into the episodic database).
+## Step 3: Create a json file with LLEntry for your photos (this is what will go into the episodic database).
 Run create_photo_LLEntries.py
