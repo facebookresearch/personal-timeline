@@ -34,7 +34,7 @@ def load_demo_image(image_path, image_size, device):
 
 
 # image_url_list=sys.argv[1]
-with open("PHOTO_JSONS_FILE", 'r') as f:
+with open("../data/photo_filenames.json", 'r') as f:
   r1 = f.read()
   data = json.loads(r1)
   image_url_list = data.keys()
