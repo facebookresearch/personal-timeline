@@ -37,10 +37,10 @@ print("number of heic files is " + str(heic_count))
 
 for f in photos_dir:
     if json_file(f):
-        name = f[:-5]
+        name = f[:-5][0:-4]
         if name.endswith(".HEIC"):
             name = name[:-5]
-        
+    
         jpg = name + ".jpeg"
         if jpg in photos_dir:
             output_dir[name] = jpg
