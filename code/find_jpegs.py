@@ -10,6 +10,11 @@ def jpeg_file (file_name):
 def heic_file (file_name):
     return file_name.endswith(".HEIC")
 
+def jpg_file (file_name):
+    return file_name.endswith(".jpg")
+
+
+
 json_files = []
 name_files = []
 output_json = "[ "
@@ -41,14 +46,12 @@ for f in photos_dir:
         if name.endswith(".HEIC"):
             name = name[:-5]
         
-        jpg = name + ".jpeg"
+        jpeg = name + ".jpeg"
+        jpg = name + ".jpg"
         if jpg in photos_dir:
             output_dir[name] = jpg
-            name_files.append(name)
-            json_files.append(f)
-
-print (len(json_files))
-print (len(name_files))
+        elif: jpeg in photos_dir:
+            output_dir[name] = jpeg
 
 
 out_string = json.dumps(output_dir)
