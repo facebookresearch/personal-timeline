@@ -2,16 +2,16 @@ import os
 import json
 
 def json_file (file_name):
-    return file_name.endswith(".json")
+    return file_name.endswith(".json") or file_name.endswith(".JSON")
 
 def jpeg_file (file_name):
-    return file_name.endswith(".jpeg")
+    return file_name.endswith(".jpeg") or file_name.endswith(".JPEG")
 
 def heic_file (file_name):
     return file_name.endswith(".HEIC")
 
 def jpg_file (file_name):
-    return file_name.endswith(".jpg")
+    return file_name.endswith(".jpg") or file_name.endswith(".JPG")
 
 
 
@@ -45,14 +45,23 @@ for f in photos_dir:
         name = f[:-5]
         if name.endswith(".HEIC"):
             name = name[:-5]
-        
-        jpeg = name + ".jpeg"
-        jpg = name + ".jpg"
-        if jpg in photos_dir:
-            output_dir[name] = jpg
-        elif: jpeg in photos_dir:
-            output_dir[name] = jpeg
+        if name.endswith(".JPG") or name.endswith(".jpg"):
+            name = name[:-4]
+           
+        if name.endswith(".JPEG") or name.endswith(".jpeg"):
+            name = name[:-5]
 
+        
+        if name + ".jpeg" in photos_dir:
+            output_dir[name] = name + ".jpeg"
+
+        if name + ".JPEG" in photos_dir:
+            output_dir[name] = name + ".JPEG"
+        if name + ".JPG" in photos_dir:
+            output_dir[name] = name + ".JPG"
+        if name + ".jpg" in photos_dir:
+            output_dir[name] = name + ".jpg"
+            
 
 out_string = json.dumps(output_dir)
 
