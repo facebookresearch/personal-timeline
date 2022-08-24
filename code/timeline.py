@@ -10,12 +10,12 @@ from json_obj import LLEntry
 from operator import itemgetter
 from util import *
 
-ROOT_DIR = "/Users/ayh/Documents/code/pim/"
-INDEX_FILE = "data/date_inverted_index.json"
-SUMMARY_FILE = "data/summaries_index.json"
+ROOT_DIR = "/Users/ayh/Documents/code/pim/code/pim-photos/data/"
+INDEX_FILE = "date_inverted_index.json"
+SUMMARY_FILE = "summaries1_index.json"
 summary_path = ROOT_DIR + SUMMARY_FILE
 index_path = ROOT_DIR +  INDEX_FILE
-image_directory_path = ROOT_DIR +  "photos/"
+image_directory_path = "/Users/ayh/Documents/code/pim/code/pim-photos/photos/" 
 
 DUMMY_PHOTO =  image_directory_path + "dayinlife.png"
 DEFAULT_YEAR = "2019"
@@ -145,14 +145,22 @@ def showADay(date):
     global activity_texts 
     global str_month
     global str_dom
-
+    global str_year
+    
     print ("Showing ", date)
 
 # Generating month description 
     month_display_string = ""
     if date[0:7] in summaries:
         summary_items = summaries[date[0:7]]
+        print(summary_items)
+        print("length is ")
+        print(len(summary_items))
         for i in summary_items:
+            print("i is ")
+            print(i)
+            print ("text description is ")
+            print (i["textDescription"])
             month_display_string = month_display_string + i["textDescription"] + "\n"
 
     window.Element("-MONTHSUM-").update(month_display_string)
@@ -276,6 +284,7 @@ def showADay(date):
 
 str_month = "01"
 str_dom = "01"
+str_year = "2019"
 images_index = create_empty_hour_index()
 activity_texts = []
 health_texts = []
@@ -342,6 +351,9 @@ photos_frame = [
 month_select = [
     [ sg.Slider(range=(1,12), size=(100,20), tick_interval = 1, disable_number_display=False,  expand_x=True, enable_events=True, orientation='horizontal', key="-MONTH-")],
 ]
+year_select = [
+    [ sg.Slider(range=(2018,2022), size=(100,20), tick_interval = 1, disable_number_display=False,  expand_x=True, enable_events=True, orientation='horizontal', key="-YEAR-")],
+]
 
 month_summary = [
     [ sg.Multiline("Month summary: ",  size=(60,5),  font=("Helvetica", 16), background_color='ivory',  key="-MONTHSUM-")],
@@ -374,6 +386,8 @@ layout = [
     [
         sg.Text(" ", size=(25, 1),font='Courier 18', key="-TOUT-")
     ],
+    [ sg.Frame("Select a year", year_select),   
+    ],
     [ sg.Frame("Select a month", month_select),  sg.Frame("Month summary", month_summary),  
     ],
 #    [ sg.Frame("Month summary", month_summary),  
@@ -404,6 +418,7 @@ layout = [
 window = sg.Window("Browse Your Life",  layout)
 int_month = 10
 int_dom = 10
+int_year = 2019
 image_count = -1
 # event, values = window.read()
 
@@ -417,12 +432,25 @@ while True:
     if event == "-HOUR-":
         hour = int(values["-HOUR-"])
         current_image = images_index[hour]
-        window.Element("-TOUT-").Update("Showing " + DEFAULT_YEAR + "-" + str(int_month) +
+        window.Element("-TOUT-").Update("Showing " + str_year + "-" + str(int_month) +
                                         "-" + str(int_dom) + "  " +
                                         str(int(values["-HOUR-"])) + ":00")
         update_image()
         update_activity_summary(hour)
         
+    if event == "-YEAR-":
+        clear_previous_day()
+        clear_previous_month()
+        print("found year")
+        int_year = int(values["-YEAR-"])
+        str_year = str(int_year)
+        int_dom = 1
+        str_dom = "01"
+        str_month = "01"
+        constructed_date = str_year + "-" + str_month + "-01"
+        print ("constructing: ", constructed_date)
+        showADay(constructed_date)
+
     if event == "-MONTH-":
         clear_previous_day()
         clear_previous_month()
@@ -434,7 +462,7 @@ while True:
             str_month = "0" + str(int_month)
         else:
             str_month = str(int_month)
-        constructed_date = DEFAULT_YEAR + "-" + str_month + "-01"
+        constructed_date = str_year + "-" + str_month + "-01"
         print ("constructing: ", constructed_date)
         showADay(constructed_date)
 
@@ -446,7 +474,7 @@ while True:
             str_dom = "0" + str(int_dom)
         else:
             str_dom = str(int_dom)
-        constructed_date = DEFAULT_YEAR + "-" + str_month + "-" + str_dom
+        constructed_date = str_year + "-" + str_month + "-" + str_dom
         print ("constructing: ", constructed_date)
         showADay(constructed_date)
         

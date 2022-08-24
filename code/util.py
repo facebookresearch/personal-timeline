@@ -56,6 +56,7 @@ def dayToDate(num):
     return (str(result))
 
 def daysSinceEpoch(date):
+    print(date)
     year, month, dom = extractYMD(date)
 #    diff = (datetime.datetime(year, month, dom) - datetime.datetime(1970,1,1)).days
     diff = (datetime(year, month, dom) - datetime(1970,1,1)).days
@@ -95,6 +96,15 @@ def convertlatlongToTimezone(lat_string, long_string):
 
 def convertOutOfE7(s):
     return str(float(s)/1E7)
+
+def extractYMDHM(date):
+    year = int(date[0:4])
+    month = int(date[5:7])
+    dom = int(date[8:10])
+    hour = int(date[11:13])
+    minute = int(date[14:16])
+    #print (dom, hour, minute)
+    return ((year, month, dom, hour, minute))
 
 
 def dict_to_json(dict):

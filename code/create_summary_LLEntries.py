@@ -12,11 +12,13 @@ import numpy as np
 
 # This is where the photos and their jsons sit
 HOME_CITIES = ["Los Altos", "Palo Alto", "Mountain View", "San Francisco", "Burlingame", "Milpitas", "San Jose"]
-OUTPUT_FILE = "summaries_index.json"
-SOLR_OUTPUT_FILE = "../data/summaries.json"
-OUTPUT1_FILE = "summaries1_index.json"
+DATA_DIR = "/Users/ayh/Documents/code/pim/code/pim-photos/data/"
+INPUT_FILE = DATA_DIR + "date_inverted_index.json"
+#OUTPUT_FILE = DATA_DIR + "summaries_index.json"
+SOLR_OUTPUT_FILE = DATA_DIR + "solr_summaries.json"
+OUTPUT1_FILE = DATA_DIR + "summaries1_index.json"
 GTIMELINE_DIR = "2019"
-INPUT_FILE = "../data/date_inverted_index.json"
+
 global summaries
 global monthly
 global path 
@@ -196,6 +198,7 @@ def create_csv(df):
 
 # Putting activity and health objects into a daily summary object                   
                 if obj["type"][0:5] == "base:":
+                    print(obj["type"])
                     new_type = "daily:" + obj["type"][5:]
                     source = "V0"
                     startTime = obj["startTime"]
@@ -379,8 +382,8 @@ output_json = json.dumps(dict_to_json(summaries))
 
 
 
-with open(OUTPUT_FILE, 'w') as outfile:
-    outfile.write(output_json)
+# with open(OUTPUT_FILE, 'w') as outfile:
+#     outfile.write(output_json)
 
 
 output_path = cwd / OUTPUT1_FILE

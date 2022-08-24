@@ -12,7 +12,8 @@ import json
 import os
 PHOTO_JSONS_FILE = "../data/photo_filenames.json"
 IMAGE_SIZE = 384
-OUTPUT_FILE = "photo_captions.json"
+#OUTPUT_FILE = "photo_captions.json"
+OUTPUT_FILE = "temp_photo_captions.json"
 output_dir = { }
 
 def get_device():
