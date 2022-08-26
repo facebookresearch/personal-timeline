@@ -1,5 +1,6 @@
 import os
 import json
+import pdb
 
 def json_file (file_name):
     return file_name.endswith(".json") or file_name.endswith(".JSON")
@@ -55,6 +56,7 @@ for f in photos_dir:
         if name + ".jpeg" in photos_dir:
             output_dir[name] = name + ".jpeg"
 
+
         if name + ".JPEG" in photos_dir:
             output_dir[name] = name + ".JPEG"
         if name + ".JPG" in photos_dir:
@@ -67,4 +69,3 @@ out_string = json.dumps(output_dir)
 
 with open(OUTPUT_FILE_NAME, 'w') as outfile:
     outfile.write(out_string)
-

@@ -12,6 +12,7 @@ from tzwhere import tzwhere
 from timezonefinder import TimezoneFinder
 from geopy.geocoders import Nominatim
 import time 
+import pdb
 
 # This is where the photos and their jsons sit
 PHOTO_DIRECTORY = "../photos"
@@ -83,11 +84,14 @@ with open(captions_filepath, 'r') as f_caption:
 
   
 count = 0
-for name in names:
+# for name in names:
+for name in names.values():
     count = count +1
     if count > 10000:
         break
-    file_name = name + ".HEIC.json"
+    # file_name = name + ".HEIC.json"
+    file_name = name + ".json"
+    pdb.set_trace()
     print (file_name)
     j_path = photos_filepath / file_name
     with open(j_path, 'r') as f1:
@@ -146,7 +150,8 @@ for name in names:
         print ("text description: ", textDescription)
         ## Get image width and height
         image_name = name + " Medium.png"
-        image_file_path = photos_filepath / image_name
+        # image_file_path = photos_filepath / image_name
+        image_file_path = photos_filepath
         im = Image.open(image_file_path)
         width, height = im.size
         obj.imageWidth = width
