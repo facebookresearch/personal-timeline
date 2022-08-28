@@ -11,19 +11,23 @@ from pytz import timezone
 from tzwhere import tzwhere
 from timezonefinder import TimezoneFinder
 from geopy.geocoders import Nominatim
+from geopy.extra.rate_limiter import RateLimiter
 import time 
 import pdb
 
 # This is where the photos and their jsons sit
 PHOTO_DIRECTORY = "../photos"
 
-OUTPUT_FILE = "t_photo_data.json"
+OUTPUT_FILE = "photo_data.json"
 
 
 SOURCE = "Google Photos"
 TYPE = "base/photo"
 global geolocator
 geolocator = Nominatim(user_agent="pim_timeline")
+geocode = RateLimiter(geolocator.geocode, min_delay_seconds=5)
+
+reverse = RateLimiter(geolocator.reverse, min_delay_seconds=5)
 
 # This is where the intermediate json files sit
 ROOT_DIRECTORY = "~/Documents/code/pim/"
@@ -32,8 +36,17 @@ def calculateLocation(content):
     latitude = float(content["geoData"]["latitude"])
     longitude = float(content["geoData"]["longitude"])
     time.sleep(1)
-    location = geolocator.reverse(str(latitude)+","+str(longitude), addressdetails=True)
-    
+    # location = geolocator.reverse(str(latitude)+","+str(longitude), addressdetails=True)
+    location = reverse(str(latitude)+","+str(longitude), addressdetails=True)
+
+# geolocator = Nominatim(user_agent="application")
+
+# reverse = RateLimiter(geolocator.reverse, min_delay_seconds=1)
+
+# location = reverse((50.6539239, -120.3385242), language='en', exactly_one=True)
+
+
+
     print (str(location))
     return (location)
 
