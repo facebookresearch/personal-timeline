@@ -4,7 +4,7 @@ from pathlib import Path
 import datetime
 from datetime import datetime
 from datetime import timezone
-from json_obj import SolrObj
+from code.objects.LLEntry_obj import LLEntry
 import xml.etree.ElementTree as ET
 import pytz
 from util import *
@@ -81,7 +81,7 @@ for child in root:
         experienced_startTime = convertToTimezone (start,ORIGIN_TIMEZONE, current_timezone)
         details["start"] = extractTOD(experienced_startTime)[0:5]
         
-        obj = SolrObj(wtype, experienced_startTime, SOURCE)
+        obj = LLEntry(wtype, experienced_startTime, SOURCE)
         #print (start)
        
         #print (obj.startTimeOfDay)

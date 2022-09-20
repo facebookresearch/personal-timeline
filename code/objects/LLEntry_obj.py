@@ -1,6 +1,5 @@
 import json
 
-        
 class LLEntry:
 
     def __init__(self, type, startTime, source):
@@ -55,7 +54,9 @@ class LLEntry:
     def printObj(self):
         print(self.type, self.startTime, self.source, self.peopleInImage)
     def toJson(self):
-        return json.dumps(self.__dict__)
+        #return json.dumps(self.__dict__)
+        return json.dumps(self, default=lambda o: o.__dict__,
+                          sort_keys=True, indent=4)
 
 
 

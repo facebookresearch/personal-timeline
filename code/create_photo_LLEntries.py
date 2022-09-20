@@ -5,7 +5,7 @@ from PIL import Image
 import datetime
 from datetime import datetime, timedelta
 from datetime import timezone
-from LLEntry_obj import LLEntry
+from code.objects.LLEntry_obj import LLEntry
 import pytz
 from pytz import timezone
 from tzwhere import tzwhere

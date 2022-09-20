@@ -12,7 +12,7 @@ import sys
 import json
 import os
 
-sys.path.append(os.path.abspath("/Users/khannan/projects/alon-db/pim-photos/BLIP/"))
+sys.path.append(os.path.relpath("../BLIP/"))
 from models import *
 from models.blip import blip_decoder
 
