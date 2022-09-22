@@ -1,7 +1,5 @@
 import json
-
 class LLEntry:
-
     def __init__(self, type, startTime, source):
         self.type = type
         self.source = source
@@ -29,7 +27,9 @@ class LLEntry:
         self.textDescription = ""
         
         #IMAGE data
+        self.imageTimestamp = 0
         self.imageFileName = ""
+        self.imageFilePath = ""
         self.imageCaptions = ""
         self.captionEmbedding = ""
         self.imageEmbedding = ""
@@ -49,14 +49,30 @@ class LLEntry:
         self.startTimeOfDay = "00:00:00"
         self.endTimeOfDay =  "00:00:00"
         self.recordedStartTime = startTime
-
-
     def printObj(self):
         print(self.type, self.startTime, self.source, self.peopleInImage)
+
+    def __str__(self):
+        return self.type +" "+ self.startTime +" "+ self.source +" "+ self.peopleInImage.__str__()
+
     def toJson(self):
-        #return json.dumps(self.__dict__)
-        return json.dumps(self, default=lambda o: o.__dict__,
-                          sort_keys=True, indent=4)
+        return json.dumps(self.__dict__)
+        #return json.dumps(self, default=lambda o: o.__dict__,
+         #                 sort_keys=True, indent=4)
 
+class LLEntryList:
+    def __init__(self):
+        self.entryList = []
+    def addEntry(self, entry: LLEntry):
+        self.entryList.append(entry)
 
+    def getEntries(self):
+        return self.entryList
+    def addEntries(self, entries):
+        self.entryList +=entries.getEntries()
+    def toJson(self):
+        return json.dumps({"solrobjects": [ob.__dict__ for ob in self.entryList]})
+
+    def __str__(self):
+        return self.entryList.__str__()
 

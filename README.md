@@ -16,6 +16,7 @@ You will also be downloading data files from other services. Put these anywhere 
 # GOOGLE PHOTOS
 ## Step 1: Downloading your photos
 
+### GOOGLE PHOTOS
 You need to download your Google photos from Google Takeout. I recommend to download the photos for a single year or two to start with. Otherwise, they shard the photos into multiple directories and it's a bit of a mess to deal with.
 
 When downloaded, you'll get .json files (one for every photo) that has the meta-data about the photo and a photo file that has the photo itself. Note that there may be more json files than photos.
@@ -30,30 +31,13 @@ The easiest way to do this on a mac is:
 
 Put all the photos and all the json files in a folder called photos. The photos folder should be a sibling of the code folder.
 
-## Step 2: Generating captions
-
-### Step 2.1: Find all the jpegs that also have json files (recall that Google doesn't always give you all the files onveniently in one folder, so this step is necessary to ensure that you have both the json and the .jpeg going forward)
-    Run find_jpegs.py
-    The output of find_jpegs.py will be photo_filenames.json
-
-### Step 2.2: Generate the captions. Currently we use the BLIP package from Salesforce to generate captions.
-          Clone  https://github.com/salesforce/BLIP
-	  Run pip install -r requirements.txt
-    Run get_captions.py
-    The output of this step is photo_captions.json -- put that file in the ../data directory       
-
-## Step 3: Create a json file with LLEntry for your photos (this is what will go into the episodic database).
-    Run create_photo_LLEntries.py
-
-# GOOGLE TIMELINE
+### GOOGLE TIMELINE
 Go to Google Takeout -- https://takeout.google.com/settings/takeout and ask to download your maps data.
 
-APPLE HEALTH
+### APPLE HEALTH
 Got to the Apple Health app on your phone and ask to export your data. The will create a file called iwatch.xml and that's the input file to the importer.
 
-Run create_apple_health_LLEntries.py
-
-# AMAZON
+### AMAZON
 Request your data from Amazon here: https://www.amazon.com/gp/help/customer/display.html?nodeId=GXPU3YPMBZQRWZK2
 They say it can take up to 30 days, but it took about 2 days. They'll send you an email when it's ready.
 
@@ -62,15 +46,59 @@ They separate purchases Amazon purchases from Kindle purchases into two differen
 The file you need for Amazon purchases is Retail.OrderHistory.1.csv
 The file you need for Kindle purchases is Digital Items.csv
 
-Make sure the variables at the head of create_amazon_LLEntries.py point to the right files and run it.
+Make sure the variables at the head of create_amazon_LLEntries.py point to the right files.
 
-# SPOTIFY
+### SPOTIFY
 
 Download your data from Spotify here -- https://support.spotify.com/us/article/data-rights-and-privacy-settings/
 They say it can take up to 30 days, but it took about 2 days. They'll send you an email when it's ready.
 
 The file you need is StreamingHistory0.json
-Make sure the variable at the top of create_spotify_LLEntries.py points in the right place and run it.
+Make sure the variable at the top of create_spotify_LLEntries.py points in the right place.
+
+## Step 2: Generating captions
+
+### Step 2.1: Find all the jpegs that also have json files (recall that Google doesn't always give you all the files conveniently in one folder, so this step is necessary to ensure that you have both the json and the .jpeg going forward)
+    Run find_jpegs.py
+    The output of find_jpegs.py will be photo_filenames.json
+
+### Step 2.2: Generate the captions. Currently we use the BLIP package from Salesforce to generate captions.
+
+Clone  https://github.com/salesforce/BLIP
+
+Run:
+    
+    pip install -r requirements.txt
+    python -m code.get_captions.py
+
+The output of this step is `photo_captions.json` --> put that file in the ../data directory       
+
+## Step 3: Create a json file with LLEntry for your photos (this is what will go into the episodic database)
+
+### GOOGLE PHOTOS
+ Run:
+
+    python -m code.create_photo_LLEntries.py
+    python -m code.importer.create_facebook_LLEntries.py
+
+### GOOGLE TIMELINE
+
+
+### APPLE HEALTH
+Run:
+    
+    python -m code.create_apple_health_LLEntries.py
+
+### AMAZON
+Run:
+    
+    python -m code.create_amazon_LLEntries.py
+
+### SPOTIFY
+
+Run:
+
+    python -m code.create_spotify_LLEntries.py
 
 # CREATING THE LIFELOG
 

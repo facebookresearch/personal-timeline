@@ -6,7 +6,7 @@ from pathlib import Path
 import datetime
 from datetime import datetime
 from datetime import timezone
-from json_obj import LLEntry
+from code.objects.LLEntry_obj import LLEntry
 from operator import itemgetter
 from util import *
 

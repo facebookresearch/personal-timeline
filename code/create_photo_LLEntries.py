@@ -1,86 +1,22 @@
 import json
-import os
 from pathlib import Path
 from PIL import Image
-import datetime
-from datetime import datetime, timedelta
-from datetime import timezone
+
+from code.enrichment.geo_enrichment import LocationTimeEnricher
 from code.objects.LLEntry_obj import LLEntry
-import pytz
-from pytz import timezone
-from tzwhere import tzwhere
-from timezonefinder import TimezoneFinder
-from geopy.geocoders import Nominatim
-from geopy.extra.rate_limiter import RateLimiter
-import time 
 import pdb
 
 # This is where the photos and their jsons sit
-PHOTO_DIRECTORY = "../photos"
+INPUT_DIRECTORY = "../photos/google_photos"
+OUTPUT_FILE = "../out/google_photo_data.json"
 
-OUTPUT_FILE = "photo_data.json"
-
-
+# Google Photos Configs
 SOURCE = "Google Photos"
 TYPE = "base/photo"
-global geolocator
-geolocator = Nominatim(user_agent="pim_timeline")
-geocode = RateLimiter(geolocator.geocode, min_delay_seconds=5)
-
-reverse = RateLimiter(geolocator.reverse, min_delay_seconds=5)
-
-# This is where the intermediate json files sit
-ROOT_DIRECTORY = "~/Documents/code/pim/"
-
-def calculateLocation(content):
-    latitude = float(content["geoData"]["latitude"])
-    longitude = float(content["geoData"]["longitude"])
-    time.sleep(1)
-    # location = geolocator.reverse(str(latitude)+","+str(longitude), addressdetails=True)
-    location = reverse(str(latitude)+","+str(longitude), addressdetails=True)
-
-# geolocator = Nominatim(user_agent="application")
-
-# reverse = RateLimiter(geolocator.reverse, min_delay_seconds=1)
-
-# location = reverse((50.6539239, -120.3385242), language='en', exactly_one=True)
-
-
-
-    print (str(location))
-    return (location)
-
-def calculateExperiencedTime(content):
-    result = ""
-    print (content["photoTakenTime"]["formatted"])
-    # get lat/long
-    latitude = float(content["geoData"]["latitude"])
-    longitude = float(content["geoData"]["longitude"])
-    # get timestamp
-    utc = pytz.utc
-    timestamp = int(content["photoTakenTime"]["timestamp"])
-    utc_dt = utc.localize(datetime.utcfromtimestamp(timestamp))
-    # translate lat/long to timezone
-    tf = TimezoneFinder()
-
-    timezone_str = tf.timezone_at(lng=longitude, lat=latitude)
-    # print(timezonetf)
-    tzo = tzwhere.tzwhere()
-
-#    if latitude == 0.0 and longitude == 0.0:
-#        timezone_str = "America/Los_Angeles"
-#    else:
-#        timezone_str = tzo.tzNameAt(latitude, longitude) # real coordinates
-    print(timezone_str)
-    real_timezone = pytz.timezone(timezone_str)
-    real_date = real_timezone.normalize(utc_dt.astimezone(real_timezone))
-    print ("converted into: ")
-    print (real_date)
-    return str(real_date)
 
 cwd = Path() # or Path('.')
 jsons_filepath = cwd / "../data/photo_filenames.json"
-photos_filepath = cwd / PHOTO_DIRECTORY
+photos_filepath = cwd / INPUT_DIRECTORY
 captions_filepath = cwd / "../data/photo_captions.json"
 
 
@@ -111,15 +47,12 @@ for name in names.values():
         r2 = f1.read()
         content = json.loads(r2)
         textDescription = ""
-        real_start_time = calculateExperiencedTime(content)
-        photo_location = calculateLocation(content)
-        date = content["photoTakenTime"]["timestamp"]
-        date_integer = int(date)
-        utc_timezone = pytz.utc
-        utc = pytz.utc
-        startTime = str(utc.localize(datetime.utcfromtimestamp(date_integer)))
-        print (startTime)
-#        startTime = str(datetime.fromtimestamp(date_integer, timezone.utc))
+        # get lat/long
+        latitude = float(content["geoData"]["latitude"])
+        longitude = float(content["geoData"]["longitude"])
+        taken_timestamp = int(content["photoTakenTime"]["timestamp"])
+        real_start_time, utc_start_time = LocationTimeEnricher.calculateExperiencedTimeRealAndUtc(latitude, longitude, taken_timestamp)
+        photo_location = LocationTimeEnricher.calculateLocation(latitude, longitude)
 
         #obj = SolrObj(TYPE, startTime, SOURCE)
         obj = LLEntry(TYPE, real_start_time, SOURCE)

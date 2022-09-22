@@ -13,5 +13,6 @@ requests
 geopy
 tzwhere
 pandas
+sqlite
 #exifread=2.3.2 -> not working on 3.0.0
 #pip install pycocoevalcap -> not available on conda install
