@@ -23,13 +23,13 @@ class LocationEnricher:
         # location = geolocator.reverse(str(latitude)+","+str(longitude), addressdetails=True)
         location = reverse(str(latitude) + "," + str(longitude), addressdetails=True)
         # location = reverse((50.6539239, -120.3385242), language='en', exactly_one=True)
-        print("Location:: ", str(location))
+        #print("Location:: ", str(location))
         return location
 
     def enrich(self):
         db = ImportDataDB()
         select_cols = "id, data"
-        where_clause={"location_done": '0'}
+        where_clause={"location_done": "=0", "data": "is not NULL"}
         while True:
             res = db.search_photos(select_cols, where_clause)
             count = 0
@@ -37,10 +37,9 @@ class LocationEnricher:
                 count +=1
                 row_id = int(row[0])
                 data:LLEntry = pickle.loads(row[1])
-                print("Data::: ", data.toJson())
                 photo_location:Location = LocationEnricher.calculateLocation(data.latitude, data.longitude)
-                pickled_location = pickle.dumps(photo_location)
-                db.update_photos(row_id, {"location": pickled_location, "location_done": '1'})
+                print("Updating location to::: ", photo_location.raw)
+                db.update_photos(row_id, {"location": photo_location, "location_done": '1'})
             print("Geo Processing completed for ", count, " entries")
             if count==0:
                 # Nothing was processed in the last cycle

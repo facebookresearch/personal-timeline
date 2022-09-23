@@ -33,25 +33,26 @@ class GooglePhotosImporter(PhotoImporter):
                     try:
                         self.db.add_only_photo(SOURCE, self.get_filename_from_path(img_file), img_file)
                     except sqlite3.IntegrityError:
-                        print("Row already exists")
+                        print(img_file, " already present in DB")
+            total_imported = 0
+            count = 0
             # Now that all photos are added, we go through all jsons and add them to DB
             for dir_entry in dir_entries:
-                sleep(1)
+                print("Reading Directory: ", dir_entry)
                 uri = json_filepath + "/" + dir_entry
                 json_files = self.get_type_files_deep(uri, ["json"])
-                print("All json files in path ", uri, ": ", json_files)
+                #print("Reading json files in path ", uri, ": ", json_files)
                 if json_files is None:
                     continue
                 for json_file in json_files:
-                    sleep(1)
-                    print("Reading File: ", json_file)
+                    #print("Reading File: ", json_file)
                     with open(json_file, 'r') as f1:
                         r = f1.read()
                         content = json.loads(r)
                     imageFileName=content["title"]
                     #Search for DB row that has the full imagePath
                     select_cols = "id, imageFilePath, timestamp"
-                    where_clause = {"source": "\""+SOURCE+"\"", "imageFileName": "\""+imageFileName+"\""}
+                    where_clause = {"source": "=\""+SOURCE+"\"", "imageFileName": "=\""+imageFileName+"\""}
                     res = self.db.search_photos(select_cols, where_clause)
                     db_entry = res.fetchone()
                     if db_entry is None:
@@ -61,7 +62,7 @@ class GooglePhotosImporter(PhotoImporter):
                     imageFilePath = db_entry[1]
                     timestamp = db_entry[2]
                     if timestamp is not None:
-                        print(row_id, " is already processed. Skipping recreation...")
+                        #print("RowId: ", row_id, " is already processed. Skipping recreation...")
                         continue
                     # get lat/long
                     latitude = float(content["geoData"]["latitude"])
@@ -75,4 +76,10 @@ class GooglePhotosImporter(PhotoImporter):
                         imageViews = content["imageViews"]
                     obj = self.create_LLEntry(imageFilePath, latitude, longitude, taken_timestamp, tagged_people, imageViews)
                     self.db.update_photos(row_id, {"data": obj, "timestamp": int(taken_timestamp)})
+                    count += 1
+                    if count == 100:
+                        total_imported += count
+                        print("Processed another: ", count, ", total so far: ", total_imported)
+                        count=0
         print("Orphaned Json Files: ", orphan_json_files)
+        print("Total processed: ", total_imported)

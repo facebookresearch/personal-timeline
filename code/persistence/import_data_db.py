@@ -3,6 +3,7 @@ from sqlite3 import Cursor
 from code.objects.LLEntry_obj import LLEntry
 import pickle
 
+
 class ImportDataDB:
     tables = ["photos"]
 
@@ -28,8 +29,8 @@ class ImportDataDB:
 
     def setup_tables(self):
         for table in ImportDataDB.tables:
-            lookup_sql = "SELECT name FROM sqlite_master WHERE name='"+table+"'"
-            print("Looking for ", table, "using SQL:: ", lookup_sql)
+            lookup_sql = "SELECT name FROM sqlite_master WHERE name='" + table + "'"
+            #print("Looking for ", table, "using SQL:: ", lookup_sql)
             res = self.cursor.execute(lookup_sql)
             if res.fetchone() is None:
                 create_sql = ImportDataDB.ddl[table]
@@ -37,54 +38,54 @@ class ImportDataDB:
                 self.cursor.execute(create_sql)
                 for idx_sql in ImportDataDB.indexes[table]:
                     print("Creating index using SQL:: ", idx_sql)
-            else:
-                print("Table ", table, " found.")
+            #else:
+                #print("Table ", table, " found.")
 
-    def add_photo(self, obj:LLEntry):
+    def add_photo(self, obj: LLEntry):
         pickled_object = pickle.dumps(obj)
         insert_sql = """INSERT INTO photos (source, timestamp, imageFileName, imageFilePath, data)
          values(?,?,?,?,?)"""
         data_tuple = (obj.source, int(obj.imageTimestamp), obj.imageFileName, obj.imageFilePath, pickled_object)
-        print("Insert SQL:: ", insert_sql, " data:: ", data_tuple)
+        #print("Insert SQL:: ", insert_sql, " data:: ", data_tuple)
         self.cursor.execute(insert_sql, data_tuple)
         self.con.commit()
 
-    def add_only_photo(self, source:str, imageFileName:str, imageFilePath:str):
+    def add_only_photo(self, source: str, imageFileName: str, imageFilePath: str):
         insert_sql = """INSERT INTO photos (source, imageFileName, imageFilePath)
                  values(?,?,?)"""
         data_tuple = (source, imageFileName, imageFilePath)
-        print("Insert img only SQL:: ", insert_sql, " data:: ", data_tuple)
+        #print("Insert img only SQL:: ", insert_sql, " data:: ", data_tuple)
         self.cursor.execute(insert_sql, data_tuple)
         self.con.commit()
 
     def is_same_photo_present(self, source, filename, timestamp):
         lookup_sql = """SELECT imageFileName FROM photos WHERE source=? AND imageFileName=? AND timestamp=?"""
         data_tuple = (source, filename, timestamp)
-        #print("Searching for ", filename, " using SQL:: ", lookup_sql, data_tuple)
+        # print("Searching for ", filename, " using SQL:: ", lookup_sql, data_tuple)
         res = self.cursor.execute(lookup_sql, data_tuple)
         if res.fetchone() is None:
-            print(filename, " not found.")
+            #print(filename, " not found.")
             return False
         else:
-            print(filename, " found.")
+            #print(filename, " found.")
             return True
 
     def search_photos(self, select_cols: str, where_conditions: dict) -> Cursor:
         where_arr = []
         for key in where_conditions:
-            where_arr.append(key +"=" + where_conditions[key])
-        where_clause = " WHERE " +  " AND ".join(where_arr)
-        lookup_sql = "SELECT "+select_cols+" FROM photos" + where_clause
-        print("Searching for photos using SQL:: ", lookup_sql)
+            where_arr.append(key +" "+ where_conditions[key])
+        where_clause = " WHERE " + " AND ".join(where_arr)
+        lookup_sql = "SELECT " + select_cols + " FROM photos" + where_clause
+        #print("Searching for photos using SQL:: ", lookup_sql)
         res = self.cursor.execute(lookup_sql)
         return res
 
-    def update_photos(self, row_id:int, key_value:dict):
+    def update_photos(self, row_id: int, key_value: dict):
         update_arr = []
         data_arr = []
         for key in key_value:
             update_arr.append(key + "=?")
-            if key in ["data","location", "enriched_data"]:
+            if key in ["data", "location", "enriched_data"]:
                 pickled = pickle.dumps(key_value[key])
                 data_arr.append(pickled)
             else:

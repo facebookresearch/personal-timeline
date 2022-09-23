@@ -16,7 +16,6 @@ from code.importer.create_google_photo_LLEntries import GooglePhotosImporter
 if __name__ == '__main__':
     action_arr = []
     print("Welcome to the demo!!!")
-    #sleep(2)
     print("Let's import some data first. What do you want to import?")
     #sleep(2)
     in1 = input("1. Google Photos (data must be present in photos/google_photos) [y/n]? ").upper()
@@ -44,15 +43,17 @@ if __name__ == '__main__':
             sleep(2)
 
     #Enrich Location after import is complete
-    print("Running Location enrichments now...")
-    sleep(2)
-    le = LocationEnricher()
-    le.enrich()
-
-    in3 = input("Run export [y/n]? ").upper()
+    in3 = input("Should I run location enrichments [y/n]? ").upper()
     if in3 == 'Y':
+        print("Ok. Running Location enrichments now...")
+        sleep(2)
+        le = LocationEnricher()
+        le.enrich()
+        print("Location enrichments Complete.")
+    in4 = input("Run export [y/n]? ").upper()
+    if in4 == 'Y':
         ex = PhotoExporter()
         ex.create_export_entity()
         print("Export Complete. Finalized entities are now available in the DB")
 
-    print("Thanks for using the demo!!!")
+    print("Thanks for using the demo. See you Later, Gator!!!")

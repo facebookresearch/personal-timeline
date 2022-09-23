@@ -10,7 +10,7 @@ class PhotoExporter:
     def create_export_entity(self):
         #Read data, location, caption from photos
         select_cols = "id, data, location, captions, embeddings, status"
-        where_clause = {"export_done": '0'}
+        where_clause = {"export_done": "=0", "data":"is not NULL"}
         while True:
             res = self.db.search_photos(select_cols, where_clause)
             count = 0
@@ -18,7 +18,8 @@ class PhotoExporter:
                 count += 1
                 row_id = int(row[0])
                 data: LLEntry = pickle.loads(row[1])
-                location:Location = pickle.loads(row[2])
+                location:Location = pickle.loads(row[2]) if row[2] is not None else None
+                print("Processing RowID: ",row_id)
                 captions = row[3]
                 embeddings = row[4]
                 status = row[5]
@@ -33,7 +34,7 @@ class PhotoExporter:
                 #TODO: Add embedding data
 
                 # Add Text Description. Last step after all other attributes are populated
-                data = self.generate_text_description(data)
+                data = self.populate_text_description(data)
 
                 # Write enriched_data, set enrichment_done to 1
                 print("Writing enriched data:: ", data.toJson())
@@ -63,7 +64,7 @@ class PhotoExporter:
 
     def populate_text_description(self, data:LLEntry) -> LLEntry:
         textDescription = data.startTimeOfDay + ": " + data.startLocation
-        textDescription += " with " if len(data.peopleInImage)>0 else None
+        textDescription += " with " if len(data.peopleInImage)>0 else ""
         #TODO:Assumes that peopleInImage List has dict with "name" key
         for j in data.peopleInImage:
             textDescription += "\n " + j["name"]

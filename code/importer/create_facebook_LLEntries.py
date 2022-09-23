@@ -54,8 +54,8 @@ class FacebookPhotosImporter(PhotoImporter):
                                 self.db.add_photo(obj)
                                 #print("OBJ: ",obj)
                                 outputList.addEntry(obj)
-                            else:
-                                print("Not processing again")
+                            # else:
+                            #     print(self.get_filename_from_path(uri), " is already processed. Skipping recreation...")
         print("Importer So far:", outputList.getEntries())
 
 # cwd = str(Path(INPUT_DIRECTORY).absolute())
