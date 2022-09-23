@@ -34,7 +34,7 @@ class LLEntry:
         self.captionEmbedding = ""
         self.imageEmbedding = ""
         self.imageViews = ""
-        self.peopleInImage = ""
+        self.peopleInImage = []
         self.imageWidth = ""
         self.imageHeight = ""
 

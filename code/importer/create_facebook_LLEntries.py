@@ -4,7 +4,7 @@ from code.objects.EntryTypes import EntryType
 
 # This is where the photos and their jsons sit
 INPUT_DIRECTORY = "photos/facebook"
-SUB_DIRS = ["posts/album"]
+SUB_DIRS = ["posts"]
 SOURCE = "Facebook Posts"
 TYPE = EntryType.PHOTO
 
@@ -58,14 +58,8 @@ class FacebookPhotosImporter(PhotoImporter):
                                 outputList.addEntry(obj)
                             else:
                                 print("Not processing again")
-                        if count>1:
-                            break
-                if count > 2:
-                    break
         print("Importer So far:", outputList.getEntries())
 
-i = FacebookPhotosImporter()
-i.start_import()
 # cwd = str(Path(INPUT_DIRECTORY).absolute())
 # full_output = LLEntryList()
 # for dir in SUB_DIRS:

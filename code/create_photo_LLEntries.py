@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from PIL import Image
 
-from code.enrichment.geo_enrichment import LocationTimeEnricher
+from code.enrichment.geo_enrichment import LocationEnricher
 from code.objects.LLEntry_obj import LLEntry
 import pdb
 
@@ -51,8 +51,8 @@ for name in names.values():
         latitude = float(content["geoData"]["latitude"])
         longitude = float(content["geoData"]["longitude"])
         taken_timestamp = int(content["photoTakenTime"]["timestamp"])
-        real_start_time, utc_start_time = LocationTimeEnricher.calculateExperiencedTimeRealAndUtc(latitude, longitude, taken_timestamp)
-        photo_location = LocationTimeEnricher.calculateLocation(latitude, longitude)
+        real_start_time, utc_start_time = LocationEnricher.calculateExperiencedTimeRealAndUtc(latitude, longitude, taken_timestamp)
+        photo_location = LocationEnricher.calculateLocation(latitude, longitude)
 
         #obj = SolrObj(TYPE, startTime, SOURCE)
         obj = LLEntry(TYPE, real_start_time, SOURCE)
