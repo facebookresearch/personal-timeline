@@ -76,7 +76,7 @@ class ImportDataDB:
             where_arr.append(key +" "+ where_conditions[key])
         where_clause = " WHERE " + " AND ".join(where_arr)
         lookup_sql = "SELECT " + select_cols + " FROM photos" + where_clause
-        #print("Searching for photos using SQL:: ", lookup_sql)
+        print("Searching for photos using SQL:: ", lookup_sql)
         res = self.cursor.execute(lookup_sql)
         return res
 

@@ -11,6 +11,13 @@ class PhotoExporter:
         #Read data, location, caption from photos
         select_cols = "id, data, location, captions, embeddings, status"
         where_clause = {"export_done": "=0", "data":"is not NULL"}
+        select_count = "count(*)"
+        count_res = self.db.search_photos(select_count, where_clause)
+        pending = count_res.fetchone()
+        if pending is None:
+            print("No pending exports")
+            return
+        print("Total exports to be done: ", pending[0])
         while True:
             res = self.db.search_photos(select_cols, where_clause)
             count = 0
@@ -19,7 +26,7 @@ class PhotoExporter:
                 row_id = int(row[0])
                 data: LLEntry = pickle.loads(row[1])
                 location:Location = pickle.loads(row[2]) if row[2] is not None else None
-                print("Processing RowID: ",row_id)
+                #print("Processing RowID: ",row_id)
                 captions = row[3]
                 embeddings = row[4]
                 status = row[5]
@@ -37,7 +44,7 @@ class PhotoExporter:
                 data = self.populate_text_description(data)
 
                 # Write enriched_data, set enrichment_done to 1
-                print("Writing enriched data:: ", data.toJson())
+                #print("Writing enriched data:: ", data.toJson())
                 self.db.update_photos(row_id, {"enriched_data": data, "export_done": '1'})
             print("Export entities generated for ", count, " entries")
             if count == 0:
@@ -48,7 +55,6 @@ class PhotoExporter:
             data.startLocation = str(location)
             if "country" in location.raw["address"]:
                 data.startCountry = location.raw["address"]["country"]
-                print ("country is ", data.startCountry)
             if "city" in location.raw["address"]:
                 data.startCity = location.raw["address"]["city"]
             if "state" in location.raw["address"]:
