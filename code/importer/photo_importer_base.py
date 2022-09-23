@@ -27,12 +27,11 @@ class PhotoImporter:
 
     def start_import(self):
         cwd = str(Path(self.INPUT_DIRECTORY).absolute())
-        # full_output = LLEntryList()
-        for dir in self.SUB_DIRS:
-            output = self.import_photos(cwd, dir)
-            # print("So Far:::", output.toJson())
-            # full_output.addEntries(output)
-        # print(full_output.toJson())
+        if self.SUB_DIRS is None:
+            self.import_photos(cwd, None)
+        else:
+            for dir in self.SUB_DIRS:
+                self.import_photos(cwd, dir)
 
     def calculateExperiencedTimeRealAndUtc(self, latitude: float, longitude: float, timestamp: int):
         # get timestamp
@@ -47,8 +46,9 @@ class PhotoImporter:
         #print("converted into: ", real_date)
         return str(real_date), str(utc_dt)
 
-    def get_type_files_deep(self, pathname:str, type:str):
+    def get_type_files_deep(self, pathname:str, type:list):
         json_files = []
+        type_str:str = "|".join(type).lower()
         if os.path.isdir(pathname):
             dir_entries = os.listdir(pathname)
             for dir_entry in dir_entries:
@@ -60,12 +60,14 @@ class PhotoImporter:
                     else:
                         json_files.append(all_json)
             return json_files
-        elif os.path.isfile(pathname) and re.match(".*\." + type, pathname):
+        elif os.path.isfile(pathname) and re.match(".*\.(" + type_str+")$", pathname.lower()):
             return pathname
 
+    # Given a nestedjson(haystack), this function finds all occurrences
+    # of the key(needle) and returns a list of found entries
     def find_all_in_haystack(self, needle, haystack, return_parent: bool):
         if isinstance(haystack, dict) and needle in haystack.keys():
-            if (return_parent):
+            if return_parent:
                 # print("FOUND:::", haystack)
                 return haystack
             else:
@@ -90,6 +92,7 @@ class PhotoImporter:
             found_elements = list(filter(None, found_elements))
             return self.flatten(found_elements)
 
+    # Function to flatten a nested list of lists recursively
     def flatten(self, struct):
         if struct == []:
             return struct
@@ -97,6 +100,8 @@ class PhotoImporter:
             return self.flatten(struct[0]) + self.flatten(struct[1:])
         return struct[:1] + self.flatten(struct[1:])
 
+    # Extracts just the name of the file along with the extension
+    # give full path to the file
     def get_filename_from_path(self, uri):
         uri_arr = uri.split("/")
         return uri_arr[len(uri_arr) - 1]
@@ -111,7 +116,6 @@ class PhotoImporter:
                        longitude,
                        taken_timestamp,
                        tagged_people,
-                       text_description,
                        imageViews=0) -> LLEntry:
         real_start_time, utc_start_time = self.calculateExperiencedTimeRealAndUtc(latitude,
                                                                         longitude, taken_timestamp)
@@ -121,7 +125,6 @@ class PhotoImporter:
         obj.startTimeOfDay = real_start_time[11:19]
         obj.latitude = latitude
         obj.longitude = longitude
-        obj.textDescription = text_description
 
         #Specific to Image
         obj.imageFilePath = uri

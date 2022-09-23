@@ -3,6 +3,7 @@ from time import sleep
 
 from code.export.export_entities import PhotoExporter
 from code.importer.create_facebook_LLEntries import FacebookPhotosImporter
+from code.importer.create_google_photo_LLEntries import GooglePhotosImporter
 
 # Workflow is as follows:
 # After data is downloaded in respective folders:
@@ -30,13 +31,16 @@ if __name__ == '__main__':
         if action == "1":
             # Do some basic validation of dirs
             #Import Google Photos
-            print("hello")
+            ip = GooglePhotosImporter()
+            ip.start_import()
+            print("Google Photos import complete")
+            sleep(2)
         if action == "2":
             # Do some basic validation of dirs
             #Import FB Photos
             i = FacebookPhotosImporter()
             i.start_import()
-            print("FB import complete")
+            print("FB Posts import complete")
             sleep(2)
 
     #Enrich Location after import is complete

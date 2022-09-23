@@ -12,10 +12,10 @@ class FacebookPhotosImporter(PhotoImporter):
     def __init__(self):
         super().__init__(INPUT_DIRECTORY, SUB_DIRS, SOURCE, TYPE)
 
-    def import_photos(self, cwd, dir):
-        json_filepath = cwd + "/" + dir
+    def import_photos(self, cwd, subdir):
+        json_filepath = cwd + "/" + subdir if subdir is not None else cwd
         print("Using path: ", json_filepath)
-        json_files = self.get_type_files_deep(json_filepath, "json")
+        json_files = self.get_type_files_deep(json_filepath, ["json"])
         print("All json files in path: ", json_files)
         outputList = LLEntryList()
         for json_file in json_files:
@@ -50,10 +50,8 @@ class FacebookPhotosImporter(PhotoImporter):
                                 if latitude==0.0 and longitude==0.0 and taken_timestamp==0:
                                     print("No GPS or Time info, skipping: ", self.get_filename_from_path(uri))
                                     continue
-                                #TODO:Generate captions
-                                captions = []
-                                obj = self.create_LLEntry(uri, latitude, longitude, taken_timestamp, tagged_people,captions)
-                                self.db.add_photo(obj, True)
+                                obj = self.create_LLEntry(uri, latitude, longitude, taken_timestamp, tagged_people)
+                                self.db.add_photo(obj)
                                 #print("OBJ: ",obj)
                                 outputList.addEntry(obj)
                             else:

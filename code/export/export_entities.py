@@ -37,7 +37,7 @@ class PhotoExporter:
 
                 # Write enriched_data, set enrichment_done to 1
                 print("Writing enriched data:: ", data.toJson())
-                self.db.update_photos(row_id, {"enriched_data": pickle.dumps(data), "export_done": '1'})
+                self.db.update_photos(row_id, {"enriched_data": data, "export_done": '1'})
             print("Export entities generated for ", count, " entries")
             if count == 0:
                 # Nothing was processed in the last cycle
