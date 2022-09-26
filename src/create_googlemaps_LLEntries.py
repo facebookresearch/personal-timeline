@@ -4,7 +4,7 @@ from pathlib import Path
 import datetime
 from datetime import datetime
 from datetime import timezone
-from json_obj import LLEntry
+from src.objects.LLEntry_obj import LLEntry
 import pytz
 from pytz import timezone
 from tzwhere import tzwhere
@@ -18,7 +18,7 @@ from geopy.geocoders import Nominatim
 OUTPUT_FILE = "google_timeline_data.json"
 GTIMELINE_DIR = "2019"
 # This is where the intermediate json files sit
-ROOT_DIRECTORY = "~/Documents/code/pim/"
+ROOT_DIRECTORY = "~/Documents/src/pim/"
 SOURCE = "Google Timeline"
 ORIGIN_TIMEZONE = str(pytz.utc)
 global geolocator
