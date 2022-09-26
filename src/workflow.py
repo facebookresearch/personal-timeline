@@ -25,38 +25,41 @@ if __name__ == '__main__':
     # Enrich Location after import is complete
     inp = input("Should I run location enrichment [y/n]? ").upper()
     action_arr.append("geo_enrich") if inp == 'Y' else None
+    inp = input("Ok. Export all data in the end [y/n]? ").upper()
+    action_arr.append("export") if inp == 'Y' else None
 
-    in4 = input("Export all data [y/n]? ").upper()
     if len(action_arr)==0:
         print("No new import task. Moving on...")
         #sleep(2)
     for action in action_arr:
-        if action == "1":
+        if action == "gp":
             # Do some basic validation of dirs
             #Import Google Photos
+            print("Running Google photos import...")
+            sleep(2)
             ip = GooglePhotosImporter()
             ip.start_import()
             print("Google Photos import complete")
             sleep(2)
-        if action == "2":
+        if action == "fp":
             # Do some basic validation of dirs
             #Import FB Photos
+            print("Running FB Posts import...")
+            sleep(2)
             i = FacebookPhotosImporter()
             i.start_import()
             print("FB Posts import complete")
             sleep(2)
-        if action == 'Y':
-            print("Ok. Running Location enrichments now...")
+        if action == 'geo_enrich':
+            print("Running Location enrichment now...")
             sleep(2)
             le = LocationEnricher()
             le.enrich()
-            print("Location enrichments Complete.")
-
-
-    in4 = input("Run export [y/n]? ").upper()
-    if in4 == 'Y':
-        ex = PhotoExporter()
-        ex.create_export_entity()
-        print("Export Complete. Finalized entities are now available in the DB")
-
+            print("Location enrichment complete")
+        if action == 'export':
+            print("Exporting enriched data to enriched_data...")
+            sleep(2)
+            ex = PhotoExporter()
+            ex.create_export_entity()
+            print("Export Complete. Finalized entities are now available in the DB under enriched_data column")
     print("Thanks for using the demo. See you Later, Gator!!!")
