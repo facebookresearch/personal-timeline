@@ -1,9 +1,9 @@
-from code.enrichment.geo_enrichment import LocationEnricher
+from src.enrichment.geo_enrichment import LocationEnricher
 from time import sleep
 
-from code.export.export_entities import PhotoExporter
-from code.importer.create_facebook_LLEntries import FacebookPhotosImporter
-from code.importer.create_google_photo_LLEntries import GooglePhotosImporter
+from src.export.export_entities import PhotoExporter
+from src.importer.create_facebook_LLEntries import FacebookPhotosImporter
+from src.importer.create_google_photo_LLEntries import GooglePhotosImporter
 
 # Workflow is as follows:
 # After data is downloaded in respective folders:
@@ -18,11 +18,15 @@ if __name__ == '__main__':
     print("Welcome to the demo!!!")
     print("Let's import some data first. What do you want to import?")
     #sleep(2)
-    in1 = input("1. Google Photos (data must be present in photos/google_photos) [y/n]? ").upper()
-    action_arr.append("1") if in1 == 'Y' else None
-    in2 = input("2. Facebook Posts (data must be present in photos/facebook/posts) [y/n]? ").upper()
-    action_arr.append("2")  if in2 == 'Y' else None
+    inp = input("1. Google Photos (data must be present in photos/google_photos) [y/n]? ").upper()
+    action_arr.append("gp") if inp == 'Y' else None
+    inp = input("2. Facebook Posts (data must be present in photos/facebook/posts) [y/n]? ").upper()
+    action_arr.append("fp")  if inp == 'Y' else None
+    # Enrich Location after import is complete
+    inp = input("Should I run location enrichment [y/n]? ").upper()
+    action_arr.append("geo_enrich") if inp == 'Y' else None
 
+    in4 = input("Export all data [y/n]? ").upper()
     if len(action_arr)==0:
         print("No new import task. Moving on...")
         #sleep(2)
@@ -41,15 +45,14 @@ if __name__ == '__main__':
             i.start_import()
             print("FB Posts import complete")
             sleep(2)
+        if action == 'Y':
+            print("Ok. Running Location enrichments now...")
+            sleep(2)
+            le = LocationEnricher()
+            le.enrich()
+            print("Location enrichments Complete.")
 
-    #Enrich Location after import is complete
-    in3 = input("Should I run location enrichments [y/n]? ").upper()
-    if in3 == 'Y':
-        print("Ok. Running Location enrichments now...")
-        sleep(2)
-        le = LocationEnricher()
-        le.enrich()
-        print("Location enrichments Complete.")
+
     in4 = input("Run export [y/n]? ").upper()
     if in4 == 'Y':
         ex = PhotoExporter()

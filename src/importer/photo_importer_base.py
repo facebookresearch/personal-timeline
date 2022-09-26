@@ -6,11 +6,11 @@ from timezonefinder import TimezoneFinder
 import datetime
 from datetime import datetime
 from abc import abstractmethod
-from code.objects.EntryTypes import EntryType
-from code.objects.LLEntry_obj import LLEntry
+from src.objects.EntryTypes import EntryType
+from src.objects.LLEntry_obj import LLEntry
 from PIL import Image
 
-from code.persistence.import_data_db import ImportDataDB
+from src.persistence.import_data_db import ImportDataDB
 
 class PhotoImporter:
     @abstractmethod

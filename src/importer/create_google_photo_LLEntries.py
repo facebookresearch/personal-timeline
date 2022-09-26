@@ -3,8 +3,8 @@ import sqlite3
 from time import sleep
 import os
 
-from code.importer.photo_importer_base import PhotoImporter
-from code.objects.EntryTypes import EntryType
+from src.importer.photo_importer_base import PhotoImporter
+from src.objects.EntryTypes import EntryType
 
 # This is where the photos and their jsons sit
 INPUT_DIRECTORY = "photos/google_photos"
@@ -81,5 +81,7 @@ class GooglePhotosImporter(PhotoImporter):
                         total_imported += count
                         print("Processed another: ", count, ", total so far: ", total_imported)
                         count=0
-        print("Orphaned Json Files: ", orphan_json_files)
-        print("Total processed: ", total_imported)
+            print("Orphaned Json Files: ", orphan_json_files)
+            print("Total processed: ", total_imported)
+        else:
+            print(json_filepath, ": No such directory")

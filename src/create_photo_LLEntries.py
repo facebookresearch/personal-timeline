@@ -2,8 +2,8 @@ import json
 from pathlib import Path
 from PIL import Image
 
-from code.enrichment.geo_enrichment import LocationEnricher
-from code.objects.LLEntry_obj import LLEntry
+from src.enrichment.geo_enrichment import LocationEnricher
+from src.objects.LLEntry_obj import LLEntry
 import pdb
 
 # This is where the photos and their jsons sit

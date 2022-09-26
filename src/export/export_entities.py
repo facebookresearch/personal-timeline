@@ -1,8 +1,8 @@
-from code.persistence.import_data_db import ImportDataDB
+from src.persistence.import_data_db import ImportDataDB
 import json
 import pickle
 from geopy.location import Location
-from code.objects.LLEntry_obj import LLEntry
+from src.objects.LLEntry_obj import LLEntry
 class PhotoExporter:
 
     def __init__(self):

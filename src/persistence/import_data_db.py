@@ -1,6 +1,6 @@
 import sqlite3
 from sqlite3 import Cursor
-from code.objects.LLEntry_obj import LLEntry
+from src.objects.LLEntry_obj import LLEntry
 import pickle
 
 

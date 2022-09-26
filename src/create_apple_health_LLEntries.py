@@ -4,7 +4,7 @@ from pathlib import Path
 import datetime
 from datetime import datetime
 from datetime import timezone
-from code.objects.LLEntry_obj import LLEntry
+from src.objects.LLEntry_obj import LLEntry
 import xml.etree.ElementTree as ET
 import pytz
 from util import *

@@ -5,8 +5,8 @@ import pickle
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 
-from code.objects.LLEntry_obj import LLEntry
-from code.persistence.import_data_db import ImportDataDB
+from src.objects.LLEntry_obj import LLEntry
+from src.persistence.import_data_db import ImportDataDB
 from geopy.location import Location
 
 ORIGIN_TIMEZONE = str(pytz.utc)
@@ -34,7 +34,6 @@ class LocationEnricher:
             #print(cache_key, " found in location cache. Returning ", str(cached_loc))
             self.cache_hits+=1
             return cached_loc
-        # location = geolocator.reverse(str(latitude)+","+str(longitude), addressdetails=True)
         location = reverse(str(latitude) + "," + str(longitude), addressdetails=True)
         # location = reverse((50.6539239, -120.3385242), language='en', exactly_one=True)
         #print("Location:: ", str(location))

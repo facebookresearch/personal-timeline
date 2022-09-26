@@ -1,6 +1,6 @@
-from code.importer.photo_importer_base import PhotoImporter
-from code.objects.LLEntry_obj import *
-from code.objects.EntryTypes import EntryType
+from src.importer.photo_importer_base import PhotoImporter
+from src.objects.LLEntry_obj import *
+from src.objects.EntryTypes import EntryType
 
 # This is where the photos and their jsons sit
 INPUT_DIRECTORY = "photos/facebook"
