@@ -1,18 +1,4 @@
 timm==0.4.12
 transformers==4.15.0
 fairscale==0.4.4
-pycocotools
-PySimpleGUI
-pytz
-timezonefinder
-torchvision
-pillow
-numpy
-dataclasses
-requests
-geopy
-tzwhere
-pandas
-sqlite
-#exifread=2.3.2 -> not working on 3.0.0
-#pip install pycocoevalcap -> not available on conda install
+pycocoevalcap
