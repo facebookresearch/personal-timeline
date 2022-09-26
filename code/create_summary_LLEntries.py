@@ -12,7 +12,7 @@ import numpy as np
 
 # This is where the photos and their jsons sit
 HOME_CITIES = ["Los Altos", "Palo Alto", "Mountain View", "San Francisco", "Burlingame", "Milpitas", "San Jose"]
-DATA_DIR = "/Users/ayh/Documents/src/pim/src/pim-photos/data/"
+DATA_DIR = "/Users/ayh/Documents/code/pim/code/pim-photos/data/"
 INPUT_FILE = DATA_DIR + "date_inverted_index.json"
 #OUTPUT_FILE = DATA_DIR + "summaries_index.json"
 SOLR_OUTPUT_FILE = DATA_DIR + "solr_summaries.json"

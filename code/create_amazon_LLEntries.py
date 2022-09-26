@@ -4,7 +4,7 @@ from pathlib import Path
 import datetime
 from datetime import datetime
 from datetime import timezone
-from src.objects.LLEntry_obj import LLEntry
+from json_obj import LLEntry
 import pytz
 from pytz import timezone
 from tzwhere import tzwhere

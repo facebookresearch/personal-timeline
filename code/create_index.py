@@ -8,7 +8,7 @@ from json_obj import LLEntry
 
 # This is where the photos and their jsons sit
 
-DATA_DIR = "/Users/ayh/Documents/src/pim/src/pim-photos/data/"
+DATA_DIR = "/Users/ayh/Documents/code/pim/code/pim-photos/data/"
 OUTPUT_FILE = DATA_DIR + "date_inverted_index.json"
 GTIMELINE_DIR = "2019"
 cwd = Path()

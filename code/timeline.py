@@ -6,16 +6,16 @@ from pathlib import Path
 import datetime
 from datetime import datetime
 from datetime import timezone
-from src.objects.LLEntry_obj import LLEntry
+from json_obj import LLEntry
 from operator import itemgetter
 from util import *
 
-ROOT_DIR = "/Users/ayh/Documents/src/pim/src/pim-photos/data/"
+ROOT_DIR = "/Users/ayh/Documents/code/pim/code/pim-photos/data/"
 INDEX_FILE = "date_inverted_index.json"
 SUMMARY_FILE = "summaries1_index.json"
 summary_path = ROOT_DIR + SUMMARY_FILE
 index_path = ROOT_DIR +  INDEX_FILE
-image_directory_path = "/Users/ayh/Documents/src/pim/src/pim-photos/photos/"
+image_directory_path = "/Users/ayh/Documents/code/pim/code/pim-photos/photos/" 
 
 DUMMY_PHOTO =  image_directory_path + "dayinlife.png"
 DEFAULT_YEAR = "2019"
