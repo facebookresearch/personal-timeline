@@ -1,5 +1,6 @@
 import json
 import sys
+import pdb
 
 from PIL import Image
 import requests
@@ -7,13 +8,20 @@ import torch
 from torchvision import transforms
 from torchvision.transforms.functional import InterpolationMode
 import sys
-from models.blip import blip_decoder
+# from models.blip import blip_decoder
 import json
 import os
-PHOTO_JSONS_FILE = photo_filenames.json
+
+sys.path.append(os.path.relpath("../BLIP/"))
+from models import *
+from models.blip import blip_decoder
+
+PHOTO_JSONS_FILE = "../data/photo_filenames.json"
 IMAGE_SIZE = 384
-OUTPUT_FILE = "photo_captions.json"
+#OUTPUT_FILE = "photo_captions.json"
+OUTPUT_FILE = "temp_photo_captions.json"
 output_dir = { }
+
 
 def get_device():
     return torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -32,12 +40,13 @@ def load_demo_image(image_path, image_size, device):
     return image
 
 
-
 # image_url_list=sys.argv[1]
-with open("PHOTO_JSONS_FILE", 'r') as f:
+# pdb.set_trace()
+with open(PHOTO_JSONS_FILE, 'r') as f:
   r1 = f.read()
   data = json.loads(r1)
-  image_url_list = data.keys()
+  #image_url_list = data.keys()
+  image_url_list = data.values()
 
 print(len(image_url_list))
 
@@ -50,9 +59,11 @@ model = model.to(device)
 
 count = 0
 for image_url in image_url_list:
+
     count = count +1
     print(count)
-    image_path = "../../photos/" + image_url + ".jpeg"
+    # image_path = "../../photos/" + image_url + ".jpeg"
+    image_path = "../photos/" + image_url
     image=load_demo_image(image_path.strip(),IMAGE_SIZE,device)
     with torch.no_grad():
         # beam search

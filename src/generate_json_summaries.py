@@ -10,7 +10,7 @@ from json_obj import LLEntry
 from operator import itemgetter
 from util import *
 
-ROOT_DIR = "~/Documents/code/pim/"
+ROOT_DIR = "~/Documents/src/pim/"
 SUMMARY_FILE = "summaries_index.json"
 JSON_SUMMARIES_FILE = "json_summaries_index.json"
 DEFAULT_YEAR = "2019"
