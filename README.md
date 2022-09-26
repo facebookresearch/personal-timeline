@@ -6,8 +6,23 @@ In the explanation, we'll assume three directories all sitting within the applic
   All code should be run in the code directory. Photos should be stored in the photos directory. The data directory will contain the json files that are created in the process of building the lifelog.
 
 ## Step 0: Create environment
-    conda create pip --name <env> --file requirements.txt
-    conda activate <env>
+1. Install Conda from 
+https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+2. Add conda-forge channel:
+
+   ```conda config --append channels conda-forge```
+
+3. Create a new conda dev environment
+
+    ```conda create --name <env> python==3.7.13```
+
+4. Install required packages from requirements.txt file:
+
+    ```conda install --name <env> --file requirements.txt```
+5. Activate the newly created environment   
+    
+    ```conda activate <env>```
+
  * Note: There may be certain packages not available in conda. 
    Remove them from requirements.txt and install in the venv via pip after activation.
 
@@ -58,30 +73,20 @@ Make sure the variable at the top of create_spotify_LLEntries.py points in the r
 
 ## Step 2: Generating captions
 
-### Step 2.1: Find all the jpegs that also have json files (recall that Google doesn't always give you all the files conveniently in one folder, so this step is necessary to ensure that you have both the json and the .jpeg going forward)
-    Run find_jpegs.py
-    The output of find_jpegs.py will be photo_filenames.json
-
-### Step 2.2: Generate the captions. Currently we use the BLIP package from Salesforce to generate captions.
+#### Currently we use the BLIP package from Salesforce to generate captions.
 
 Clone  https://github.com/salesforce/BLIP
 
 Run:
     
-    pip install -r requirements.txt
-    python -m code.get_captions.py
+    python -m src.get_captions
 
-The output of this step is `photo_captions.json` --> put that file in the ../data directory       
+## Step 3: Create LLEntry for your data (this is what will go into the episodic database)
 
-## Step 3: Create a json file with LLEntry for your photos (this is what will go into the episodic database)
-
-### GOOGLE PHOTOS
  Run:
 
-    python -m code.create_photo_LLEntries.py
-    python -m code.importer.create_facebook_LLEntries.py
-
-### GOOGLE TIMELINE
+    python -m src.workflow
+And follow the instructions to import and enrich data.
 
 
 ### APPLE HEALTH
@@ -104,19 +109,25 @@ Run:
 
 ## Step 1: create an inverted index from date to all the entries from the different services.
 
-Run create_index.py
+Run 
+    
+    python -m src.create_index
 Make sure that the variable DATA_DIR is the absolute path to the data directory.
 
 ## Step 2: Create the summary entries (daily, monthly, more to come)
 
 In create_summary_LLEntries.py there's a variable with a list of cities that you consider home or around your home (hence, if you're there, you're not on a trip). Update that list to suit your situation. It's a hack -- we'll do it automatically at some point.
 
-Run create_summary_LLEntries.py
+Run 
+
+    python -m src.create_summary_LLEntries.py
 
 # VISUALIZATION
 
 install PySimpleGUI
 
-Run timeline.py
+Run 
+
+    python -m src.timeline.py
 
 Make sure the variable image_directory_path points to the directory with your photos.
