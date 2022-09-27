@@ -3,7 +3,7 @@ from src.objects.LLEntry_obj import *
 from src.objects.EntryTypes import EntryType
 
 # This is where the photos and their jsons sit
-INPUT_DIRECTORY = "photos/facebook"
+INPUT_DIRECTORY = "personal-data/facebook"
 SUB_DIRS = ["posts"]
 SOURCE = "Facebook Posts"
 TYPE = EntryType.PHOTO
@@ -48,7 +48,7 @@ class FacebookPhotosImporter(PhotoImporter):
                                 if "taken_timestamp" in exif_data[0].keys() else 0
                             if not self.is_photo_already_processed(self.get_filename_from_path(uri), taken_timestamp):
                                 if latitude==0.0 and longitude==0.0 and taken_timestamp==0:
-                                    print("No GPS or Time info, skipping: ", self.get_filename_from_path(uri))
+                                    #print("No GPS or Time info, skipping: ", self.get_filename_from_path(uri))
                                     continue
                                 obj = self.create_LLEntry(uri, latitude, longitude, taken_timestamp, tagged_people)
                                 self.db.add_photo(obj)

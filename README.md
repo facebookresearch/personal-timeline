@@ -5,31 +5,64 @@ In the explanation, we'll assume three directories all sitting within the applic
   code, data, photos
   All code should be run in the code directory. Photos should be stored in the photos directory. The data directory will contain the json files that are created in the process of building the lifelog.
 
-## Step 0: Create environment
+# Step 0: Create environment
 1. Install Conda from 
 https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
-2. Add conda-forge channel:
-
+2. Add conda-forge channel:  
    ```conda config --append channels conda-forge```
 
-3. Create a new conda dev environment
-
+3. Create a new conda dev environment  
     ```conda create --name <env> python==3.7.13```
 
-4. Install required packages from requirements.txt file:
-
+4. Install required packages from requirements.txt file:  
     ```conda install --name <env> --file requirements.txt```
-5. Activate the newly created environment   
-    
+5. Activate the newly created environment  
     ```conda activate <env>```
+6. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
+    ```$ mkdir ~/personal-data```
+7. In your repo, create a Sym link for the above created dir  
+    ```$ ln -s ~/personal-data personal-data```
 
- * Note: There may be certain packages not available in conda. 
-   Remove them from requirements.txt and install in the venv via pip after activation.
+
+# Step 1: Downloading your photos
+
+### GOOGLE PHOTOS
+1. You need to download your Google photos from [Google Takeout](https://takeout.google.com/).  
+The download from Google Takeout would be in multiple zip files. Unzip all the files.
+
+2. It may be the case that some of your photo files are .HEIC. In that case follow the steps below to convert them to .jpeg  
+The easiest way to do this on a Mac is:
+
+     -- Select the .HEIC files you want to convert.   
+     -- Right click and choose "quick actions" and then you'll have an option to covert the image.  
+     -- If you're converting many photos, this may take a few minutes.
+3. Create a new directory under `personal-data` folder  
+    ```$ mkdir ~/personal-data/google_photos```
+4. Move all the unzipped folders inside `personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
+
+### FACEBOOK DATA
+1. Go to [Facebook Settings](https://www.facebook.com/settings?tab=your_facebook_information) 
+2. Click on <b>Download your information</b> and download FB data in JSON format
+3. Create a new directory under `personal-data` folder  
+    ```$ mkdir ~/personal-data/facebook```
+3. Unzip the downloaded file and copy the directory `posts` sub-folder to the above folder. The `posts` folder would sit directly under the facebook folder.
+
+
+# Step 2: Import your data to SQLite (this is what will go into the episodic database)
+
+ Run:
+
+    python -m src.workflow
+THe script will allow you to choose the steps you want to run from the workflow.  
+Follow the instructions to import and enrich data.
+
+
+----------
+This part of README is in progress:
 
 You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the rigt place (there's always a variable at the top of the file with the pointer).
 
-# GOOGLE PHOTOS
-## Step 1: Downloading your photos
+
 
 ### GOOGLE PHOTOS
 You need to download your Google photos from Google Takeout. I recommend to download the photos for a single year or two to start with. Otherwise, they shard the photos into multiple directories and it's a bit of a mess to deal with.
@@ -81,12 +114,6 @@ Run:
     
     python -m src.get_captions
 
-## Step 3: Create LLEntry for your data (this is what will go into the episodic database)
-
- Run:
-
-    python -m src.workflow
-And follow the instructions to import and enrich data.
 
 
 ### APPLE HEALTH
