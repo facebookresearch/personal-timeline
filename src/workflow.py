@@ -18,9 +18,9 @@ if __name__ == '__main__':
     print("Welcome to the demo!!!")
     print("Let's import some data first. What do you want to import?")
     #sleep(2)
-    inp = input("1. Google Photos (data must be present in photos/google_photos) [y/n]? ").upper()
+    inp = input("1. Google Photos (data must be present in personal-data/google_photos) [y/n]? ").upper()
     action_arr.append("gp") if inp == 'Y' else None
-    inp = input("2. Facebook Posts (data must be present in photos/facebook/posts) [y/n]? ").upper()
+    inp = input("2. Facebook Posts (data must be present in personal-data/facebook/posts) [y/n]? ").upper()
     action_arr.append("fp")  if inp == 'Y' else None
     # Enrich Location after import is complete
     inp = input("Should I run location enrichment [y/n]? ").upper()
