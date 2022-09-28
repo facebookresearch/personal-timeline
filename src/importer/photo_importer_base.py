@@ -63,7 +63,7 @@ class PhotoImporter:
         elif os.path.isfile(pathname) and re.match(".*\.(" + type_str+")$", pathname.lower()):
             return pathname
 
-    # Given a nestedjson(haystack), this function finds all occurrences
+    # Given a nested json(haystack), this function finds all occurrences
     # of the key(needle) and returns a list of found entries
     def find_all_in_haystack(self, needle, haystack, return_parent: bool):
         if isinstance(haystack, dict) and needle in haystack.keys():
@@ -90,15 +90,16 @@ class PhotoImporter:
             #print("Found Elements: ", found_elements)
             # TODO: Some hacky cleanup. Sure there's a better way to create a non-nested list
             found_elements = list(filter(None, found_elements))
-            return self.flatten(found_elements)
+            return list(self.flatten(found_elements))
 
     # Function to flatten a nested list of lists recursively
     def flatten(self, struct):
-        if struct == []:
-            return struct
-        if isinstance(struct[0], list):
-            return self.flatten(struct[0]) + self.flatten(struct[1:])
-        return struct[:1] + self.flatten(struct[1:])
+        for i in struct:
+            if isinstance(i, (list, tuple)):
+                for j in self.flatten(i):
+                    yield j
+            else:
+                yield i
 
     # Extracts just the name of the file along with the extension
     # give full path to the file

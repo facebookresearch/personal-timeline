@@ -82,7 +82,7 @@ class GooglePhotosImporter(PhotoImporter):
                         total_imported += count
                         print("Processed another: ", count, ", total so far: ", total_imported)
                         count=0
-            print("Orphaned Json Files: ", orphan_json_files)
-            print("Total processed: ", total_imported)
+            #print("Orphaned Json Files: ", orphan_json_files)
+            print("Total processed: ", total_imported+count)
         else:
             print(json_filepath, ": No such directory")

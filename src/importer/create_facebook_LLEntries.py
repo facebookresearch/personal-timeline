@@ -18,6 +18,7 @@ class FacebookPhotosImporter(PhotoImporter):
         json_files = self.get_type_files_deep(json_filepath, ["json"])
         print("All json files in path: ", json_files)
         outputList = LLEntryList()
+        sofar=0
         for json_file in json_files:
             print("Reading File: ", json_file)
             with open(json_file, 'r') as f1:
@@ -54,9 +55,12 @@ class FacebookPhotosImporter(PhotoImporter):
                                 self.db.add_photo(obj)
                                 #print("OBJ: ",obj)
                                 outputList.addEntry(obj)
+                                sofar += 1
+                                if sofar%100==0:
+                                    print("Photos imported so far:", len(outputList.getEntries()))
                             # else:
                             #     print(self.get_filename_from_path(uri), " is already processed. Skipping recreation...")
-        print("Importer So far:", outputList.getEntries())
+        print("Total Photos Imported:", len(outputList.getEntries()))
 
 # cwd = str(Path(INPUT_DIRECTORY).absolute())
 # full_output = LLEntryList()
