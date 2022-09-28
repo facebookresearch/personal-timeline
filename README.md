@@ -22,7 +22,7 @@ https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
     ```$ mkdir ~/personal-data```
 7. In your repo, create a Sym link for the above created dir  
     ```$ ln -s ~/personal-data personal-data```
-
+8. For image captioning, install the requirements following the instructions from `src/enrichment/socratic/README.md`.
 
 # Step 1: Downloading your photos
 

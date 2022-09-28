@@ -13,9 +13,11 @@ url_dict = {'clip_ViTL14_openimage_classifier_weights.pt': 'https://raw.githubus
             'clip_ViTL14_place365_classifier_weights.pt': 'https://raw.githubusercontent.com/geonm/socratic-models-demo/master/prompts/clip_ViTL14_place365_classifier_weights.pt',
             'clip_ViTL14_tencentml_classifier_weights.pt': 'https://raw.githubusercontent.com/geonm/socratic-models-demo/master/prompts/clip_ViTL14_tencentml_classifier_weights.pt'}
 
-os.makedirs('./prompts', exist_ok=True)
+src_path = os.path.dirname(os.path.abspath(__file__))
+prompt_path = os.path.join(src_path, './prompts')
+os.makedirs(prompt_path, exist_ok=True)
 for k, v in url_dict.items():
-        wget.download(v, out='./prompts')
+        wget.download(v, out=prompt_path)
 
 os.environ['CUDA_VISIBLE_DEVICES'] = ''
 
@@ -54,12 +56,12 @@ def load_models():
     print('\tLoading CLIP ViT-L/14')
     clip_model, clip_preprocess = clip.load("ViT-L/14", device=device)
     print('\tLoading precomputed zeroshot classifier')
-    openimage_classifier_weights = torch.load('./prompts/clip_ViTL14_openimage_classifier_weights.pt', map_location=device).type(torch.FloatTensor)
-    openimage_classnames = load_openimage_classnames('./prompts/openimage-classnames.csv')
-    tencentml_classifier_weights = torch.load('./prompts/clip_ViTL14_tencentml_classifier_weights.pt', map_location=device).type(torch.FloatTensor)
-    tencentml_classnames = load_tencentml_classnames('./prompts/tencent-ml-classnames.txt')
-    place365_classifier_weights = torch.load('./prompts/clip_ViTL14_place365_classifier_weights.pt', map_location=device).type(torch.FloatTensor)
-    place365_classnames = load_tencentml_classnames('./prompts/place365-classnames.txt')
+    openimage_classifier_weights = torch.load(prompt_path + '/clip_ViTL14_openimage_classifier_weights.pt', map_location=device).type(torch.FloatTensor)
+    openimage_classnames = load_openimage_classnames(prompt_path + '/openimage-classnames.csv')
+    tencentml_classifier_weights = torch.load(prompt_path + '/clip_ViTL14_tencentml_classifier_weights.pt', map_location=device).type(torch.FloatTensor)
+    tencentml_classnames = load_tencentml_classnames(prompt_path + '/tencent-ml-classnames.txt')
+    place365_classifier_weights = torch.load(prompt_path + '/clip_ViTL14_place365_classifier_weights.pt', map_location=device).type(torch.FloatTensor)
+    place365_classnames = load_tencentml_classnames(prompt_path + '/place365-classnames.txt')
 
     print('\tBuilding simple zeroshot classifier')
     img_types = ['photo', 'cartoon', 'sketch', 'painting']

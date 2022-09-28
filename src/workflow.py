@@ -1,4 +1,5 @@
 from src.enrichment.geo_enrichment import LocationEnricher
+from src.enrichment.image_enrichment import ImageEnricher
 from time import sleep
 
 from src.export.export_entities import PhotoExporter
@@ -25,6 +26,8 @@ if __name__ == '__main__':
     # Enrich Location after import is complete
     inp = input("Should I run location enrichment [y/n]? ").upper()
     action_arr.append("geo_enrich") if inp == 'Y' else None
+    inp = input("Should I run image enrichment [y/n]? ").upper()
+    action_arr.append("image_enrich") if inp == 'Y' else None
     inp = input("Ok. Export all data in the end [y/n]? ").upper()
     action_arr.append("export") if inp == 'Y' else None
 
@@ -56,6 +59,12 @@ if __name__ == '__main__':
             le = LocationEnricher()
             le.enrich()
             print("Location enrichment complete")
+        if action == 'image_enrich':
+            print("Running Image enrichment now...")
+            sleep(2)
+            le = ImageEnricher()
+            le.enrich()
+            print("Image enrichment complete")
         if action == 'export':
             print("Exporting enriched data to enriched_data...")
             sleep(2)
