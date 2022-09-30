@@ -4,7 +4,7 @@ from src.objects.LLEntry_obj import LLEntry
 import pickle
 
 
-class ImportDataDB:
+class PhotoDataDB:
     tables = ["photos"]
 
     ddl = {
@@ -28,16 +28,17 @@ class ImportDataDB:
         self.setup_tables()
 
     def setup_tables(self):
-        for table in ImportDataDB.tables:
+        for table in PhotoDataDB.tables:
             lookup_sql = "SELECT name FROM sqlite_master WHERE name='" + table + "'"
             #print("Looking for ", table, "using SQL:: ", lookup_sql)
             res = self.cursor.execute(lookup_sql)
             if res.fetchone() is None:
-                create_sql = ImportDataDB.ddl[table]
+                create_sql = PhotoDataDB.ddl[table]
                 print("Creating table: ", table, " using SQL:: ", create_sql)
                 self.cursor.execute(create_sql)
-                for idx_sql in ImportDataDB.indexes[table]:
+                for idx_sql in PhotoDataDB.indexes[table]:
                     print("Creating index using SQL:: ", idx_sql)
+                    self.cursor.execute(idx_sql)
             #else:
                 #print("Table ", table, " found.")
 
@@ -74,7 +75,9 @@ class ImportDataDB:
         where_arr = []
         for key in where_conditions:
             where_arr.append(key +" "+ where_conditions[key])
-        where_clause = " WHERE " + " AND ".join(where_arr)
+        where_clause = ""
+        if len(where_arr)>0:
+            where_clause = " WHERE " + " AND ".join(where_arr)
         lookup_sql = "SELECT " + select_cols + " FROM photos" + where_clause
         #print("Searching for photos using SQL:: ", lookup_sql)
         res = self.cursor.execute(lookup_sql)
