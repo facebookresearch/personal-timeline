@@ -77,11 +77,11 @@ class GooglePhotosImporter(PhotoImporter):
                     obj = self.create_LLEntry(imageFilePath, latitude, longitude, taken_timestamp, tagged_people, imageViews)
                     self.db.update_photos(row_id, {"data": obj, "timestamp": int(taken_timestamp)})
                     count += 1
+                    total_imported += 1
                     if count == 100:
-                        total_imported += count
                         print("Processed another: ", count, ", total so far: ", total_imported)
                         count=0
-            print("Orphaned Json Files: ", orphan_json_files)
+            #print("Orphaned Json Files: ", orphan_json_files)
             print("Total processed: ", total_imported)
         else:
             print(json_filepath, ": No such directory")

@@ -23,8 +23,26 @@ https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
     
     ```conda activate <env>```
 
- * Note: There may be certain packages not available in conda. 
-   Remove them from requirements.txt and install in the venv via pip after activation.
+# Step 2: Import your photo data to SQLite (this is what will go into the episodic database)
+
+ Run:
+
+    python -m src.photos_workflow
+The script will allow you to choose the steps you want to run from the workflow.  
+Follow the instructions to import and enrich data.
+
+# Step 3: Create Inverted Index Files:
+
+1. Create a data directory and a sym link to that directory inside the repo  
+    ```$ mkdir ~/data```  
+    ```$ ln -s ~/data```
+2. Run  
+    ```$ python -m src.create_index```
+    This will create a `date_inverted_index.json` file in the data directory used in next step.
+
+
+----------
+This part of README is in progress. Please ignore:
 
 You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the rigt place (there's always a variable at the top of the file with the pointer).
 

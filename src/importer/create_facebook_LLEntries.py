@@ -32,8 +32,9 @@ class FacebookPhotosImporter(PhotoImporter):
             for media_container in all_media:
                 tagged_people = []
                 if isinstance(media_container, dict) and "tags" in media_container.keys():
+                    print("Found tags: ", media_container["tags"])
                     tagged_people = media_container["tags"]
-                uri_container = self.find_all_in_haystack("uri", post_data, True)
+                uri_container = self.find_all_in_haystack("uri", media_container, True)
                 count = 0;
                 for one_media in uri_container:
                     if isinstance(one_media, dict) and "uri" in one_media.keys():
