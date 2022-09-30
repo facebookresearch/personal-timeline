@@ -4,6 +4,7 @@ from time import sleep
 from src.export.export_entities import PhotoExporter
 from src.importer.create_facebook_LLEntries import FacebookPhotosImporter
 from src.importer.create_google_photo_LLEntries import GooglePhotosImporter
+from src.importer.generic_data_importer import GenericDataImporter
 
 # Workflow is as follows:
 # After data is downloaded in respective folders:
@@ -15,10 +16,14 @@ from src.importer.create_google_photo_LLEntries import GooglePhotosImporter
 # 5. Generate Summaries -> Some Storage TBD
 if __name__ == '__main__':
     action_arr = []
-    print("Welcome to the demo!!!")
-    print("Let's import some data first. What do you want to import?")
+    print("Welcome to the import workflow for everything personal!!!")
+    print("Let's begin. Press [n] at anytime to break")
     #sleep(2)
-    inp = input("1. Google Photos (data must be present in personal-data/google_photos) [y/n]? ").upper()
+    while True:
+        input_dir = input("Input directory path relative to personal-data/ folder? ").upper()
+        if input_dir != 'N':
+            filetype = input("Filetype [csv/tsv/json]?").lower()
+            importer = GenericDataImporter(input_dir, filetype)
     action_arr.append("gp") if inp == 'Y' else None
     inp = input("2. Facebook Posts (data must be present in personal-data/facebook/posts) [y/n]? ").upper()
     action_arr.append("fp")  if inp == 'Y' else None
@@ -27,7 +32,6 @@ if __name__ == '__main__':
     action_arr.append("geo_enrich") if inp == 'Y' else None
     inp = input("Ok. Export all data in the end [y/n]? ").upper()
     action_arr.append("export") if inp == 'Y' else None
-
     if len(action_arr)==0:
         print("No new import task. Moving on...")
         #sleep(2)
