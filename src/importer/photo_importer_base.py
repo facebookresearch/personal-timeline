@@ -10,7 +10,7 @@ from src.objects.EntryTypes import EntryType
 from src.objects.LLEntry_obj import LLEntry
 from PIL import Image
 
-from src.persistence.import_data_db import ImportDataDB
+from src.persistence.photo_data_db import PhotoDataDB
 
 class PhotoImporter:
     @abstractmethod
@@ -19,7 +19,7 @@ class PhotoImporter:
         self.SUB_DIRS = sub_dirs
         self.SOURCE = "Facebook Posts"
         self.TYPE = type
-        self.db = ImportDataDB()
+        self.db = PhotoDataDB()
 
     @abstractmethod
     def import_photos(self, cwd, subdir):

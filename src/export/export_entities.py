@@ -1,4 +1,4 @@
-from src.persistence.import_data_db import ImportDataDB
+from src.persistence.photo_data_db import PhotoDataDB
 import json
 import pickle
 from geopy.location import Location
@@ -6,7 +6,7 @@ from src.objects.LLEntry_obj import LLEntry
 class PhotoExporter:
 
     def __init__(self):
-        self.db = ImportDataDB()
+        self.db = PhotoDataDB()
     def create_export_entity(self):
         #Read data, location, caption from photos
         select_cols = "id, data, location, captions, embeddings, status"
@@ -32,7 +32,7 @@ class PhotoExporter:
                 status = row[5]
                 if status != 'active':
                     print("RowId: ", row_id, "is an identified duplicate, will be unexported")
-                    self.db.update_photos(row_id, {"enriched_data": None, "export_done": '1'})
+                    self.db.update_photos(row_id, {"enriched_data": None, "export_done": 1})
                     continue
                 #Add Location data
                 data = self.populate_location(data, location)
@@ -45,7 +45,7 @@ class PhotoExporter:
 
                 # Write enriched_data, set enrichment_done to 1
                 #print("Writing enriched data:: ", data.toJson())
-                self.db.update_photos(row_id, {"enriched_data": data, "export_done": '1'})
+                self.db.update_photos(row_id, {"enriched_data": data, "export_done": 1})
             print("Export entities generated for ", count, " entries")
             if count == 0:
                 # Nothing was processed in the last cycle
