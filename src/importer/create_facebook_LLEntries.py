@@ -3,7 +3,7 @@ from src.objects.LLEntry_obj import *
 from src.objects.EntryTypes import EntryType
 
 # This is where the photos and their jsons sit
-INPUT_DIRECTORY = "photos/facebook"
+INPUT_DIRECTORY = "personal-data/facebook"
 SUB_DIRS = ["posts"]
 SOURCE = "Facebook Posts"
 TYPE = EntryType.PHOTO
@@ -18,6 +18,7 @@ class FacebookPhotosImporter(PhotoImporter):
         json_files = self.get_type_files_deep(json_filepath, ["json"])
         print("All json files in path: ", json_files)
         outputList = LLEntryList()
+        sofar=0
         for json_file in json_files:
             print("Reading File: ", json_file)
             with open(json_file, 'r') as f1:
@@ -49,15 +50,18 @@ class FacebookPhotosImporter(PhotoImporter):
                                 if "taken_timestamp" in exif_data[0].keys() else 0
                             if not self.is_photo_already_processed(self.get_filename_from_path(uri), taken_timestamp):
                                 if latitude==0.0 and longitude==0.0 and taken_timestamp==0:
-                                    print("No GPS or Time info, skipping: ", self.get_filename_from_path(uri))
+                                    #print("No GPS or Time info, skipping: ", self.get_filename_from_path(uri))
                                     continue
                                 obj = self.create_LLEntry(uri, latitude, longitude, taken_timestamp, tagged_people)
                                 self.db.add_photo(obj)
                                 #print("OBJ: ",obj)
                                 outputList.addEntry(obj)
+                                sofar += 1
+                                if sofar%100==0:
+                                    print("Photos imported so far:", len(outputList.getEntries()))
                             # else:
                             #     print(self.get_filename_from_path(uri), " is already processed. Skipping recreation...")
-        print("Importer So far:", outputList.getEntries())
+        print("Total Photos Imported:", len(outputList.getEntries()))
 
 # cwd = str(Path(INPUT_DIRECTORY).absolute())
 # full_output = LLEntryList()

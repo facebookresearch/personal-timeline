@@ -7,7 +7,7 @@ from src.importer.photo_importer_base import PhotoImporter
 from src.objects.EntryTypes import EntryType
 
 # This is where the photos and their jsons sit
-INPUT_DIRECTORY = "photos/google_photos"
+INPUT_DIRECTORY = "personal-data/google_photos"
 # Google Photos Configs
 SOURCE = "Google Photos"
 TYPE = EntryType.PHOTO
@@ -33,7 +33,8 @@ class GooglePhotosImporter(PhotoImporter):
                     try:
                         self.db.add_only_photo(SOURCE, self.get_filename_from_path(img_file), img_file)
                     except sqlite3.IntegrityError:
-                        print(img_file, " already present in DB")
+                        #print(img_file, " already present in DB")
+                        continue
             total_imported = 0
             count = 0
             # Now that all photos are added, we go through all jsons and add them to DB
