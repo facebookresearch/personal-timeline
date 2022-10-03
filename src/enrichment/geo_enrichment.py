@@ -1,12 +1,11 @@
 import pytz
-import json
 import pickle
 
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 
 from src.objects.LLEntry_obj import LLEntry
-from src.persistence.import_data_db import ImportDataDB
+from src.persistence.photo_data_db import PhotoDataDB
 from geopy.location import Location
 
 ORIGIN_TIMEZONE = str(pytz.utc)
@@ -23,7 +22,7 @@ class LocationEnricher:
         self.cache = {}
         self.cache_hits=0
         self.cache_miss=0
-        self.db = ImportDataDB()
+        self.db = PhotoDataDB()
 
     def cache_key(self, latitude:float, longitude:float):
         return str(latitude)+","+str(longitude)
