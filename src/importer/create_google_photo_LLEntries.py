@@ -54,7 +54,7 @@ class GooglePhotosImporter(PhotoImporter):
                     # some JSON could be empty (i.e print-subscriptions.json)
                     if len(content) == 0:
                         continue
-                    # some JSON will not content title (i.e shared_album_comments.json)
+                    # some JSON will not contain title (i.e shared_album_comments.json)
                     if 'title' not in content.keys():
                         continue
                     imageFileName=content["title"]
