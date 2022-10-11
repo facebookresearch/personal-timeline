@@ -17,7 +17,7 @@ class PhotoImporter:
     def __init__(self, input_dir:str, sub_dirs:list, source:str, type:EntryType):
         self.INPUT_DIRECTORY = input_dir
         self.SUB_DIRS = sub_dirs
-        self.SOURCE = "Facebook Posts"
+        self.SOURCE = source
         self.TYPE = type
         self.db = PhotoDataDB()
 

@@ -1,6 +1,7 @@
 import json
 import sqlite3
 from time import sleep
+from tqdm import tqdm
 import os
 
 from src.importer.photo_importer_base import PhotoImporter
@@ -36,20 +37,26 @@ class GooglePhotosImporter(PhotoImporter):
                         #print(img_file, " already present in DB")
                         continue
             total_imported = 0
-            count = 0
+            heic_counter = 0
             # Now that all photos are added, we go through all jsons and add them to DB
-            for dir_entry in dir_entries:
+            for dir_entry in tqdm(dir_entries):
                 print("Reading Directory: ", dir_entry)
                 uri = json_filepath + "/" + dir_entry
                 json_files = self.get_type_files_deep(uri, ["json"])
                 #print("Reading json files in path ", uri, ": ", json_files)
                 if json_files is None:
                     continue
-                for json_file in json_files:
-                    #print("Reading File: ", json_file)
+                for json_file in tqdm(json_files):
+                    # print("Reading File: ", json_file)
                     with open(json_file, 'r') as f1:
                         r = f1.read()
                         content = json.loads(r)
+                    # some JSON could be empty (i.e print-subscriptions.json)
+                    if len(content) == 0:
+                        continue
+                    # some JSON will not contain title (i.e shared_album_comments.json)
+                    if 'title' not in content.keys():
+                        continue
                     imageFileName=content["title"]
                     #Search for DB row that has the full imagePath
                     select_cols = "id, imageFilePath, timestamp"
@@ -75,14 +82,16 @@ class GooglePhotosImporter(PhotoImporter):
                         tagged_people = content["people"]
                     if "imageViews" in content.keys():
                         imageViews = content["imageViews"]
+                    if os.path.splitext(imageFilePath)[1] == '.HEIC':
+                        heic_counter +=1
+                        continue
                     obj = self.create_LLEntry(imageFilePath, latitude, longitude, taken_timestamp, tagged_people, imageViews)
                     self.db.update_photos(row_id, {"data": obj, "timestamp": int(taken_timestamp)})
-                    count += 1
                     total_imported += 1
-                    if count == 100:
-                        print("Processed another: ", count, ", total so far: ", total_imported)
-                        count=0
             #print("Orphaned Json Files: ", orphan_json_files)
             print("Total processed: ", total_imported)
+            print("Total HEIC ignored: ", heic_counter)
+            if heic_counter > 0:
+                print('Please convert your HEIC file to JPEG')
         else:
             print(json_filepath, ": No such directory")
