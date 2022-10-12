@@ -1,16 +1,12 @@
 import pickle
-import os
-from pathlib import Path
-import json
 
-from src.importer.all_importer import SimpleJSONImporter, CSVImporter
+from src.importer.all_importers import SimpleJSONImporter, CSVImporter
 from src.objects.import_configs import DataSourceList, SourceConfigs, FileType
 from src.persistence.personal_data_db import PersonalDataDBConnector
 
 
 class GenericImportOrchestrator:
     def __init__(self):
-        # input_dir = str(Path("personal-data/venmo").absolute())
         self.pdc = PersonalDataDBConnector()
         self.pdc.setup_tables()
         self.import_greenlit_sources = []
@@ -39,23 +35,24 @@ class GenericImportOrchestrator:
             print("No generic imports scheduled.")
         else:
             for source in self.import_greenlit_sources:
-                result = self.pdc.read_data_source_conf("source_name, entry_type, configs, field_mappings", source)
+                result = self.pdc.read_data_source_conf("id, source_name, entry_type, configs, field_mappings", source)
                 if len(result) == 1:
-                    source_name = result[0][0]
-                    entry_type = result[0][1]
-                    configs: SourceConfigs = pickle.loads(result[0][2])
-                    field_mappings: list = pickle.loads(result[0][3])
+                    source_id = result[0][0]
+                    source_name = result[0][1]
+                    entry_type = result[0][2]
+                    configs: SourceConfigs = pickle.loads(result[0][3])
+                    field_mappings: list = pickle.loads(result[0][4])
                     print("Configs for ", source_name, ": ")
                     print(configs.__dict__)
                     print(field_mappings)
                     imp=None
                     if configs.filetype == FileType.JSON:
-                        imp = SimpleJSONImporter(source_name, entry_type)
+                        imp = SimpleJSONImporter(source_id, source_name, entry_type, configs)
                     elif configs.filetype == FileType.CSV:
-                        imp = CSVImporter(source_name, entry_type)  # TODO CSV
+                        imp = CSVImporter(source_id, source_name, entry_type, configs)  # TODO CSV
                     # elif configs.filetype == FileType.XML:
-                    #     imp = XMLImporter(source_name, entry_type) #TODO XML
-                    imp.import_data(configs, field_mappings)
+                    #     imp = XMLImporter(source_id, source_name, entry_type, configs) #TODO XML
+                    imp.import_data(field_mappings)
 
     def import_from_xml(self, source_name: str, configs: SourceConfigs, field_mappings: list):
         print("XML")

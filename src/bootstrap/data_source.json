@@ -9,7 +9,7 @@
       "filetype_configs": {
         "root": "Workout"
       },
-      "unique_key": ["startTime"]
+      "dedup_key": ["source", "startTime"]
     },
     "field_mappings": [
       {
@@ -73,7 +73,7 @@
       "filetype_configs": {
         "skiprows": 0
       },
-      "unique_key": ["startTime","productName"]
+      "dedup_key": ["source","purchase_id","productName"]
     },
     "field_mappings": [
       {
@@ -83,13 +83,19 @@
         "target_type": "datetime"
       },
       {
-        "src": "Product Name",
+        "src": "Order ID",
+        "target": "purchase_id",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "src": "Title",
         "target": "productName",
         "src_type": "str",
         "target_type": "str"
       },
       {
-        "src": "Unit Price",
+        "src": "Purchase Price Per Unit",
         "target": "productPrice",
         "src_type": "str",
         "target_type": "number"
@@ -107,9 +113,9 @@
     "source_name": "AmazonKindle",
     "entry_type": "purchase",
     "configs": {
-      "input_directory": "personal-data/amazon",
+      "input_directory": "personal-data/amazon-kindle",
       "filetype": "csv",
-      "unique_key": ["startTime","productName"]
+      "dedup_key": ["source", "startTime","productName"]
     },
     "field_mappings": [
       {
@@ -146,7 +152,7 @@
       "input_directory": "personal-data/spotify",
       "filename_regex": "StreamingHistory",
       "filetype": "json",
-      "unique_key": "endTime"
+      "dedup_key": ["source", "track", "endTime"]
     },
     "field_mappings": [
       {
@@ -179,6 +185,45 @@
         "functions": [
           "eval: (datetime.fromisoformat(\"$endTime\") - timedelta(milliseconds=$playtimeMs/1000)).isoformat()"
         ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "source_name": "Venmo",
+    "entry_type": "purchase",
+    "configs": {
+      "input_directory": "personal-data/venmo",
+      "filetype": "csv",
+      "filetype_configs": {
+        "skiprows": 2
+      },
+      "dedup_key": ["source","purchase_id"]
+    },
+    "field_mappings": [
+      {
+        "src": "Datetime",
+        "target": "startTime",
+        "src_type": "datetime",
+        "target_type": "datetime"
+      },
+      {
+        "src": "ID",
+        "target": "purchase_id",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "src": "Note",
+        "target": "productName",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "src": "Amount (total)",
+        "target": "productPrice",
+        "src_type": "str",
+        "target_type": "number"
       }
     ]
   }

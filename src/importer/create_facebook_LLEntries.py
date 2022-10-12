@@ -1,3 +1,5 @@
+from tqdm import tqdm
+
 from src.importer.photo_importer_base import PhotoImporter
 from src.objects.LLEntry_obj import *
 from src.objects.EntryTypes import EntryType
@@ -18,7 +20,7 @@ class FacebookPhotosImporter(PhotoImporter):
         print("All json files in path: ", json_files)
         outputList = LLEntryList()
         sofar=0
-        for json_file in json_files:
+        for json_file in tqdm(json_files):
             print("Reading File: ", json_file)
             with open(json_file, 'r') as f1:
                 r = f1.read()
@@ -29,7 +31,7 @@ class FacebookPhotosImporter(PhotoImporter):
             ts2 = self.find_all_in_haystack("creation_timestamp", post_data, True)
             all_media += ts2
             #print("Image_Container", all_media)
-            for media_container in all_media:
+            for media_container in tqdm(all_media):
                 tagged_people = []
                 if isinstance(media_container, dict) and "tags" in media_container.keys():
                     print("Found tags: ", media_container["tags"])

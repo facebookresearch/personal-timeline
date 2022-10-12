@@ -24,6 +24,7 @@ class LLEntry:
         self.endLongitude = ""
 
         # Purchase
+        self.purchase_id = ""
         self.productName = ""
         self.productPrice = ""
         self.currency = ""

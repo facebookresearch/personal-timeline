@@ -43,7 +43,7 @@ class PersonalDataDBConnector:
         "data_source": "CREATE TABLE data_source(id INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "source_name UNIQUE, entry_type, configs, field_mappings)",
         "personal_data": "CREATE TABLE personal_data(id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                  "source_name, data_timestamp, data, FOREIGN KEY(source_name) REFERENCES data_source(source_name))"
+                         "source_id, data_timestamp, dedup_key UNIQUE, data, FOREIGN KEY(source_id) REFERENCES data_source(id))"
     }
 
     bootstrap_locations = {
@@ -82,31 +82,33 @@ class PersonalDataDBConnector:
             else:
                 print("No bootstrap data available for ", table)
 
-    def add_or_replace(self, table, key_value:dict, primary_key=None):
+    def add_or_replace_personal_data(self, key_value: dict, unique_key=None):
+        self.add_or_replace("personal_data", key_value, unique_key)
+    def add_or_replace(self, table, key_value:dict, unique_key:str=None):
         insert_key_arr = []
         insert_placeholder_arr=[]
         insert_value_arr = []
         update_arr_key = [] # For Upsert using ON CONFLICT command
         update_arr_val = []
-        for key in key_value.keys():
+        for key in key_value:
             #print("Key:: ", key, " > ", type(key_value.__dict__[key]))
             insert_key_arr.append(key)
             insert_placeholder_arr.append("?")
-            if key != primary_key:
+            if key != unique_key:
                 update_arr_key.append(key + "=?")
             if not (isinstance(key_value[key], int) or isinstance(key_value[key], str)):
                 update_arr_val.append(pickle.dumps(key_value[key]))
                 insert_value_arr.append(pickle.dumps(key_value[key]))
             else:
-                if key != primary_key:
+                if key != unique_key:
                     update_arr_val.append(key_value[key])
                 insert_value_arr.append(key_value[key])
         insert_values = tuple(insert_value_arr) + tuple(update_arr_val)
 
         insert_sql = "INSERT INTO " + table + "(" + ", ".join(insert_key_arr) + ")" \
                      + " values (" + ", ".join(insert_placeholder_arr) + ")"
-        if primary_key is not None:
-            insert_sql += " ON CONFLICT(" + primary_key + ") DO UPDATE SET " + \
+        if unique_key is not None:
+            insert_sql += " ON CONFLICT(" + unique_key + ") DO UPDATE SET " + \
                           ", ".join(update_arr_key)
         #print("Insert SQL:: ", insert_sql,  "data: ", insert_values)
         self.cursor.execute(insert_sql, insert_values)

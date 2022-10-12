@@ -1,9 +1,11 @@
 import json
+import pickle
 import re
 from abc import abstractmethod
 from pathlib import Path
 import os
 import pandas as pd
+from tqdm import tqdm
 
 from src.objects.EntryTypes import EntryType
 from src.objects.LLEntry_obj import LLEntry
@@ -12,15 +14,21 @@ import parsedatetime
 #Keep imports that may be used in dynamic function evaluation
 from datetime import datetime, timedelta
 
+from src.persistence.personal_data_db import PersonalDataDBConnector
+
+
 class GenericImporter:
-    def __init__(self, source_name:str, entry_type:EntryType):
+    def __init__(self, source_id:int, source_name:str, entry_type:EntryType, configs:SourceConfigs):
         print("GenericImporter")
+        self.pdc = PersonalDataDBConnector()
+        self.source_id = source_id
         self.source_name = source_name
         self.entry_type = entry_type
+        self.configs = configs
         self.cal = parsedatetime.Calendar()
 
     @abstractmethod
-    def import_data(self, configs:SourceConfigs, field_mappings:list):
+    def import_data(self, field_mappings:list):
         pass
 
     def get_type_files_deep(self, pathname: str, filename_pattern: str, type: list) -> list:
@@ -47,6 +55,23 @@ class GenericImporter:
             path_arr.append(pathname)
             return path_arr
 
+    def build_db_entry(self, obj: LLEntry):
+        db_entry = {}
+        dedup_value = self.build_dedup_value(obj, self.configs.dedup_key)
+        # id, source_id, data_timestamp, dedup_key, data
+        db_entry["source_id"] = self.source_id
+        db_entry["data_timestamp"] = obj.startTime
+        db_entry["dedup_key"] = dedup_value
+        db_entry["data"] = obj
+        return db_entry
+    def build_dedup_value(self, obj: LLEntry, unique_key:list):
+        dedup_key = ""
+        for attrib in unique_key:
+            if obj.__getattribute__(attrib) is not None:
+                dedup_key+=str(obj.__getattribute__(attrib))+"_"
+            else:
+                dedup_key+="__"
+        return dedup_key[:-1]
     def create_LLEntry(self, row:dict, field_mappings:list):
         lifelog_obj = LLEntry(self.entry_type, "", self.source_name)
         for fmp in field_mappings:
@@ -58,12 +83,16 @@ class GenericImporter:
                     src_value = row[field_mapping.src]
                     #When a function is applied over source data before aading to llentry
                     if field_mapping.functions is not None:
-                        print("Found functions to apply")
+                        #print("Found functions to apply")
                         self.evaluate_functions(field_mapping, lifelog_obj)
                     else:
                         if ll_attribe_type == "datetime":
-                            print("Converting", lifelog_obj.__getattribute__(ll_attrib_name),"to datetime")
-                            dt_attr_value=self.cal.parseDT(lifelog_obj.__getattribute__(ll_attrib_name))[0].isoformat()
+                            #print("Converting", src_value,"to datetime")
+                            try:
+                                dt_attr_value=self.cal.parseDT(src_value)[0].isoformat()
+                            except:
+                                #TODO: Fix Silent return, find a way to identify corrupt row
+                                return
                             lifelog_obj.__setattr__(ll_attrib_name,dt_attr_value)
                         # Count type will be mapped to a dict as target[src] -> Not sure if needed
                         # elif ll_attribe_type == "count":
@@ -75,105 +104,100 @@ class GenericImporter:
                         else:
                             # Simple mapping
                             lifelog_obj.__setattr__(ll_attrib_name, src_value)
-                    print(ll_attrib_name,"=",lifelog_obj.__getattribute__(ll_attrib_name))
+                    #print(ll_attrib_name,"=",lifelog_obj.__getattribute__(ll_attrib_name))
                 else:
                     raise Exception("Failed to map", field_mapping.src,". Not present in", row)
             elif field_mapping.functions is not None:
                 #Case when src field is not present. This is the case for derived fields
-                print("Found functions without source")
+                #print("Found functions without source")
                 self.evaluate_functions(field_mapping, lifelog_obj)
 
             else:
                 raise Exception("Mapping without either src or function is not supported. "+field_mapping.toJson())
-        print(lifelog_obj.__dict__)
         return lifelog_obj
 
     def evaluate_functions(self, fieldMapping:FieldMapping, lifelog_obj:LLEntry):
         val=None
         for function in fieldMapping.functions:
-            print("Original func:", function)
+            #print("Original func:", function)
             # Update placeholders with actual values
             placeholders = re.findall("\$[A-Za-z_]*", function)
             for placeholder in placeholders:
                 ph_value = lifelog_obj.__getattribute__(placeholder.strip("$"))
-                print("For placeholder:", placeholder,"found:",ph_value)
+                #print("For placeholder:", placeholder,"found:",ph_value)
                 if ph_value is None:
                     raise Exception("""Trying to replace a value that is not set. Functions should be defined with placeholders
                      already mapped in the LLEntry""", function)
                 function = function.replace(placeholder, str(ph_value))
 
             # A function can either have eval section or exec section, never both
-            print("Final func:", function)
+            #print("Final func:", function)
             exec_section = re.match("exec:(.*)", function)
             if exec_section:
-                print("Executing", exec_section.group(1))
+                #print("Executing", exec_section.group(1))
                 exec(exec_section.group(1).strip())
             eval_section = re.match("eval:(.*)", function)
             if eval_section:
                 val = eval(eval_section.group(1).strip())
-                print("Evaluated", eval_section.group(1).strip(), "to", val, type(val))
+                #print("Evaluated", eval_section.group(1).strip(), "to", val, type(val))
                 lifelog_obj.__setattr__(fieldMapping.target, val)
         return val
 
 #This class supports import of non-nested JSON files
 class SimpleJSONImporter(GenericImporter):
-    def __init__(self, source_name:str, entry_type:EntryType):
+    def __init__(self, source_id:int, source_name:str, entry_type:EntryType, configs:SourceConfigs,):
         print("JSONImporter")
-        super().__init__(source_name, entry_type)
+        super().__init__(source_id, source_name, entry_type, configs)
     
-    def import_data(self, configs:SourceConfigs, field_mappings:list):
-        print("JSON")
-        entries = self.get_type_files_deep(str(Path(configs.input_directory).absolute()),
-                                      configs.filename_regex,
-                                      configs.filetype.split(","))
+    def import_data(self, field_mappings:list):
+        entries = self.get_type_files_deep(str(Path(self.configs.input_directory).absolute()),
+                                      self.configs.filename_regex,
+                                      self.configs.filetype.split(","))
         if len(entries) == 0:
-            print("NotFound: Data expected in ", configs.input_directory, " while importing for ", self.source_name)
-            if configs.filename_regex is not None:
-                print("File pattern searched for:", configs.filename_regex, "extn:",configs.filetype)
+            print("NotFound: Data expected in ", self.configs.input_directory, " while importing for ", self.source_name)
+            if self.configs.filename_regex is not None:
+                print("File pattern searched for:", self.configs.filename_regex, "extn:",self.configs.filetype)
             return
-        for entry in entries:
+        for entry in tqdm(entries):
             print("Reading File: ", entry)
             with open(entry, 'r') as f1:
                 r = f1.read()
                 user_data = json.loads(r)
             if isinstance(user_data, list):
-                count=0
-                for row in user_data:
+                for row in tqdm(user_data):
                     obj = self.create_LLEntry(row, field_mappings)
-                    count+=1
-                    if count==10:
-                        break
+                    data_entry = self.build_db_entry(obj)
+                    self.pdc.add_or_replace_personal_data(data_entry,"dedup_key")
+            else:
+                raise Exception("UserData expected to be a list. Found "+type(user_data))
 
 
 class CSVImporter(GenericImporter):
-    def __init__(self, source_name: str, entry_type: EntryType):
+    def __init__(self, source_id:int, source_name: str, entry_type: EntryType, configs:SourceConfigs,):
         print("CSVImporter")
-        super.__init__(source_name, entry_type)
+        super().__init__(source_id, source_name, entry_type, configs)
 
-    def import_data(self, configs: SourceConfigs, field_mappings: list):
+    def import_data(self, field_mappings: list):
         # Select top level Category -> Maybe
         # Collect info about Data source based on filetype
         # Create a dictionary of inputField to LLEntry field
         # Store into DataSource
-        print("Input dir:", self.input_dir, " is dir? ", os.path.isdir(self.input_dir))
-        if os.path.isdir(self.input_dir):
-            # Breaking it down to avoid too many files, just in case
-            dir_entries = os.listdir(self.input_dir)
-            for dir_entry in dir_entries:
-                uri = self.input_dir + "/" + dir_entry
-                csv_files = self.get_type_files_deep(uri, ["csv"])
-                print("CSV files:", csv_files)
-                if csv_files is None:
+        entries = self.get_type_files_deep(str(Path(self.configs.input_directory).absolute()),
+                                           self.configs.filename_regex,
+                                           self.configs.filetype.split(","))
+        if len(entries) == 0:
+            print("NotFound: Data expected in ", self.configs.input_directory, " while importing for ", self.source_name)
+            if self.configs.filename_regex is not None:
+                print("File pattern searched for:", self.configs.filename_regex, "extn:",self.configs.filetype)
+            return
+        for entry in tqdm(entries):
+            print("Reading CSV:", entry)
+            df = pd.read_csv(entry, skiprows=self.configs.filetype_configs["skiprows"],dtype=str)
+            for index, row in tqdm(df.iterrows()):
+                obj = self.create_LLEntry(row.to_dict(), field_mappings)
+                if obj is None:
+                    print("Skipping row:", row.to_dict())
                     continue
-                for csv_file in csv_files:
-                    print("Reading CSV:", csv_file)
-                    # with open(csv_file, newline='') as csvfile:
-                    #     reader = csv.DictReader(csvfile)
-                    #     for row in reader:
-                    #         print(row)
-                    df = pd.read_csv(csv_file, skiprows=[2])
-                    print("Cols:", df.columns)
-                    # for index, row in df.iterrows():
-                    #     print(row)
-
+                data_entry = self.build_db_entry(obj)
+                self.pdc.add_or_replace_personal_data(data_entry, "dedup_key")
 

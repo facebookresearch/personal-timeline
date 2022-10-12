@@ -20,11 +20,13 @@ class FileType(str, Enum):
 
 class SourceConfigs:
     def __init__(self, input_directory:str, filetype:FileType,
-                 filename_regex:str, filetype_configs:dict):
+                 filename_regex:str, filetype_configs:dict,
+                 dedup_key: list):
         self.input_directory = input_directory
         self.filetype = filetype
         self.filename_regex = filename_regex
         self.filetype_configs = filetype_configs
+        self.dedup_key = dedup_key
 
     def __str__(self):
         return self.input_directory + " " + self.filetype
@@ -59,7 +61,8 @@ class DataSource:
         self.configs = SourceConfigs(get_val_or_none(configs, "input_directory"),
                                      get_val_or_none(configs, "filetype"),
                                      get_val_or_none(configs, "filename_regex"),
-                                     get_val_or_none(configs, "filetype_configs"))
+                                     get_val_or_none(configs, "filetype_configs"),
+                                     get_val_or_none(configs, "dedup_key"))
         self.field_mappings = []
         for f in field_mappings:
             self.field_mappings.append(FieldMapping(get_val_or_none(f, "src"),
