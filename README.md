@@ -34,7 +34,7 @@ The download from Google Takeout would be in multiple zip files. Unzip all the f
 The easiest way to do this on a Mac is:
 
      -- Select the .HEIC files you want to convert.   
-     -- Right click and choose "quick actions" and then you'll have an option to covert the image.  
+     -- Right click and choose "quick actions" and then you'll have an option to convert the image.  
      -- If you're converting many photos, this may take a few minutes.
 3. Create a new directory under `personal-data` folder  
     ```$ mkdir ~/personal-data/google_photos```
@@ -69,7 +69,7 @@ Follow the instructions to import and enrich data.
 ----------
 This part of README is in progress. Please ignore:
 
-You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the rigt place (there's always a variable at the top of the file with the pointer).
+You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the right place (there's always a variable at the top of the file with the pointer).
 
 
 
@@ -83,7 +83,7 @@ It may be the case that some of your photo files are .HEIC. In that case follow 
 The easiest way to do this on a mac is:
 
  -- Select the .HEIC files you want to convert.
- -- Right click and choose "quick actions" and then you'll have an option to covert the image.
+ -- Right click and choose "quick actions" and then you'll have an option to convert the image.
  -- If you're converting many photos, this may take a few minutes.
 
 Put all the photos and all the json files in a folder called photos. The photos folder should be a sibling of the code folder.
