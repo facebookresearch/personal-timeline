@@ -19,7 +19,7 @@ class GenericImportOrchestrator:
                 source_name = source[1]
                 conf = pickle.loads(source[2])
                 print("Configurations found for ", source_name)
-                print("Configs: ", conf.__dict__)
+                #print("Configs: ", conf.__dict__)
                 uinput = input("Import data for " + source_name + " [y/n]? ")
                 if uinput.lower() == 'y':
                     self.import_greenlit_sources.append(source_name)
@@ -42,9 +42,9 @@ class GenericImportOrchestrator:
                     entry_type = result[0][2]
                     configs: SourceConfigs = pickle.loads(result[0][3])
                     field_mappings: list = pickle.loads(result[0][4])
-                    print("Configs for ", source_name, ": ")
-                    print(configs.__dict__)
-                    print(field_mappings)
+                    #print("Configs for ", source_name, ": ")
+                    #print(configs.__dict__)
+                    #print(field_mappings)
                     imp=None
                     if configs.filetype == FileType.JSON:
                         imp = SimpleJSONImporter(source_id, source_name, entry_type, configs)

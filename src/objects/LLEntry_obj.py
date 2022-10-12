@@ -29,6 +29,7 @@ class LLEntry:
         self.productPrice = ""
         self.currency = ""
         self.productQuantity = ""
+        self.author= ""
 
         # Music
         self.artist = ""
@@ -40,6 +41,7 @@ class LLEntry:
         self.textDescription = ""
         
         #IMAGE data
+        self.imageURL = ""
         self.imageTimestamp = 0
         self.imageFileName = ""
         self.imageFilePath = ""

@@ -226,5 +226,45 @@
         "target_type": "number"
       }
     ]
+  },
+  {
+    "id": 6,
+    "source_name": "Libby",
+    "entry_type": "purchase",
+    "configs": {
+      "input_directory": "personal-data/libby",
+      "filetype": "csv",
+      "filetype_configs": {
+        "skiprows": 0
+      },
+      "dedup_key": ["source","startTime","productName"]
+    },
+    "field_mappings": [
+      {
+        "src": "timestamp",
+        "target": "startTime",
+        "src_type": "datetime",
+        "target_type": "datetime"
+      },
+      {
+        "src": "title",
+        "target": "productName",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "src": "author",
+        "target": "author",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "src": "cover",
+        "target": "imageURL",
+        "src_type": "str",
+        "target_type": "str"
+      }
+
+    ]
   }
 ]
