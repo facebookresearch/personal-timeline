@@ -1,0 +1,185 @@
+[
+  {
+    "id": 1,
+    "source_name": "AppleHealth",
+    "entry_type": "health",
+    "configs": {
+      "input_directory": "personal-data/apple-health",
+      "filetype": "xml",
+      "filetype_configs": {
+        "root": "Workout"
+      },
+      "unique_key": ["startTime"]
+    },
+    "field_mappings": [
+      {
+        "src": "outdoor",
+        "target": "outdoor",
+        "src_type": "str",
+        "target_type": "str",
+        "default_value": "False"
+      },
+      {
+        "src": "workoutActivityType",
+        "target": "activity",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "target": "type_count",
+        "src_type": "str",
+        "target_type": "dict",
+        "functions": ["type_count['$activity']+1"]
+      },
+      {
+        "src": "startDate",
+        "target": "startTime",
+        "src_type": "str",
+        "target_type": "datetime"
+      },
+      {
+        "src": "endDate",
+        "target": "endTime",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "src": "duration",
+        "target": "duration",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "src": "totalDistance",
+        "target": "totalDistance",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "src": "totalEnergyBurned",
+        "target": "totalEnergyBurned",
+        "src_type": "str",
+        "target_type": "str"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "source_name": "Amazon",
+    "entry_type": "purchase",
+    "configs": {
+      "input_directory": "personal-data/amazon",
+      "filetype": "csv",
+      "filetype_configs": {
+        "skiprows": 0
+      },
+      "unique_key": ["startTime","productName"]
+    },
+    "field_mappings": [
+      {
+        "src": "Order Date",
+        "target": "startTime",
+        "src_type": "datetime",
+        "target_type": "datetime"
+      },
+      {
+        "src": "Product Name",
+        "target": "productName",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "src": "Unit Price",
+        "target": "productPrice",
+        "src_type": "str",
+        "target_type": "number"
+      },
+      {
+        "src": "Quantity",
+        "target": "productQuantity",
+        "src_type": "str",
+        "target_type": "number"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "source_name": "AmazonKindle",
+    "entry_type": "purchase",
+    "configs": {
+      "input_directory": "personal-data/amazon",
+      "filetype": "csv",
+      "unique_key": ["startTime","productName"]
+    },
+    "field_mappings": [
+      {
+        "src": "OrderDate",
+        "target": "startTime",
+        "src_type": "datetime",
+        "target_type": "datetime"
+      },
+      {
+        "src": "Title",
+        "target": "productName",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "src": "OurPrice",
+        "target": "productPrice",
+        "src_type": "str",
+        "target_type": "number"
+      },
+      {
+        "src": "OurPriceCurrencyCode",
+        "target": "currency",
+        "src_type": "str",
+        "target_type": "number"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "source_name": "Spotify",
+    "entry_type": "streaming",
+    "configs": {
+      "input_directory": "personal-data/spotify",
+      "filename_regex": "StreamingHistory",
+      "filetype": "json",
+      "unique_key": "endTime"
+    },
+    "field_mappings": [
+      {
+        "src": "artistName",
+        "target": "artist",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "src": "trackName",
+        "target": "track",
+        "src_type": "str",
+        "target_type": "number"
+      },
+      {
+        "src": "endTime",
+        "target": "endTime",
+        "src_type": "str",
+        "target_type": "datetime"
+      },
+      {
+        "src": "msPlayed",
+        "target": "playtimeMs",
+        "src_type": "str",
+        "target_type": "str"
+      },
+      {
+        "target": "startTime",
+        "target_type": "datetime",
+        "functions": [
+          "eval: (datetime.fromisoformat(\"$endTime\") - timedelta(milliseconds=$playtimeMs/1000)).isoformat()"
+        ]
+      }
+    ]
+  }
+]

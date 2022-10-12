@@ -2,15 +2,14 @@ from src.importer.photo_importer_base import PhotoImporter
 from src.objects.LLEntry_obj import *
 from src.objects.EntryTypes import EntryType
 
-# This is where the photos and their jsons sit
-INPUT_DIRECTORY = "personal-data/facebook"
-SUB_DIRS = ["posts"]
-SOURCE = "Facebook Posts"
-TYPE = EntryType.PHOTO
-
 class FacebookPhotosImporter(PhotoImporter):
     def __init__(self):
-        super().__init__(INPUT_DIRECTORY, SUB_DIRS, SOURCE, TYPE)
+        self.SOURCE = "Facebook Posts"
+        # This is where the photos and their jsons sit
+        INPUT_DIRECTORY = "personal-data/facebook"
+        SUB_DIRS = ["posts"]
+        TYPE = EntryType.PHOTO
+        super().__init__(INPUT_DIRECTORY, SUB_DIRS, self.SOURCE, TYPE)
 
     def import_photos(self, cwd, subdir):
         json_filepath = cwd + "/" + subdir if subdir is not None else cwd

@@ -23,6 +23,18 @@ class LLEntry:
         self.endLatitude = ""
         self.endLongitude = ""
 
+        # Purchase
+        self.productName = ""
+        self.productPrice = ""
+        self.currency = ""
+        self.productQuantity = ""
+
+        # Music
+        self.artist = ""
+        self.track = ""
+        self.playtimeMs = 0
+        self.track_count={}
+
         # TEXT of entry (often generated programmatically from source data)
         self.textDescription = ""
         

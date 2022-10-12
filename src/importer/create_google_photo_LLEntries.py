@@ -1,21 +1,19 @@
 import json
 import sqlite3
-from time import sleep
+from tqdm import tqdm
 import os
 
 from src.importer.photo_importer_base import PhotoImporter
 from src.objects.EntryTypes import EntryType
 
-# This is where the photos and their jsons sit
-INPUT_DIRECTORY = "personal-data/google_photos"
-# Google Photos Configs
-SOURCE = "Google Photos"
-TYPE = EntryType.PHOTO
-
-
 class GooglePhotosImporter(PhotoImporter):
     def __init__(self):
-        super().__init__(INPUT_DIRECTORY, None, SOURCE, TYPE)
+        # Google Photos Configs
+        self.SOURCE = "Google Photos"
+        # This is where the photos and their jsons sit
+        INPUT_DIRECTORY = "personal-data/google_photos"
+        TYPE = EntryType.PHOTO
+        super().__init__(INPUT_DIRECTORY, None, self.SOURCE, TYPE)
 
     def import_photos(self, cwd, subdir):
         orphan_json_files = []
@@ -31,7 +29,7 @@ class GooglePhotosImporter(PhotoImporter):
                     continue
                 for img_file in img_files:
                     try:
-                        self.db.add_only_photo(SOURCE, self.get_filename_from_path(img_file), img_file)
+                        self.db.add_only_photo(self.SOURCE, self.get_filename_from_path(img_file), img_file)
                     except sqlite3.IntegrityError:
                         #print(img_file, " already present in DB")
                         continue
@@ -50,10 +48,16 @@ class GooglePhotosImporter(PhotoImporter):
                     with open(json_file, 'r') as f1:
                         r = f1.read()
                         content = json.loads(r)
+                    # some JSON could be empty (i.e print-subscriptions.json)
+                    if len(content) == 0:
+                        continue
+                    # some JSON will not content title (i.e shared_album_comments.json)
+                    if 'title' not in content.keys():
+                        continue
                     imageFileName=content["title"]
                     #Search for DB row that has the full imagePath
                     select_cols = "id, imageFilePath, timestamp"
-                    where_clause = {"source": "=\""+SOURCE+"\"", "imageFileName": "=\""+imageFileName+"\""}
+                    where_clause = {"source": "=\""+self.SOURCE+"\"", "imageFileName": "=\""+imageFileName+"\""}
                     res = self.db.search_photos(select_cols, where_clause)
                     db_entry = res.fetchone()
                     if db_entry is None:
