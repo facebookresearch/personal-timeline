@@ -52,7 +52,7 @@ The easiest way to do this on a Mac is:
 
  Run:
 
-    python -m src.photos_workflow
+    python -m src.workflow
 The script will allow you to choose the steps you want to run from the workflow.  
 Follow the instructions to import and enrich data.
 
