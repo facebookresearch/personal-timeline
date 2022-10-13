@@ -1,5 +1,6 @@
 import pickle
 
+from src.create_apple_health_LLEntries import AppleHealthImporter
 from src.importer.all_importers import SimpleJSONImporter, CSVImporter
 from src.objects.import_configs import DataSourceList, SourceConfigs, FileType
 from src.persistence.personal_data_db import PersonalDataDBConnector
@@ -17,10 +18,10 @@ class GenericImportOrchestrator:
             for source in existing_sources:
                 id = source[0]
                 source_name = source[1]
-                conf = pickle.loads(source[2])
+                conf:SourceConfigs = pickle.loads(source[2])
                 print("Configurations found for ", source_name)
                 #print("Configs: ", conf.__dict__)
-                uinput = input("Import data for " + source_name + " [y/n]? ")
+                uinput = input("Import data for " + source_name + " from '"+ conf.input_directory +"' [y/n]? ")
                 if uinput.lower() == 'y':
                     self.import_greenlit_sources.append(source_name)
         else:
@@ -50,8 +51,8 @@ class GenericImportOrchestrator:
                         imp = SimpleJSONImporter(source_id, source_name, entry_type, configs)
                     elif configs.filetype == FileType.CSV:
                         imp = CSVImporter(source_id, source_name, entry_type, configs)  # TODO CSV
-                    # elif configs.filetype == FileType.XML:
-                    #     imp = XMLImporter(source_id, source_name, entry_type, configs) #TODO XML
+                    elif configs.filetype == FileType.XML and source_name=="AppleHealth":
+                        imp = AppleHealthImporter(source_id, source_name, entry_type, configs) #TODO XML
                     imp.import_data(field_mappings)
 
     def import_from_xml(self, source_name: str, configs: SourceConfigs, field_mappings: list):

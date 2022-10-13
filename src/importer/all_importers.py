@@ -145,7 +145,7 @@ class GenericImporter:
 
 #This class supports import of non-nested JSON files
 class SimpleJSONImporter(GenericImporter):
-    def __init__(self, source_id:int, source_name:str, entry_type:EntryType, configs:SourceConfigs,):
+    def __init__(self, source_id:int, source_name:str, entry_type:EntryType, configs:SourceConfigs):
         print("JSONImporter")
         super().__init__(source_id, source_name, entry_type, configs)
     
@@ -173,7 +173,7 @@ class SimpleJSONImporter(GenericImporter):
 
 
 class CSVImporter(GenericImporter):
-    def __init__(self, source_id:int, source_name: str, entry_type: EntryType, configs:SourceConfigs,):
+    def __init__(self, source_id:int, source_name: str, entry_type: EntryType, configs:SourceConfigs):
         print("CSVImporter")
         super().__init__(source_id, source_name, entry_type, configs)
 
@@ -193,7 +193,7 @@ class CSVImporter(GenericImporter):
         for entry in tqdm(entries):
             print("Reading CSV:", entry)
             df = pd.read_csv(entry, skiprows=self.configs.filetype_configs["skiprows"],dtype=str)
-            for index, row in tqdm(df.iterrows()):
+            for index, row in tqdm(df.iterrows(), total=df.shape[0]):
                 obj = self.create_LLEntry(row.to_dict(), field_mappings)
                 if obj is None:
                     print("Skipping row:", row.to_dict())
