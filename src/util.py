@@ -45,7 +45,7 @@ def dayToDate(num):
     return (str(result))
 
 def daysSinceEpoch(date):
-    print(date)
+    #print(date)
     year, month, dom = extractYMD(date)
 #    diff = (datetime.datetime(year, month, dom) - datetime.datetime(1970,1,1)).days
     diff = (datetime(year, month, dom) - datetime(1970,1,1)).days
