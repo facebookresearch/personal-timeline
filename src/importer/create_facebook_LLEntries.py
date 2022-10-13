@@ -32,7 +32,7 @@ class FacebookPhotosImporter(PhotoImporter):
             for media_container in tqdm(all_media):
                 tagged_people = []
                 if isinstance(media_container, dict) and "tags" in media_container.keys():
-                    print("Found tags: ", media_container["tags"])
+                    #print("Found tags: ", media_container["tags"])
                     tagged_people = media_container["tags"]
                 uri_container = self.find_all_in_haystack("uri", media_container, True)
                 count = 0;
@@ -52,7 +52,7 @@ class FacebookPhotosImporter(PhotoImporter):
                                     #print("No GPS or Time info, skipping: ", self.get_filename_from_path(uri))
                                     continue
                                 obj = self.create_LLEntry(uri, latitude, longitude, taken_timestamp, tagged_people)
-                                self.db.add_photo(obj)
+                                PhotoImporter.db.add_photo(obj)
                                 #print("OBJ: ",obj)
                             # else:
                             #     print(self.get_filename_from_path(uri), " is already processed. Skipping recreation...")

@@ -74,7 +74,6 @@ class AppleHealthImporter(GenericImporter):
         type_count = {}
         details = { "indoor": False}
         if child.tag == "Workout":
-            print("Workout Element found")
             textDescription = ""
             if "workoutActivityType" in child.attrib:
                 # print("child.attrib",child.attrib)

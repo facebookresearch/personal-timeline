@@ -3,6 +3,7 @@ import pickle
 
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
+from tqdm import tqdm
 
 from src.objects.LLEntry_obj import LLEntry
 from src.persistence.photo_data_db import PhotoDataDB
@@ -49,19 +50,15 @@ class LocationEnricher:
         if pending is None:
             print("No pending location enrichments")
             return
-        print("Total enrichments to be done: ", pending[0])
-        while True:
-            res = self.db.search_photos(select_cols, where_clause)
-            count = 0
-            for row in res.fetchmany(100):
-                count +=1
-                row_id = int(row[0])
-                data:LLEntry = pickle.loads(row[1])
-                photo_location:Location = self.calculateLocation(data.latitude, data.longitude)
-                #print("Updating location to::: ", photo_location.raw)
-                self.db.update_photos(row_id, {"location": photo_location, "location_done": '1'})
-            print("Cache Hits: ", self.cache_hits," Cache misses: ", self.cache_miss)
-            print("Geo Processing completed for ", count, " entries")
-            if count==0:
-                # Nothing was processed in the last cycle
-                break
+        # print("Total enrichments to be done: ", pending[0])
+        res = self.db.search_photos(select_cols, where_clause)
+        count = 0
+        for row in tqdm(res.fetchall()):
+            count +=1
+            row_id = int(row[0])
+            data:LLEntry = pickle.loads(row[1])
+            photo_location:Location = self.calculateLocation(data.latitude, data.longitude)
+            #print("Updating location to::: ", photo_location.raw)
+            self.db.update_photos(row_id, {"location": photo_location, "location_done": '1'})
+        print("Cache Hits: ", self.cache_hits," Cache misses: ", self.cache_miss)
+        print("Geo Processing completed for ", count, " entries")

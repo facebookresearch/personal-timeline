@@ -19,7 +19,6 @@ from src.persistence.personal_data_db import PersonalDataDBConnector
 
 class GenericImporter:
     def __init__(self, source_id:int, source_name:str, entry_type:EntryType, configs:SourceConfigs):
-        print("GenericImporter")
         self.pdc = PersonalDataDBConnector()
         self.source_id = source_id
         self.source_name = source_name

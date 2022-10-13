@@ -55,6 +55,9 @@ class PersonalDataDBConnector:
         self.con = sqlite3.connect("raw_data.db")
         self.cursor = self.con.cursor()
 
+    def __del__(self):
+        self.con.close()
+
     def setup_tables(self):
         for table in PersonalDataDBConnector.tables:
             lookup_sql = "SELECT name FROM sqlite_master WHERE name='" + table + "'"

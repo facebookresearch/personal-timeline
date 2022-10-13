@@ -13,13 +13,13 @@ from PIL import Image
 from src.persistence.photo_data_db import PhotoDataDB
 
 class PhotoImporter:
+    db = PhotoDataDB()
     @abstractmethod
     def __init__(self, input_dir:str, sub_dirs:list, source:str, type:EntryType):
         self.INPUT_DIRECTORY = input_dir
         self.SUB_DIRS = sub_dirs
         self.SOURCE = source
         self.TYPE = type
-        self.db = PhotoDataDB()
 
     @abstractmethod
     def import_photos(self, cwd, subdir):
@@ -109,7 +109,7 @@ class PhotoImporter:
 
 
     def is_photo_already_processed(self, filename, taken_timestamp):
-        return self.db.is_same_photo_present(self.SOURCE, filename, taken_timestamp)
+        return PhotoImporter.db.is_same_photo_present(self.SOURCE, filename, taken_timestamp)
 
     def create_LLEntry(self,
                        uri,

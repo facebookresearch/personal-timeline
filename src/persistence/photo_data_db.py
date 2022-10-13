@@ -27,6 +27,9 @@ class PhotoDataDB:
         self.cursor = self.con.cursor()
         self.setup_tables()
 
+    def __del__(self):
+        self.con.close()
+
     def setup_tables(self):
         for table in PhotoDataDB.tables:
             lookup_sql = "SELECT name FROM sqlite_master WHERE name='" + table + "'"
