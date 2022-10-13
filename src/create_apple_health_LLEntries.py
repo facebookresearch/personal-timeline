@@ -69,8 +69,6 @@ class AppleHealthImporter(GenericImporter):
                     self.pdc.add_or_replace_personal_data(data_entry, "dedup_key")
                     count += 1
                     print("Count:", count)
-                    if count > 10:
-                        break
 
     def create_LLEntry(self, child):
         type_count = {}

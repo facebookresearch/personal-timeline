@@ -18,8 +18,6 @@ class FacebookPhotosImporter(PhotoImporter):
         print("Using path: ", json_filepath)
         json_files = self.get_type_files_deep(json_filepath, ["json"])
         print("All json files in path: ", json_files)
-        outputList = LLEntryList()
-        sofar=0
         for json_file in tqdm(json_files):
             print("Reading File: ", json_file)
             with open(json_file, 'r') as f1:
@@ -38,7 +36,7 @@ class FacebookPhotosImporter(PhotoImporter):
                     tagged_people = media_container["tags"]
                 uri_container = self.find_all_in_haystack("uri", media_container, True)
                 count = 0;
-                for one_media in uri_container:
+                for one_media in tqdm(uri_container):
                     if isinstance(one_media, dict) and "uri" in one_media.keys():
                         count += 1
                         uri = cwd +"/"+ one_media["uri"]
@@ -56,13 +54,8 @@ class FacebookPhotosImporter(PhotoImporter):
                                 obj = self.create_LLEntry(uri, latitude, longitude, taken_timestamp, tagged_people)
                                 self.db.add_photo(obj)
                                 #print("OBJ: ",obj)
-                                outputList.addEntry(obj)
-                                sofar += 1
-                                if sofar%100==0:
-                                    print("Photos imported so far:", len(outputList.getEntries()))
                             # else:
                             #     print(self.get_filename_from_path(uri), " is already processed. Skipping recreation...")
-        print("Total Photos Imported:", len(outputList.getEntries()))
 
 # cwd = str(Path(INPUT_DIRECTORY).absolute())
 # full_output = LLEntryList()

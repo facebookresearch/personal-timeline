@@ -29,6 +29,7 @@ import sqlite3
 import json
 import pickle
 from pathlib import Path
+from sqlite3 import Cursor
 
 from src.objects.LLEntry_obj import LLEntry
 from src.objects.import_configs import DataSourceList, DataSource
@@ -122,8 +123,15 @@ class PersonalDataDBConnector:
         result = self.cursor.execute(read_sql)
         return result.fetchall()
 
-# p = PersonalDataDBConnector()
-# p.setup_tables()
-# print(p.read_data_source_conf("configs","AppleHealth")[0][0])
-# print(pickle.loads(p.read_data_source_conf("configs","AppleHealth")[0][0]).__dict__)
-# print(pickle.loads(p.read_data_source_conf("field_mappings","AppleHealth")[0][0])[4].__dict__)
+    def search_personal_data(self, select_cols: str, where_conditions: dict=None) -> Cursor:
+        where_arr = []
+        if where_conditions is not None:
+            for key in where_conditions:
+                where_arr.append(key + " " + where_conditions[key])
+        where_clause = ""
+        if len(where_arr) > 0:
+            where_clause = " WHERE " + " AND ".join(where_arr)
+        lookup_sql = "SELECT " + select_cols + " FROM personal_data" + where_clause
+        print("Searching for personal data using SQL:: ", lookup_sql)
+        res = self.cursor.execute(lookup_sql)
+        return res

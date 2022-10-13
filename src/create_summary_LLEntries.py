@@ -4,7 +4,7 @@ from pathlib import Path
 import datetime
 from datetime import datetime, timedelta
 from datetime import timezone
-from json_obj import LLEntry
+from src.objects.LLEntry_obj import LLEntry, LLEntryInvertedIndex
 from util import *
 import pandas as pd
 import numpy as np
