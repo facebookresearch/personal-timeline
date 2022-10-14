@@ -9,6 +9,9 @@ from abc import abstractmethod
 from src.objects.EntryTypes import EntryType
 from src.objects.LLEntry_obj import LLEntry
 from PIL import Image
+from pillow_heif import register_heif_opener
+
+register_heif_opener()
 
 from src.persistence.photo_data_db import PhotoDataDB
 

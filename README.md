@@ -113,9 +113,53 @@ They say it can take up to 30 days, but it took about 2 days. They'll send you a
 The file you need is StreamingHistory0.json
 Make sure the variable at the top of create_spotify_LLEntries.py points in the right place.
 
-## Step 2: Generating captions
+## Step 2: Running the offline enrichment and summarization pipeline
 
-#### Currently we use the BLIP package from Salesforce to generate captions.
+Run:
+```python -m src.offline_processing
+```
+
+The script will generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`.
+
+An entry in the activity index looks like:
+```
+{ 'date': datetime.date(2018, 8, 30),
+  'end_hour': 5,
+  'num_photos': 4,
+  'objects': { 'document': [ <some_paths_to_images> ]},
+  'photo_summary': [ <some_paths_to_images> ],
+  'start_hour': 5,
+  'summary': 'A conference room, computer room, or conference center is full '
+             'of people,.'}
+```
+
+An entry in the daily index looks like:
+```
+{ 'date': datetime.date(2018, 12, 9),
+  'end_loc': 'San Jose;California;United States',
+  'num_activities': 2,
+  'num_photos': 4,
+  'objects': { 'person': [ <some_paths_to_images> ]},
+  'photo_summary': [ <some_paths_to_images> ],
+  'start_loc': 'San Jose;California;United States',
+  'summary': 'I spent today at San Jose.'}
+```
+
+An entry in the trip index looks like:
+```
+{ 'cities': ['Rio de Janeiro;Rio de Janeiro;Brasil'],
+  'days': 3,
+  'end_date': datetime.date(2018, 9, 1),
+  'itinerary': [ { 'end': datetime.date(2018, 9, 1),
+                   'location': 'Rio de Janeiro;Rio de Janeiro;Brasil',
+                   'photo_summary': [ <some_paths_to_images> ],
+                   'start': datetime.date(2018, 8, 29)}],
+  'num_photos': 100,
+  'start_date': datetime.date(2018, 8, 29),
+  'summary': 'I went to Rio de Janeiro, Brazil, for 3 days in 2018/8.'}
+```
+
+<!-- #### Currently we use the BLIP package from Salesforce to generate captions.
 
 Clone  https://github.com/salesforce/BLIP
 
@@ -139,9 +183,9 @@ Run:
 
 Run:
 
-    python -m code.create_spotify_LLEntries.py
+    python -m code.create_spotify_LLEntries.py -->
 
-# CREATING THE LIFELOG
+# CREATING THE LIFELOG (old version)
 
 ## Step 1: create an inverted index from date to all the entries from the different services.
 

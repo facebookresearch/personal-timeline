@@ -71,6 +71,10 @@ def load_models():
     ppl_classifier_weights, ppl_classnames = build_simple_classifier(clip_model, ppl_texts, lambda c: f'There are {c} in this photo.', device)
     ifppl_classifier_weights, ifppl_classnames = build_simple_classifier(clip_model, ifppl_texts, lambda c: f'There {c} in this photo.', device)
 
+    tags = 'food,plant,animal,person,vehicle,building,scenery,document,commodity products,other objects'.split(',')
+    simple_tag_weights, simple_tag_classnames = build_simple_classifier(clip_model, tags, lambda c: f'This is a photo of {c}.', device)
+
+
     model_dict['clip_model'] = clip_model
     model_dict['clip_preprocess'] = clip_preprocess
     model_dict['openimage_classifier_weights'] = openimage_classifier_weights
@@ -85,6 +89,8 @@ def load_models():
     model_dict['ppl_classnames'] = ppl_classnames
     model_dict['ifppl_classifier_weights'] = ifppl_classifier_weights
     model_dict['ifppl_classnames'] = ifppl_classnames
+    model_dict['simple_tag_weights'] = simple_tag_weights
+    model_dict['simple_tag_classnames'] = simple_tag_classnames
     model_dict['device'] = device
 
     return model_dict
@@ -191,14 +197,16 @@ def generate_captions(prompt, num_captions=3):
             "eos_token_id": None,
         }
 
-    payload = {"inputs": input_sentence, "parameters": parameters,"options" : {"use_cache": False}}
+    payload = {"inputs": input_sentence, "parameters": parameters,"options" : {"use_cache": True}}
 
     bloom_results = []
-    for _ in range(num_captions):
+    while len(bloom_results) == 0:
         response = requests.post(API_URL, headers=headers, json=payload)
         output = response.json()
-        generated_text = output[0]['generated_text'].replace(prompt, '').split('.')[0] + '.'
-        bloom_results.append(generated_text)
+        if isinstance(output, list) and len(output) > 0:
+            generated_text = output[0]['generated_text'].replace(prompt, '').split('.')[0] + '.'
+            bloom_results.append(generated_text)
+    
     return bloom_results
 
 

@@ -14,5 +14,10 @@ geopy
 tzwhere
 pandas
 sqlite
+matplotlib
+sklearn
+urllib
+pillow_heif
+
 #exifread=2.3.2 -> not working on 3.0.0
 #pip install pycocoevalcap -> not available on conda install
