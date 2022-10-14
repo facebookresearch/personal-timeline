@@ -116,7 +116,8 @@ Make sure the variable at the top of create_spotify_LLEntries.py points in the r
 ## Step 2: Running the offline enrichment and summarization pipeline
 
 Run:
-```python -m src.offline_processing
+```
+python -m src.offline_processing
 ```
 
 The script will generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`.
