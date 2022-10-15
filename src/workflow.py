@@ -3,6 +3,7 @@ from src.enrichment.geo_enrichment import LocationEnricher
 from time import sleep
 
 from src.export.export_entities import PhotoExporter
+from src.generic_importer_workflow import GenericImportOrchestrator
 from src.importer.create_facebook_LLEntries import FacebookPhotosImporter
 from src.importer.create_google_photo_LLEntries import GooglePhotosImporter
 
@@ -16,24 +17,24 @@ from src.importer.create_google_photo_LLEntries import GooglePhotosImporter
 # 5. Generate Summaries -> Some Storage TBD
 if __name__ == '__main__':
     action_arr = []
-    print("Welcome to the demo!!!")
-    print("Let's import some data first. What do you want to import?")
-    #sleep(2)
+    print("Welcome to the import workflow for everything personal!!!")
+    print("Let's begin. Press [n] at anytime to break")
     inp = input("1. Google Photos (data must be present in personal-data/google_photos) [y/n]? ").upper()
     action_arr.append("gp") if inp == 'Y' else None
     inp = input("2. Facebook Posts (data must be present in personal-data/facebook/posts) [y/n]? ").upper()
     action_arr.append("fp")  if inp == 'Y' else None
     # Enrich Location after import is complete
-    inp = input("Should I run location enrichment [y/n]? ").upper()
+    inp = input("Should I run location enrichment on photos [y/n]? ").upper()
     action_arr.append("geo_enrich") if inp == 'Y' else None
     inp = input("Should I run image enrichment [y/n]? ").upper()
     action_arr.append("image_enrich") if inp == 'Y' else None
-    inp = input("Ok. Export all data in the end [y/n]? ").upper()
+    inp = input("Merge enrichments with photos data in the end [y/n]? ").upper()
     action_arr.append("export") if inp == 'Y' else None
-
     if len(action_arr)==0:
-        print("No new import task. Moving on...")
-        #sleep(2)
+        print("No new photo import task. Moving on...")
+
+    gip = GenericImportOrchestrator()
+    gip.seek_user_consent()
     for action in action_arr:
         if action == "gp":
             # Do some basic validation of dirs
@@ -70,5 +71,6 @@ if __name__ == '__main__':
             sleep(2)
             ex = PhotoExporter()
             ex.create_export_entity()
-            print("Export Complete. Finalized entities are now available in the DB under enriched_data column")
+            print("Merge Complete. Full photo entities are available in enriched_data column")
+    gip.start_import()
     print("Thanks for using the demo. See you Later, Gator!!!")

@@ -1,20 +1,23 @@
 import json
 import os
 from pathlib import Path
-import datetime
+import pickle
 from datetime import datetime, timedelta
 from datetime import timezone
-from json_obj import LLEntry
-from util import *
+
+from tqdm import tqdm
+
+from src.objects.LLEntry_obj import LLEntry, LLEntryInvertedIndex
+from src.util import *
 import pandas as pd
 import numpy as np
 
 
 # This is where the photos and their jsons sit
 HOME_CITIES = ["Los Altos", "Palo Alto", "Mountain View", "San Francisco", "Burlingame", "Milpitas", "San Jose"]
-DATA_DIR = "/Users/ayh/Documents/src/pim/src/pim-photos/data/"
+DATA_DIR = "data/"
 INPUT_FILE = DATA_DIR + "date_inverted_index.json"
-#OUTPUT_FILE = DATA_DIR + "summaries_index.json"
+OUTPUT_FILE = DATA_DIR + "summaries_index.json"
 SOLR_OUTPUT_FILE = DATA_DIR + "solr_summaries.json"
 OUTPUT1_FILE = DATA_DIR + "summaries1_index.json"
 GTIMELINE_DIR = "2019"
@@ -87,7 +90,7 @@ def printTrip(trip):
             result = result + pc
             if nicePrint != "":
                 result = result + " (" + nicePrint + ")"
-    print (result)
+    #print (result)
     return (result)        
 
 def homeOrNot(day):
@@ -148,7 +151,7 @@ def compute_daily_locations():
         if (city, state, country) not in daily_locations[day] and \
            (city, state, country) != ("", "", ""):
             daily_locations[day].append((city, state, country))
-    print (daily_locations)
+    #print (daily_locations)
 
 
 def calculate_trips():
@@ -176,96 +179,97 @@ def calculate_trips():
                 new_trip_obj.textDescription = printTrip(new_trip)
                 trip_objs.append(new_trip_obj)
             
-    for trip in trips:
-        printTrip(trip)
+    # for trip in trips:
+    #     printTrip(trip)
     return (trip_objs)
     
 def create_csv(df):
     count = 0
-    with open(path, 'r') as f1:
-        r1 = f1.read()
-        data = json.loads(r1)
-        for day in data.keys():
-            objs = data[day]
-            summary_obj = LLEntry("daily", day, "V1")
-            summaries[day] = [summary_obj]
-            for obj in objs:
-                #print (obj)
-                count = count + 1
-                startTime = obj["startTime"]
-                date = startTime[0:10]
-                day_num = int(daysSinceEpoch(date))
+    infile = open(path, "rb")
+    data:LLEntryInvertedIndex = pickle.load(infile)
+
+    for day in tqdm(data.index.keys()):
+        objs = data.getEntries(day)
+        summary_obj = LLEntry("daily", day, "V1")
+        summaries[day] = [summary_obj]
+        for raw_obj in objs:
+            obj:LLEntry = pickle.loads(raw_obj)
+            #print (obj)
+            count = count + 1
+            startTime = obj.startTime
+            date = startTime[0:10]
+            day_num = int(daysSinceEpoch(date))
 
 # Putting activity and health objects into a daily summary object                   
-                if obj["type"][0:5] == "base:":
-                    print(obj["type"])
-                    new_type = "daily:" + obj["type"][5:]
-                    source = "V0"
-                    startTime = obj["startTime"]
-                    distance = obj["distance"]
-                    duration = obj["duration"]
-                    summary_obj.textDescription = summary_obj.textDescription + "\n" + \
-                        obj["textDescription"]
-                    
-                    row = { "date": date,  "month": date[0:7], "day_num": day_num, "unit": "day", \
-                            "activity": obj["type"][5:], \
-                            "distance": float(distance), "duration": duration, \
-                            "city": obj["startCity"], "country": obj["startCountry"], \
-                            "state": obj["startState"], "bookend": "0"  }
-                    row_end = { "date": date, "month": date[0:7], "day_num": day_num, "unit": "day", \
-                            "activity": obj["type"][5:], \
-                            "distance": float(distance), "duration": duration, \
-                            "city": obj["endCity"], "country": obj["endCountry"], \
-                                "state": obj["endState"], "bookend": "1" }
+            if obj.type[0:5] == "base:":
+                # print(obj.type)
+                new_type = "daily:" + obj.type[5:]
+                source = "V0"
+                startTime = obj.startTime
+                distance = obj.distance
+                duration = obj.duration
+                summary_obj.textDescription = summary_obj.textDescription + "\n" + \
+                    obj.textDescription
 
-                    df = df.append(row, ignore_index = True)
-                    df = df.append(row_end, ignore_index = True)
-                            
-                    
+                row = { "date": date,  "month": date[0:7], "day_num": day_num, "unit": "day", \
+                        "activity": obj.type[5:], \
+                        "distance": float(distance), "duration": duration, \
+                        "city": obj.startCity, "country": obj.startCountry, \
+                        "state": obj.startState, "bookend": "0"  }
+                row_end = { "date": date, "month": date[0:7], "day_num": day_num, "unit": "day", \
+                        "activity": obj.type[5:], \
+                        "distance": float(distance), "duration": duration, \
+                        "city": obj.endCity, "country": obj.endCountry, \
+                            "state": obj.endState, "bookend": "1" }
+
+                df = df.append(row, ignore_index = True)
+                df = df.append(row_end, ignore_index = True)
+
+
 #                    
 
-                if obj["type"] == "base/photo":
-                    if len(obj["peopleInImage"]) > 0:
-                        for j in obj["peopleInImage"]:
+            if obj.type == "base/photo":
+                if len(obj.peopleInImage) > 0:
+                    for j in obj.peopleInImage:
 #                            people_obj.people.append(j["name"])
-                            row = {"date": date, "month": date[0:7], "unit": "day", "person": j["name"], \
-                                   "day_num": day_num,  "activity": "photo", \
-                                   "city": obj["startCity"], "country": obj["startCountry"], \
-                                   "state": obj["startState"], "duration": obj["duration"], \
-                                   "location": obj["startLocation"], "bookend": "0" }
-                            df = df.append(row, ignore_index = True)
-                            #print ("adding ", j["name"])
-                    if obj["startLocation"] != "":
-                        
-                        #if obj["startLocation"] not in location_obj.locations:
-                        #    print("adding ", obj["startLocation"])
- #                           location_obj.locations.append(obj["startLocation"])
-                        row = {"date": date, "month": date[0:7], "unit": "day", "day_num": day_num, \
-                               "location": obj["startLocation"], \
-                               "city": obj["startCity"], "country": obj["startCountry"], \
-                               "state": obj["startState"], "activity": "photo", "bookend": "0"}
+                        row = {"date": date, "month": date[0:7], "unit": "day", "person": j["name"], \
+                               "day_num": day_num,  "activity": "photo", \
+                               "city": obj.startCity, "country": obj.startCountry, \
+                               "state": obj.startState, "duration": obj.duration, \
+                               "location": obj.startLocation, "bookend": "0" }
                         df = df.append(row, ignore_index = True)
-                #summaries[date].append(location_obj)
-                # summaries[date].append(people_obj)
+                        #print ("adding ", j["name"])
+                if obj.startLocation != "":
 
-                # if len(location_obj.locations) > 0:
-                #     location_obj.textDescription = "Spent the day at"
-                #     for place in location_obj.locations:
-                #         location_obj.textDescription =  location_obj.textDescription + " " + \
-                #             place
-                #     location_obj.textDescription = location_obj.textDescription + "."
-                # if len(people_obj.people) > 0:
-                #     people_obj.textDescription = "Spent the day with"
-                #     for person in people_obj.people:
-                #         people_obj.textDescription = people_obj.textDescription + " " +  \
-                #             person
-                #     people_obj.textDescription = people_obj.textDescription + "."
-                    
-                        
-        print(count)
-        df.to_csv("summaries.csv")
+                    #if obj.startLocation"] not in location_obj.locations:
+                    #    print("adding ", obj.startLocation"])
+#                           location_obj.locations.append(obj.startLocation"])
+                    row = {"date": date, "month": date[0:7], "unit": "day", "day_num": day_num, \
+                           "location": obj.startLocation, \
+                           "city": obj.startCity, "country": obj.startCountry, \
+                           "state": obj.startState, "activity": "photo", "bookend": "0"}
+                    df = df.append(row, ignore_index = True)
+            #summaries[date].append(location_obj)
+            # summaries[date].append(people_obj)
+
+            # if len(location_obj.locations) > 0:
+            #     location_obj.textDescription = "Spent the day at"
+            #     for place in location_obj.locations:
+            #         location_obj.textDescription =  location_obj.textDescription + " " + \
+            #             place
+            #     location_obj.textDescription = location_obj.textDescription + "."
+            # if len(people_obj.people) > 0:
+            #     people_obj.textDescription = "Spent the day with"
+            #     for person in people_obj.people:
+            #         people_obj.textDescription = people_obj.textDescription + " " +  \
+            #             person
+            #     people_obj.textDescription = people_obj.textDescription + "."
+
+
+    print(count)
+    df.to_csv("summaries.csv")
 #        print (df.head())
-        return (df)
+    return (df)
 
 def return_summary_item(name, l):
     for i in l:
@@ -294,7 +298,7 @@ def return_summary_item(name, l):
 #                     summary_obj.textDescription = "Ran " + \
 #                          truncateStringNum(run_obj.distance,2) + " miles."
 #                     # print (summary_obj.textDescription)
-#                     # run_obj["run_count"] ++
+#                     # run_obj.run_count"] ++
 #                 else:
 #                     new_type = "monthly:running"
 #                     source = "V0"
@@ -360,7 +364,7 @@ for index, row in df1.iterrows():
             
 #create_monthly_summaries()
 #summaries.update(monthly)
-print(df.head())
+#print(df.head())
 count = 0
 solr_output = "[ "
 c1 = 0

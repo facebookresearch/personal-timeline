@@ -4,9 +4,9 @@ from enum import Enum
 class EntryType(str, Enum):
     PHOTO: str="photo"
     PURCHASE: str="purchase"
-    WORKOUT: str="workout"
+    HEALTH: str="health"
     VISIT: str="visit"
-    MUSIC: str="music"
+    STREAMING: str="streaming"
 
     def toJson(self):
         return json.dumps(self.__dict__.values())

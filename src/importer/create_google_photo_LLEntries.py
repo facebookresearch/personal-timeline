@@ -7,16 +7,14 @@ import os
 from src.importer.photo_importer_base import PhotoImporter
 from src.objects.EntryTypes import EntryType
 
-# This is where the photos and their jsons sit
-INPUT_DIRECTORY = "personal-data/google_photos"
-# Google Photos Configs
-SOURCE = "Google Photos"
-TYPE = EntryType.PHOTO
-
-
 class GooglePhotosImporter(PhotoImporter):
     def __init__(self):
-        super().__init__(INPUT_DIRECTORY, None, SOURCE, TYPE)
+        # Google Photos Configs
+        self.SOURCE = "Google Photos"
+        # This is where the photos and their jsons sit
+        INPUT_DIRECTORY = "personal-data/google_photos"
+        TYPE = EntryType.PHOTO
+        super().__init__(INPUT_DIRECTORY, None, self.SOURCE, TYPE)
 
     def import_photos(self, cwd, subdir):
         orphan_json_files = []
@@ -27,12 +25,12 @@ class GooglePhotosImporter(PhotoImporter):
             dir_entries = os.listdir(json_filepath)
             for dir_entry in dir_entries:
                 uri = json_filepath +"/"+ dir_entry
-                img_files = self.get_type_files_deep(uri, ["jpg", "JPEG", "HEIC"])
+                img_files = self.get_type_files_deep(uri, ["jpg", "JPEG", "PNG"])
                 if img_files is None:
                     continue
                 for img_file in img_files:
                     try:
-                        self.db.add_only_photo(SOURCE, self.get_filename_from_path(img_file), img_file)
+                        PhotoImporter.db.add_only_photo(self.SOURCE, self.get_filename_from_path(img_file), img_file)
                     except sqlite3.IntegrityError:
                         #print(img_file, " already present in DB")
                         continue
@@ -60,8 +58,8 @@ class GooglePhotosImporter(PhotoImporter):
                     imageFileName=content["title"]
                     #Search for DB row that has the full imagePath
                     select_cols = "id, imageFilePath, timestamp"
-                    where_clause = {"source": "=\""+SOURCE+"\"", "imageFileName": "=\""+imageFileName+"\""}
-                    res = self.db.search_photos(select_cols, where_clause)
+                    where_clause = {"source": "=\""+self.SOURCE+"\"", "imageFileName": "=\""+imageFileName+"\""}
+                    res = PhotoImporter.db.search_photos(select_cols, where_clause)
                     db_entry = res.fetchone()
                     if db_entry is None:
                         orphan_json_files.append(json_file)
@@ -86,7 +84,7 @@ class GooglePhotosImporter(PhotoImporter):
                         heic_counter +=1
                         continue
                     obj = self.create_LLEntry(imageFilePath, latitude, longitude, taken_timestamp, tagged_people, imageViews)
-                    self.db.update_photos(row_id, {"data": obj, "timestamp": int(taken_timestamp)})
+                    PhotoImporter.db.update_photos(row_id, {"data": obj, "timestamp": int(taken_timestamp)})
                     total_imported += 1
             #print("Orphaned Json Files: ", orphan_json_files)
             print("Total processed: ", total_imported)

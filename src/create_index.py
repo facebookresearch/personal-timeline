@@ -1,7 +1,8 @@
 import json
 import os
 from pathlib import Path
-from src.objects.LLEntry_obj import LLEntry
+from src.objects.LLEntry_obj import LLEntry, LLEntryInvertedIndex
+from src.persistence.personal_data_db import PersonalDataDBConnector
 from src.persistence.photo_data_db import PhotoDataDB
 import pickle
 
@@ -13,25 +14,8 @@ GTIMELINE_DIR = "2019"
 INPUT_FILES = {"google_timeline_data.json", "applehealth_data.json", "spotify.json",  "amazon_purchases.json" }
 output_path = DATA_DIR +"/"+ OUTPUT_FILE
 
-index = {}
+inverted_index = LLEntryInvertedIndex()
 count = 0
-for f in INPUT_FILES:
-    path = DATA_DIR + f
-    if not os.path.exists(path):
-        print ("Could not find " + path)
-        continue 
-    print("Reading: ", path)
-    with open(path, 'r') as f1:
-        r1 = f1.read()
-        data = json.loads(r1)
-        objs = data["solrobjects"]
-        for obj in objs:
-            count = count + 1
-            date = obj["startTime"][0:10]
-            if date in index:
-                index[date].append(obj)
-            else:
-                index[date] = [ obj ]
 
 print("Index created from files. ")
 print("Creating Index from DB... ")
@@ -40,15 +24,22 @@ db = PhotoDataDB()
 result_cursor = db.search_photos("enriched_data", {"export_done": "=1"})
 for row in result_cursor:
     enriched_entry:LLEntry = pickle.loads(row[0])
-    count = count + 1
+    count += 1
     date = enriched_entry.startTime[0:10]
-    if date in index:
-        index[date].append(enriched_entry.toJson())
-    else:
-        index[date] = [enriched_entry.toJson()]
+    inverted_index.addEntry(date, row[0])
+photos_count=count
+print("Photos count:", photos_count)
 
-output_json = json.dumps(index)
-print ("count and number of keys are: ", count, " and ", len(index.keys()))
-print ("Keys: ", sorted(index.keys()))
-with open(output_path, 'w') as outfile:
-    outfile.write(output_json)
+pddb = PersonalDataDBConnector()
+result_cursor = pddb.search_personal_data("data")
+for row in result_cursor:
+    data:LLEntry = pickle.loads(row[0])
+    count += 1
+    date = data.startTime[0:10]
+    inverted_index.addEntry(date, row[0])
+print("Non-Photo count:", count - photos_count)
+output_obj = pickle.dumps(inverted_index)
+print ("count and number of keys are: ", count, " and ", len(inverted_index.index.keys()))
+print ("Keys: ", sorted(inverted_index.index.keys()))
+outfile = open(output_path, 'wb')
+pickle.dump(inverted_index,outfile)

@@ -1,25 +1,24 @@
+from tqdm import tqdm
+
 from src.importer.photo_importer_base import PhotoImporter
 from src.objects.LLEntry_obj import *
 from src.objects.EntryTypes import EntryType
 
-# This is where the photos and their jsons sit
-INPUT_DIRECTORY = "personal-data/facebook"
-SUB_DIRS = ["posts"]
-SOURCE = "Facebook Posts"
-TYPE = EntryType.PHOTO
-
 class FacebookPhotosImporter(PhotoImporter):
     def __init__(self):
-        super().__init__(INPUT_DIRECTORY, SUB_DIRS, SOURCE, TYPE)
+        self.SOURCE = "Facebook Posts"
+        # This is where the photos and their jsons sit
+        INPUT_DIRECTORY = "personal-data/facebook"
+        SUB_DIRS = ["posts"]
+        TYPE = EntryType.PHOTO
+        super().__init__(INPUT_DIRECTORY, SUB_DIRS, self.SOURCE, TYPE)
 
     def import_photos(self, cwd, subdir):
         json_filepath = cwd + "/" + subdir if subdir is not None else cwd
         print("Using path: ", json_filepath)
         json_files = self.get_type_files_deep(json_filepath, ["json"])
         print("All json files in path: ", json_files)
-        outputList = LLEntryList()
-        sofar=0
-        for json_file in json_files:
+        for json_file in tqdm(json_files):
             print("Reading File: ", json_file)
             with open(json_file, 'r') as f1:
                 r = f1.read()
@@ -30,14 +29,14 @@ class FacebookPhotosImporter(PhotoImporter):
             ts2 = self.find_all_in_haystack("creation_timestamp", post_data, True)
             all_media += ts2
             #print("Image_Container", all_media)
-            for media_container in all_media:
+            for media_container in tqdm(all_media):
                 tagged_people = []
                 if isinstance(media_container, dict) and "tags" in media_container.keys():
-                    print("Found tags: ", media_container["tags"])
+                    #print("Found tags: ", media_container["tags"])
                     tagged_people = media_container["tags"]
                 uri_container = self.find_all_in_haystack("uri", media_container, True)
                 count = 0;
-                for one_media in uri_container:
+                for one_media in tqdm(uri_container):
                     if isinstance(one_media, dict) and "uri" in one_media.keys():
                         count += 1
                         uri = cwd +"/"+ one_media["uri"]
@@ -53,15 +52,10 @@ class FacebookPhotosImporter(PhotoImporter):
                                     #print("No GPS or Time info, skipping: ", self.get_filename_from_path(uri))
                                     continue
                                 obj = self.create_LLEntry(uri, latitude, longitude, taken_timestamp, tagged_people)
-                                self.db.add_photo(obj)
+                                PhotoImporter.db.add_photo(obj)
                                 #print("OBJ: ",obj)
-                                outputList.addEntry(obj)
-                                sofar += 1
-                                if sofar%100==0:
-                                    print("Photos imported so far:", len(outputList.getEntries()))
                             # else:
                             #     print(self.get_filename_from_path(uri), " is already processed. Skipping recreation...")
-        print("Total Photos Imported:", len(outputList.getEntries()))
 
 # cwd = str(Path(INPUT_DIRECTORY).absolute())
 # full_output = LLEntryList()
