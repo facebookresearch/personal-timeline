@@ -64,6 +64,7 @@ class LLEntry:
         self.startTimeOfDay = "00:00:00"
         self.endTimeOfDay =  "00:00:00"
         self.recordedStartTime = startTime
+        
     def printObj(self):
         print(self.type, self.startTime, self.source, self.peopleInImage)
 
