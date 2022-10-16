@@ -4,8 +4,9 @@ import time
 import clip
 import requests
 import csv
-import json
 import wget
+import openai
+
 from PIL import Image
 
 
@@ -206,8 +207,28 @@ def generate_captions(prompt, num_captions=3):
         if isinstance(output, list) and len(output) > 0:
             generated_text = output[0]['generated_text'].replace(prompt, '').split('.')[0] + '.'
             bloom_results.append(generated_text)
+        else:
+            time.sleep(5)
     
     return bloom_results
+
+
+
+def generate_text_gpt3(prompt):
+    """Prompting GPT-3
+    """
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    response = openai.Completion.create(
+        model="text-davinci-002",
+        prompt=prompt,
+        temperature=0,
+        max_tokens=100,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0,
+        stop=["\n"])
+        
+    return getattr(getattr(response, 'choices')[0], "text")
 
 
 def sorting_texts(image_features, captions):
