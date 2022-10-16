@@ -22,7 +22,6 @@ https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
     ```$ mkdir ~/personal-data```
 7. In your repo, create a Sym link for the above created dir  
     ```$ ln -s ~/personal-data personal-data```
-8. For image captioning, install the requirements following the instructions from `src/enrichment/socratic/README.md`.
 
 # Step 1: Downloading your photos
 
@@ -50,9 +49,10 @@ The easiest way to do this on a Mac is:
 
 # Step 2: Import your photo data to SQLite (this is what will go into the episodic database)
 
- Run:
-
+Run:
+    ```
     python -m src.workflow
+    ```
 The script will allow you to choose the steps you want to run from the workflow.  
 Follow the instructions to import and enrich data.
 
@@ -115,7 +115,17 @@ Make sure the variable at the top of create_spotify_LLEntries.py points in the r
 
 ## Step 2: Running the offline enrichment and summarization pipeline
 
-Run:
+* Install all required packages (see above and `requirements.txt`).
+* Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
+```
+export HF_TOKEN=<the token goes here>
+```
+* Fill in the user information in `user_info.json`, such as
+```
+{"name": "Hilbert", "address": "Menlo Park, California, United States"}
+```
+
+* Run:
 ```
 python -m src.offline_processing
 ```
@@ -159,6 +169,21 @@ An entry in the trip index looks like:
   'start_date': datetime.date(2018, 8, 29),
   'summary': 'I went to Rio de Janeiro, Brazil, for 3 days in 2018/8.'}
 ```
+
+## Step 3: Generate visualization
+
+You need to first set up a Google Map API (free) following these [instructions](https://developers.google.com/maps/documentation/embed/quickstart#create-project).
+
+```
+export GOOGLE_MAP_API=<the API key goes here>
+```
+
+Run
+```
+python -m src.visualization
+```
+
+The script will generate a HTML page `index.html` for inspecting the timeline from your browser. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
 
 <!-- #### Currently we use the BLIP package from Salesforce to generate captions.
 
