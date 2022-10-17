@@ -29,13 +29,13 @@ def visualize(image_paths: List[str]):
     path = "images/summary_%d.png" % (img_cnt)
     img_cnt += 1
 
-    if len(image_paths) == 1:
-        return image_paths[0]
+    # if len(image_paths) == 1:
+    #     return image_paths[0]
 
     if os.path.exists(path):
         return path
 
-    plt.figure(figsize=(60,30))
+    plt.figure(figsize=(100,50))
     columns = 9
     for i, img_path in enumerate(image_paths[:9]):
         img = Image.open(img_path)
