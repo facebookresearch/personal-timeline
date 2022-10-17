@@ -154,14 +154,15 @@ def visualize(image_paths: List[str]):
         plt.imshow(img)
 
 
-bloom_cache = {}
-
 def postprocess_bloom(answer: str):
     """Postprocess a bloom request response."""
     # answer = answer.replace('\n', ',').replace('-', ',').replace('.', ',')
     # items = [item.strip() for item in answer.split(',')]
     # items = list(Counter([item for item in items if len(item) >= 5]).keys())
     # return items
+    # print(answer)
+    if isinstance(answer, bytes):
+        answer = answer.decode('UTF-8')
     answer = answer.replace('"', '').replace("'", '')
     answer = answer.strip().split('\n')[0]
     return answer
@@ -177,7 +178,7 @@ def summarize_activity(entries: List[LLImage]):
             objects_cnt[o] += 1
         for p in ent.places:
             places_cnt[p] += 1
-    
+
     sorted_places = list(zip(*places_cnt.most_common(3)))[0]
     object_list = ', '.join(list(zip(*objects_cnt.most_common(10)))[0])
 
@@ -187,15 +188,11 @@ def summarize_activity(entries: List[LLImage]):
        I think there might be a {object_list} in these photos.
        A creative short caption I can generate to describe these photos is:'''
 
-    if prompt in bloom_cache:
-        response = bloom_cache[prompt]
-    else:
-        response = socratic.generate_captions(prompt)
-        bloom_cache[prompt] = response
+    response = socratic.generate_captions(prompt)
 
     # print(prompt)
     # print(response)
-    return [postprocess_bloom(r) for r in response][0]
+    return postprocess_bloom(response)
 
 
 def summarize_day(day: List[List[LLImage]], activity_index: Dict):
@@ -210,7 +207,7 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
                 objects_cnt[o] += 1
             for p in ent.places:
                 places_cnt[p] += 1
-    
+
     sorted_places = list(zip(*places_cnt.most_common(3)))[0]
     object_list = ', '.join(list(zip(*objects_cnt.most_common(5)))[0])
     summaries = '\n'.join(activity_summaries)
@@ -220,10 +217,10 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
       I spent today at {get_location(day).split(';')[0]}.
       I have been to {sorted_places[0]}, {sorted_places[1]}, or {sorted_places[2]}.
       I saw {object_list}.
-      I did the following things: 
+      I did the following things:
       {summaries}
       A creative summary I can generate to describe the day is:"""
-    # prompt = f"""I am an intelligent image captioning bot. 
+    # prompt = f"""I am an intelligent image captioning bot.
     #   I am going to summarize what I did today.
     #   I spent today at {get_location(day).replace(';', ', ')}.
     #   I have been to {sorted_places[0]}, {sorted_places[1]}, or {sorted_places[2]}.
@@ -232,13 +229,10 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
 
     # print(prompt)
 
-    if prompt in bloom_cache:
-        response = bloom_cache[prompt]
-    else:
-        response = socratic.generate_captions(prompt)
-        bloom_cache[prompt] = response
+    response = socratic.generate_captions(prompt)
 
-    return [postprocess_bloom(r) for r in response][0]
+    return postprocess_bloom(response)
+    
 
 def trip_data_to_text(locations: List[str], start_date: List, num_days: List[int]):
     """Data to text for a trip."""
@@ -254,13 +248,9 @@ def trip_data_to_text(locations: List[str], start_date: List, num_days: List[int
 
     prompt = f"""A {num_days}-day trip to {", ".join(cities)} {", ".join(countries)} in {start_date.year}/{start_date.month}.
     Paraphrase the above sentence in proper English:"""
-    if prompt in bloom_cache:
-        response = bloom_cache[prompt]
-    else:
-        response = socratic.generate_captions(prompt)
-        bloom_cache[prompt] = response
-    return [postprocess_bloom(r) for r in response][0]
-
+    response = socratic.generate_captions(prompt)
+    return postprocess_bloom(response)
+    
 
 def organize_images_by_tags(images: List[LLImage]):
     """Generate an index from image tags (food, plant, etc.) to lists of images."""
@@ -270,7 +260,7 @@ def organize_images_by_tags(images: List[LLImage]):
             if tag not in result:
                 result[tag] = []
             result[tag].append({"img_path": image.img_path, "name": image.objects[0]})
-    
+
     return result
 
 
@@ -556,7 +546,7 @@ if __name__ == '__main__':
         entries.append(entry)
 
     entries.sort(key=lambda x: get_timestamp(x))
-    # entries = entries[:50]
+    entries = entries[:50]
     user_info = json.load(open("user_info.json"))
     activity_index, daily_index, trip_index = create_trip_summary(entries, user_info)
 
