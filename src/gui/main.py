@@ -5,6 +5,9 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtWebEngineWidgets import *
 #importing QtCore to use Qurl
 from PyQt5.QtCore import *
+
+PLACEHOLDER_TEXT_SEARCH_TEXT="Type here your questions to Zoltar!"
+
 #main window class (to create a window)-sub class of QMainWindow class
 class Window(QMainWindow):
     #defining constructor function
@@ -38,18 +41,17 @@ class Window(QMainWindow):
         #---------------------search bar---------------------------------
         #to maintain a single line
         self.searchBar = QLineEdit()
-        self.searchBar.setPlaceholderText("Type here your questions to Zoltar!")
+        self.searchBar.setPlaceholderText(PLACEHOLDER_TEXT_SEARCH_TEXT)
         #when someone presses return(enter) call loadUrl method
         self.searchBar.returnPressed.connect(self.loadUrl)
         #adding created search bar to navbar
         navbar.addWidget(self.searchBar)
-        #if url in the searchBar is changed then call updateUrl method
-        self.browser.urlChanged.connect(self.updateUrl)
-    #method to navigate back to home page
     def home(self):
-        #self.browser.setUrl(QUrl('http://google.com'))
+        self.searchBar.setPlaceholderText(PLACEHOLDER_TEXT_SEARCH_TEXT)
+        self.searchBar.setText("")
         url = QUrl.fromLocalFile("/home/pierrem/Documents/github_meta/personal-timeline/src/gui/main.html")
         self.browser.setUrl(url)
+
     #method to load the required url
     def loadUrl(self):
         #fetching entered url from searchBar
@@ -60,10 +62,6 @@ class Window(QMainWindow):
         # - update the page X.html and display it
         url = QUrl.fromLocalFile("/home/pierrem/Documents/github_meta/personal-timeline/src/gui/index.html")
         self.browser.setUrl(QUrl(url))
-    #method to update the url
-    def updateUrl(self, url):
-        #changing the content(text) of searchBar
-        self.searchBar.setText(url.toString())
 
 
 MyApp = QApplication(sys.argv)
