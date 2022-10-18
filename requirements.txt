@@ -14,5 +14,7 @@ geopy
 tzwhere
 pandas
 sqlite
+pyqt5-sip
+pyqtwebengine
 #exifread=2.3.2 -> not working on 3.0.0
 #pip install pycocoevalcap -> not available on conda install
