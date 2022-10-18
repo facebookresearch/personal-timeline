@@ -175,7 +175,9 @@ def generate_prompt(openimage_classes, tencentml_classes, place365_classes, imgt
 def generate_captions(prompt, num_captions=3):
     cache = dbm.open('bloom_cache', 'c')
     if prompt in cache:
-        return cache[prompt]
+        res = cache[prompt]
+        cache.close()
+        return res
 
     headers = {"Authorization": f"Bearer {HF_TOKEN}"}
 
@@ -216,6 +218,7 @@ def generate_captions(prompt, num_captions=3):
             time.sleep(5)
 
     cache[prompt] = bloom_results[0]
+    cache.close()
     return bloom_results[0]
 
 

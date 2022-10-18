@@ -61,28 +61,30 @@ class LLImage:
                 pickle.dump(image_features, open(self.img_path + ".emb", "wb"))
 
             sim = (100.0 * image_features @ model_dict['openimage_classifier_weights'].T).softmax(dim=-1)
-            openimage_scores, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
+            _, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
             openimage_classes = [model_dict['openimage_classnames'][idx] for idx in indices]
 
             sim = (100.0 * image_features @ model_dict['tencentml_classifier_weights'].T).softmax(dim=-1)
-            tencentml_scores, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
+            _, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
             tencentml_classes = [model_dict['tencentml_classnames'][idx] for idx in indices]
 
             sim = (100.0 * image_features @ model_dict['place365_classifier_weights'].T).softmax(dim=-1)
-            place365_scores, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
+            _, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
             self.places = [model_dict['place365_classnames'][idx] for idx in indices]
 
-            self.embedding = image_features
             self.objects = openimage_classes + tencentml_classes
 
             # simple tagging for food, animal, person, vehicle, building, scenery, document, commodity, other objects
             sim = (100.0 * image_features @ model_dict['simple_tag_weights'].T).softmax(dim=-1)
-            tag_scores, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
+            _, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
             tag = [model_dict['simple_tag_classnames'][idx] for idx in indices][0]
             if tag == 'other objects':
                 self.tags = []
             else:
                 self.tags = [tag]
+
+        self.embedding = image_features.squeeze(0).cpu().numpy()
+
 
 
 class LLTablular:
@@ -130,7 +132,7 @@ def create_image_summary(images: List[LLImage], k=3):
     if len(images) < k:
         return [img.img_path for img in images]
 
-    X = np.array([img.embedding.squeeze(0).cpu().numpy() for img in images])
+    X = np.array([img.embedding for img in images])
     kmeans = KMeans(n_clusters=k, random_state=42).fit(X)
     centers = [c / np.linalg.norm(c) for c in kmeans.cluster_centers_]
     nearest = [None for _ in range(k)]
@@ -220,6 +222,8 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
       I did the following things:
       {summaries}
       A creative summary I can generate to describe the day is:"""
+
+    print(prompt)
     # prompt = f"""I am an intelligent image captioning bot.
     #   I am going to summarize what I did today.
     #   I spent today at {get_location(day).replace(';', ', ')}.
@@ -232,7 +236,7 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
     response = socratic.generate_captions(prompt)
 
     return postprocess_bloom(response)
-    
+
 
 def trip_data_to_text(locations: List[str], start_date: List, num_days: List[int]):
     """Data to text for a trip."""
@@ -250,7 +254,7 @@ def trip_data_to_text(locations: List[str], start_date: List, num_days: List[int
     Paraphrase the above sentence in proper English:"""
     response = socratic.generate_captions(prompt)
     return postprocess_bloom(response)
-    
+
 
 def organize_images_by_tags(images: List[LLImage]):
     """Generate an index from image tags (food, plant, etc.) to lists of images."""
@@ -331,7 +335,7 @@ def create_segments(entries: List[LLImage], user_info: Dict):
             emb_i = activity[i].embedding
             for j in range(i):
                 emb_j = activity[j].embedding
-                sim = torch.dot(emb_i.squeeze(0), emb_j.squeeze(0)).numpy()
+                sim = np.dot(emb_i, emb_j)
                 if sim > 0.9:
                     duplicate = True
                     break
@@ -546,7 +550,7 @@ if __name__ == '__main__':
         entries.append(entry)
 
     entries.sort(key=lambda x: get_timestamp(x))
-    entries = entries[:50]
+    # entries = entries[:50]
     user_info = json.load(open("user_info.json"))
     activity_index, daily_index, trip_index = create_trip_summary(entries, user_info)
 

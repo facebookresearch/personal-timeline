@@ -6,8 +6,9 @@ In the explanation, we'll assume three directories all sitting within the applic
   All code should be run in the code directory. Photos should be stored in the photos directory. The data directory will contain the json files that are created in the process of building the lifelog.
 
 # Step 0: Create environment
-1. Install Conda from 
-https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+
+1. Install Conda from [this link](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+
 2. Add conda-forge channel:  
    ```conda config --append channels conda-forge```
 
@@ -16,11 +17,17 @@ https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 
 4. Install required packages from requirements.txt file:  
     ```conda install --name <env> --file requirements.txt```
+
 5. Activate the newly created environment  
     ```conda activate <env>```
-6. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
+
+6. Install CLIP from OpenAI:
+    ```pip install git+https://github.com/openai/CLIP.git```
+
+7. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
     ```$ mkdir ~/personal-data```
-7. In your repo, create a Sym link for the above created dir  
+
+8. In your repo, create a Sym link for the above created dir  
     ```$ ln -s ~/personal-data personal-data```
 
 # Step 1: Downloading your photos
@@ -113,7 +120,7 @@ They say it can take up to 30 days, but it took about 2 days. They'll send you a
 The file you need is StreamingHistory0.json
 Make sure the variable at the top of create_spotify_LLEntries.py points in the right place.
 
-## Step 2: Running the offline enrichment and summarization pipeline
+# Step 4: Running the offline enrichment and summarization pipeline
 
 * Install all required packages (see above and `requirements.txt`).
 * Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
@@ -170,7 +177,7 @@ An entry in the trip index looks like:
   'summary': 'I went to Rio de Janeiro, Brazil, for 3 days in 2018/8.'}
 ```
 
-## Step 3: Generate visualization
+# Step 5: Generate visualization
 
 You need to first set up a Google Map API (free) following these [instructions](https://developers.google.com/maps/documentation/embed/quickstart#create-project).
 
@@ -209,7 +216,7 @@ Run:
 
 Run:
 
-    python -m code.create_spotify_LLEntries.py -->
+    python -m code.create_spotify_LLEntries.py
 
 # CREATING THE LIFELOG (old version)
 
@@ -236,4 +243,4 @@ Run
 
     python -m src.timeline.py
 
-Make sure the variable image_directory_path points to the directory with your photos.
+Make sure the variable image_directory_path points to the directory with your photos. -->
