@@ -6,65 +6,67 @@ class LLEntry:
 
         #TIME: as experienced by the user (i.e., what timezone they're in)
         self.startTime = startTime 
-        self.endTime = self.startTime        
-        self.timezone = ""
+        self.endTime = None #self.startTime -> this should be done during derivation if duration is missing
+        self.timezone = None
 
         #LOCATION start and end. If there's only one, it's the start
-        self.startLocation = ""
-        self.latitude = "" 
-        self.longitude = ""
-        self.startCountry = ""
-        self.startState = ""
-        self.startCity = ""
-        self.endLocation = ""
-        self.endCountry = ""
-        self.endState = ""
-        self.endCity = ""
-        self.endLatitude = ""
-        self.endLongitude = ""
+        self.startLocation = None
+        self.latitude = None
+        self.longitude = None
+        self.startCountry = None
+        self.startState = None
+        self.startCity = None
+        self.endLocation = None
+        self.endCountry = None
+        self.endState = None
+        self.endCity = None
+        self.endLatitude = None
+        self.endLongitude = None
 
         # Purchase
-        self.purchase_id = ""
-        self.productName = ""
-        self.productPrice = ""
-        self.currency = ""
-        self.productQuantity = ""
-        self.author= ""
+        self.purchase_id = None
+        self.productName = None
+        self.productPrice = None
+        self.currency = None
+        self.productQuantity = None
+        self.author= None
 
         # Music
-        self.artist = ""
-        self.track = ""
-        self.playtimeMs = 0
+        self.artist = None
+        self.track = None
+        self.playDuration:int = 0
+        self.durationUnit = "ms"
         self.track_count={}
 
         # TEXT of entry (often generated programmatically from source data)
-        self.textDescription = ""
+        self.textDescription = None
         
         #IMAGE data
-        self.imageURL = ""
-        self.imageTimestamp = 0
-        self.imageFileName = ""
-        self.imageFilePath = ""
-        self.imageCaptions = ""
-        self.captionEmbedding = ""
-        self.imageEmbedding = ""
-        self.imageViews = ""
-        self.peopleInImage = []
-        self.imageWidth = ""
-        self.imageHeight = ""
+        self.imageTimestamp:int = 0
+        self.imageURL = None
+        self.rawImageFilename = None
+        self.imageFileName = None
+        self.imageFilePath = None
+        self.imageCaptions = None
+        self.captionEmbedding = None
+        self.imageEmbedding = None
+        self.imageViews = None
+        self.peopleInImage:list = []
+        self.imageWidth = None
+        self.imageHeight = None
 
         # Data for quantified entries        
-        self.duration = 0
-        self.distance = 0
-        self.calories = 0
-        self.outdoor = 1
-        self.temperature = ""
+        self.duration = None
+        self.distance = None
+        self.calories = None
+        self.outdoor = None
+        self.temperature = None
 
         #BOOKKEEPING extra info for convenience
         self.startTimeOfDay = "00:00:00"
         self.endTimeOfDay =  "00:00:00"
         self.recordedStartTime = startTime
-        
+
     def printObj(self):
         print(self.type, self.startTime, self.source, self.peopleInImage)
 
@@ -75,20 +77,4 @@ class LLEntry:
         return json.dumps(self.__dict__)
         #return json.dumps(self, default=lambda o: o.__dict__,
          #                 sort_keys=True, indent=4)
-
-class LLEntryInvertedIndex:
-    def __init__(self):
-        self.index = {}
-    def addEntry(self, key:str, entry: LLEntry):
-        if key not in self.index.keys():
-            self.index[key] = []
-        self.index[key].append(entry)
-
-    def getEntries(self, key):
-        if key in self.index.keys():
-            return self.index[key]
-        else:
-            return None
-    def __str__(self):
-        return self.index.__str__()
 
