@@ -7,7 +7,8 @@ from datetime import timezone
 
 from tqdm import tqdm
 
-from src.objects.LLEntry_obj import LLEntry, LLEntryInvertedIndex
+from src.objects.LLEntry_inverted_index import LLEntryInvertedIndex
+from src.objects.LLEntry_obj import LLEntry
 from src.util import *
 import pandas as pd
 import numpy as np

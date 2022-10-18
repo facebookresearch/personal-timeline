@@ -1,7 +1,9 @@
 import json
 import os
 from pathlib import Path
-from src.objects.LLEntry_obj import LLEntry, LLEntryInvertedIndex
+
+from src.objects.LLEntry_inverted_index import LLEntryInvertedIndex
+from src.objects.LLEntry_obj import LLEntry
 from src.persistence.personal_data_db import PersonalDataDBConnector
 from src.persistence.photo_data_db import PhotoDataDB
 import pickle
