@@ -153,12 +153,12 @@ class SimpleJSONImporter(GenericImporter):
                                       self.configs.filename_regex,
                                       self.configs.filetype.split(","))
         if len(entries) == 0:
-            print("NotFound: Data expected in ", self.configs.input_directory, " while importing for ", self.source_name)
+            print("NotFound: Data expected in", self.configs.input_directory, "while importing for", self.source_name)
             if self.configs.filename_regex is not None:
                 print("File pattern searched for:", self.configs.filename_regex, "extn:",self.configs.filetype)
             return
         for entry in tqdm(entries):
-            print("Reading File: ", entry)
+            print("Reading File:", entry)
             with open(entry, 'r') as f1:
                 r = f1.read()
                 user_data = json.loads(r)

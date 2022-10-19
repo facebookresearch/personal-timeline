@@ -3,7 +3,7 @@ from src.enrichment.geo_enrichment import LocationEnricher
 from time import sleep
 
 from src.export.export_entities import PhotoExporter
-from src.generic_importer_workflow import GenericImportOrchestrator
+from src.importer.generic_importer_workflow import GenericImportOrchestrator
 from src.importer.create_facebook_LLEntries import FacebookPhotosImporter
 from src.importer.create_google_photo_LLEntries import GooglePhotosImporter
 
