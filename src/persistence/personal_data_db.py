@@ -71,13 +71,6 @@ class PersonalDataDBConnector:
         "data_source": "src/bootstrap/data_source.json"
     }
 
-    # def __init__(self):
-    #     self.con = sqlite3.connect("raw_data.db")
-    #     self.cursor = self.con.cursor()
-    #
-    # def __del__(self):
-    #     self.con.close()
-
     def execute_write(self,sql,params=None):
         if params:
             self.con.commit()

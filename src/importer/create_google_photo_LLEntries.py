@@ -84,7 +84,7 @@ class GooglePhotosImporter(PhotoImporter):
                         heic_counter +=1
                         continue
                     obj = self.create_LLEntry(imageFilePath, latitude, longitude, taken_timestamp, tagged_people, imageViews)
-                    self.db.update_photos(row_id, {"data": obj, "timestamp": int(taken_timestamp)})
+                    PhotoImporter.db.update_photos(row_id, {"data": obj, "timestamp": int(taken_timestamp)})
                     total_imported += 1
             #print("Orphaned Json Files: ", orphan_json_files)
             print("Total processed: ", total_imported)

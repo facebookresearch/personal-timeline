@@ -4,8 +4,10 @@ import time
 import clip
 import requests
 import csv
-import json
 import wget
+import openai
+import dbm
+
 from PIL import Image
 
 
@@ -171,6 +173,12 @@ def generate_prompt(openimage_classes, tencentml_classes, place365_classes, imgt
 
 
 def generate_captions(prompt, num_captions=3):
+    cache = dbm.open('bloom_cache', 'c')
+    if prompt in cache:
+        res = cache[prompt]
+        cache.close()
+        return res
+
     headers = {"Authorization": f"Bearer {HF_TOKEN}"}
 
     max_length = 16
@@ -206,9 +214,35 @@ def generate_captions(prompt, num_captions=3):
         if isinstance(output, list) and len(output) > 0:
             generated_text = output[0]['generated_text'].replace(prompt, '').split('.')[0] + '.'
             bloom_results.append(generated_text)
-    
-    return bloom_results
+        else:
+            time.sleep(5)
 
+    cache[prompt] = bloom_results[0]
+    cache.close()
+    return bloom_results[0]
+
+
+def generate_text_gpt3(prompt):
+    """Prompting GPT-3
+    """
+    cache = dbm.open('gpt3_cache', 'c')
+    if prompt in cache:
+        return cache[prompt]
+
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    response = openai.Completion.create(
+        model="text-davinci-002",
+        prompt=prompt,
+        temperature=0,
+        max_tokens=100,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0,
+        stop=["\n"])
+
+    res = getattr(getattr(response, 'choices')[0], "text")
+    cache[prompt] = res
+    return res
 
 def sorting_texts(image_features, captions):
     with torch.no_grad():
