@@ -56,6 +56,7 @@ class GenericImportOrchestrator:
                         imp = CSVImporter(source_id, source_name, entry_type, configs)  # TODO CSV
                     elif configs.filetype == FileType.XML and source_name=="AppleHealth":
                         imp = AppleHealthImporter(source_id, source_name, entry_type, configs) #TODO XML
+                    print("Beginning import for", imp.source_name)
                     imp.import_data(field_mappings)
 
     def import_from_xml(self, source_name: str, configs: SourceConfigs, field_mappings: list):
