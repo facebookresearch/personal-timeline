@@ -9,7 +9,7 @@ import openai
 import dbm
 
 from PIL import Image
-
+from transformers import BloomTokenizerFast
 
 url_dict = {'clip_ViTL14_openimage_classifier_weights.pt': 'https://raw.githubusercontent.com/geonm/socratic-models-demo/master/prompts/clip_ViTL14_openimage_classifier_weights.pt',
             'clip_ViTL14_place365_classifier_weights.pt': 'https://raw.githubusercontent.com/geonm/socratic-models-demo/master/prompts/clip_ViTL14_place365_classifier_weights.pt',
@@ -172,7 +172,9 @@ def generate_prompt(openimage_classes, tencentml_classes, place365_classes, imgt
     return prompt_caption
 
 
-def generate_captions(prompt, num_captions=3):
+bad_words_id = BloomTokenizerFast.from_pretrained("bigscience/bloom").encode("I am an intelligent creative image caption captioning bot I am going to summarize what I did today")
+
+def generate_captions(prompt, num_captions=3, method="Greedy"):
     cache = dbm.open('bloom_cache', 'c')
     if prompt in cache:
         res = cache[prompt]
@@ -181,11 +183,13 @@ def generate_captions(prompt, num_captions=3):
 
     headers = {"Authorization": f"Bearer {HF_TOKEN}"}
 
+    bad_words_id = []
+
     max_length = 16
     seed = 42
-    sample_or_greedy = 'Greedy'
+    # sample_or_greedy = 'Greedy'
     input_sentence = prompt
-    if sample_or_greedy == "Sample":
+    if method == "Sample":
         parameters = {
             "max_new_tokens": max_length,
             "top_p": 0.7,
@@ -194,6 +198,7 @@ def generate_captions(prompt, num_captions=3):
             "early_stopping": False,
             "length_penalty": 0.0,
             "eos_token_id": None,
+            "bad_words_id": bad_words_id
         }
     else:
         parameters = {
@@ -203,9 +208,10 @@ def generate_captions(prompt, num_captions=3):
             "early_stopping": False,
             "length_penalty": 0.0,
             "eos_token_id": None,
+            "bad_words_id": bad_words_id
         }
 
-    payload = {"inputs": input_sentence, "parameters": parameters,"options" : {"use_cache": True}}
+    payload = {"inputs": input_sentence, "parameters": parameters, "options" : {"use_cache": False}}
 
     bloom_results = []
     while len(bloom_results) == 0:

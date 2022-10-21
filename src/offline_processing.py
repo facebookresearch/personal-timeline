@@ -176,21 +176,22 @@ def summarize_activity(entries: List[LLImage]):
     places_cnt = Counter()
 
     for ent in entries:
-        for o in ent.objects:
+        for o in ent.objects[:1]:
             objects_cnt[o] += 1
         for p in ent.places:
             places_cnt[p] += 1
 
-    sorted_places = list(zip(*places_cnt.most_common(3)))[0]
-    object_list = ', '.join(list(zip(*objects_cnt.most_common(10)))[0])
+    sorted_places = list(zip(*places_cnt.most_common(2)))[0]
+    object_list = ', '.join(list(zip(*objects_cnt.most_common(3)))[0])
 
-    prompt = f'''I am an intelligent image captioning bot.
-       I am going to describe the activities in photos.
-       I think these photos were taken in {get_location(entries).split(';')[0]} at a {sorted_places[0]}, {sorted_places[1]}, or {sorted_places[2]}.
-       I think there might be a {object_list} in these photos.
-       A creative short caption I can generate to describe these photos is:'''
+    prompt = "I am an intelligent image captioning bot. I am going to describe the activities in photos. "
+    prompt += f"I think these photos were taken in {get_location(entries).split(';')[0]} at a {sorted_places[0]} or {sorted_places[1]}. "
+    prompt += f"I think there might be a {object_list} in these photos. "
+    prompt += "A very short and creative caption to describe these photos is:"
+    print(prompt)
 
-    response = socratic.generate_captions(prompt)
+    response = socratic.generate_captions(prompt, method="Sample")
+    print(response)
 
     # print(prompt)
     # print(response)
@@ -205,23 +206,23 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
 
     for activity in day:
         for ent in activity:
-            for o in ent.objects:
+            for o in ent.objects[:1]:
                 objects_cnt[o] += 1
             for p in ent.places:
                 places_cnt[p] += 1
 
-    sorted_places = list(zip(*places_cnt.most_common(3)))[0]
-    object_list = ', '.join(list(zip(*objects_cnt.most_common(5)))[0])
-    summaries = '\n'.join(activity_summaries)
+    sorted_places = list(zip(*places_cnt.most_common(2)))[0]
+    object_list = ', '.join(list(zip(*objects_cnt.most_common(3)))[0])
+    summaries = ' '.join(activity_summaries)
+    loc = get_location(day).split(';')[0]
 
-    prompt = f"""I am an intelligent image captioning bot.
-      I am going to summarize what I did today.
-      I spent today at {get_location(day).split(';')[0]}.
-      I have been to {sorted_places[0]}, {sorted_places[1]}, or {sorted_places[2]}.
-      I saw {object_list}.
-      I did the following things:
-      {summaries}
-      A creative summary I can generate to describe the day is:"""
+    prompt = "I am an intelligent image captioning bot. I am going to summarize what I did today. "
+    if loc.strip() != "":
+        prompt += f"I spent today at {loc}. "
+    prompt += f"I have been to {sorted_places[0]} or {sorted_places[1]}. I saw {object_list}. "
+    if len(activity_summaries) > 1:
+        prompt += f"I did the following things: {summaries} "
+    prompt += "A very short and creative caption for the photos I can generate is:"
 
     print(prompt)
     # prompt = f"""I am an intelligent image captioning bot.
@@ -233,7 +234,7 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
 
     # print(prompt)
 
-    response = socratic.generate_captions(prompt)
+    response = socratic.generate_captions(prompt, method="Sample")
 
     return postprocess_bloom(response)
 
@@ -250,9 +251,9 @@ def trip_data_to_text(locations: List[str], start_date: List, num_days: List[int
         if len(country) > 3 and country not in countries:
             countries.append(country)
 
-    prompt = f"""A {num_days}-day trip to {", ".join(cities)} {", ".join(countries)} in {start_date.year}/{start_date.month}.
-    Paraphrase the above sentence in proper English:"""
-    response = socratic.generate_captions(prompt)
+    prompt = f"""Paraphrase "A {num_days}-day trip to {", ".join(cities)} in {start_date.year}/{start_date.month}" in proper English:"""
+    print(prompt)
+    response = socratic.generate_captions(prompt, method="Greedy")
     return postprocess_bloom(response)
 
 
@@ -550,7 +551,7 @@ if __name__ == '__main__':
         entries.append(entry)
 
     entries.sort(key=lambda x: get_timestamp(x))
-    # entries = entries[:50]
+    entries = entries[:50]
     user_info = json.load(open("user_info.json"))
     activity_index, daily_index, trip_index = create_trip_summary(entries, user_info)
 
