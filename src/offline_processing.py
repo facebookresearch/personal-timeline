@@ -9,7 +9,7 @@ import geopy
 import geopy.distance
 import os
 
-from src.persistence.photo_data_db import PhotoDataDB
+from src.persistence.personal_data_db import PersonalDataDBConnector
 from typing import List
 from src.objects.LLEntry_obj import LLEntry
 from collections import Counter
@@ -542,7 +542,7 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
 
 
 if __name__ == '__main__':
-    db = PhotoDataDB()
+    db = PersonalDataDBConnector()
     res = db.search_photos(select_cols="enriched_data", where_conditions={"enriched_data": "is not NULL"})
     entries = []
     for row in res.fetchall():

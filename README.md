@@ -89,21 +89,26 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
 
 # Step 2: Import your photo data to SQLite (this is what will go into the episodic database)
 
-Run:
-    ```
+ Run:
+
     python -m src.workflow
-    ```
+
+
 The script will allow you to choose the steps you want to run from the workflow.  
 Follow the instructions to import and enrich data.
 
 # Step 3: Create Inverted Index Files:
 
-1. Create a data directory and a sym link to that directory inside the repo  
-    ```$ mkdir ~/data```  
-    ```$ ln -s ~/data```
+1. Create a data directory and a sym link to that directory inside the repo
+
+
+    $ mkdir ~/data  
+    $ ln -s ~/data
 2. Run  
-    ```$ python -m src.create_index```
-    This will create a `date_inverted_index.json` file in the data directory used in next step.
+    
+    
+    $ python -m src.create_index
+This will create a `date_inverted_index.json` file in the data directory used in next step.
 
 # Step 4: Running the offline enrichment and summarization pipeline
 

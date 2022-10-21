@@ -52,7 +52,7 @@ class FacebookPhotosImporter(PhotoImporter):
                                     #print("No GPS or Time info, skipping: ", self.get_filename_from_path(uri))
                                     continue
                                 obj = self.create_LLEntry(uri, latitude, longitude, taken_timestamp, tagged_people)
-                                PhotoImporter.db.add_photo(obj)
+                                self.db.add_photo(obj)
                                 #print("OBJ: ",obj)
                             # else:
                             #     print(self.get_filename_from_path(uri), " is already processed. Skipping recreation...")
