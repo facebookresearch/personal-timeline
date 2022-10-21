@@ -19,7 +19,6 @@ class PhotoImporter:
     @abstractmethod
     def __init__(self, input_dir:str, sub_dirs:list, source:str, type:EntryType):
         self.db = PersonalDataDBConnector()
-        self.db = PersonalDataDBConnector()
         self.INPUT_DIRECTORY = input_dir
         self.SUB_DIRS = sub_dirs
         self.SOURCE = source
