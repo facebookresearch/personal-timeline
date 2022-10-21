@@ -19,3 +19,5 @@ matplotlib
 scikit-learn
 urllib3
 elasticsearch-dsl
+pyqt5-sip
+pyqtwebengine
