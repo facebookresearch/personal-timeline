@@ -5,7 +5,6 @@ from pathlib import Path
 from src.objects.LLEntry_inverted_index import LLEntryInvertedIndex
 from src.objects.LLEntry_obj import LLEntry
 from src.persistence.personal_data_db import PersonalDataDBConnector
-from src.persistence.photo_data_db import PhotoDataDB
 import pickle
 
 # This is where the photos and their jsons sit
@@ -22,7 +21,7 @@ count = 0
 print("Index created from files. ")
 print("Creating Index from DB... ")
 #Photos are extracted from DB
-db = PhotoDataDB()
+db = PersonalDataDBConnector()
 result_cursor = db.search_photos("enriched_data", {"export_done": "=1"})
 for row in result_cursor:
     enriched_entry:LLEntry = pickle.loads(row[0])
@@ -32,8 +31,7 @@ for row in result_cursor:
 photos_count=count
 print("Photos count:", photos_count)
 
-pddb = PersonalDataDBConnector()
-result_cursor = pddb.search_personal_data("data")
+result_cursor = db.search_personal_data("data")
 for row in result_cursor:
     data:LLEntry = pickle.loads(row[0])
     count += 1

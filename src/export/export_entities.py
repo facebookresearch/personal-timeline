@@ -1,6 +1,6 @@
 from tqdm import tqdm
 
-from src.persistence.photo_data_db import PhotoDataDB
+from src.persistence.personal_data_db import PersonalDataDBConnector
 import json
 import pickle
 from geopy.location import Location
@@ -8,7 +8,7 @@ from src.objects.LLEntry_obj import LLEntry
 class PhotoExporter:
 
     def __init__(self):
-        self.db = PhotoDataDB()
+        self.db = PersonalDataDBConnector()
     def create_export_entity(self):
         #Read data, location, caption from photos
         select_cols = "id, data, location, captions, embeddings, status"

@@ -32,11 +32,19 @@ from pathlib import Path
 from sqlite3 import Cursor
 
 from src.objects.LLEntry_obj import LLEntry
-from src.objects.import_configs import DataSourceList, DataSource
+from src.objects.import_configs import DataSourceList
 
 
 class PersonalDataDBConnector:
-    tables = ["data_source", "personal_data"]
+    def __new__(cls):
+        if not hasattr(cls, 'instance'):
+            cls.instance = super(PersonalDataDBConnector, cls).__new__(cls)
+            cls.instance.con = sqlite3.connect("raw_data.db")
+            cls.instance.cursor = cls.instance.con.cursor()
+            cls.instance.setup_tables()
+        return cls.instance
+
+    tables = ["photos", "data_source", "personal_data"]
 
     ddl = {
         "category": "CREATE TABLE category(id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -44,19 +52,40 @@ class PersonalDataDBConnector:
         "data_source": "CREATE TABLE data_source(id INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "source_name UNIQUE, entry_type, configs, field_mappings)",
         "personal_data": "CREATE TABLE personal_data(id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                         "source_id, data_timestamp, dedup_key UNIQUE, data, FOREIGN KEY(source_id) REFERENCES data_source(id))"
+                         "source_id, data_timestamp, dedup_key UNIQUE, data, FOREIGN KEY(source_id) REFERENCES data_source(id))",
+        "photos": "CREATE TABLE photos(id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                  "source, timestamp, imageFileName, imageFilePath UNIQUE, data, "
+                  "location, location_done DEFAULT 0, captions, captions_done DEFAULT 0,"
+                  "embeddings, embedding_done DEFAULT 0, status DEFAULT active, dedup_done DEFAULT 0,"
+                  "enriched_data, export_done DEFAULT 0)"
+    }
+
+    indexes = {
+        "photos": [
+            'CREATE UNIQUE INDEX "uniq_img_filepath" ON "photos" ( "imageFilePath" )',
+            'CREATE UNIQUE INDEX "uniq_src_filename" ON "photos" ( "source", "imageFileName" )'
+        ]
     }
 
     bootstrap_locations = {
         "data_source": "src/bootstrap/data_source.json"
     }
 
-    def __init__(self):
-        self.con = sqlite3.connect("raw_data.db")
-        self.cursor = self.con.cursor()
+    # def __init__(self):
+    #     self.con = sqlite3.connect("raw_data.db")
+    #     self.cursor = self.con.cursor()
+    #
+    # def __del__(self):
+    #     self.con.close()
 
-    def __del__(self):
-        self.con.close()
+    def execute_write(self,sql,params=None):
+        if params:
+            self.con.commit()
+            self.con.execute(sql,params)
+        else:
+            self.con.commit()
+            self.con.execute(sql)
+        self.con.commit()
 
     def setup_tables(self):
         for table in PersonalDataDBConnector.tables:
@@ -66,10 +95,13 @@ class PersonalDataDBConnector:
             if res.fetchone() is None:
                 create_sql = PersonalDataDBConnector.ddl[table]
                 print("Creating table: ", table, " using SQL:: ", create_sql)
-                self.cursor.execute(create_sql)
+                self.execute_write(create_sql)
+                for idx_sql in PersonalDataDBConnector.indexes[table]:
+                    print("Creating index using SQL:: ", idx_sql)
+                    self.execute_write(idx_sql)
             else:
                 print("Table ", table, " found.")
-            if table in  PersonalDataDBConnector.bootstrap_locations.keys():
+            if table in PersonalDataDBConnector.bootstrap_locations.keys():
                 print("Bootstrapping...")
                 bootstrap_file = PersonalDataDBConnector.bootstrap_locations[table]
                 cwd = str(Path().absolute())
@@ -82,7 +114,6 @@ class PersonalDataDBConnector:
                     ds_list = DataSourceList(json_data)
                     for entry in ds_list.data_sources:
                         self.add_or_replace(table, entry.__dict__, "id")
-
             else:
                 print("No bootstrap data available for ", table)
 
@@ -115,8 +146,7 @@ class PersonalDataDBConnector:
             insert_sql += " ON CONFLICT(" + unique_key + ") DO UPDATE SET " + \
                           ", ".join(update_arr_key)
         #print("Insert SQL:: ", insert_sql,  "data: ", insert_values)
-        self.cursor.execute(insert_sql, insert_values)
-        self.con.commit()
+        self.execute_write(insert_sql, insert_values)
 
     def read_data_source_conf(self, select_cols:str, source_name=None):
         if source_name is not None:
@@ -138,3 +168,58 @@ class PersonalDataDBConnector:
         print("Searching for personal data using SQL:: ", lookup_sql)
         res = self.cursor.execute(lookup_sql)
         return res
+
+    def add_photo(self, obj: LLEntry):
+        pickled_object = pickle.dumps(obj)
+        insert_sql = """INSERT INTO photos (source, timestamp, imageFileName, imageFilePath, data)
+         values(?,?,?,?,?)"""
+        data_tuple = (obj.source, int(obj.imageTimestamp), obj.imageFileName, obj.imageFilePath, pickled_object)
+        #print("Insert SQL:: ", insert_sql, " data:: ", data_tuple)
+        self.execute_write(insert_sql, data_tuple)
+
+    def add_only_photo(self, source: str, imageFileName: str, imageFilePath: str):
+        insert_sql = """INSERT INTO photos (source, imageFileName, imageFilePath)
+                 values(?,?,?)"""
+        data_tuple = (source, imageFileName, imageFilePath)
+        #print("Insert img only SQL:: ", insert_sql, " data:: ", data_tuple)
+        self.execute_write(insert_sql, data_tuple)
+
+    def is_same_photo_present(self, source, filename, timestamp):
+        lookup_sql = """SELECT imageFileName FROM photos WHERE source=? AND imageFileName=? AND timestamp=?"""
+        data_tuple = (source, filename, timestamp)
+        # print("Searching for ", filename, " using SQL:: ", lookup_sql, data_tuple)
+        res = self.cursor.execute(lookup_sql, data_tuple)
+        if res.fetchone() is None:
+            #print(filename, " not found.")
+            return False
+        else:
+            #print(filename, " found.")
+            return True
+
+    def search_photos(self, select_cols: str, where_conditions: dict) -> Cursor:
+        where_arr = []
+        for key in where_conditions:
+            where_arr.append(key +" "+ where_conditions[key])
+        where_clause = ""
+        if len(where_arr)>0:
+            where_clause = " WHERE " + " AND ".join(where_arr)
+        lookup_sql = "SELECT " + select_cols + " FROM photos" + where_clause
+        #print("Searching for photos using SQL:: ", lookup_sql)
+        res = self.cursor.execute(lookup_sql)
+        return res
+
+    def update_photos(self, row_id: int, key_value: dict):
+        update_arr = []
+        data_arr = []
+        for key in key_value:
+            update_arr.append(key + "=?")
+            if key in ["data", "location", "enriched_data"]:
+                pickled = pickle.dumps(key_value[key])
+                data_arr.append(pickled)
+            else:
+                data_arr.append(key_value[key])
+        data_tuple = tuple(data_arr)
+        update_clause = " SET " + ", ".join(update_arr)
+        update_sql = "UPDATE photos" + update_clause + " WHERE id=" + str(row_id)
+        #print("Updating photos using SQL:: ", update_sql, data_tuple)
+        self.execute_write(update_sql, data_tuple)

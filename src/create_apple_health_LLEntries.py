@@ -19,7 +19,6 @@ ORIGIN_TIMEZONE = "America/Los_Angeles"
 
 class AppleHealthImporter(GenericImporter):
     def __init__(self, source_id:int, source_name: str, entry_type: EntryType, configs:SourceConfigs):
-        print("AppleHealthImporter")
         self.current_timezone = "America/Los_Angeles"
         self.activityTranslation = {"HKWorkoutActivityTypeRunning": "running",
                                'HKWorkoutActivityTypeElliptical': "elliptical",
@@ -68,7 +67,7 @@ class AppleHealthImporter(GenericImporter):
                     data_entry = self.build_db_entry(obj)
                     self.pdc.add_or_replace_personal_data(data_entry, "dedup_key")
                     count += 1
-                    print("Count:", count)
+            print("Count:", count)
 
     def create_LLEntry(self, child):
         type_count = {}
