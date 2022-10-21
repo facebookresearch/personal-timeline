@@ -10,7 +10,6 @@ from src.persistence.personal_data_db import PersonalDataDBConnector
 class GenericImportOrchestrator:
     def __init__(self):
         self.pdc = PersonalDataDBConnector()
-        self.pdc.setup_tables()
         self.import_greenlit_sources = []
 
     def seek_user_consent(self):
