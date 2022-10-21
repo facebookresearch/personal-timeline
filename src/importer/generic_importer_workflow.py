@@ -1,6 +1,7 @@
 import pickle
 
-from src.create_apple_health_LLEntries import AppleHealthImporter
+from src.create_googlemaps_LLEntries import GoogleMapsImporter
+from src.importer.create_apple_health_LLEntries import AppleHealthImporter
 from src.importer.all_importers import SimpleJSONImporter, CSVImporter
 from src.objects.import_configs import DataSourceList, SourceConfigs, FileType
 from src.persistence.personal_data_db import PersonalDataDBConnector
@@ -9,7 +10,6 @@ from src.persistence.personal_data_db import PersonalDataDBConnector
 class GenericImportOrchestrator:
     def __init__(self):
         self.pdc = PersonalDataDBConnector()
-        self.pdc.setup_tables()
         self.import_greenlit_sources = []
 
     def seek_user_consent(self):
@@ -47,12 +47,15 @@ class GenericImportOrchestrator:
                     #print(configs.__dict__)
                     #print(field_mappings)
                     imp=None
-                    if configs.filetype == FileType.JSON:
+                    if source_name == "GoogleTimeline":
+                        imp = GoogleMapsImporter(source_id, source_name, entry_type, configs)
+                    elif configs.filetype == FileType.JSON:
                         imp = SimpleJSONImporter(source_id, source_name, entry_type, configs)
                     elif configs.filetype == FileType.CSV:
                         imp = CSVImporter(source_id, source_name, entry_type, configs)  # TODO CSV
                     elif configs.filetype == FileType.XML and source_name=="AppleHealth":
                         imp = AppleHealthImporter(source_id, source_name, entry_type, configs) #TODO XML
+                    print("Beginning import for", imp.source_name)
                     imp.import_data(field_mappings)
 
     def import_from_xml(self, source_name: str, configs: SourceConfigs, field_mappings: list):

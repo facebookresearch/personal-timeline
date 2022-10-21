@@ -68,7 +68,7 @@ class AppleHealthImporter(GenericImporter):
                     data_entry = self.build_db_entry(obj)
                     self.pdc.add_or_replace_personal_data(data_entry, "dedup_key")
                     count += 1
-                    print("Count:", count)
+            print("Count:", count)
 
     def create_LLEntry(self, child):
         type_count = {}

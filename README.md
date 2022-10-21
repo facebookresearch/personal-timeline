@@ -21,13 +21,16 @@ In the explanation, we'll assume three directories all sitting within the applic
 5. Activate the newly created environment  
     ```conda activate <env>```
 
-6. Install CLIP from OpenAI:
+6. Install pip pkgs for the one's missing in conda repo:  
+    ```pip install pillow_heif```
+
+7. Install CLIP from OpenAI:
     ```pip install git+https://github.com/openai/CLIP.git```
 
-7. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
+8. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
     ```$ mkdir ~/personal-data```
 
-8. In your repo, create a Sym link for the above created dir  
+9. In your repo, create a Sym link for the above created dir  
     ```$ ln -s ~/personal-data personal-data```
 
 10. Elasticsearch setup:
@@ -97,6 +100,36 @@ The easiest way to do this on a Mac is:
     ```$ mkdir ~/personal-data/facebook```
 3. Unzip the downloaded file and copy the directory `posts` sub-folder to the above folder. The `posts` folder would sit directly under the facebook folder.
 
+### APPLE HEALTH
+1. Go to to the Apple Health app on your phone and ask to export your data. This will create a file called iwatch.xml and that's the input file to the importer.
+2. Create a new directory under `personal-data` folder  
+    ```$ mkdir ~/personal-data/apple-health```
+3. Move the downloaded file to this folder.  
+
+### AMAZON
+1. Request your data from Amazon here: https://www.amazon.com/gp/help/customer/display.html?nodeId=GXPU3YPMBZQRWZK2
+They say it can take up to 30 days, but it took about 2 days. They'll email you when it's ready.
+
+They separate Amazon purchases from Kindle purchases into two different directories.
+
+The file you need for Amazon purchases is Retail.OrderHistory.1.csv
+The file you need for Kindle purchases is Digital Items.csv
+
+2. Create two new directory under `personal-data` folder  
+    ```$ mkdir ~/personal-data/amazon```  
+    ```$ mkdir ~/personal-data/amazon-kindle```
+
+3. Move data for amazon purchases to `amazon` folder and of kindle downloads to `amazon-kindle` folder
+
+### SPOTIFY
+
+1. Download your data from Spotify here -- https://support.spotify.com/us/article/data-rights-and-privacy-settings/
+They say it can take up to 30 days, but it took about 2 days. They'll email you when it's ready.
+
+2. Create two new directory under `personal-data` folder  
+    ```$ mkdir ~/personal-data/spotify``` 
+
+3. Move the data into this folder.
 
 # Step 2: Dev Environment prep
 1. Start elasticsearch server by running the following command from the root directory of the downloaded elasticsearch server in Step 0:  
@@ -104,21 +137,26 @@ The easiest way to do this on a Mac is:
 
 # Step 3: Import your photo data to SQLite (this is what will go into the episodic database)
 
-Run:
-    ```
+ Run:
+
     python -m src.workflow
-    ```
+
+
 The script will allow you to choose the steps you want to run from the workflow.  
 Follow the instructions to import and enrich data.
 
 # Step 4: Create Inverted Index Files:
 
-1. Create a data directory and a sym link to that directory inside the repo  
-    ```$ mkdir ~/data```  
-    ```$ ln -s ~/data```
-2. Run  
-    ```$ python -m src.create_index```
-    This will create a `date_inverted_index.json` file in the data directory used in next step.
+1. Create a data directory and a sym link to that directory inside the repo
+
+
+    $ mkdir ~/data  
+    $ ln -s ~/data
+2. Run
+
+
+    $ python -m src.create_index
+This will create a `date_inverted_index.json` file in the data directory used in next step.
 
 # Step 5: Running the offline enrichment and summarization pipeline
 
@@ -181,7 +219,6 @@ An entry in the trip index looks like:
 This part of README is in progress. Please ignore:
 
 You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the right place (there's always a variable at the top of the file with the pointer).
-
 
 
 ### GOOGLE PHOTOS
@@ -254,16 +291,6 @@ Run:
     
     python -m code.create_apple_health_LLEntries.py
 
-### AMAZON
-Run:
-    
-    python -m code.create_amazon_LLEntries.py
-
-### SPOTIFY
-
-Run:
-
-    python -m code.create_spotify_LLEntries.py
 
 # CREATING THE LIFELOG (old version)
 
