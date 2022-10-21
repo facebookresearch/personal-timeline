@@ -30,6 +30,50 @@ In the explanation, we'll assume three directories all sitting within the applic
 8. In your repo, create a Sym link for the above created dir  
     ```$ ln -s ~/personal-data personal-data```
 
+10. Elasticsearch setup:
+    1. Download elasticsearch https://www.elastic.co/downloads/elasticsearch. Unzip the download.
+    2. Update `config/elasticsearch.yml` and disable ssl:  
+       ``` 
+           # Enable security features
+           xpack.security.enabled: false
+        
+           xpack.security.enrollment.enabled: false
+        
+           # Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
+           xpack.security.http.ssl:
+             enabled: false
+             keystore.path: certs/http.p12
+        
+           # Enable encryption and mutual authentication between cluster nodes
+           xpack.security.transport.ssl:
+             enabled: false
+             verification_mode: certificate
+             keystore.path: certs/transport.p12
+             truststore.path: certs/transport.p12
+    
+       ```
+    3. Make sure elasticsearch is setup up correctly:
+    ```
+     $ curl http://localhost:9200
+      {
+      "name" : "tripti-mbp",
+      "cluster_name" : "elasticsearch",
+      "cluster_uuid" : "bO-V0yXeRTy6M0ZpdetD_Q",
+      "version" : {
+        "number" : "8.4.3",
+        "build_flavor" : "default",
+        "build_type" : "tar",
+        "build_hash" : "42f05b9372a9a4a470db3b52817899b99a76ee73",
+        "build_date" : "2022-10-04T07:17:24.662462378Z",
+        "build_snapshot" : false,
+        "lucene_version" : "9.3.0",
+        "minimum_wire_compatibility_version" : "7.17.0",
+        "minimum_index_compatibility_version" : "7.0.0"
+      },
+      "tagline" : "You Know, for Search"
+    }
+    ```
+
 # Step 1: Downloading your photos
 
 ### GOOGLE PHOTOS
@@ -54,7 +98,11 @@ The easiest way to do this on a Mac is:
 3. Unzip the downloaded file and copy the directory `posts` sub-folder to the above folder. The `posts` folder would sit directly under the facebook folder.
 
 
-# Step 2: Import your photo data to SQLite (this is what will go into the episodic database)
+# Step 2: Dev Environment prep
+1. Start elasticsearch server by running the following command from the root directory of the downloaded elasticsearch server in Step 0:  
+    ```bin/elasticsearch```
+
+# Step 3: Import your photo data to SQLite (this is what will go into the episodic database)
 
 Run:
     ```
@@ -63,7 +111,7 @@ Run:
 The script will allow you to choose the steps you want to run from the workflow.  
 Follow the instructions to import and enrich data.
 
-# Step 3: Create Inverted Index Files:
+# Step 4: Create Inverted Index Files:
 
 1. Create a data directory and a sym link to that directory inside the repo  
     ```$ mkdir ~/data```  
@@ -72,55 +120,7 @@ Follow the instructions to import and enrich data.
     ```$ python -m src.create_index```
     This will create a `date_inverted_index.json` file in the data directory used in next step.
 
-
-----------
-This part of README is in progress. Please ignore:
-
-You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the right place (there's always a variable at the top of the file with the pointer).
-
-
-
-### GOOGLE PHOTOS
-You need to download your Google photos from Google Takeout. I recommend to download the photos for a single year or two to start with. Otherwise, they shard the photos into multiple directories and it's a bit of a mess to deal with.
-
-When downloaded, you'll get .json files (one for every photo) that has the meta-data about the photo and a photo file that has the photo itself. Note that there may be more json files than photos.
-
-It may be the case that some of your photo files are .HEIC. In that case follow the steps below to convert them to .jpeg
-
-The easiest way to do this on a mac is:
-
- -- Select the .HEIC files you want to convert.
- -- Right click and choose "quick actions" and then you'll have an option to convert the image.
- -- If you're converting many photos, this may take a few minutes.
-
-Put all the photos and all the json files in a folder called photos. The photos folder should be a sibling of the code folder.
-
-### GOOGLE TIMELINE
-Go to Google Takeout -- https://takeout.google.com/settings/takeout and ask to download your maps data.
-
-### APPLE HEALTH
-Got to the Apple Health app on your phone and ask to export your data. The will create a file called iwatch.xml and that's the input file to the importer.
-
-### AMAZON
-Request your data from Amazon here: https://www.amazon.com/gp/help/customer/display.html?nodeId=GXPU3YPMBZQRWZK2
-They say it can take up to 30 days, but it took about 2 days. They'll send you an email when it's ready.
-
-They separate purchases Amazon purchases from Kindle purchases into two different directories.
-
-The file you need for Amazon purchases is Retail.OrderHistory.1.csv
-The file you need for Kindle purchases is Digital Items.csv
-
-Make sure the variables at the head of create_amazon_LLEntries.py point to the right files.
-
-### SPOTIFY
-
-Download your data from Spotify here -- https://support.spotify.com/us/article/data-rights-and-privacy-settings/
-They say it can take up to 30 days, but it took about 2 days. They'll send you an email when it's ready.
-
-The file you need is StreamingHistory0.json
-Make sure the variable at the top of create_spotify_LLEntries.py points in the right place.
-
-# Step 4: Running the offline enrichment and summarization pipeline
+# Step 5: Running the offline enrichment and summarization pipeline
 
 * Install all required packages (see above and `requirements.txt`).
 * Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
@@ -176,6 +176,53 @@ An entry in the trip index looks like:
   'start_date': datetime.date(2018, 8, 29),
   'summary': 'I went to Rio de Janeiro, Brazil, for 3 days in 2018/8.'}
 ```
+
+----------
+This part of README is in progress. Please ignore:
+
+You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the right place (there's always a variable at the top of the file with the pointer).
+
+
+
+### GOOGLE PHOTOS
+You need to download your Google photos from Google Takeout. I recommend to download the photos for a single year or two to start with. Otherwise, they shard the photos into multiple directories and it's a bit of a mess to deal with.
+
+When downloaded, you'll get .json files (one for every photo) that has the meta-data about the photo and a photo file that has the photo itself. Note that there may be more json files than photos.
+
+It may be the case that some of your photo files are .HEIC. In that case follow the steps below to convert them to .jpeg
+
+The easiest way to do this on a mac is:
+
+ -- Select the .HEIC files you want to convert.
+ -- Right click and choose "quick actions" and then you'll have an option to convert the image.
+ -- If you're converting many photos, this may take a few minutes.
+
+Put all the photos and all the json files in a folder called photos. The photos folder should be a sibling of the code folder.
+
+### GOOGLE TIMELINE
+Go to Google Takeout -- https://takeout.google.com/settings/takeout and ask to download your maps data.
+
+### APPLE HEALTH
+Got to the Apple Health app on your phone and ask to export your data. The will create a file called iwatch.xml and that's the input file to the importer.
+
+### AMAZON
+Request your data from Amazon here: https://www.amazon.com/gp/help/customer/display.html?nodeId=GXPU3YPMBZQRWZK2
+They say it can take up to 30 days, but it took about 2 days. They'll send you an email when it's ready.
+
+They separate purchases Amazon purchases from Kindle purchases into two different directories.
+
+The file you need for Amazon purchases is Retail.OrderHistory.1.csv
+The file you need for Kindle purchases is Digital Items.csv
+
+Make sure the variables at the head of create_amazon_LLEntries.py point to the right files.
+
+### SPOTIFY
+
+Download your data from Spotify here -- https://support.spotify.com/us/article/data-rights-and-privacy-settings/
+They say it can take up to 30 days, but it took about 2 days. They'll send you an email when it's ready.
+
+The file you need is StreamingHistory0.json
+Make sure the variable at the top of create_spotify_LLEntries.py points in the right place.
 
 # Step 5: Generate visualization
 
