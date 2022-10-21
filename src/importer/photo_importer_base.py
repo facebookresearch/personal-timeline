@@ -16,9 +16,9 @@ register_heif_opener()
 from src.persistence.personal_data_db import PersonalDataDBConnector
 
 class PhotoImporter:
-    db = PhotoDataDB()
     @abstractmethod
     def __init__(self, input_dir:str, sub_dirs:list, source:str, type:EntryType):
+        self.db = PersonalDataDBConnector()
         self.db = PersonalDataDBConnector()
         self.INPUT_DIRECTORY = input_dir
         self.SUB_DIRS = sub_dirs
@@ -113,7 +113,7 @@ class PhotoImporter:
 
 
     def is_photo_already_processed(self, filename, taken_timestamp):
-        return PhotoImporter.db.is_same_photo_present(self.SOURCE, filename, taken_timestamp)
+        return self.db.is_same_photo_present(self.SOURCE, filename, taken_timestamp)
 
     def create_LLEntry(self,
                        uri,
