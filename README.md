@@ -167,14 +167,6 @@ An entry in the trip index looks like:
   'summary': 'I went to Rio de Janeiro, Brazil, for 3 days in 2018/8.'}
 ```
 
-----------
-This part of README is in progress. Please ignore:
-
-You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the right place (there's always a variable at the top of the file with the pointer).
-
-### GOOGLE TIMELINE
-Go to Google Takeout -- https://takeout.google.com/settings/takeout and ask to download your maps data.
-
 
 # Step 5: Generate visualization
 
@@ -191,7 +183,25 @@ python -m src.visualization
 
 The script will generate a HTML page `index.html` for inspecting the timeline from your browser. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
 
+# Step 6: Running the interactive GUI (WIP)
+
+Make sure that you have installed QT from `requirements.txt`. Launch the interactive GUI:
+
+```
+python -m src.gui.main
+```
+
+Now you can search the timeline with queries!
+
 <!-- #### Currently we use the BLIP package from Salesforce to generate captions.
+
+----------
+This part of README is in progress. Please ignore:
+
+You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the right place (there's always a variable at the top of the file with the pointer).
+
+### GOOGLE TIMELINE
+Go to Google Takeout -- https://takeout.google.com/settings/takeout and ask to download your maps data.
 
 Clone  https://github.com/salesforce/BLIP
 

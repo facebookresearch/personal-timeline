@@ -1,4 +1,5 @@
 import sys
+import os
 #importing Widgets
 from PyQt5.QtWidgets import *
 #importing Engine Widgets
@@ -18,7 +19,9 @@ class Window(QMainWindow):
         self.browser = QWebEngineView()
         #setting url for browser, you can use any other url also
         #By default loading a page locally on the machine
-        url = QUrl.fromLocalFile("/home/pierrem/Documents/github_meta/personal-timeline/src/gui/main.html")
+        self.main_path = QFileInfo("src/gui/main.html").absoluteFilePath()
+
+        url = QUrl.fromLocalFile(self.main_path)
         self.browser.setUrl(url)
         self.setCentralWidget(self.browser)
         #-------------------full screen mode------------------
@@ -46,10 +49,11 @@ class Window(QMainWindow):
         self.searchBar.returnPressed.connect(self.loadUrl)
         #adding created search bar to navbar
         navbar.addWidget(self.searchBar)
+
     def home(self):
         self.searchBar.setPlaceholderText(PLACEHOLDER_TEXT_SEARCH_TEXT)
         self.searchBar.setText("")
-        url = QUrl.fromLocalFile("/home/pierrem/Documents/github_meta/personal-timeline/src/gui/main.html")
+        url = QUrl.fromLocalFile(self.main_path)
         self.browser.setUrl(url)
 
     #method to load the required url
@@ -60,7 +64,8 @@ class Window(QMainWindow):
         #TODO (process and prepare HTML page to visualize)
         # - url contains the question from the user
         # - update the page X.html and display it
-        url = QUrl.fromLocalFile("/home/pierrem/Documents/github_meta/personal-timeline/src/gui/index.html")
+        index_path = QFileInfo("index.html").absoluteFilePath()
+        url = QUrl.fromLocalFile(index_path)
         self.browser.setUrl(QUrl(url))
 
 
