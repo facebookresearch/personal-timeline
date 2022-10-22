@@ -1,7 +1,6 @@
 import json
 import torch
 import numpy as np
-import pandas as pd
 import pickle
 import datetime
 import matplotlib.pyplot as plt
@@ -10,13 +9,11 @@ import geopy.distance
 import os
 
 from src.persistence.personal_data_db import PersonalDataDBConnector
-from typing import List
-from src.objects.LLEntry_obj import LLEntry
 from collections import Counter
 from tqdm import tqdm
 
 from typing import Dict, List
-from src.objects.LLEntry_obj import LLEntry
+from src.objects.LLEntry_obj import LLEntry, LLEntrySummary
 from PIL import Image
 from sklearn.cluster import KMeans
 from src.enrichment import socratic
@@ -84,22 +81,6 @@ class LLImage:
                 self.tags = [tag]
 
         self.embedding = image_features.squeeze(0).cpu().numpy()
-
-
-
-class LLTablular:
-    def __init__(self,
-                 start_time: int,
-                 source: str,
-                 loc: str,
-                 text: str,
-                 numeric_attrbutes: Dict):
-        """Create an instance of a tabular LLEntry (fbpost, excercise, etc.)"""
-        self.start_time = start_time
-        self.source = source
-        self.loc = loc
-        self.text = text
-        self.numeric_attributes = numeric_attrbutes
 
 
 # create trip segments: consecutive days with start / end = home
@@ -202,7 +183,7 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
     """Summarize a day given summaries of activities"""
     objects_cnt = Counter()
     places_cnt = Counter()
-    activity_summaries = [activity_index[get_timestamp(activity[0])]['summary'] for activity in day]
+    activity_summaries = [activity_index[get_timestamp(activity[0])].textDescription for activity in day]
 
     for activity in day:
         for ent in activity:
@@ -368,7 +349,7 @@ def create_segments(entries: List[LLImage], user_info: Dict):
     return trip_segments
 
 def convert_LLEntry_LLImage(entries: List[LLEntry]):
-    """Convert a list of LLEntries to LLImages and LLTabular's
+    """Convert a list of LLEntries to LLImages
     """
     image_entries = []
     tabular_entries = []
@@ -384,31 +365,6 @@ def convert_LLEntry_LLImage(entries: List[LLEntry]):
             pass
     return image_entries, tabular_entries
 
-def query_tabular_attributes(db: pd.DataFrame, start_time: int, end_time: int):
-    """Compute all interesting statistics within a time frame.
-    """
-    results = {}
-    # db has the attributes (time, source, attribute, value, text)
-
-    # filter records
-    db = db[start_time <= db["time"] <= end_time]
-    all_attrs = set(db["attribute"])
-
-    for attr in all_attrs:
-        db_attr = db[db["attribute"] == attr]
-        # numeric
-        if db_attr['value'].dtype.kind in 'biufc':
-            avg_value = db_attr['value'].mean
-            sum_value = db_attr['value'].sum
-            results['avg_' + attr] = avg_value
-            results['sum_' + attr] = sum_value
-        else:
-            results['count_' + attr] = len(db_attr['value'])
-
-        # TODO: other statistics
-
-    return results
-
 
 def create_trip_summary(entries: List[LLEntry], user_info: Dict):
     """Compute a trip summary from a list of LLEntries.
@@ -420,8 +376,8 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
     Returns:
         Dictionary: a JSON object summarizing the trip
     """
-    ## Step 1: convert LLEntries to LLImages and LLTabular's
-    print("Step 1: convert LLEntries to LLImages and LLTabular's")
+    ## Step 1: convert LLEntries to LLImages
+    print("Step 1: convert LLEntries to LLImages")
     converted_entries, tabular_db = convert_LLEntry_LLImage(entries)
 
     ## Step 2: identify activities, days, and trips
@@ -438,28 +394,38 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
 
     for activity in tqdm(all_activities):
         start_time = get_timestamp(activity[0])
+        start_time_str = datetime.datetime.fromtimestamp(start_time)
         end_time = get_timestamp(activity[-1])
+        end_time_str = datetime.datetime.fromtimestamp(end_time)
 
-        dt = datetime.datetime.fromtimestamp(start_time)
         location = get_location(activity)
+        activity_summary = LLEntrySummary(type="activity", 
+                                          startTime=start_time_str.isoformat(),
+                                          endTime=end_time_str.isoformat(),
+                                          locations=[location],
+                                          text_summary=summarize_activity(activity),
+                                          photo_summary=create_image_summary(activity),
+                                          stats={"num_photos": len(activity)},
+                                          objects=organize_images_by_tags(activity),
+                                          source="derived")
 
-        activity_summary = {
-            'date': dt.date(),
-            'location': location,
-            'start_hour': dt.hour,
-            'end_hour': datetime.datetime.fromtimestamp(end_time).hour,
-            'summary': summarize_activity(activity),
-            'photo_summary': create_image_summary(activity),
-            'num_photos': len(activity),
-            'objects': organize_images_by_tags(activity)
-        }
+        # activity_summary = {
+        #     'date': dt.date(),
+        #     'location': location,
+        #     'start_hour': dt.hour,
+        #     'end_hour': datetime.datetime.fromtimestamp(end_time).hour,
+        #     'summary': summarize_activity(activity),
+        #     'photo_summary': create_image_summary(activity),
+        #     'num_photos': len(activity),
+        #     'objects': organize_images_by_tags(activity)
+        # }
         activity_index[start_time] = activity_summary
 
     import pprint
     pp = pprint.PrettyPrinter(indent=2)
     for activity in list(activity_index.values()):
-        if activity['num_photos'] >= 3:
-            pp.pprint(activity)
+        if activity.stats['num_photos'] >= 3:
+            pp.pprint(vars(activity))
             # visualize(activity['photo_summary'])
 
     ## Step 4: process days
@@ -470,25 +436,41 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
         all_days += segment
     for day in tqdm(all_days):
         start, end = get_start_end_location(day)
+        if start == end:
+            locations = [start]
+        else:
+            locations = [start, end]
+
         date_str = datetime.datetime.fromtimestamp(get_timestamp(day)).date()
-        day_summary = {
-            'date': date_str,
-            'start_loc': start,
-            'end_loc': end,
-            'num_activities': len(day),
-            'num_photos': sum([len(act) for act in day]),
-            'summary': summarize_day(day, activity_index),
-            'photo_summary': create_image_summary(sum(day, [])),
-            'objects': organize_images_by_tags(sum(day, []))
-        }
+        day_summary = LLEntrySummary(type="day", 
+                                     startTime=date_str.isoformat(),
+                                     endTime=date_str.isoformat(), # should be the next day?
+                                     locations=locations,
+                                     text_summary=summarize_day(day, activity_index),
+                                     photo_summary=create_image_summary(sum(day, [])),
+                                     stats={"num_photos": sum([len(act) for act in day]),
+                                            "num_activities": len(day)},
+                                     objects=organize_images_by_tags(sum(day, [])),
+                                     source="derived")
+
+        # day_summary = {
+        #     'date': date_str,
+        #     'start_loc': start,
+        #     'end_loc': end,
+        #     'num_activities': len(day),
+        #     'num_photos': sum([len(act) for act in day]),
+        #     'summary': summarize_day(day, activity_index),
+        #     'photo_summary': create_image_summary(sum(day, [])),
+        #     'objects': organize_images_by_tags(sum(day, []))
+        # }
         # visualize(day_summary['photo_summary'])
 
         daily_index[date_str] = day_summary
 
     # pretty print the results
     for day in list(daily_index.values()):
-        if day['num_photos'] >= 3:
-            pp.pprint(day)
+        if day.stats['num_photos'] >= 3:
+            pp.pprint(vars(day))
             # visualize(day['photo_summary'])
 
     ## Step 5: process trips (segments)
@@ -525,19 +507,31 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
 
             num_days = (end_date - start_date).days + 1
 
-            trip_summary = {
-                'start_date': start_date_str,
-                'end_date': end_date_str,
-                'cities': locations,
-                'days': num_days,
-                'num_photos': total_photos,
-                'itinerary': itinerary,
-                'summary': trip_data_to_text(locations, start_date, num_days)
-            }
+            # TODO: handle itinerary
+            trip_summary = LLEntrySummary(type="trip", 
+                                     startTime=start_date_str.isoformat(),
+                                     endTime=end_date_str.isoformat(),
+                                     locations=locations,
+                                     text_summary=trip_data_to_text(locations, start_date, num_days),
+                                     photo_summary=[],
+                                     stats={"num_photos": total_photos,
+                                            "days": num_days},
+                                     objects={},
+                                     source="derived")
+
+            # trip_summary = {
+            #     'start_date': start_date_str,
+            #     'end_date': end_date_str,
+            #     'cities': locations,
+            #     'days': num_days,
+            #     'num_photos': total_photos,
+            #     'itinerary': itinerary,
+            #     'summary': trip_data_to_text(locations, start_date, num_days)
+            # }
             trip_index[start_date_str] = trip_summary
 
     for trip in list(trip_index.values()):
-        pp.pprint(trip)
+        pp.pprint(vars(trip))
 
     return activity_index, daily_index, trip_index
 
