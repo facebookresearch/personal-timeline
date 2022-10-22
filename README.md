@@ -57,6 +57,7 @@ In the explanation, we'll assume three directories all sitting within the applic
        ```
     3. Make sure elasticsearch is setup up correctly:
     ```
+     $ bin/elastcisearch
      $ curl http://localhost:9200
       {
       "name" : "tripti-mbp",
