@@ -1,6 +1,7 @@
 import pickle
 import os
 import datetime
+from matplotlib.image import thumbnail
 import matplotlib.pyplot as plt
 import matplotlib
 import json
@@ -12,6 +13,7 @@ from tqdm import tqdm
 from PIL import Image
 from pillow_heif import register_heif_opener
 from geopy import Location
+import geopy.distance
 
 from src.objects.LLEntry_obj import LLEntrySummary
 register_heif_opener()
@@ -32,6 +34,8 @@ class TimelineRenderer:
         self.img_cnt = 0
         self.geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
         self.geo_cache = {}
+        self.user_info = json.load(open("user_info.json"))
+        self.home_address = self.geolocator.geocode(self.user_info["address"])
 
     def visualize_images(self, image_paths: List[str]):
         """visualize a list of images
@@ -55,7 +59,7 @@ class TimelineRenderer:
         return path
 
     def get_city_country(self, location: Location):
-        """Get city, state, and country from location
+        """Get city, state, and country (or "Home") from location
         """
         if 'address' not in location.raw or "city" not in location.raw['address']:
             coord = (location.latitude, location.longitude)
@@ -64,7 +68,16 @@ class TimelineRenderer:
             else:
                 location = self.geolocator.reverse(coord)
                 self.geo_cache[coord] = location
+
+        def is_home(loc: Location, home: Location):
+            """Check if a location is home (within 200km)."""
+            return geopy.distance.geodesic((home.latitude, home.longitude),
+               (loc.latitude, loc.longitude)).km <= 200.0
+        
         res = []
+        if is_home(location, self.home_address):
+            res.append("Home")
+
         for attr in ["city", "state", "country"]:
             if 'address' in location.raw and attr in location.raw['address']:
                 res.append(location.raw['address'][attr])
@@ -105,9 +118,34 @@ class TimelineRenderer:
             for item in object_dict[tag]:
                 img_path = item["img_path"]
                 name = item["name"]
-                itemized.append(f'<a href="{img_path}">{name}</a>')
+                # itemized.append(f'<a href="{img_path}">{name}</a>')
+                itemized.append(f'''<div class="tooltip"><a href="{img_path}">{name}</a>
+                               <span class="tooltiptext">
+                               <img src="{img_path + '.compressed.jpg'}" alt="image" height="200" /></span>
+                               </div>''')
             text += ", ".join(itemized) + " </li> </ul>"
+
         return text
+
+    def organize_tags(self, objects: Dict, locations: List[str]):
+        """Create a 2-level tag lists.
+        """
+        top = []
+        bottom = []
+
+        if objects is not None:
+            top += list(objects.keys())
+            for item_list in objects.values():
+                for item in item_list:
+                    bottom.append(item['name'])
+        
+        if len(locations) > 0:
+            if "Home" in locations:
+                top.append("Home")
+            top.append(locations[-1])
+            bottom += locations[:-1]
+
+        return top, bottom
 
     def create_timeline(self):
         """Generate JSON object for TimelineJS.
@@ -117,16 +155,16 @@ class TimelineRenderer:
         for activity in tqdm(self.activity_index.values()):
             activity : LLEntrySummary = activity
             img_path = self.visualize_images(activity.image_paths)
+            tags, next_tags = self.organize_tags(activity.objects, 
+                                                 self.get_city_country(activity.startGeoLocation))
             slide = {"start_date": self.convert_date(activity.startTime),
                     "end_date": self.convert_date(activity.endTime),
                     "text": self.create_text(activity.textDescription, self.objects_to_text(activity.objects)),
-                    "media": 
-                    {
-                        "url": img_path
-                    },
+                    "media": {"url": img_path, "thumbnail": img_path},
                     "group": "activity",
                     "unique_id": f"activity_{activity.startTime}",
-                    "tags": activity.tags
+                    "tags": tags,
+                    "next_tags": next_tags
                 }
             # slide["tags"] += self.get_city_country(activity.startGeoLocation)
             # slide["tags"] += [activity.startGeoLocation.address.split(', ')[-1]]
@@ -136,17 +174,18 @@ class TimelineRenderer:
         for day in tqdm(self.daily_index.values()):
             day : LLEntrySummary = day
             img_path = self.visualize_images(day.image_paths)
+            tags, next_tags = self.organize_tags(day.objects, 
+                                                 self.get_city_country(day.startGeoLocation))
             slide = {
                 "start_date": self.convert_date(day.startTime, 0),
                 "end_date": self.convert_date(day.startTime, 24),
                 "text": self.create_text(day.textDescription, self.objects_to_text(day.objects)),
-                "media": {"url": img_path},
+                "media": {"url": img_path, "thumbnail": img_path},
                 "group": "day",
                 "unique_id": f"day_{day.startTime}",
-                "tags": day.tags
+                "tags": tags,
+                "next_tags": next_tags
             }
-            
-            slide["tags"] += self.get_city_country(day.startGeoLocation)
             result['events'].append(slide)
 
         print("Processing trips")
@@ -160,6 +199,8 @@ class TimelineRenderer:
             #         text = f"Day {start_date_num}: {location_text}"
             #     else:
             #         text = f"Day {start_date_num} - Day {end_date_num}: {location_text}"
+            tags, next_tags = self.organize_tags({}, 
+                                                 self.get_city_country(trip.startGeoLocation))
             
             slide = {
                 "start_date": self.convert_date(trip.startTime, None),
@@ -167,7 +208,8 @@ class TimelineRenderer:
                 "text": self.create_text(trip.textDescription, ""),
                 "media": {"url": self.create_map_link(trip.startGeoLocation)},
                 "group": "trip",
-                "tags": self.get_city_country(trip.startGeoLocation)
+                "tags": tags,
+                "next_tags": next_tags
             }
             
             result['events'].append(slide)

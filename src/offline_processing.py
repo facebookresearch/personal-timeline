@@ -46,6 +46,9 @@ class LLImage:
     def enhance(self, k=5):
         """Run enhencements.
         """
+        if not os.path.exists(self.img_path + ".compressed.jpg"):
+            self.img.save(self.img_path + ".compressed.jpg")
+
         # CLIP embeddings and zero-shot image classification
         model_dict = socratic.model_dict
         drop_gpu = socratic.drop_gpu

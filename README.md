@@ -127,45 +127,7 @@ export HF_TOKEN=<the token goes here>
 python -m src.offline_processing
 ```
 
-The script will generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`.
-
-An entry in the activity index looks like:
-```
-{ 'date': datetime.date(2018, 8, 30),
-  'end_hour': 5,
-  'num_photos': 4,
-  'objects': { 'document': [ <some_paths_to_images> ]},
-  'photo_summary': [ <some_paths_to_images> ],
-  'start_hour': 5,
-  'summary': 'A conference room, computer room, or conference center is full '
-             'of people,.'}
-```
-
-An entry in the daily index looks like:
-```
-{ 'date': datetime.date(2018, 12, 9),
-  'end_loc': 'San Jose;California;United States',
-  'num_activities': 2,
-  'num_photos': 4,
-  'objects': { 'person': [ <some_paths_to_images> ]},
-  'photo_summary': [ <some_paths_to_images> ],
-  'start_loc': 'San Jose;California;United States',
-  'summary': 'I spent today at San Jose.'}
-```
-
-An entry in the trip index looks like:
-```
-{ 'cities': ['Rio de Janeiro;Rio de Janeiro;Brasil'],
-  'days': 3,
-  'end_date': datetime.date(2018, 9, 1),
-  'itinerary': [ { 'end': datetime.date(2018, 9, 1),
-                   'location': 'Rio de Janeiro;Rio de Janeiro;Brasil',
-                   'photo_summary': [ <some_paths_to_images> ],
-                   'start': datetime.date(2018, 8, 29)}],
-  'num_photos': 100,
-  'start_date': datetime.date(2018, 8, 29),
-  'summary': 'I went to Rio de Janeiro, Brazil, for 3 days in 2018/8.'}
-```
+The script will generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`. See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.
 
 
 # Step 5: Generate visualization
