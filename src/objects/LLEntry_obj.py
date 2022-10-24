@@ -140,11 +140,10 @@ class LLEntrySummary(LLEntry):
         """Make all object names and types searchable
         """
         res = list(objects.keys())
-        for val in objects.values():
-            res += val
+        for object_list in objects.values():
+            for item in object_list:
+                res.append(item["name"])
         return res
-
-    
 
     
 

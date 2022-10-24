@@ -12,11 +12,12 @@ from src.persistence.personal_data_db import PersonalDataDBConnector
 from collections import Counter
 from tqdm import tqdm
 
-from typing import Dict, List
+from typing import Dict, List, Union
 from src.objects.LLEntry_obj import LLEntry, LLEntrySummary
 from PIL import Image
 from sklearn.cluster import KMeans
 from src.enrichment import socratic
+from geopy import Location
 
 from pillow_heif import register_heif_opener
 register_heif_opener()
@@ -26,13 +27,14 @@ class LLImage:
     def __init__(self,
                  img_path: str,
                  time: int,
-                 loc: str):
+                 loc: Location):
         """Create an image object from LLEntry and run enhencements
         """
         self.img_path = img_path
         self.img = Image.open(img_path)
         self.time = time
         self.loc = loc
+
         # numpy array
         self.embedding = None
         self.places = []
@@ -86,23 +88,52 @@ class LLImage:
 # create trip segments: consecutive days with start / end = home
 geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
 geo_cache = {}
+default_location = "United States"
 
-def get_coordinate(loc: str):
-    """Get coordinate of a location."""
+def str_to_location(loc: str):
+    """Convert a string to geolocation."""
     if loc in geo_cache:
         return geo_cache[loc]
     else:
         geoloc = geolocator.geocode(loc.replace(';', ', '))
-        res = (geoloc.latitude, geoloc.longitude)
-        geo_cache[loc] = res
-        return res
+        if geoloc is None:
+            geoloc = geolocator.geocode(default_location) # maybe use home as default?
 
-def is_home(loc: str, home: str):
+        geo_cache[loc] = geoloc
+        return geoloc
+
+
+def get_coordinate(loc: Union[str, Location]):
+    """Get coordinate of a location."""
+    if isinstance(loc, Location):
+        return loc.latitude, loc.longitude
+
+    geoloc = str_to_location(loc)
+    return geoloc.latitude, geoloc.longitude
+
+def get_location_attr(loc: Location, attr: str):
+    """Return an attribute (city, country, etc.) of a location"""
+    if loc is None:
+        return ""
+
+    cood = (loc.latitude, loc.longitude)
+    if cood not in geo_cache:
+        addr = geolocator.reverse(cood)
+        geo_cache[cood] = addr
+    else:
+        addr = geo_cache[cood]
+    
+    if 'address' in addr.raw and attr in addr.raw['address']:
+        return addr.raw['address'][attr]
+    else:
+        return ""
+
+def is_home(loc: Location, home: Location):
     """Check if a location is home (within 200km)."""
     try:
-        home_coordinate = get_coordinate(home)
-        coordinate = get_coordinate(loc)
-        return geopy.distance.geodesic(home_coordinate, coordinate).km <= 200.0
+        home = get_coordinate(home)
+        loc = get_coordinate(loc)
+        return geopy.distance.geodesic(home, loc).km <= 200.0
     except:
         return True
 
@@ -137,7 +168,7 @@ def visualize(image_paths: List[str]):
         plt.imshow(img)
 
 
-def postprocess_bloom(answer: str):
+def postprocess_bloom(answer: str, keywords: List[str]=None):
     """Postprocess a bloom request response."""
     # answer = answer.replace('\n', ',').replace('-', ',').replace('.', ',')
     # items = [item.strip() for item in answer.split(',')]
@@ -148,6 +179,12 @@ def postprocess_bloom(answer: str):
         answer = answer.decode('UTF-8')
     answer = answer.replace('"', '').replace("'", '')
     answer = answer.strip().split('\n')[0]
+    
+    # none answer
+    if keywords is not None and "Keywords:" in answer:
+        print('Bad:', keywords)
+        answer = keywords[0]
+
     return answer
 
 
@@ -162,21 +199,33 @@ def summarize_activity(entries: List[LLImage]):
         for p in ent.places:
             places_cnt[p] += 1
 
-    sorted_places = list(zip(*places_cnt.most_common(2)))[0]
-    object_list = ', '.join(list(zip(*objects_cnt.most_common(3)))[0])
+    sorted_places = list(zip(*places_cnt.most_common(3)))[0]
+    object_list = ', '.join(list(zip(*objects_cnt.most_common(10)))[0])
+    loc = get_location(entries)
+    city = get_location_attr(loc, "city")
 
-    prompt = "I am an intelligent image captioning bot. I am going to describe the activities in photos. "
-    prompt += f"I think these photos were taken in {get_location(entries).split(';')[0]} at a {sorted_places[0]} or {sorted_places[1]}. "
-    prompt += f"I think there might be a {object_list} in these photos. "
-    prompt += "A very short and creative caption to describe these photos is:"
-    print(prompt)
+    if city.strip() == "":
+        tags = []
+    else:
+        tags = [city]
+        
+    tags += object_list.split(', ') + list(sorted_places)
+    keyword_prompt = f"Keywords: {', '.join(tags)}"
+    print(keyword_prompt)
+
+    # prompt = "I am an intelligent image captioning bot. I am going to describe the activities in photos. "
+    # prompt += f"I think these photos were taken in {city} at a {sorted_places[0]} or {sorted_places[1]}. "
+    # prompt += f"I think there might be a {object_list} in these photos. "
+    # prompt += "A short and creative caption to describe these photos. tl;dr:"
+    # print(prompt)
+    prompt = open('src/enrichment/socratic/caption_prompt.txt').read()
+    prompt += '\n' + keyword_prompt + '\nTitle:'
 
     response = socratic.generate_captions(prompt, method="Sample")
-    print(response)
 
     # print(prompt)
     # print(response)
-    return postprocess_bloom(response)
+    return postprocess_bloom(response, tags)
 
 
 def summarize_day(day: List[List[LLImage]], activity_index: Dict):
@@ -192,10 +241,21 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
             for p in ent.places:
                 places_cnt[p] += 1
 
-    sorted_places = list(zip(*places_cnt.most_common(2)))[0]
-    object_list = ', '.join(list(zip(*objects_cnt.most_common(3)))[0])
+    sorted_places = list(zip(*places_cnt.most_common(3)))[0]
+    object_list = ', '.join(list(zip(*objects_cnt.most_common(10)))[0])
     summaries = ' '.join(activity_summaries)
-    loc = get_location(day).split(';')[0]
+
+    loc = get_location(day)
+    loc = get_location_attr(loc, "city")
+
+    if loc.strip() == "":
+        tags = []
+    else:
+        tags = [loc]
+        
+    tags += object_list.split(', ') + list(sorted_places)
+    keyword_prompt = f"Keywords: {', '.join(tags)}"
+    print(keyword_prompt)
 
     prompt = "I am an intelligent image captioning bot. I am going to summarize what I did today. "
     if loc.strip() != "":
@@ -203,9 +263,9 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
     prompt += f"I have been to {sorted_places[0]} or {sorted_places[1]}. I saw {object_list}. "
     if len(activity_summaries) > 1:
         prompt += f"I did the following things: {summaries} "
-    prompt += "A very short and creative caption for the photos I can generate is:"
+    prompt += "A short and creative caption for the photos (tl;dr):"
 
-    print(prompt)
+    # print(prompt)
     # prompt = f"""I am an intelligent image captioning bot.
     #   I am going to summarize what I did today.
     #   I spent today at {get_location(day).replace(';', ', ')}.
@@ -214,19 +274,22 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
     #   A creative short caption I can generate to describe these photos is:"""
 
     # print(prompt)
+    prompt = open('src/enrichment/socratic/caption_prompt.txt').read()
+    prompt += '\n' + keyword_prompt + '\nTitle:'
 
     response = socratic.generate_captions(prompt, method="Sample")
 
-    return postprocess_bloom(response)
+    return postprocess_bloom(response, tags)
 
 
-def trip_data_to_text(locations: List[str], start_date: List, num_days: List[int]):
+def trip_data_to_text(locations: List[Location], start_date: List, num_days: List[int]):
     """Data to text for a trip."""
     cities = []
     countries = []
     for loc in locations:
-        city = loc.split(';')[0].strip()
-        country = loc.split(';')[-1].strip()
+        city = get_location_attr(loc, "city")
+        country = get_location_attr(loc, "country")
+
         if len(city) > 3 and city not in cities:
             cities.append(city)
         if len(country) > 3 and country not in countries:
@@ -249,20 +312,27 @@ def organize_images_by_tags(images: List[LLImage]):
 
     return result
 
-
-def get_location(segment):
+def get_location(segment) -> Location:
     """Computer the location of an LLEntry/LLImage/activity/day"""
     if isinstance(segment, LLEntry):
         entry = segment
-        return '; '.join([entry.startCity, entry.startState, entry.startCountry])
+        if hasattr(entry, "startGeoLocation") and entry.startGeoLocation is not None:
+            return entry.startGeoLocation
+        else:
+            return str_to_location(", ".join([entry.startCity, entry.startState, entry.startCountry]))
     elif isinstance(segment, LLImage):
         return segment.loc
     elif isinstance(segment, list):
-        loc_cnt = Counter()
+        # return a location in most frequent city
+        city_cnt = Counter()
+        loc_dict = {}
         for entry in segment:
             loc = get_location(entry)
-            loc_cnt[loc] += 1
-        return loc_cnt.most_common(1)[0][0]
+            city = get_location_attr(loc, "city")
+            city_cnt[city] += 1
+            loc_dict[city] = loc
+        most_common_city = city_cnt.most_common(1)[0][0]
+        return loc_dict[most_common_city]
     else:
         return ""
 
@@ -356,7 +426,11 @@ def convert_LLEntry_LLImage(entries: List[LLEntry]):
 
     for entry in tqdm(entries):
         time = get_timestamp(entry)
-        loc = ';'.join([entry.startCity, entry.startState, entry.startCountry])
+        if hasattr(entry, "startGeoLocation") and entry.startGeoLocation is not None:
+            loc = entry.startGeoLocation
+        else:
+            loc = str_to_location(', '.join([entry.startCity, entry.startState, entry.startCountry]))
+
         if entry.imageFilePath is not None and \
            len(entry.imageFilePath) > 0:
             image_entries.append(LLImage(entry.imageFilePath, time, loc))
@@ -545,8 +619,9 @@ if __name__ == '__main__':
         entries.append(entry)
 
     entries.sort(key=lambda x: get_timestamp(x))
-    entries = entries[:50]
+    entries = entries# [:50]
     user_info = json.load(open("user_info.json"))
+    default_location = user_info["address"]
     activity_index, daily_index, trip_index = create_trip_summary(entries, user_info)
 
     pickle.dump(activity_index, open("activity_index.pkl", "wb"))

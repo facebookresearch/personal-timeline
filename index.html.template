@@ -19,3 +19,137 @@
     var obj = "timeline object template";
     timeline = new TL.Timeline('timeline-embed', obj);
 </script>
+
+
+<style>
+.filterDiv {
+  float: left;
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+<body>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('activity')"> Activities </button>
+  <button class="btn" onclick="filterSelection('trip')"> Trips </button>
+  <button class="btn" onclick="filterSelection('day')"> Days</button>
+</div>
+
+<div id="TagsContainer">
+  <button class="btn active" onclick="tagSelection('all')">Show all</button>
+</div>
+
+<script>
+var current_type = "all";
+var current_tag = "all";
+
+updateTimeline(current_type, current_tag);
+
+function filterSelection(type) {
+  if (type != current_type) {
+    current_type = type;
+    updateTimeline(current_type, current_tag);
+  }
+}
+
+function tagSelection(tag) {
+  if (tag != current_tag) {
+    current_tag = tag;
+    updateTimeline(current_type, current_tag);
+  }
+}
+
+function most_frequent(arr, k) {
+  var unique = Array.from(new Set(arr));
+  unique.sort((a,b) =>
+         - arr.filter(v => v == a).length
+         + arr.filter(v => v == b).length
+    );
+  return unique.slice(0, k);
+}
+
+function updateTimeline(type, tag) {
+  var new_obj = {"events": []}
+  var new_tags = []
+  for (var i = 0; i < obj.events.length; i++) {
+    if ((type == "all" || obj.events[i].group == type) &&
+        (tag == "all" || obj.events[i].tags.includes(tag))) {
+      new_obj.events.push(obj.events[i])
+      new_tags = new_tags.concat(obj.events[i].tags)
+    }
+  }
+  timeline = new TL.Timeline('timeline-embed', new_obj);
+  new_tags = most_frequent(new_tags, 10);// Array.from(new Set(new_tags));
+
+  tag_container = document.getElementById("TagsContainer")
+
+  // update tags
+  var btnContainer = document.getElementById("TagsContainer");
+  if (tag == "all") {
+    btnContainer.innerHTML = '<button class="btn active" onclick="tagSelection(\'all\')">Show all</button>';
+  } else {
+    btnContainer.innerHTML = '<button class="btn" onclick="tagSelection(\'all\')">Show all</button>';
+  }
+  for (var i = 0; i < new_tags.length; i++) {
+    if (new_tags[i] == tag) {
+      btnContainer.innerHTML += '<button class="btn active" onclick="tagSelection(\'' + new_tags[i] + 
+    '\')">' + new_tags[i] + '</button>';
+    } else {
+      btnContainer.innerHTML += '<button class="btn" onclick="tagSelection(\'' + new_tags[i] + 
+    '\')">' + new_tags[i] + '</button>';
+    }
+  }
+}
+
+
+// Add active class to the current button (highlight it)
+var containers = ["myBtnContainer", "TagsContainer"]
+
+for (var cid = 0; cid < containers.length; cid++) {
+  var btnContainer = document.getElementById(containers[cid]);
+  var btns = btnContainer.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function(){
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+}
+
+addListener();
+</script>

@@ -172,7 +172,8 @@ def generate_prompt(openimage_classes, tencentml_classes, place365_classes, imgt
     return prompt_caption
 
 
-bad_words_id = BloomTokenizerFast.from_pretrained("bigscience/bloom").encode("I am an intelligent creative image caption captioning bot I am going to summarize what I did today")
+bad_words_ids = BloomTokenizerFast.from_pretrained("bigscience/bloom").encode("intelligent creative image caption captioning bot summarize", add_special_tokens=False)
+# print(bad_words_ids)
 
 def generate_captions(prompt, num_captions=3, method="Greedy"):
     cache = dbm.open('bloom_cache', 'c')
@@ -182,8 +183,6 @@ def generate_captions(prompt, num_captions=3, method="Greedy"):
         return res
 
     headers = {"Authorization": f"Bearer {HF_TOKEN}"}
-
-    bad_words_id = []
 
     max_length = 16
     seed = 42
@@ -198,7 +197,7 @@ def generate_captions(prompt, num_captions=3, method="Greedy"):
             "early_stopping": False,
             "length_penalty": 0.0,
             "eos_token_id": None,
-            "bad_words_id": bad_words_id
+            "bad_words_ids": bad_words_ids
         }
     else:
         parameters = {
@@ -208,7 +207,7 @@ def generate_captions(prompt, num_captions=3, method="Greedy"):
             "early_stopping": False,
             "length_penalty": 0.0,
             "eos_token_id": None,
-            "bad_words_id": bad_words_id
+            "bad_words_ids": bad_words_ids
         }
 
     payload = {"inputs": input_sentence, "parameters": parameters, "options" : {"use_cache": False}}
@@ -240,7 +239,7 @@ def generate_text_gpt3(prompt):
         model="text-davinci-002",
         prompt=prompt,
         temperature=0,
-        max_tokens=100,
+        max_tokens=16,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0,
