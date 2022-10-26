@@ -39,9 +39,8 @@
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-    top: 100%;
-    left: 50%;
-    margin-left: -60px;
+    top: -5px;
+    left: 105%;
   }
   
   .tooltip:hover .tooltiptext {

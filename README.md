@@ -13,7 +13,7 @@ In the explanation, we'll assume three directories all sitting within the applic
    ```conda config --append channels conda-forge```
 
 3. Create a new conda dev environment  
-    ```conda create --name <env> python==3.7.13```
+    ```conda create --name <env> python==3.10.4```
 
 4. Install required packages from requirements.txt file:  
     ```conda install --name <env> --file requirements.txt```

@@ -1,4 +1,5 @@
 import pickle
+import sys
 import os
 import datetime
 from matplotlib.image import thumbnail
@@ -116,12 +117,16 @@ class TimelineRenderer:
             text += f"<p>These are the {tag} that I saw: <ul><li>"
             itemized = []
             for item in object_dict[tag]:
-                img_path = item["img_path"]
+                img_path = item["img_path"] + '.compressed.jpg'
                 name = item["name"]
+                _, tail = os.path.split(img_path)
+                if not os.path.exists(os.path.join('images/', tail)):
+                    os.system('cp "%s" images/' % (img_path))
+
                 # itemized.append(f'<a href="{img_path}">{name}</a>')
-                itemized.append(f'''<div class="tooltip"><a href="{img_path}">{name}</a>
+                itemized.append(f'''<div class="tooltip"><a href="images/{tail}">{name}</a>
                                <span class="tooltiptext">
-                               <img src="{img_path + '.compressed.jpg'}" alt="image" height="200" /></span>
+                               <img src="images/{tail}" alt="image" height="200" /></span>
                                </div>''')
             text += ", ".join(itemized) + " </li> </ul>"
 
@@ -164,15 +169,27 @@ class TimelineRenderer:
                     "group": "activity",
                     "unique_id": f"activity_{activity.startTime}",
                     "tags": tags,
-                    "next_tags": next_tags
+                    "next_tags": next_tags,
+                    "background": {"url": activity.image_paths[0] + '.compressed.jpg'}
                 }
             # slide["tags"] += self.get_city_country(activity.startGeoLocation)
             # slide["tags"] += [activity.startGeoLocation.address.split(', ')[-1]]
-            result['events'].append(slide)
+            # if 'person' not in activity.objects:
+
+            # hide an activity if it is the only one in a day
+            date_str = datetime.datetime.fromisoformat(activity.startTime).date()
+            if date_str in self.daily_index:
+                num_activities = self.daily_index[date_str].stats["num_activities"]
+            else:
+                num_activities = 2
+            
+            if num_activities > 1:
+                result['events'].append(slide)
         
         print("Processing days")
         for day in tqdm(self.daily_index.values()):
             day : LLEntrySummary = day
+
             img_path = self.visualize_images(day.image_paths)
             tags, next_tags = self.organize_tags(day.objects, 
                                                  self.get_city_country(day.startGeoLocation))
@@ -184,8 +201,10 @@ class TimelineRenderer:
                 "group": "day",
                 "unique_id": f"day_{day.startTime}",
                 "tags": tags,
-                "next_tags": next_tags
+                "next_tags": next_tags,
+                "background": {"url": day.image_paths[0] + '.compressed.jpg'}
             }
+            # if 'person' not in day.objects:
             result['events'].append(slide)
 
         print("Processing trips")
