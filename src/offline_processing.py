@@ -319,10 +319,24 @@ def get_location(segment) -> Location:
     """Computer the location of an LLEntry/LLImage/activity/day"""
     if isinstance(segment, LLEntry):
         entry = segment
-        if hasattr(entry, "startGeoLocation") and entry.startGeoLocation is not None:
-            return entry.startGeoLocation
-        else:
-            return str_to_location(", ".join([entry.startCity, entry.startState, entry.startCountry]))
+        for loc in entry.locations:
+            if loc is not None and loc.address != 'Soul Buoy':
+                return loc
+        for lat_lon in entry.lat_lon:
+            lat_lon = tuple(lat_lon)
+            if lat_lon is not None and lat_lon != (0.0, 0.0):
+                if lat_lon in geo_cache:
+                    return geo_cache[lat_lon]
+                else:
+                    loc = geolocator.reverse(lat_lon)
+                    geo_cache[lat_lon] = loc
+                    return loc
+
+        return str_to_location(default_location)
+        # if hasattr(entry, "startGeoLocation") and entry.startGeoLocation is not None:
+        #     return entry.startGeoLocation
+        # else:
+        #     return str_to_location(", ".join([entry.startCity, entry.startState, entry.startCountry]))
     elif isinstance(segment, LLImage):
         return segment.loc
     elif isinstance(segment, list):
@@ -429,10 +443,7 @@ def convert_LLEntry_LLImage(entries: List[LLEntry]):
 
     for entry in tqdm(entries):
         time = get_timestamp(entry)
-        if hasattr(entry, "startGeoLocation") and entry.startGeoLocation is not None:
-            loc = entry.startGeoLocation
-        else:
-            loc = str_to_location(', '.join([entry.startCity, entry.startState, entry.startCountry]))
+        loc = get_location(entry)
 
         if entry.imageFilePath is not None and \
            len(entry.imageFilePath) > 0:

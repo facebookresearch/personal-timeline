@@ -83,15 +83,15 @@ class GooglePhotosImporter(PhotoImporter):
                 tagged_people = content["people"]
             if "imageViews" in content.keys():
                 imageViews = content["imageViews"]
-            if os.path.splitext(imageFilePath)[1] == '.HEIC':
-                heic_counter +=1
-                continue
+            # if os.path.splitext(imageFilePath)[1] == '.HEIC':
+            #     heic_counter +=1
+                # continue
             obj = self.create_LLEntry(imageFilePath, latitude, longitude, taken_timestamp, tagged_people, imageViews)
             self.pdc.add_or_replace_personal_data({"data": obj, "data_timestamp": int(taken_timestamp), "id": row_id}, "id")
             total_imported += 1
         print("Orphaned Json Files: ", len(orphan_json_files))
         print("Skipped: ", skipped)
         print("Total processed: ", total_imported)
-        print("Total HEIC ignored: ", heic_counter)
-        if heic_counter > 0:
-            print('Please convert your HEIC file to JPEG')
+        # print("Total HEIC ignored: ", heic_counter)
+        # if heic_counter > 0:
+        #     print('Please convert your HEIC file to JPEG')
