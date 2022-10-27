@@ -195,7 +195,7 @@ class CSVImporter(GenericImporter):
             for index, row in tqdm(df.iterrows(), total=df.shape[0]):
                 obj = self.create_LLEntry(row.to_dict(), field_mappings)
                 if obj is None:
-                    print("Skipping row:", row.to_dict())
+                    # print("Skipping row:", row.to_dict())
                     continue
                 data_entry = self.build_db_entry(obj)
                 self.pdc.add_or_replace_personal_data(data_entry, "dedup_key")

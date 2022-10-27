@@ -29,30 +29,6 @@ class GoogleMapsImporter(GenericImporter):
         location = geolocator.reverse(str(lat) + "," + str(lon), addressdetails=True)
         return (location)
 
-    def updateLocation(self, obj, se, lat, lon):
-        loc = self.calculateLocationFromLatLong(lat, lon)
-        if se:
-            obj.startLocation = str(loc)
-        else:
-            obj.endLocation = str(loc)
-        if loc is not None:
-            if "country" in loc.raw["address"]:
-                if se:
-                    obj.startCountry = loc.raw["address"]["country"]
-                else:
-                    obj.endCountry = loc.raw["address"]["country"]
-
-            if "city" in loc.raw["address"]:
-                if se:
-                    obj.startCity = loc.raw["address"]["city"]
-                else:
-                    obj.endCity = loc.raw["address"]["city"]
-            if "state" in loc.raw["address"]:
-                if se:
-                    obj.startState = loc.raw["address"]["state"]
-                else:
-                    obj.endState = loc.raw["address"]["state"]
-
     def generate_textDescription(self, details):
         # print (details)
         result = details["start"] + ": "
@@ -73,25 +49,25 @@ class GoogleMapsImporter(GenericImporter):
         # print ("in place visit extract")
         start = visit["duration"]["startTimestamp"][0:19]
         start_lat = visit["location"]["latitudeE7"]
-        start_long = visit["location"]["longitudeE7"]
-        target_timezone = convertlatlongToTimezone(start_lat, start_long)
+        start_lon = visit["location"]["longitudeE7"]
+        target_timezone = convertlatlongToTimezone(start_lat, start_lon)
         experienced_start_time = convertToTimezone(start, ORIGIN_TIMEZONE, target_timezone)
 
-        print("visit: lat long, start, target_timezone, experiencedStartTime")
-        print(start_lat)
-        print(start_long)
-        print(start)
-        print(target_timezone)
-        print(experienced_start_time)
+        # print("visit: lat long, start, target_timezone, experiencedStartTime")
+        # print(convertOutOfE7(start_lat))
+        # print(convertOutOfE7(start_lon))
+        # print(start)
+        # print(target_timezone)
+        # print(experienced_start_time)
 
         obj = LLEntry(self.entry_type, experienced_start_time, self.source_name)
-
+        obj.lat_lon.append([convertOutOfE7(start_lat),convertOutOfE7(start_lon)])
         startTOD = experienced_start_time[11:19]
         obj.startTimeOfDay = startTOD
         textDescription = startTOD[0:5] + ": "
         if "location" in visit:
-            obj.startLocation = visit["location"]["name"]
-            textDescription = textDescription + "visit to " + visit["location"]["name"]
+            #Keep placeholder to be replaced after geo enrichment
+            textDescription = textDescription + "visit to $location"
 
         if "duration" in visit:
             obj.endTime = visit["duration"]["endTimestamp"][0:19]
@@ -111,16 +87,17 @@ class GoogleMapsImporter(GenericImporter):
         return obj
 
     def activitySegmentExtract(self, activity):
-        print("in activity extract")
+        # print("in activity extract")
         translation = {"IN_PASSENGER_VEHICLE": "drive",
                        "WALKING": "walk",
                        "MOTORCYCLING": "motorcycle", "IN_BUS": "bus",
                        "IN_SUBWAY": "subway", "CYCLING": "cycling",
                        "FLYING": "fly"}
-        textDescription = " "
-        if "activityType" not in activity:
-            print("activityType not in Activity")
-            print(activity)
+        # if "activityType" not in activity:
+        #     print("activityType not in Activity")
+        #     print(activity)
+        textActivity = ""
+        wtype = self.entry_type
         if "activityType" in activity:
             if activity["activityType"] in translation:
                 wtype = "base:" + translation[activity["activityType"]]
@@ -132,26 +109,33 @@ class GoogleMapsImporter(GenericImporter):
 
         start = activity["duration"]["startTimestamp"][0:19]
 
+        if "latitudeE7" not in activity["startLocation"] or \
+            "longitudeE7" not in activity["startLocation"] or \
+            "latitudeE7" not in activity["endLocation"] is None or \
+            "longitudeE7" not in activity["endLocation"] is None:
+            print("Some Location data is missing. Skipping", activity)
+            return
+
         start_lat = convertOutOfE7(activity["startLocation"]["latitudeE7"])
-        start_long = convertOutOfE7(activity["startLocation"]["longitudeE7"])
+        start_lon = convertOutOfE7(activity["startLocation"]["longitudeE7"])
         end_lat = convertOutOfE7(activity["endLocation"]["latitudeE7"])
-        end_long = convertOutOfE7(activity["endLocation"]["longitudeE7"])
+        end_lon = convertOutOfE7(activity["endLocation"]["longitudeE7"])
 
         target_timezone = convertlatlongToTimezone(activity["startLocation"]["latitudeE7"], \
                                                    activity["startLocation"]["longitudeE7"])
         experienced_startTime = convertToTimezone(start, ORIGIN_TIMEZONE, target_timezone)
-        print("activity: lat long, start, target_timezone, experiencedStartTime")
-        print(activity["startLocation"]["latitudeE7"])
-        print(activity["startLocation"]["longitudeE7"])
-        print(start)
-        print(target_timezone)
-        print(experienced_startTime)
+        # print("activity: lat long, start, target_timezone, experiencedStartTime")
+        # print(start_lat)
+        # print(start_lon)
+        # print(start)
+        # print(target_timezone)
+        # print(experienced_startTime)
 
         startTOD = experienced_startTime[11:19]
         textDescription = startTOD[0:5] + ": " + textActivity
-        obj = LLEntry(wtype, experienced_startTime, SOURCE)
-        self.updateLocation(obj, True, start_lat, start_long)
-        self.updateLocation(obj, False, end_lat, end_long)
+        obj = LLEntry(wtype, experienced_startTime, self.source_name)
+        obj.lat_lon.append([start_lat,start_lon])
+        obj.lat_lon.append([end_lat, end_lon])
         obj.startTimeOfDay = startTOD
         experienced_endTime = convertToTimezone(activity["duration"]["endTimestamp"][0:19], ORIGIN_TIMEZONE,
                                                 target_timezone)
@@ -173,11 +157,12 @@ class GoogleMapsImporter(GenericImporter):
             textDescription = textDescription + " distance: " + obj.distance
 
         obj.textDescription = textDescription
-        print("TEXT DESCRIPTION:  ", obj.textDescription)
+        #print("TEXT DESCRIPTION:  ", obj.textDescription)
         return obj
 
 
     def import_data(self, field_mappings:list):
+        print("Looking for files in", str(Path(self.configs.input_directory).absolute()))
         entries = self.get_type_files_deep(str(Path(self.configs.input_directory).absolute()),
                                            self.configs.filename_regex,
                                            self.configs.filetype.split(","))

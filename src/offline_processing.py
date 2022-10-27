@@ -543,7 +543,7 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
 
 if __name__ == '__main__':
     db = PersonalDataDBConnector()
-    res = db.search_photos(select_cols="enriched_data", where_conditions={"enriched_data": "is not NULL"})
+    res = db.search_personal_data(select_cols="enriched_data", where_conditions={"enriched_data": "is not NULL"})
     entries = []
     for row in res.fetchall():
         entry = pickle.loads(row[0])

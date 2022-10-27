@@ -20,7 +20,7 @@ print("Index created from files. ")
 print("Creating Index from DB... ")
 #Photos are extracted from DB
 db = PersonalDataDBConnector()
-result_cursor = db.search_photos("enriched_data", {"export_done": "=1"})
+result_cursor = db.search_personal_data("enriched_data", {"export_done": "=1"})
 for row in result_cursor:
     enriched_entry:LLEntry = pickle.loads(row[0])
     count += 1
