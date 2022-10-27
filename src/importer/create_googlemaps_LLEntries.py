@@ -83,7 +83,7 @@ class GoogleMapsImporter(GenericImporter):
             textDescription = textDescription + " (duration: " + obj.duration + ")"
 
         obj.textDescription = textDescription
-        print("TEXT DESCRIPTION:  ", obj.textDescription)
+        # print("TEXT DESCRIPTION:  ", obj.textDescription)
         return obj
 
     def activitySegmentExtract(self, activity):
@@ -189,7 +189,7 @@ class GoogleMapsImporter(GenericImporter):
                 else:
                     print("Can't recognize key", key_list[0])
                 if obj is None:
-                    print("Skipping row:", i)
+                    # print("Skipping row:", i)
                     continue
                 data_entry = self.build_db_entry(obj)
                 self.pdc.add_or_replace_personal_data(data_entry, "dedup_key")
