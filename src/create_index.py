@@ -27,17 +27,11 @@ for row in result_cursor:
     date = enriched_entry.startTime[0:10]
     inverted_index.addEntry(date, row[0])
 photos_count=count
-print("Photos count:", photos_count)
+print("Total count:", photos_count)
 
-result_cursor = db.search_personal_data("data")
-for row in result_cursor:
-    data:LLEntry = pickle.loads(row[0])
-    count += 1
-    date = data.startTime[0:10]
-    inverted_index.addEntry(date, row[0])
-print("Non-Photo count:", count - photos_count)
 output_obj = pickle.dumps(inverted_index)
 print ("count and number of keys are: ", count, " and ", len(inverted_index.index.keys()))
-print ("Keys: ", sorted(inverted_index.index.keys()))
+#print ("Keys: ", sorted(inverted_index.index.keys()))
 outfile = open(output_path, 'wb')
-pickle.dump(inverted_index,outfile)
+pickle.dump(inverted_index, outfile)
+print("Output written to:", output_path)
