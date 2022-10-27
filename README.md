@@ -13,7 +13,7 @@ In the explanation, we'll assume three directories all sitting within the applic
    ```conda config --append channels conda-forge```
 
 3. Create a new conda dev environment  
-    ```conda create --name <env> python==3.7.13```
+    ```conda create --name <env> python==3.10.4```
 
 4. Install required packages from requirements.txt file:  
     ```conda install --name <env> --file requirements.txt```
@@ -39,15 +39,15 @@ In the explanation, we'll assume three directories all sitting within the applic
 1. You need to download your Google photos from [Google Takeout](https://takeout.google.com/).  
 The download from Google Takeout would be in multiple zip files. Unzip all the files.
 
-2. It may be the case that some of your photo files are .HEIC. In that case follow the steps below to convert them to .jpeg  
+<!-- 2. It may be the case that some of your photo files are .HEIC. In that case follow the steps below to convert them to .jpeg  
 The easiest way to do this on a Mac is:
 
      -- Select the .HEIC files you want to convert.   
      -- Right click and choose "quick actions" and then you'll have an option to convert the image.  
-     -- If you're converting many photos, this may take a few minutes.
-3. Create a new directory under `personal-data` folder  
+     -- If you're converting many photos, this may take a few minutes. -->
+2. Create a new directory under `personal-data` folder  
     ```$ mkdir ~/personal-data/google_photos```
-4. Move all the unzipped folders inside `personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
+3. Move all the unzipped folders inside `personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
 
 ### FACEBOOK DATA
 1. Go to [Facebook Settings](https://www.facebook.com/settings?tab=your_facebook_information) 
@@ -89,15 +89,13 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
 
 # Step 2: Import your photo data to SQLite (this is what will go into the episodic database)
 
- Run:
-
-    python -m src.workflow
-
+Run:
+```python -m src.workflow```
 
 The script will allow you to choose the steps you want to run from the workflow.  
-Follow the instructions to import and enrich data.
+Follow the instructions to import and enrich data. (Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
 
-# Step 3: Create Inverted Index Files:
+# Step 3: Create Inverted Index Files (optional):
 
 1. Create a data directory and a sym link to that directory inside the repo
 
@@ -127,53 +125,7 @@ export HF_TOKEN=<the token goes here>
 python -m src.offline_processing
 ```
 
-The script will generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`.
-
-An entry in the activity index looks like:
-```
-{ 'date': datetime.date(2018, 8, 30),
-  'end_hour': 5,
-  'num_photos': 4,
-  'objects': { 'document': [ <some_paths_to_images> ]},
-  'photo_summary': [ <some_paths_to_images> ],
-  'start_hour': 5,
-  'summary': 'A conference room, computer room, or conference center is full '
-             'of people,.'}
-```
-
-An entry in the daily index looks like:
-```
-{ 'date': datetime.date(2018, 12, 9),
-  'end_loc': 'San Jose;California;United States',
-  'num_activities': 2,
-  'num_photos': 4,
-  'objects': { 'person': [ <some_paths_to_images> ]},
-  'photo_summary': [ <some_paths_to_images> ],
-  'start_loc': 'San Jose;California;United States',
-  'summary': 'I spent today at San Jose.'}
-```
-
-An entry in the trip index looks like:
-```
-{ 'cities': ['Rio de Janeiro;Rio de Janeiro;Brasil'],
-  'days': 3,
-  'end_date': datetime.date(2018, 9, 1),
-  'itinerary': [ { 'end': datetime.date(2018, 9, 1),
-                   'location': 'Rio de Janeiro;Rio de Janeiro;Brasil',
-                   'photo_summary': [ <some_paths_to_images> ],
-                   'start': datetime.date(2018, 8, 29)}],
-  'num_photos': 100,
-  'start_date': datetime.date(2018, 8, 29),
-  'summary': 'I went to Rio de Janeiro, Brazil, for 3 days in 2018/8.'}
-```
-
-----------
-This part of README is in progress. Please ignore:
-
-You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the right place (there's always a variable at the top of the file with the pointer).
-
-### GOOGLE TIMELINE
-Go to Google Takeout -- https://takeout.google.com/settings/takeout and ask to download your maps data.
+The script will generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`. See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.
 
 
 # Step 5: Generate visualization
@@ -191,7 +143,25 @@ python -m src.visualization
 
 The script will generate a HTML page `index.html` for inspecting the timeline from your browser. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
 
+# Step 6: Running the interactive GUI (WIP)
+
+Make sure that you have installed QT from `requirements.txt`. Launch the interactive GUI:
+
+```
+python -m src.gui.main
+```
+
+Now you can search the timeline with queries!
+
 <!-- #### Currently we use the BLIP package from Salesforce to generate captions.
+
+----------
+This part of README is in progress. Please ignore:
+
+You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the right place (there's always a variable at the top of the file with the pointer).
+
+### GOOGLE TIMELINE
+Go to Google Takeout -- https://takeout.google.com/settings/takeout and ask to download your maps data.
 
 Clone  https://github.com/salesforce/BLIP
 

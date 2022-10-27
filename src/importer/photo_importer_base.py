@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 import re
 import pytz
+from parsedatetime import parsedatetime
 from timezonefinder import TimezoneFinder
 import datetime
 from datetime import datetime
@@ -11,30 +12,30 @@ from src.objects.LLEntry_obj import LLEntry
 from PIL import Image
 from pillow_heif import register_heif_opener
 
+from src.objects.import_configs import SourceConfigs
+
 register_heif_opener()
 
 from src.persistence.personal_data_db import PersonalDataDBConnector
 
 class PhotoImporter:
     @abstractmethod
-    def __init__(self, input_dir:str, sub_dirs:list, source:str, type:EntryType):
-        self.db = PersonalDataDBConnector()
-        self.INPUT_DIRECTORY = input_dir
-        self.SUB_DIRS = sub_dirs
-        self.SOURCE = source
-        self.TYPE = type
+    def __init__(self, source_id:int, source_name:str, entry_type:EntryType, configs:SourceConfigs):
+        self.pdc = PersonalDataDBConnector()
+        self.source_id = source_id
+        self.source_name = source_name
+        self.entry_type = entry_type
+        self.configs = configs
+        self.cal = parsedatetime.Calendar()
 
     @abstractmethod
     def import_photos(self, cwd, subdir):
         pass
 
-    def start_import(self):
-        cwd = str(Path(self.INPUT_DIRECTORY).absolute())
-        if self.SUB_DIRS is None:
-            self.import_photos(cwd, None)
-        else:
-            for dir in self.SUB_DIRS:
-                self.import_photos(cwd, dir)
+    def import_data(self, field_mappings:list):
+        print("Import Data for", self.source_name)
+        cwd = str(Path(self.configs.input_directory).absolute())
+        self.import_photos(cwd, None)
 
     def calculateExperiencedTimeRealAndUtc(self, latitude: float, longitude: float, timestamp: int):
         # get timestamp
@@ -49,13 +50,17 @@ class PhotoImporter:
         #print("converted into: ", real_date)
         return str(real_date), str(utc_dt)
 
-    def get_type_files_deep(self, pathname:str, type:list):
+    def get_type_files_deep(self, pathname: str, filename_pattern: str, type: list) -> list:
         json_files = []
-        type_str:str = "|".join(type).lower()
+        type_str: str = "|".join(type).lower()
+        if filename_pattern is None:
+            filename_regex = ".*"
+        else:
+            filename_regex = ".*" + filename_pattern.lower() + ".*"
         if os.path.isdir(pathname):
             dir_entries = os.listdir(pathname)
             for dir_entry in dir_entries:
-                all_json = self.get_type_files_deep(pathname + "/" + dir_entry, type)
+                all_json = self.get_type_files_deep(pathname + "/" + dir_entry, filename_pattern, type)
                 if all_json is not None:
                     if isinstance(all_json, list):
                         for one_json in all_json:
@@ -63,8 +68,11 @@ class PhotoImporter:
                     else:
                         json_files.append(all_json)
             return json_files
-        elif os.path.isfile(pathname) and re.match(".*\.(" + type_str+")$", pathname.lower()):
-            return pathname
+        elif os.path.isfile(pathname):
+            if re.match(filename_regex + "\.(" + type_str + ")$", pathname.lower()):
+                path_arr = []
+                path_arr.append(pathname)
+                return path_arr
 
     # Given a nested json(haystack), this function finds all occurrences
     # of the key(needle) and returns a list of found entries
@@ -112,7 +120,7 @@ class PhotoImporter:
 
 
     def is_photo_already_processed(self, filename, taken_timestamp):
-        return self.db.is_same_photo_present(self.SOURCE, filename, taken_timestamp)
+        return self.pdc.is_same_photo_present(self.source_id, filename, taken_timestamp)
 
     def create_LLEntry(self,
                        uri,
@@ -125,10 +133,9 @@ class PhotoImporter:
                                                                         longitude, taken_timestamp)
         # TODO:Photo Location would be an enrichment step.
 
-        obj = LLEntry(self.TYPE, real_start_time, self.SOURCE)
+        obj = LLEntry(self.entry_type, real_start_time, self.source_name)
         obj.startTimeOfDay = real_start_time[11:19]
-        obj.latitude = latitude
-        obj.longitude = longitude
+        obj.lat_lon.append([latitude, longitude])
 
         #Specific to Image
         obj.imageFilePath = uri

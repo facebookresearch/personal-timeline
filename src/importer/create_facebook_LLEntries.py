@@ -3,20 +3,19 @@ from tqdm import tqdm
 from src.importer.photo_importer_base import PhotoImporter
 from src.objects.LLEntry_obj import *
 from src.objects.EntryTypes import EntryType
+from src.objects.import_configs import SourceConfigs
+
 
 class FacebookPhotosImporter(PhotoImporter):
-    def __init__(self):
-        self.SOURCE = "Facebook Posts"
-        # This is where the photos and their jsons sit
-        INPUT_DIRECTORY = "personal-data/facebook"
-        SUB_DIRS = ["posts"]
-        TYPE = EntryType.PHOTO
-        super().__init__(INPUT_DIRECTORY, SUB_DIRS, self.SOURCE, TYPE)
+    def __init__(self, source_id:int,  source_name: str, entry_type: EntryType, configs:SourceConfigs):
+        super().__init__(source_id, source_name, entry_type, configs)
 
     def import_photos(self, cwd, subdir):
         json_filepath = cwd + "/" + subdir if subdir is not None else cwd
         print("Using path: ", json_filepath)
-        json_files = self.get_type_files_deep(json_filepath, ["json"])
+        json_files = self.get_type_files_deep(json_filepath,
+                                              self.configs.filename_regex,
+                                              self.configs.filetype.split(","))
         print("All json files in path: ", json_files)
         for json_file in tqdm(json_files):
             print("Reading File: ", json_file)
@@ -52,15 +51,8 @@ class FacebookPhotosImporter(PhotoImporter):
                                     #print("No GPS or Time info, skipping: ", self.get_filename_from_path(uri))
                                     continue
                                 obj = self.create_LLEntry(uri, latitude, longitude, taken_timestamp, tagged_people)
-                                self.db.add_photo(obj)
-                                #print("OBJ: ",obj)
-                            # else:
-                            #     print(self.get_filename_from_path(uri), " is already processed. Skipping recreation...")
-
-# cwd = str(Path(INPUT_DIRECTORY).absolute())
-# full_output = LLEntryList()
-# for dir in SUB_DIRS:
-# output = (cwd, dir)
-# print("So Far:::", output.toJson())
-# full_output.addEntries(output)
-# print(full_output.toJson())
+                                self.pdc.add_photo(self.source_id, obj)
+                                # print("OBJ: ",obj)
+                            else:
+                                #print(self.get_filename_from_path(uri), " is already processed. Skipping recreation...")
+                                continue
