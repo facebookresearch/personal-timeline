@@ -1,6 +1,8 @@
 import pickle
 
-from src.create_googlemaps_LLEntries import GoogleMapsImporter
+from src.importer.create_facebook_LLEntries import FacebookPhotosImporter
+from src.importer.create_google_photo_LLEntries import GooglePhotosImporter
+from src.importer.create_googlemaps_LLEntries import GoogleMapsImporter
 from src.importer.create_apple_health_LLEntries import AppleHealthImporter
 from src.importer.all_importers import SimpleJSONImporter, CSVImporter
 from src.objects.import_configs import DataSourceList, SourceConfigs, FileType
@@ -49,6 +51,10 @@ class GenericImportOrchestrator:
                     imp=None
                     if source_name == "GoogleTimeline":
                         imp = GoogleMapsImporter(source_id, source_name, entry_type, configs)
+                    elif source_name == "GooglePhotos":
+                        imp = GooglePhotosImporter(source_id, source_name, entry_type, configs)
+                    elif source_name == "FacebookPosts":
+                        imp = FacebookPhotosImporter(source_id, source_name, entry_type, configs)
                     elif configs.filetype == FileType.JSON:
                         imp = SimpleJSONImporter(source_id, source_name, entry_type, configs)
                     elif configs.filetype == FileType.CSV:

@@ -64,13 +64,14 @@ class DataSource:
                                      get_val_or_none(configs, "filetype_configs"),
                                      get_val_or_none(configs, "dedup_key"))
         self.field_mappings = []
-        for f in field_mappings:
-            self.field_mappings.append(FieldMapping(get_val_or_none(f, "src"),
-                                                    get_val_or_none(f, "target"),
-                                                    get_val_or_none(f, "src_type"),
-                                                    get_val_or_none(f, "target_type"),
-                                                    get_val_or_none(f, "functions"),
-                                                    get_val_or_none(f, "default_value")))
+        if field_mappings is not None:
+            for f in field_mappings:
+                self.field_mappings.append(FieldMapping(get_val_or_none(f, "src"),
+                                                        get_val_or_none(f, "target"),
+                                                        get_val_or_none(f, "src_type"),
+                                                        get_val_or_none(f, "target_type"),
+                                                        get_val_or_none(f, "functions"),
+                                                        get_val_or_none(f, "default_value")))
 
     def __str__(self):
         return str(self.id) + " " + self.source_name + " " + self.configs.__str__() + \
