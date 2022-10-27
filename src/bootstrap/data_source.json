@@ -287,7 +287,7 @@
     "entry_type": "photo",
     "configs": {
       "input_directory": "personal-data/google_photos",
-      "filetype": "jpg,JPEG,PNG",
+      "filetype": "jpg,JPEG,PNG,HEIC",
       "filetype_configs": {},
       "dedup_key": [
         "source",
