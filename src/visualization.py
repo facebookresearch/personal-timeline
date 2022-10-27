@@ -38,6 +38,9 @@ class TimelineRenderer:
         self.user_info = json.load(open("user_info.json"))
         self.home_address = self.geolocator.geocode(self.user_info["address"])
 
+    def embed_slide(self, slide):
+        pass
+
     def visualize_images(self, image_paths: List[str]):
         """visualize a list of images
         """
@@ -106,10 +109,14 @@ class TimelineRenderer:
         else:
             return {'year': date.year, 'month': date.month, 'day': date.day}
 
-    def create_text(self, headline, text):
+    def create_text(self, headline, text, uid: str=None):
+        # expand button
+        if uid is not None:
+            text += f"""<button class="btn" onclick="expand('{uid}')"> Expand </button>"""
+
         return {"headline": headline, "text": text}
 
-    def objects_to_text(self, object_dict: Dict):
+    def objects_to_text(self, object_dict: Dict, sid: str=None):
         """Convert a object dictionary to text.
         """
         text = ""
@@ -129,6 +136,7 @@ class TimelineRenderer:
                                <img src="images/{tail}" alt="image" height="200" /></span>
                                </div>''')
             text += ", ".join(itemized) + " </li> </ul>"
+
 
         return text
 
@@ -162,15 +170,18 @@ class TimelineRenderer:
             img_path = self.visualize_images(activity.image_paths)
             tags, next_tags = self.organize_tags(activity.objects, 
                                                  self.get_city_country(activity.startGeoLocation))
+            uid = f"activity_{self.convert_date(activity.startTime)}"
+
             slide = {"start_date": self.convert_date(activity.startTime),
                     "end_date": self.convert_date(activity.endTime),
                     "text": self.create_text(activity.textDescription, self.objects_to_text(activity.objects)),
                     "media": {"url": img_path, "thumbnail": img_path},
                     "group": "activity",
-                    "unique_id": f"activity_{activity.startTime}",
+                    "unique_id": uid,
                     "tags": tags,
                     "next_tags": next_tags,
-                    "background": {"url": activity.image_paths[0] + '.compressed.jpg'}
+                    "background": {"url": activity.image_paths[0] + '.compressed.jpg'},
+                    "visible": False
                 }
             # slide["tags"] += self.get_city_country(activity.startGeoLocation)
             # slide["tags"] += [activity.startGeoLocation.address.split(', ')[-1]]
@@ -193,16 +204,18 @@ class TimelineRenderer:
             img_path = self.visualize_images(day.image_paths)
             tags, next_tags = self.organize_tags(day.objects, 
                                                  self.get_city_country(day.startGeoLocation))
+            uid = f"day_{day.startTime}"
             slide = {
                 "start_date": self.convert_date(day.startTime, 0),
                 "end_date": self.convert_date(day.startTime, 24),
-                "text": self.create_text(day.textDescription, self.objects_to_text(day.objects)),
+                "text": self.create_text(day.textDescription, self.objects_to_text(day.objects), uid),
                 "media": {"url": img_path, "thumbnail": img_path},
                 "group": "day",
-                "unique_id": f"day_{day.startTime}",
+                "unique_id": uid,
                 "tags": tags,
                 "next_tags": next_tags,
-                "background": {"url": day.image_paths[0] + '.compressed.jpg'}
+                "background": {"url": day.image_paths[0] + '.compressed.jpg'},
+                "visible": True
             }
             # if 'person' not in day.objects:
             result['events'].append(slide)
@@ -221,14 +234,17 @@ class TimelineRenderer:
             tags, next_tags = self.organize_tags({}, 
                                                  self.get_city_country(trip.startGeoLocation))
             
+            uid = f"trip_{self.convert_date(trip.startTime, 0)}"
             slide = {
-                "start_date": self.convert_date(trip.startTime, None),
-                "end_date": self.convert_date(trip.endTime, None),
-                "text": self.create_text(trip.textDescription, ""),
+                "start_date": self.convert_date(trip.startTime, 0),
+                "end_date": self.convert_date(trip.endTime, 24),
+                "text": self.create_text(trip.textDescription, "", uid),
                 "media": {"url": self.create_map_link(trip.startGeoLocation)},
                 "group": "trip",
                 "tags": tags,
-                "next_tags": next_tags
+                "next_tags": next_tags,
+                "unique_id": uid,
+                "visible": True
             }
             
             result['events'].append(slide)

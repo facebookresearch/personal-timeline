@@ -260,13 +260,13 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
     keyword_prompt = f"Keywords: {', '.join(tags)}"
     print(keyword_prompt)
 
-    prompt = "I am an intelligent image captioning bot. I am going to summarize what I did today. "
-    if loc.strip() != "":
-        prompt += f"I spent today at {loc}. "
-    prompt += f"I have been to {sorted_places[0]} or {sorted_places[1]}. I saw {object_list}. "
-    if len(activity_summaries) > 1:
-        prompt += f"I did the following things: {summaries} "
-    prompt += "A short and creative caption for the photos (tl;dr):"
+    # prompt = "I am an intelligent image captioning bot. I am going to summarize what I did today. "
+    # if loc.strip() != "":
+    #     prompt += f"I spent today at {loc}. "
+    # prompt += f"I have been to {sorted_places[0]} or {sorted_places[1]}. I saw {object_list}. "
+    # if len(activity_summaries) > 1:
+    #     prompt += f"I did the following things: {summaries} "
+    # prompt += "A short and creative caption for the photos (tl;dr):"
 
     # print(prompt)
     # prompt = f"""I am an intelligent image captioning bot.
@@ -285,7 +285,7 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
     return postprocess_bloom(response, tags)
 
 
-def trip_data_to_text(locations: List[Location], start_date: List, num_days: List[int]):
+def trip_data_to_text(locations: List[Location], start_date: List, num_days: int):
     """Data to text for a trip."""
     cities = []
     countries = []
