@@ -39,15 +39,15 @@ In the explanation, we'll assume three directories all sitting within the applic
 1. You need to download your Google photos from [Google Takeout](https://takeout.google.com/).  
 The download from Google Takeout would be in multiple zip files. Unzip all the files.
 
-2. It may be the case that some of your photo files are .HEIC. In that case follow the steps below to convert them to .jpeg  
+<!-- 2. It may be the case that some of your photo files are .HEIC. In that case follow the steps below to convert them to .jpeg  
 The easiest way to do this on a Mac is:
 
      -- Select the .HEIC files you want to convert.   
      -- Right click and choose "quick actions" and then you'll have an option to convert the image.  
-     -- If you're converting many photos, this may take a few minutes.
-3. Create a new directory under `personal-data` folder  
+     -- If you're converting many photos, this may take a few minutes. -->
+2. Create a new directory under `personal-data` folder  
     ```$ mkdir ~/personal-data/google_photos```
-4. Move all the unzipped folders inside `personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
+3. Move all the unzipped folders inside `personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
 
 ### FACEBOOK DATA
 1. Go to [Facebook Settings](https://www.facebook.com/settings?tab=your_facebook_information) 
@@ -89,15 +89,13 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
 
 # Step 2: Import your photo data to SQLite (this is what will go into the episodic database)
 
- Run:
-
-    python -m src.workflow
-
+Run:
+```python -m src.workflow```
 
 The script will allow you to choose the steps you want to run from the workflow.  
-Follow the instructions to import and enrich data.
+Follow the instructions to import and enrich data. (Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
 
-# Step 3: Create Inverted Index Files:
+# Step 3: Create Inverted Index Files (optional):
 
 1. Create a data directory and a sym link to that directory inside the repo
 
