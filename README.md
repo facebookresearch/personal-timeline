@@ -93,7 +93,10 @@ Run:
 ```python -m src.workflow```
 
 The script will allow you to choose the steps you want to run from the workflow.  
-Follow the instructions to import and enrich data. (Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
+Follow the instructions to import and enrich data. 
+
+(Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
+(Note*: please select `Yes` at the last step for exporting the LLEntries.)
 
 # Step 3: Create Inverted Index Files (optional):
 
@@ -143,7 +146,7 @@ python -m src.visualization
 
 The script will generate a HTML page `index.html` for inspecting the timeline from your browser. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
 
-# Step 6: Running the interactive GUI (WIP)
+# Step 6: Running the interactive GUI
 
 Make sure that you have installed QT from `requirements.txt`. Launch the interactive GUI:
 

@@ -1,5 +1,6 @@
 timm==0.4.12
 transformers==4.15.0
+sentence-transformers
 fairscale==0.4.4
 pycocotools
 PySimpleGUI

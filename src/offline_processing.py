@@ -576,6 +576,8 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
             end_date_str = end_date.date()
             itinerary = []
             locations = []
+            photo_summary = []
+
             i = 0
             while i < len(segment):
                 loc = get_location(segment[i])
@@ -590,10 +592,12 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
                 segment_photos = sum(sum(segment[start_index:end_index+1], []), [])
                 total_photos += len(segment_photos)
                 itin_entry['photo_summary'] = create_image_summary(segment_photos)
+                if len(photo_summary) == 0:
+                    photo_summary = itin_entry['photo_summary']
                 itinerary.append(itin_entry)
                 i += 1
 
-            num_days = (end_date - start_date).days + 1
+            num_days = (end_date.date() - start_date.date()).days + 1
 
             # TODO: handle itinerary
             trip_summary = LLEntrySummary(type="trip", 
@@ -601,7 +605,7 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
                                      endTime=end_date_str.isoformat(),
                                      locations=locations,
                                      text_summary=trip_data_to_text(locations, start_date, num_days),
-                                     photo_summary=[],
+                                     photo_summary=photo_summary,
                                      stats={"num_photos": total_photos,
                                             "days": num_days},
                                      objects={},
