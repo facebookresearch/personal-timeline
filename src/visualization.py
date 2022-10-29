@@ -244,10 +244,11 @@ class TimelineRenderer:
         return cards
 
     def entry_to_text(self, entry: LLEntry):
-        """Convert an LLEntry to text.
+        """Convert an LLEntry to text and tags.
         """
         default_values = ['', '0', '1', '{}']
         text = ""
+        tags = []
         for attr in ['purchase_id', 'productName', 'productPrice', 'currency', 
         'productQuantity', 'author', 'artist', 'track', 'playtimeMs', 
         'track_count', 'duration', 'distance', 'calories', 'outdoor', 'temperature']:
@@ -255,18 +256,26 @@ class TimelineRenderer:
             value = str(value)
             if value not in default_values:
                 text += f"<p> {attr} : {value} </p>"
-        return text
+                tags.append(value)
+        return text, tags
 
     def load_and_display_LLEntries(self, query_time_range: Tuple[datetime.datetime]=None):
         """Visualize non-image LLEntries
         """
         db = PersonalDataDBConnector()
+        # TODO: change the query to select all non-photo LLEntries
         res = db.search_personal_data(select_cols="enriched_data", 
                                       where_conditions={"enriched_data": "is not NULL"})
         entries = []
         for row in res.fetchall():
            entry = pickle.loads(row[0])
            entries.append(entry)
+
+        # for testing
+        # test_entry = LLEntry("testing", "2018-08-30T00:05:23", "testing")
+        # test_entry.textDescription = "Test Entry"
+        # test_entry.productName = "Test Product"
+        # entries.append(test_entry)
 
         events = []
         for entry in tqdm(entries):
@@ -278,23 +287,25 @@ class TimelineRenderer:
                 # media
                 if len(entry.locations) > 0 and \
                     entry.locations[0] is not None:
-                    media = self.create_map_link(entry.locations[0])
+                    media = {"url": self.create_map_link(entry.locations[0])}
                 else:
                     # TODO: check other types of media
                     media = None
 
                 # uid
                 uid = entry.source + entry.startTime
+                tags = entry.tags + [entry.source, entry.type]
+                text, next_tags = self.entry_to_text(entry)
 
                 slide = {
                     "start_date": self.convert_date(entry.startTime),
                     "end_date": self.convert_date(entry.endTime),
-                    "text": self.create_text(entry.textDescription, self.entry_to_text(entry)),
-                    "media": {"url": media},
+                    "text": self.create_text(entry.textDescription, text),
+                    "media":  media,
                     "group": "LLEntry",
                     "unique_id": uid,
-                    "tags": entry.tags,
-                    "next_tags": [],
+                    "tags": tags,
+                    "next_tags": next_tags,
                     "parent": None,
                     "visible": False                    
                 }
@@ -308,7 +319,6 @@ class TimelineRenderer:
         if time_range is None:
             return True
         
-        # TODO: bug here
         r1 = (datetime.datetime.fromisoformat(time_range[0]).replace(tzinfo=pytz.utc), 
               datetime.datetime.fromisoformat(time_range[1]).replace(tzinfo=pytz.utc))
         r2 = (datetime.datetime.fromisoformat(entry.startTime).replace(tzinfo=pytz.utc), 
