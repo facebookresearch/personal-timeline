@@ -68,7 +68,7 @@ class TimelineRenderer:
     def get_city_country(self, location: Location):
         """Get city, state, and country (or "Home") from location
         """
-        if 'address' not in location.raw or "city" not in location.raw['address']:
+        if 'address' not in location.raw or "country" not in location.raw['address']:
             coord = (location.latitude, location.longitude)
             if coord in self.geo_cache:
                 location = self.geo_cache[coord]
@@ -85,7 +85,13 @@ class TimelineRenderer:
         if is_home(location, self.home_address):
             res.append("Home")
 
-        for attr in ["city", "state", "country"]:
+        # add one of the 4
+        for attr in ["town", "city", "county", "suburb"]:
+            if 'address' in location.raw and attr in location.raw['address']:
+                res.append(location.raw['address'][attr])
+                break
+
+        for attr in ["state", "country"]:
             if 'address' in location.raw and attr in location.raw['address']:
                 res.append(location.raw['address'][attr])
         
@@ -226,13 +232,18 @@ class TimelineRenderer:
         else:
             summary_time = f"{summary.startTime} - {summary.endTime}"
 
+        new_img_path = 'images/' + os.path.split(img_path)[-1]
+        if not os.path.exists(new_img_path):
+            os.system('cp "%s" images/' % (img_path))
+
         card = f"""<div class="card"><a href="{link}">
                    <header class="header-image">
-      <div class="header-image-background" style="background-image: url(images/{os.path.split(img_path)[-1]});"></div>
+      <div class="header-image-background" style="background-image: url({new_img_path});"></div>
       </header></a><article><p class="dateline">
       <time>
       {summary_time}</time></p>
-      <a href="{link}"><h3>{summary.textDescription}</h3></a></article></div>"""
+      <a href="{link}"><h3>{summary.textDescription}</h3></a>
+      </article></div>"""
         return card
 
     def create_cards(self, summaries: List[LLEntrySummary]):
@@ -272,10 +283,11 @@ class TimelineRenderer:
            entries.append(entry)
 
         # for testing
-        # test_entry = LLEntry("testing", "2018-08-30T00:05:23", "testing")
-        # test_entry.textDescription = "Test Entry"
-        # test_entry.productName = "Test Product"
-        # entries.append(test_entry)
+        test_entry = LLEntry("testing", "2018-08-30T00:05:23", "testing")
+        test_entry.textDescription = "Test Entry"
+        test_entry.productName = "Test Product"
+        test_entry.artist = "Me"
+        entries.append(test_entry)
 
         events = []
         for entry in tqdm(entries):
@@ -288,6 +300,11 @@ class TimelineRenderer:
                 if len(entry.locations) > 0 and \
                     entry.locations[0] is not None:
                     media = {"url": self.create_map_link(entry.locations[0])}
+                elif entry.artist != "":
+                    media = {"url": "https://open.spotify.com/track/6rqhFgbbKwnb9MLmUQDhG6"}
+                elif entry.productName != "":
+                    # TODO: search the product from amazon
+                    media = {"url": """https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=GB&ASIN=B07HS3Y5KH&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=AC_SL500"""}
                 else:
                     # TODO: check other types of media
                     media = None
@@ -319,10 +336,10 @@ class TimelineRenderer:
         if time_range is None:
             return True
         
-        r1 = (datetime.datetime.fromisoformat(time_range[0]).replace(tzinfo=pytz.utc), 
-              datetime.datetime.fromisoformat(time_range[1]).replace(tzinfo=pytz.utc))
-        r2 = (datetime.datetime.fromisoformat(entry.startTime).replace(tzinfo=pytz.utc), 
-              datetime.datetime.fromisoformat(entry.endTime).replace(tzinfo=pytz.utc))
+        r1 = (datetime.datetime.fromisoformat(time_range[0]).replace(tzinfo=pytz.utc).date(), 
+              datetime.datetime.fromisoformat(time_range[1]).replace(tzinfo=pytz.utc).date())
+        r2 = (datetime.datetime.fromisoformat(entry.startTime).replace(tzinfo=pytz.utc).date(), 
+              datetime.datetime.fromisoformat(entry.endTime).replace(tzinfo=pytz.utc).date())
 
         latest_start = max(r1[0], r2[0])
         earliest_end = min(r1[1], r2[1])
