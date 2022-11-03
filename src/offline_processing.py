@@ -41,12 +41,14 @@ class LLImage:
         self.objects = []
         self.tags = []
         self.enhance()
+        del self.img
 
 
     def enhance(self, k=5):
         """Run enhencements.
         """
         if not os.path.exists(self.img_path + ".compressed.jpg"):
+            self.img = self.img.convert("RGB")
             self.img.save(self.img_path + ".compressed.jpg")
 
         # CLIP embeddings and zero-shot image classification

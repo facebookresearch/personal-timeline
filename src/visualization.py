@@ -65,6 +65,8 @@ class TimelineRenderer:
     def get_city_country(self, location: Location):
         """Get city, state, and country (or "Home") from location
         """
+        if location is None: return []
+
         if 'address' not in location.raw or "city" not in location.raw['address']:
             coord = (location.latitude, location.longitude)
             if coord in self.geo_cache:
