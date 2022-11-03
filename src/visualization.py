@@ -68,6 +68,10 @@ class TimelineRenderer:
     def get_city_country(self, location: Location):
         """Get city, state, and country (or "Home") from location
         """
+        # TODO: dig deeper to find a better fix
+        if location is None:
+            return []
+
         if 'address' not in location.raw or "country" not in location.raw['address']:
             coord = (location.latitude, location.longitude)
             if coord in self.geo_cache:
@@ -77,10 +81,10 @@ class TimelineRenderer:
                 self.geo_cache[coord] = location
 
         def is_home(loc: Location, home: Location):
-            """Check if a location is home (within 200km)."""
+            """Check if a location is home (within 100km)."""
             return geopy.distance.geodesic((home.latitude, home.longitude),
-               (loc.latitude, loc.longitude)).km <= 200.0
-        
+               (loc.latitude, loc.longitude)).km <= 100.0
+
         res = []
         if is_home(location, self.home_address):
             res.append("Home")
@@ -94,7 +98,7 @@ class TimelineRenderer:
         for attr in ["state", "country"]:
             if 'address' in location.raw and attr in location.raw['address']:
                 res.append(location.raw['address'][attr])
-        
+
         if len(res) == 0:
             return [location.address.split(', ')[-1]]
         else:
@@ -160,7 +164,7 @@ class TimelineRenderer:
             for item_list in objects.values():
                 for item in item_list:
                     bottom.append(item['name'])
-        
+
         if len(locations) > 0:
             if "Home" in locations:
                 top.append("Home")
@@ -185,7 +189,7 @@ class TimelineRenderer:
         for day in self.daily_index.values():
             uid = self.get_uid(day)
             parent[uid] = ""
-        
+
         for trip in self.trip_index.values():
             uid = self.get_uid(trip)
             current_day = datetime.datetime.fromisoformat(trip.startTime)
@@ -203,7 +207,7 @@ class TimelineRenderer:
             if vid not in children:
                 children[vid] = []
             children[vid].append(uid)
-        
+
         return parent, children
 
 
@@ -216,7 +220,7 @@ class TimelineRenderer:
             ts = self.convert_date(summary.startTime, 0)
         else:
             raise ValueError("Not supported summary type")
-        
+
         text = '_'.join(str(item) for item in [ts['year'], ts['month'], ts['day'], ts['hour']])
 
         return f"{summary.type}_{text}"
@@ -260,8 +264,8 @@ class TimelineRenderer:
         default_values = ['', '0', '1', '{}']
         text = ""
         tags = []
-        for attr in ['purchase_id', 'productName', 'productPrice', 'currency', 
-        'productQuantity', 'author', 'artist', 'track', 'playtimeMs', 
+        for attr in ['purchase_id', 'productName', 'productPrice', 'currency',
+        'productQuantity', 'author', 'artist', 'track', 'playtimeMs',
         'track_count', 'duration', 'distance', 'calories', 'outdoor', 'temperature']:
             value = getattr(entry, attr)
             value = str(value)
@@ -275,7 +279,7 @@ class TimelineRenderer:
         """
         db = PersonalDataDBConnector()
         # TODO: change the query to select all non-photo LLEntries
-        res = db.search_personal_data(select_cols="enriched_data", 
+        res = db.search_personal_data(select_cols="enriched_data",
                                       where_conditions={"enriched_data": "is not NULL"})
         entries = []
         for row in res.fetchall():
@@ -324,10 +328,10 @@ class TimelineRenderer:
                     "tags": tags,
                     "next_tags": next_tags,
                     "parent": None,
-                    "visible": False                    
+                    "visible": False
                 }
                 events.append(slide)
-        
+
         return events
 
     def overlap(self, time_range: Tuple[str], entry: LLEntry):
@@ -335,17 +339,17 @@ class TimelineRenderer:
         """
         if time_range is None:
             return True
-        
-        r1 = (datetime.datetime.fromisoformat(time_range[0]).replace(tzinfo=pytz.utc).date(), 
+
+        r1 = (datetime.datetime.fromisoformat(time_range[0]).replace(tzinfo=pytz.utc).date(),
               datetime.datetime.fromisoformat(time_range[1]).replace(tzinfo=pytz.utc).date())
-        r2 = (datetime.datetime.fromisoformat(entry.startTime).replace(tzinfo=pytz.utc).date(), 
+        r2 = (datetime.datetime.fromisoformat(entry.startTime).replace(tzinfo=pytz.utc).date(),
               datetime.datetime.fromisoformat(entry.endTime).replace(tzinfo=pytz.utc).date())
 
         latest_start = max(r1[0], r2[0])
         earliest_end = min(r1[1], r2[1])
         return earliest_end >= latest_start
 
-    def create_timeline(self, 
+    def create_timeline(self,
         query_time_range: Tuple[datetime.datetime]=None,
         add_LLEntries=False):
         """Generate JSON object for TimelineJS.
@@ -365,7 +369,7 @@ class TimelineRenderer:
                     if 'Day ' not in day.textDescription:
                         day.textDescription = f'Day {day_idx}: ' + day.textDescription
                 day_idx += 1
-                current_day += datetime.timedelta(days=1)            
+                current_day += datetime.timedelta(days=1)
 
         result = {"events": []}
         print("Processing activities")
@@ -377,7 +381,7 @@ class TimelineRenderer:
                continue
 
             img_path = self.visualize_images(activity.image_paths)
-            tags, next_tags = self.organize_tags(activity.objects, 
+            tags, next_tags = self.organize_tags(activity.objects,
                                                  self.get_city_country(activity.startGeoLocation))
             uid = self.get_uid(activity)
             slide = {"start_date": self.convert_date(activity.startTime),
@@ -402,10 +406,10 @@ class TimelineRenderer:
                 num_activities = self.daily_index[date_str].stats["num_activities"]
             else:
                 num_activities = 2
-            
+
             if num_activities > 1:
                 result['events'].append(slide)
-        
+
         print("Processing days")
         for day in tqdm(self.daily_index.values()):
             day : LLEntrySummary = day
@@ -414,7 +418,7 @@ class TimelineRenderer:
                continue
 
             img_path = self.visualize_images(day.image_paths)
-            tags, next_tags = self.organize_tags(day.objects, 
+            tags, next_tags = self.organize_tags(day.objects,
                                                  self.get_city_country(day.startGeoLocation))
             uid = self.get_uid(day)
             slide = {
@@ -445,9 +449,9 @@ class TimelineRenderer:
             #         text = f"Day {start_date_num}: {location_text}"
             #     else:
             #         text = f"Day {start_date_num} - Day {end_date_num}: {location_text}"
-            tags, next_tags = self.organize_tags({}, 
+            tags, next_tags = self.organize_tags({},
                                                  self.get_city_country(trip.startGeoLocation))
-            
+
             uid = self.get_uid(trip)
             slide = {
                 "start_date": self.convert_date(trip.startTime, 0),
@@ -461,9 +465,9 @@ class TimelineRenderer:
                 "parent": parent[uid],
                 "visible": True
             }
-            
+
             result['events'].append(slide)
-        
+
         if add_LLEntries:
             result['events'] += self.load_and_display_LLEntries(query_time_range)
 
