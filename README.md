@@ -139,14 +139,31 @@ You need to first set up a Google Map API (free) following these [instructions](
 export GOOGLE_MAP_API=<the API key goes here>
 ```
 
+To embed Spotify, you need to set up a Spotify API (free) following [here](https://developer.spotify.com/dashboard/applications). You need to log in with a spotify account, create a project, and show the `secret`.
+
+```
+export SPOTIFY_TOKEN=<the token goes here>
+export SPOTIFY_SECRET=<the secret goes here>
+```
+
+Install some required packages:
+```
+pip install spotipy flask
+```
+
+If you have previously created some cached images in `images/`, rename it to `static/`
+```
+mv images/ static/
+```
+
 Run
 ```
-python -m src.visualization
+python server.py
 ```
 
-The script will generate a HTML page `index.html` for inspecting the timeline from your browser. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
+It will start a flask server at `http://127.0.0.1:5000`. You can view the timeline this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
 
-# Step 6: Running the interactive GUI
+# Step 6: Running the interactive GUI (WIP)
 
 Make sure that you have installed QT from `requirements.txt`. Launch the interactive GUI:
 
