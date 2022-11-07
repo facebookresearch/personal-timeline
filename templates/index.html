@@ -4,12 +4,89 @@
 
 <!-- 2 -->
 <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<div class="topnav">
+  <div class="search-container">
+    <button type="submit" onclick="search_timeline(document.getElementById('search').value)" id="search_btn"><i class="fa fa-search"></i></button>
+    <input type="text" placeholder="Search.." id="search">
+    <button type="submit" onclick="next_result(-1)" id="prev_result_btn"> <i class="fa fa-arrow-circle-left"></i> Go to previous result </button>
+    <button type="submit" onclick="next_result(1)" id="next_result_btn">Go to next result <i class="fa fa-arrow-circle-right"></i></button>
+  </div>
+</div>
 
 <div id='timeline-embed' style="width: 100%; height: 1000px"></div>
 
 <!-- 3 -->
 <script type="text/javascript">
+    var input = document.getElementById("search");
+    var search_result = [];
+    var search_result_ptr = 0;
+
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("search_btn").click();
+        }
+    });
+
+    function search_timeline(query) {
+      if (query != "") {
+        $.getJSON('http://127.0.0.1:5000/qa', {"search": query}, function(timeline_obj) {
+            // // turn off event listener
+            // timeline.on("change", function(data) {});
+            // // remove all objects that are not years
+            // var uid_removed = [];
+            // for (var i = 0; ; i++) {
+            //   var slide = timeline.getData(i);
+            //   if (slide == null) {
+            //     break;
+            //   }
+            //   if (!slide.unique_id.startsWith('year'))
+            //     uid_removed.push(slide.unique_id);
+            // }
+
+            // for (var i = 0; i < uid_removed.length; i++) {
+            //   timeline.removeId(uid_removed[i]);
+            // }
+
+            // update timeline with new objects
+            // add_timeline_objects(timeline_obj);
+
+            // go to first slide
+            search_result = timeline_obj;
+            search_result_ptr = -1;
+            next_result(1);
+
+            // timeline.goToId(timeline_obj.slides[0].unique_id)
+            // // record search result
+            // for (var i = 0; i < timeline_obj.slides.length; i++) {
+            //   search_result.push(timeline_obj.slides[i].unique_id);
+            // }
+          }
+        );
+      }
+    }
+
+    function next_result(delta) {
+      if (search_result.slides.length > 0) {
+        console.log("here");
+        search_result_ptr += delta;
+        if (search_result_ptr >= search_result.slides.length) {
+          search_result_ptr = 0;
+        }
+        if (search_result_ptr < 0) {
+          search_result_ptr = search_result.slides.length - 1;
+        }
+        // render the slide
+        if (timeline.getDataById(search_result.slides[search_result_ptr].unique_id) == null)
+          timeline.add(search_result.slides[search_result_ptr]);
+
+        // go to the slide
+        timeline.goToId(search_result.slides[search_result_ptr].unique_id);
+      }
+    }
+
     // The TL.Timeline constructor takes at least two arguments:
     // the id of the Timeline container (no '#'), and
     // the URL to your JSON data file or Google spreadsheet.
@@ -32,8 +109,7 @@
           for (var i = 0; i < timeline_obj.slides.length; i++) {
             if (timeline.getDataById(timeline_obj.slides[i].unique_id) == null)
               timeline.add(timeline_obj.slides[i]);
-          }
-        });
+          }});
       });
     }
 
@@ -114,6 +190,76 @@
 <style>
 * {
   box-sizing: border-box;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+  margin-bottom: 32px;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: left;
+  margin-bottom: 8px;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-left: 8px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-left: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
 }
 
 /* Float four columns side by side */

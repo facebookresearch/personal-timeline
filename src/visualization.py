@@ -62,6 +62,9 @@ class TimelineRenderer:
         
         self.activity_index = new_activity_index
 
+        # slide cache
+        self.slide_cache = {}
+
 
     def visualize_images(self, image_paths: List[str]):
         """visualize a list of images
@@ -183,21 +186,22 @@ class TimelineRenderer:
         """
         text = ""
         for tag in object_dict:
-            text += f"<p>These are the {tag} that I saw: <ul><li>"
+            text += f"<p>These are the {tag} that I saw: </p> <div class='row'>"
             itemized = []
             for item in object_dict[tag]:
                 img_path = item["img_path"] + '.compressed.jpg'
                 name = item["name"]
                 _, tail = os.path.split(img_path)
-                if not os.path.exists(os.path.join('static/', tail)):
+                new_path = os.path.join('static/', tail)
+                if not os.path.exists(new_path):
                     os.system('cp "%s" static/' % (img_path))
 
                 # itemized.append(f'<a href="{img_path}">{name}</a>')
-                itemized.append(f'''<div class="tooltip"><a href="static/{tail}">{name}</a>
-                               <span class="tooltiptext">
-                               <img src="static/{tail}" alt="image" height="200" /></span>
-                               </div>''')
-            text += ", ".join(itemized) + " </li> </ul>"
+                
+                obj = self.create_hover_object({"text": name, "detail": name, "media": new_path})
+                text += f"""<div class="column">
+                            <div class="card">{obj}</div></div>"""
+            text += "</div><br>"
 
         return text
 
@@ -297,7 +301,7 @@ class TimelineRenderer:
         if len(name) >= 37:
             name = name[:37] + '...'
         if img_path is not None:
-            res += f"""<a href="'''{img_path}">{name}</a>"""
+            res += f"""<a href="{img_path}">{name}</a>"""
         else:
             res += name
 
@@ -320,8 +324,8 @@ class TimelineRenderer:
         summary = self.summarizer.summarize(query_time_range)
 
         text = ""
-        keys = "persons,exercises,items,places,streamings,books".split(",")
-        verbs = ["met", "did", "purchased", "have been to", "listened to", "read"]
+        keys = "exercises,items,places,streamings,books".split(",")
+        verbs = ["did", "purchased", "have been to", "listened to", "read"]
 
         for key, verb in zip(keys, verbs):
             if key not in summary:
@@ -342,88 +346,6 @@ class TimelineRenderer:
         return text
 
 
-    # def load_and_display_LLEntries(self, query_time_range: Tuple[str]=None):
-    #     """Visualize non-image LLEntries
-    #     """
-
-    #     # for testing
-    #     # test_entry = LLEntry("testing", "2018-08-30T00:05:23", "testing")
-    #     # test_entry.textDescription = "Test Entry"
-    #     # test_entry.productName = "Test Product"
-    #     # test_entry.artist = "Me"
-    #     # entries.append(test_entry)
-
-    #     events = []
-    #     for entry in tqdm(self.non_photo_entries):
-    #         entry:LLEntry = entry
-    #         if not self.overlap(query_time_range, entry):
-    #             continue
-
-    #         if entry.imageFilePath is None or len(entry.imageFilePath) == 0:
-    #             # media
-    #             if len(entry.locations) > 0 and \
-    #                 entry.locations[0] is not None:
-    #                 media = {"url": self.create_map_link(entry.locations[0])}
-    #             elif entry.artist != "":
-    #                 media = {"url": "https://open.spotify.com/track/6rqhFgbbKwnb9MLmUQDhG6"}
-    #             elif entry.productName != "":
-    #                 # TODO: search the product from amazon
-    #                 media = {"url": """https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=GB&ASIN=B07HS3Y5KH&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=AC_SL500"""}
-    #             else:
-    #                 # TODO: check other types of media
-    #                 media = None
-
-    #             # uid
-    #             uid = entry.source + entry.startTime
-    #             tags = entry.tags + [entry.source, entry.type]
-    #             text, next_tags = self.entry_to_text(entry)
-
-    #             # TODO: figure out the data formating issue
-    #             if entry.endTime == '':
-    #                 entry.endTime = entry.startTime
-
-    #             slide = {
-    #                 "start_date": self.convert_date(entry.startTime),
-    #                 "end_date": self.convert_date(entry.endTime),
-    #                 "text": self.create_text(entry.textDescription, text),
-    #                 "media":  media,
-    #                 "group": "LLEntry",
-    #                 "unique_id": uid,
-    #                 "tags": tags,
-    #                 "next_tags": next_tags,
-    #                 "parent": None,
-    #                 "visible": False
-    #             }
-    #             events.append(slide)
-
-    #     return events
-
-    def overlap(self, time_range: Tuple[str], entry: LLEntry):
-        """Check if two time ranges overlap
-        """
-        if time_range is None:
-            return True
-
-        def convert(date_str_list: List[str]):
-            res = []
-            for date_str in date_str_list:
-                if date_str == '':
-                    date_str = date_str_list[0]
-                try:
-                    dt = datetime.datetime.fromisoformat(date_str).replace(tzinfo=pytz.utc)
-                except:
-                    dt = datetime.datetime.strptime(date_str, '%Y-%m-%d %H:%M:%S %z')
-                res.append(dt.date())
-
-            return tuple(res)
-
-        r1 = convert(list(time_range))
-        r2 = convert([entry.startTime, entry.endTime])
-
-        latest_start = max(r1[0], r2[0])
-        earliest_end = min(r1[1], r2[1])
-        return earliest_end >= latest_start
-
     def create_timeline(self):
         """Generate JSON object for TimelineJS.
         """
@@ -442,74 +364,6 @@ class TimelineRenderer:
                 day_idx += 1
                 current_day += datetime.timedelta(days=1)
 
-        # result = {"events": []}
-        # print("Processing activities")
-        # for activity in tqdm(self.activity_index.values()):
-        #     activity : LLEntrySummary = activity
-
-        #     # skip summaries that are not in the query range
-        #     if not self.overlap(query_time_range, activity):
-        #        continue
-
-        #     img_path = self.visualize_images(activity.image_paths) # (activity.image_paths)
-        #     tags, next_tags = self.organize_tags(activity.objects,
-        #                                          self.get_city_country(activity.startGeoLocation))
-        #     uid = self.get_uid(activity)
-        #     slide = {"start_date": self.convert_date(activity.startTime),
-        #             "end_date": self.convert_date(activity.endTime),
-        #             "text": self.create_text(activity.textDescription, self.objects_to_text(activity.objects)),
-        #             "media": {"url": img_path, "thumbnail": img_path},
-        #             "group": "activity",
-        #             "unique_id": uid,
-        #             "tags": tags,
-        #             "next_tags": next_tags,
-        #             "background": {"url": activity.image_paths[0] + '.compressed.jpg'},
-        #         }
-        #     # slide["tags"] += self.get_city_country(activity.startGeoLocation)
-        #     # slide["tags"] += [activity.startGeoLocation.address.split(', ')[-1]]
-        #     # if 'person' not in activity.objects:
-
-        #     # hide an activity if it is the only one in a day
-        #     date_str = datetime.datetime.fromisoformat(activity.startTime).date()
-        #     if date_str in self.daily_index:
-        #         num_activities = self.daily_index[date_str].stats["num_activities"]
-        #     else:
-        #         num_activities = 2
-
-        #     if num_activities > 1:
-        #         result['events'].append(slide)
-
-        # print("Processing days")
-        # for day in tqdm(self.daily_index.values()):
-        #     day : LLEntrySummary = day
-        #     # skip summaries that are not in the query range
-        #     if not self.overlap(query_time_range, day):
-        #        continue
-
-        #     img_path = self.visualize_images(day.image_paths)
-        #     tags, next_tags = self.organize_tags(day.objects,
-        #                                          self.get_city_country(day.startGeoLocation))
-        #     uid = self.get_uid(day)
-        #     slide = {
-        #         "start_date": self.convert_date(day.startTime, 0),
-        #         "end_date": self.convert_date(day.startTime, 24),
-        #         "text": self.create_text(day.textDescription, self.objects_to_text(day.objects)),
-        #         "media": {"url": img_path, "thumbnail": img_path},
-        #         "group": "day",
-        #         "unique_id": uid,
-        #         "tags": tags,
-        #         "next_tags": next_tags,
-        #         "background": {"url": day.image_paths[0] + '.compressed.jpg'},
-        #     }
-
-        #     # add summary of non-photo LLEntries
-        #     # slide["text"]["text"] += self.organize_LLEntries(())
-        #     if add_LLEntries:
-        #         startTime = self.convert_date(day.startTime, 0, get_str=True)
-        #         endTime = self.convert_date(day.endTime, 24, get_str=True)
-        #         slide['text']['text'] += self.organize_LLEntries((startTime, endTime))
-
-        #     result['events'].append(slide)
         result = {'events': []}
 
         print("Processing years")
@@ -547,6 +401,9 @@ class TimelineRenderer:
             slide['text']['text'] += self.organize_LLEntries((start_date.isoformat(), 
                                                               end_date.isoformat()))
             result['events'].append(slide)
+
+            # caching for retrieval
+            self.slide_cache[uid] = slide
 
         return result
 
@@ -688,17 +545,43 @@ class TimelineRenderer:
 
         return result
 
+    def uid_to_slide(self, unique_id: str) -> Dict:
+        """Retrieve a slide given a unique ID of trip or day.
+        """
+        if unique_id in self.slide_cache:
+            return self.slide_cache[unique_id]
+
+        # for day
+        _, year, month, day = unique_id.split('_')
+        start_date = datetime.datetime(int(year), int(month), int(day))
+        end_date = start_date + datetime.timedelta(days=1)
+
+        slide = {
+            "start_date": self.convert_date(start_date.isoformat(), 0),
+            "end_date": self.convert_date(end_date.isoformat(), 0),
+            "text": self.create_text(start_date.strftime("%B %d, %Y"),
+                    self.organize_LLEntries((start_date.isoformat(), start_date.isoformat()))),
+            "group": "day",
+            "unique_id": "day_%s_%s_%s" % (year, month, day)
+        }
+        # add summary if indexed
+        if start_date.date() in self.daily_index:
+            self.add_summary_to_slide(slide, self.daily_index[start_date.date()])
+        
+        self.slide_cache[unique_id] = slide
+        return slide
+
 if __name__ == '__main__':
     if not os.path.exists("static/"):
         os.makedirs("static/")
 
     renderer = TimelineRenderer(path='.')
-    json_obj = renderer.create_timeline(query_time_range=None, add_LLEntries=True)
-    template = open('index.html.template').read()
-    template = template.replace('"timeline object template"', json.dumps(json_obj))
-    fout = open('index.html', 'w')
-    fout.write(template)
-    fout.close()
+    json_obj = renderer.create_timeline()
+    # template = open('index.html.template').read()
+    # template = template.replace('"timeline object template"', json.dumps(json_obj))
+    # fout = open('index.html', 'w')
+    # fout.write(template)
+    # fout.close()
 
     # cards = renderer.create_cards()
     # template = open('search_result.html.template').read()

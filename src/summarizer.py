@@ -288,7 +288,7 @@ class Summarizer:
         return result
 
 
-    def summarize(self, query_time_range: Tuple[str]):
+    def summarize(self, query_time_range: Tuple[str], brief=False):
         """Organize LLEntries of a certain time range into a summary.
         """
         start_idx, end_idx = self.fetch_range(query_time_range)
@@ -309,11 +309,13 @@ class Summarizer:
                     summary[stype].append(entry)
 
         summary['exercises'] = self.summarize_exercises(summary['exercises'])
-        summary['items'] = self.summarize_purchases(summary['items'])
-        summary['streamings'] = self.summarize_streamings(summary['streamings'])
-        summary['books'] = self.summarize_books(summary['books'])
         summary['places'] = self.summarize_places(summary['places'])
         summary['persons'] = self.summarize_persons(summary['persons'])
+
+        if not brief:
+            summary['items'] = self.summarize_purchases(summary['items'])
+            summary['streamings'] = self.summarize_streamings(summary['streamings'])
+            summary['books'] = self.summarize_books(summary['books'])
 
         return summary
 
