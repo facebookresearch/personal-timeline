@@ -4,6 +4,7 @@ import datetime
 import pandas as pd
 import spotipy
 
+from glob import glob
 from typing import Dict, List, Tuple
 from pillow_heif import register_heif_opener
 from geopy import Location
@@ -54,11 +55,20 @@ class Summarizer:
         self.all_entries.sort(key=lambda entry: datetime.datetime.fromisoformat(entry.startTime).timestamp())
 
         # load amazon raw records
+        # scan all csv files
         self.product_image_index = {}
-        if os.path.exists('personal-data/amazon/Digital-Items.csv'):
-            table = pd.read_csv('personal-data/amazon/Digital-Items.csv')
-            for asin, product_name in zip(table['ASIN'], table['Title']):
-                self.product_image_index[product_name] = asin
+        dir_paths = ['personal-data/amazon-kindle', 'personal-data/amazon']
+        for dir_path in dir_paths:
+            all_csv_files = [file for path, subdir, files in os.walk(dir_path) \
+                 for file in glob(os.path.join(path, "*.csv"))]
+            for fn in all_csv_files:
+                table = pd.read_csv(fn)
+                if 'ASIN' in table and 'Title' in table:
+                    for asin, product_name in zip(table['ASIN'], table['Title']):
+                        self.product_image_index[product_name] = asin
+                if 'ASIN' in table and 'Product Name' in table:
+                    for asin, product_name in zip(table['ASIN'], table['Product Name']):
+                        self.product_image_index[product_name] = asin
 
         # for spotify
         cid = os.environ['SPOTIFY_TOKEN'] 
@@ -150,6 +160,8 @@ class Summarizer:
             for entry in entries:
                 result.append({"text": entry.productName,
                                "detail": "%s at $%s" % (entry.productName, entry.productPrice)})
+                if entry.productName in self.product_image_index:
+                    result[-1]["media"] = f'https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={self.product_image_index[entry.productName]}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=SL250'
         else:
             total = 0.0
             total_items = 0.0
@@ -252,6 +264,9 @@ class Summarizer:
                            "detail": entry.productName})
             if entry.imageURL != "":
                 result[-1]["media"] = entry.imageURL
+            elif entry.productName in self.product_image_index:
+                result[-1]["media"] = f'https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={self.product_image_index[entry.productName]}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=SL250'
+
         return result
 
     def summarize_streamings(self, entries: List[LLEntry]):

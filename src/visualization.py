@@ -524,7 +524,6 @@ class TimelineRenderer:
                 endTime = startTime + datetime.timedelta(hours=1)
                 key = (startTime.year, startTime.month, startTime.day, startTime.hour)
                 if key in self.activity_index:
-                    print("found")
                     activity:LLEntrySummary = self.activity_index[key]
                     while endTime < datetime.datetime.fromisoformat(activity.endTime):
                         endTime += datetime.timedelta(hours=1)
@@ -560,7 +559,7 @@ class TimelineRenderer:
             "start_date": self.convert_date(start_date.isoformat(), 0),
             "end_date": self.convert_date(end_date.isoformat(), 0),
             "text": self.create_text(start_date.strftime("%B %d, %Y"),
-                    self.organize_LLEntries((start_date.isoformat(), start_date.isoformat()))),
+                    self.organize_LLEntries((start_date.isoformat(), end_date.isoformat()))),
             "group": "day",
             "unique_id": "day_%s_%s_%s" % (year, month, day)
         }
