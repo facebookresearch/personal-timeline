@@ -115,6 +115,9 @@
     "configs": {
       "input_directory": "personal-data/amazon-kindle",
       "filetype": "csv",
+      "filetype_configs": {
+        "skiprows": 0
+      },
       "dedup_key": ["source", "startTime","productName"]
     },
     "field_mappings": [
