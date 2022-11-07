@@ -3,17 +3,19 @@ import os
 import datetime
 import pandas as pd
 import spotipy
+import json
+import geopy
 
 from glob import glob
 from typing import Dict, List, Tuple
 from pillow_heif import register_heif_opener
 from geopy import Location
 from collections import Counter
-import geopy.distance
 from spotipy.oauth2 import SpotifyClientCredentials
 
 from src.objects.LLEntry_obj import LLEntrySummary, LLEntry
 from src.persistence.personal_data_db import PersonalDataDBConnector
+from src.util import distance, translate_place_name
 register_heif_opener()
 
 map_api_key = os.getenv("GOOGLE_MAP_API")
@@ -26,11 +28,12 @@ class Summarizer:
         self.activity_index = pickle.load(open(os.path.join(path, 'activity_index.pkl'), 'rb'))
         self.daily_index = pickle.load(open(os.path.join(path, 'daily_index.pkl'), 'rb'))
         self.trip_index = pickle.load(open(os.path.join(path, 'trip_index.pkl'), 'rb'))
-        # self.img_cache = {}
-        # self.geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
-        # self.geo_cache = {}
-        # self.user_info = json.load(open("user_info.json"))
-        # self.home_address = self.geolocator.geocode(self.user_info["address"])
+
+        # load addresses
+        self.geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
+        self.addresses = json.load(open("user_info.json"))["addresses"]
+        for addr in self.addresses:
+            addr["location"] = self.geolocator.geocode(addr["address"])
 
         # load all non-photo LLEntries
         db = PersonalDataDBConnector()
@@ -49,7 +52,6 @@ class Summarizer:
             self.all_entries.append(item)
         for item in self.trip_index.values():
             self.all_entries.append(item)
-
 
         # sort entries by timestamp
         self.all_entries.sort(key=lambda entry: datetime.datetime.fromisoformat(entry.startTime).timestamp())
@@ -226,10 +228,10 @@ class Summarizer:
     def summarize_places(self, entries: List[LLEntry]):
         """Summarize a list of LLEntries with locations
         """
+        result = []
+        # TODO: detailed location name not in geopy location
         levels = [["town", "city", "county", "suburb"], 
                   ["state", "country"]]
-        # TODO: detailed location name not in geopy location
-        result = []
         for level in levels:
             cache = set([])
             result = []
@@ -237,11 +239,32 @@ class Summarizer:
                 for location in entry.locations:
                     if location is None:
                         continue
+
+                    # check address book
+                    lat, lon = location.latitude, location.longitude
+                    found = False
+                    for address in self.addresses:
+                        if address["location"] is not None:
+                            addr_lat, addr_lon = address["location"].latitude, address["location"].longitude
+                            if distance((addr_lat, addr_lon), (lat, lon)) \
+                                <= address["radius"] and address["name"] not in cache:
+                                cache.add(address["name"])
+                                result.append(
+                                    {"text": address["name"],
+                                     "media": location})
+                                found = True
+                                break
+
+                    if found:
+                        continue
+
                     for attr in level:
                         if 'address' in location.raw and attr in location.raw['address']:
-                            if location.raw['address'][attr] not in cache:
-                                cache.add(location.raw['address'][attr])
-                                result.append({"text": location.raw['address'][attr],
+                            place_name = location.raw['address'][attr]
+                            place_name = translate_place_name(place_name)
+                            if place_name not in cache:
+                                cache.add(place_name)
+                                result.append({"text": place_name,
                                             "media": location})
                             break
             if len(result) <= 5:

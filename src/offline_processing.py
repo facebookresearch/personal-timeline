@@ -5,7 +5,6 @@ import pickle
 import datetime
 import matplotlib.pyplot as plt
 import geopy
-import geopy.distance
 import os
 
 from src.persistence.personal_data_db import PersonalDataDBConnector
@@ -14,6 +13,7 @@ from tqdm import tqdm
 
 from typing import Dict, List, Union
 from src.objects.LLEntry_obj import LLEntry, LLEntrySummary
+from src.util import distance
 from PIL import Image
 from sklearn.cluster import KMeans
 from src.enrichment import socratic
@@ -103,9 +103,9 @@ def str_to_location(loc: str):
     if loc in geo_cache:
         return geo_cache[loc]
     else:
-        geoloc = geolocator.geocode(loc.replace(';', ', '))
+        geoloc = geolocator.geocode(loc.replace(';', ', '), language='en')
         if geoloc is None:
-            geoloc = geolocator.geocode(default_location) # maybe use home as default?
+            geoloc = geolocator.geocode(default_location, language='en') # maybe use home as default?
 
         geo_cache[loc] = geoloc
         return geoloc
@@ -146,7 +146,7 @@ def is_home(loc: Location, home: Location):
     try:
         home = get_coordinate(home)
         loc = get_coordinate(loc)
-        return geopy.distance.geodesic(home, loc).km <= 100.0
+        return distance(home, loc) <= 100.0
     except:
         return True
 

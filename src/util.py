@@ -1,7 +1,13 @@
 import datetime
-from datetime import datetime, timedelta
 import pytz
+import geopy
+import dbm
+
+from datetime import datetime, timedelta
 from timezonefinder import TimezoneFinder
+from sklearn.metrics.pairwise import haversine_distances
+from math import radians
+
 
 EPOCH = datetime(1970,1,1)
 
@@ -110,3 +116,32 @@ def dict_to_json(dict):
         new_dict[key]= json_str
     return(new_dict)
 
+
+def distance(latlon_a, latlon_b):
+    """Compute distance in km of two latlon pairs.
+    """
+    radians_a = [radians(_) for _ in latlon_a]
+    radians_b = [radians(_) for _ in latlon_b]
+    result = haversine_distances([radians_a, radians_b])
+    return result[1, 0] * 6371000 / 1000  # multiply by Earth radius to get kilometers
+
+
+translate_geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
+translate_geo_cache = dbm.open('geo_cache', 'c')
+
+def translate_place_name(place_name: str) -> str:
+    """Translate a place name to English.
+    """
+    # print(place_name)
+
+    if place_name in translate_geo_cache:
+        result = translate_geo_cache[place_name].decode('utf8')
+        # translate_geo_cache.close()
+        return result
+    
+    translated_addr = translate_geolocator.geocode(place_name, language="en")
+    if translated_addr is not None:
+        result = translated_addr.address
+    translate_geo_cache[place_name] = result
+    # translate_geo_cache.close()
+    return result
