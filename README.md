@@ -148,7 +148,7 @@ export SPOTIFY_SECRET=<the secret goes here>
 
 Install some required packages:
 ```
-pip install spotipy flask
+pip install spotipy flask gensim
 ```
 
 If you have previously created some cached images in `images/`, rename it to `static/`
@@ -163,6 +163,9 @@ python server.py
 
 It will start a flask server at `http://127.0.0.1:5000`. You can view the timeline this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
 
+You can also search the timeline with queries :).
+
+<!--
 # Step 6: Running the interactive GUI (WIP)
 
 Make sure that you have installed QT from `requirements.txt`. Launch the interactive GUI:
@@ -173,7 +176,7 @@ python -m src.gui.main
 
 Now you can search the timeline with queries!
 
-<!-- #### Currently we use the BLIP package from Salesforce to generate captions.
+#### Currently we use the BLIP package from Salesforce to generate captions.
 
 ----------
 This part of README is in progress. Please ignore:
