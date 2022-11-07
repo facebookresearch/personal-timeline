@@ -3,7 +3,6 @@ import os
 import numpy as np
 import datetime
 import pytz
-import geopy.distance
 import geopy
 import json
 
@@ -13,7 +12,7 @@ from src.objects.LLEntry_obj import LLEntrySummary
 from src.summarizer import Summarizer
 from gensim.utils import simple_preprocess
 from gensim.parsing.preprocessing import remove_stopwords
-
+from src.util import distance, translate_place_name
 
 class QAEngine:
     def __init__(self, summarizer: Summarizer, path='./', start_year=2000, end_year=2023):
@@ -30,9 +29,14 @@ class QAEngine:
         self.model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
         
         # home address
-        geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
         user_info = json.load(open("user_info.json"))
-        self.home_address = geolocator.geocode(user_info["address"])
+        # self.home_address = geolocator.geocode(user_info["address"])
+
+        # TODO: move to a global geo engine
+        geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
+        self.addresses = user_info["addresses"]
+        for addr in self.addresses:
+            addr["location"] = geolocator.geocode(addr["address"])
 
         # for summary in self.activity_index.values():
         #     self.all_summaries.append(summary)
@@ -93,7 +97,7 @@ class QAEngine:
     def summary_to_tags(self, summary: LLEntrySummary) -> List[str]:
         """Generate the list of tags of a summary.
         """
-        tags = set([])
+        tags = set([summary.type])
         if summary.objects is not None:
             for key, value in summary.objects.items():
                 tags.add(key)
@@ -102,16 +106,27 @@ class QAEngine:
         
         for location in summary.locations:
             if location is not None:
-                is_home = geopy.distance.geodesic((self.home_address.latitude, 
-                                                   self.home_address.longitude),
-                                        (location.latitude, location.longitude)).km <= 5.0
-                if is_home:
-                    tags.add("home")
+                # is_home = distance((self.home_address.latitude, 
+                #                     self.home_address.longitude),
+                #                    (location.latitude, location.longitude)) <= 5.0
+                # if is_home:
+                #     tags.add("home")
+                
+                lat, lon = location.latitude, location.longitude
+                for address in self.addresses:
+                    if address["location"] is not None:
+                        addr_lat, addr_lon = address["location"].latitude, address["location"].longitude
+                        if distance((addr_lat, addr_lon), (lat, lon)) \
+                            <= address["radius"]:
+                            tags.add(address["name"])
                 
                 for attr in ["town", "city", "county", "suburb", "state", "country"]:
                     if 'address' in location.raw and attr in location.raw['address']:
-                        tags.add(location.raw['address'][attr])
+                        place_name = location.raw['address'][attr]
+                        place_name = translate_place_name(place_name)
+                        tags.add(place_name)
         return list(tags)
+
 
     def summary_to_text(self, summary: Dict) -> str:
         """Convert a summarizer output to text.

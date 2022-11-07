@@ -17,7 +17,6 @@ from tqdm import tqdm
 from PIL import Image
 from pillow_heif import register_heif_opener
 from geopy import Location
-import geopy.distance
 
 from src.objects.LLEntry_obj import LLEntrySummary, LLEntry
 from src.persistence.personal_data_db import PersonalDataDBConnector
@@ -40,8 +39,6 @@ class TimelineRenderer:
         self.img_cache = {}
         self.geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
         self.geo_cache = {}
-        self.user_info = json.load(open("user_info.json"))
-        self.home_address = self.geolocator.geocode(self.user_info["address"])
 
         # for summarization
         self.summarizer = Summarizer()
@@ -92,7 +89,7 @@ class TimelineRenderer:
         return path
 
     def get_city_country(self, location: Location):
-        """Get city, state, and country (or "Home") from location
+        """Get city, state, and country from location
         """
         # TODO: dig deeper to find a better fix
         if location is None:
@@ -103,17 +100,10 @@ class TimelineRenderer:
             if coord in self.geo_cache:
                 location = self.geo_cache[coord]
             else:
-                location = self.geolocator.reverse(coord)
+                location = self.geolocator.reverse(coord, language='en')
                 self.geo_cache[coord] = location
 
-        def is_home(loc: Location, home: Location):
-            """Check if a location is home (within 100km)."""
-            return geopy.distance.geodesic((home.latitude, home.longitude),
-               (loc.latitude, loc.longitude)).km <= 100.0
-
         res = []
-        if is_home(location, self.home_address):
-            res.append("Home")
 
         # add one of the 4
         for attr in ["town", "city", "county", "suburb"]:
@@ -204,26 +194,6 @@ class TimelineRenderer:
             text += "</div><br>"
 
         return text
-
-    def organize_tags(self, objects: Dict, locations: List[str]):
-        """Create a 2-level tag lists.
-        """
-        top = []
-        bottom = []
-
-        if objects is not None:
-            top += list(objects.keys())
-            for item_list in objects.values():
-                for item in item_list:
-                    bottom.append(item['name'])
-
-        if len(locations) > 0:
-            if "Home" in locations:
-                top.append("Home")
-            top.append(locations[-1])
-            bottom += locations[:-1]
-
-        return top, bottom
 
 
     def get_uid(self, summary: LLEntrySummary):
@@ -367,7 +337,7 @@ class TimelineRenderer:
         result = {'events': []}
 
         print("Processing years")
-        for year in range(2012, 2023):
+        for year in tqdm(range(2012, 2023)):
             startTime = '%s-01-01' % year
             endTime = '%s-01-01' % (year+1)
             slide = {
@@ -381,9 +351,6 @@ class TimelineRenderer:
         # print("Processing trips")
         for trip in tqdm(self.trip_index.values()):
             trip : LLEntrySummary = trip
-            tags, next_tags = self.organize_tags({},
-                                                 self.get_city_country(trip.startGeoLocation))
-
             start_date = datetime.datetime.fromisoformat(trip.startTime)
             end_date = datetime.datetime.fromisoformat(trip.endTime) + datetime.timedelta(days=1)
 
@@ -394,8 +361,6 @@ class TimelineRenderer:
                 "text": self.create_text(trip.textDescription, ""),
                 "media": {"url": self.create_map_link(trip.startGeoLocation)},
                 "group": "trip",
-                "tags": tags,
-                "next_tags": next_tags,
                 "unique_id": uid
             }
             slide['text']['text'] += self.organize_LLEntries((start_date.isoformat(), 
@@ -418,14 +383,6 @@ class TimelineRenderer:
         slide["text"] = self.create_text(summary.textDescription, self.objects_to_text(summary.objects))
         slide["text"]['text'] += original_text
 
-        # add tags
-        if summary.type == 'trip':
-            slide["tags"], slide["next_tags"] = self.organize_tags({},
-                                                self.get_city_country(summary.startGeoLocation))
-        else:
-            slide["tags"], slide["next_tags"] = self.organize_tags(summary.objects,
-                                                self.get_city_country(summary.startGeoLocation))
-        
         # add media
         if summary.type == 'trip':
             slide["media"] = {"url": self.create_map_link(summary.startGeoLocation)}

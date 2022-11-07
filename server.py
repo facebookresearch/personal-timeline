@@ -2,7 +2,12 @@ from flask import Flask, redirect, url_for, request, render_template, send_from_
 from src.visualization import TimelineRenderer
 from src.qa import QAEngine
 
+
 app = Flask(__name__)
+
+# for profiling
+# from werkzeug.middleware.profiler import ProfilerMiddleware
+# app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
 
 renderer = TimelineRenderer(path='.')
 qa_engine = QAEngine(summarizer=renderer.summarizer, path='.')

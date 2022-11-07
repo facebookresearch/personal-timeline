@@ -118,9 +118,30 @@ This will create a `date_inverted_index.json` file in the data directory used in
 ```
 export HF_TOKEN=<the token goes here>
 ```
-* Fill in the user information in `user_info.json`, such as
+* Fill in the user information in `user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
 ```
-{"name": "Hilbert", "address": "Menlo Park, California, United States"}
+{
+    "name": "Hilbert",
+    "address": "Menlo Park, California, United States",
+    "addresses": [
+        {
+            "name": "Work",
+            "address": "Menlo Park, California, United States",
+            "radius": 0.1
+        },
+        {
+            "name": "Home",
+            "address": "Menlo Park, California, United States",
+            "radius": 0.1
+        },
+        {
+            "name": "My neighborhood",
+            "address": "Menlo Park, California, United States",
+            "radius": 1
+        }
+
+    ]
+}
 ```
 
 * Run:
