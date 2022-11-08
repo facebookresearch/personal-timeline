@@ -15,6 +15,12 @@
   </div>
 </div>
 
+<div id="SearchResultContainer">
+  <!-- <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button> -->
+</div>
+
 <div id='timeline-embed' style="width: 100%; height: 1000px"></div>
 
 <!-- 3 -->
@@ -30,39 +36,41 @@
         }
     });
 
+    function add_research_result_slide(event) {
+      idx = event.target.result_id;
+      search_result_ptr = idx;
+      if (timeline.getDataById(search_result.slides[search_result_ptr].unique_id) == null)
+        timeline.add(search_result.slides[search_result_ptr]);
+      timeline.goToId(search_result.slides[search_result_ptr].unique_id);
+    }
+
     function search_timeline(query) {
       if (query != "") {
         $.getJSON('http://127.0.0.1:5000/qa', {"search": query}, function(timeline_obj) {
-            // // turn off event listener
-            // timeline.on("change", function(data) {});
-            // // remove all objects that are not years
-            // var uid_removed = [];
-            // for (var i = 0; ; i++) {
-            //   var slide = timeline.getData(i);
-            //   if (slide == null) {
-            //     break;
-            //   }
-            //   if (!slide.unique_id.startsWith('year'))
-            //     uid_removed.push(slide.unique_id);
-            // }
-
-            // for (var i = 0; i < uid_removed.length; i++) {
-            //   timeline.removeId(uid_removed[i]);
-            // }
-
-            // update timeline with new objects
-            // add_timeline_objects(timeline_obj);
-
             // go to first slide
             search_result = timeline_obj;
+
+            container = document.getElementById("SearchResultContainer");
+            container.innerHTML = "";
+            container.innerHTML += "<div class='row'>";
+            for (var i = 0; i < search_result.slides.length; i++) {
+              bid = "search_result_btn_" + i.toString();
+              // item = search_result.slides[i].start_date;
+              // text = item.month + '/' + item.day + '/' + item.year;// new Date().toLocaleDateString()
+              text = search_result.slides[i].text.headline;
+              container.innerHTML += "<button class='result_btn default' id='" + bid + "')'>" + text + "</button>";
+              // document.getElementById(bid).addEventListener("click", add_research_result_slide, i);
+            }
+            container.innerHTML += "</div><br>";
+            for (var i = 0; i < search_result.slides.length; i++) {
+              bid = "search_result_btn_" + i.toString();
+              document.getElementById(bid).result_id = i;
+              addEventListener("click", add_research_result_slide, false);
+            }
+
+            // go to first slide
             search_result_ptr = -1;
             next_result(1);
-
-            // timeline.goToId(timeline_obj.slides[0].unique_id)
-            // // record search result
-            // for (var i = 0; i < timeline_obj.slides.length; i++) {
-            //   search_result.push(timeline_obj.slides[i].unique_id);
-            // }
           }
         );
       }
@@ -260,6 +268,29 @@
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
+}
+
+.result_btn {
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 32px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+/* Gray */
+.default {
+  border-color: #e7e7e7;
+  color: black;
+}
+
+.default:hover {
+  background: #e7e7e7;
 }
 
 /* Float four columns side by side */
