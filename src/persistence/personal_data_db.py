@@ -44,7 +44,7 @@ class PersonalDataDBConnector:
             cls.instance.setup_tables()
         return cls.instance
 
-    tables = ["photos", "data_source", "personal_data"]
+    tables = ["data_source", "personal_data"]
 
     ddl = {
         "category": "CREATE TABLE category(id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -52,18 +52,18 @@ class PersonalDataDBConnector:
         "data_source": "CREATE TABLE data_source(id INTEGER PRIMARY KEY AUTOINCREMENT, "
                   "source_name UNIQUE, entry_type, configs, field_mappings)",
         "personal_data": "CREATE TABLE personal_data(id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                         "source_id, data_timestamp, dedup_key UNIQUE, data, FOREIGN KEY(source_id) REFERENCES data_source(id))",
-        "photos": "CREATE TABLE photos(id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                  "source, timestamp, imageFileName, imageFilePath UNIQUE, data, "
-                  "location, location_done DEFAULT 0, captions, captions_done DEFAULT 0,"
-                  "embeddings, embedding_done DEFAULT 0, status DEFAULT active, dedup_done DEFAULT 0,"
-                  "enriched_data, export_done DEFAULT 0)"
+                     "source_id, data_timestamp, dedup_key UNIQUE, data, "
+                     "imageFileName, imageFilePath UNIQUE,"
+                     "location, location_done DEFAULT 0, captions, captions_done DEFAULT 0,"
+                     "embeddings, embedding_done DEFAULT 0, status DEFAULT active, dedup_done DEFAULT 0,"
+                     "enriched_data, export_done DEFAULT 0,"
+                     "FOREIGN KEY(source_id) REFERENCES data_source(id))"
     }
 
     indexes = {
-        "photos": [
-            'CREATE UNIQUE INDEX "uniq_img_filepath" ON "photos" ( "imageFilePath" )',
-            'CREATE UNIQUE INDEX "uniq_src_filename" ON "photos" ( "source", "imageFileName" )'
+        "personal_data": [
+            'CREATE UNIQUE INDEX "uniq_img_filepath" ON "personal_data" ( "imageFilePath" )',
+            'CREATE UNIQUE INDEX "uniq_src_filename" ON "personal_data" ( "source_id", "imageFileName" )'
         ]
     }
 
@@ -138,7 +138,7 @@ class PersonalDataDBConnector:
         if unique_key is not None:
             insert_sql += " ON CONFLICT(" + unique_key + ") DO UPDATE SET " + \
                           ", ".join(update_arr_key)
-        #print("Insert SQL:: ", insert_sql,  "data: ", insert_values)
+        # print("Insert SQL:: ", insert_sql,  "data: ", insert_values)
         self.execute_write(insert_sql, insert_values)
 
     def read_data_source_conf(self, select_cols:str, source_name=None):
@@ -157,28 +157,28 @@ class PersonalDataDBConnector:
         where_clause = ""
         if len(where_arr) > 0:
             where_clause = " WHERE " + " AND ".join(where_arr)
-        lookup_sql = "SELECT " + select_cols + " FROM personal_data" + where_clause
-        print("Searching for personal data using SQL:: ", lookup_sql)
+        lookup_sql = "SELECT " + select_cols + " FROM personal_data " + where_clause
+        # print("Searching for personal data using SQL:: ", lookup_sql)
         res = self.cursor.execute(lookup_sql)
         return res
 
-    def add_photo(self, obj: LLEntry):
+    def add_photo(self, source_id: str, obj: LLEntry):
         pickled_object = pickle.dumps(obj)
-        insert_sql = """INSERT INTO photos (source, timestamp, imageFileName, imageFilePath, data)
+        insert_sql = """INSERT INTO personal_data (source_id, data_timestamp, imageFileName, imageFilePath, data)
          values(?,?,?,?,?)"""
-        data_tuple = (obj.source, int(obj.imageTimestamp), obj.imageFileName, obj.imageFilePath, pickled_object)
+        data_tuple = (source_id, int(obj.imageTimestamp), obj.imageFileName, obj.imageFilePath, pickled_object)
         #print("Insert SQL:: ", insert_sql, " data:: ", data_tuple)
         self.execute_write(insert_sql, data_tuple)
 
-    def add_only_photo(self, source: str, imageFileName: str, imageFilePath: str):
-        insert_sql = """INSERT INTO photos (source, imageFileName, imageFilePath)
+    def add_only_photo(self, source_id: str, imageFileName: str, imageFilePath: str):
+        insert_sql = """INSERT INTO personal_data (source_id, imageFileName, imageFilePath)
                  values(?,?,?)"""
-        data_tuple = (source, imageFileName, imageFilePath)
+        data_tuple = (source_id, imageFileName, imageFilePath)
         #print("Insert img only SQL:: ", insert_sql, " data:: ", data_tuple)
         self.execute_write(insert_sql, data_tuple)
 
     def is_same_photo_present(self, source, filename, timestamp):
-        lookup_sql = """SELECT imageFileName FROM photos WHERE source=? AND imageFileName=? AND timestamp=?"""
+        lookup_sql = """SELECT imageFileName FROM personal_data WHERE source_id=? AND imageFileName=? AND data_timestamp=?"""
         data_tuple = (source, filename, timestamp)
         # print("Searching for ", filename, " using SQL:: ", lookup_sql, data_tuple)
         res = self.cursor.execute(lookup_sql, data_tuple)
@@ -188,31 +188,3 @@ class PersonalDataDBConnector:
         else:
             #print(filename, " found.")
             return True
-
-    def search_photos(self, select_cols: str, where_conditions: dict) -> Cursor:
-        where_arr = []
-        for key in where_conditions:
-            where_arr.append(key +" "+ where_conditions[key])
-        where_clause = ""
-        if len(where_arr)>0:
-            where_clause = " WHERE " + " AND ".join(where_arr)
-        lookup_sql = "SELECT " + select_cols + " FROM photos" + where_clause
-        #print("Searching for photos using SQL:: ", lookup_sql)
-        res = self.cursor.execute(lookup_sql)
-        return res
-
-    def update_photos(self, row_id: int, key_value: dict):
-        update_arr = []
-        data_arr = []
-        for key in key_value:
-            update_arr.append(key + "=?")
-            if key in ["data", "location", "enriched_data"]:
-                pickled = pickle.dumps(key_value[key])
-                data_arr.append(pickled)
-            else:
-                data_arr.append(key_value[key])
-        data_tuple = tuple(data_arr)
-        update_clause = " SET " + ", ".join(update_arr)
-        update_sql = "UPDATE photos" + update_clause + " WHERE id=" + str(row_id)
-        #print("Updating photos using SQL:: ", update_sql, data_tuple)
-        self.execute_write(update_sql, data_tuple)

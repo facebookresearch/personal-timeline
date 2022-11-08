@@ -1,5 +1,9 @@
 .idea/*
 *__pycache__*
+*.pkl
+*.pt
+*.db
+*.pyc
 raw_data.db
 data
 personal-data

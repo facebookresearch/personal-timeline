@@ -269,38 +269,46 @@
   {
     "id": 7,
     "source_name": "GoogleTimeline",
-    "entry_type": "purchase",
+    "entry_type": "base:visit",
     "configs": {
-      "input_directory": "personal-data/google-timeline",
+      "input_directory": "personal-data/google-timeline/Location History/Semantic Location History",
       "filetype": "json",
       "filetype_configs": {},
-      "dedup_key": ["source","experienced_startTime","type"]
-    },
-    "field_mappings": [
-      {
-        "src": "timestamp",
-        "target": "startTime",
-        "src_type": "datetime",
-        "target_type": "datetime"
-      },
-      {
-        "src": "title",
-        "target": "productName",
-        "src_type": "str",
-        "target_type": "str"
-      },
-      {
-        "src": "author",
-        "target": "author",
-        "src_type": "str",
-        "target_type": "str"
-      },
-      {
-        "src": "cover",
-        "target": "imageURL",
-        "src_type": "str",
-        "target_type": "str"
-      }
-    ]
+      "dedup_key": [
+        "source",
+        "startTime",
+        "type"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "source_name": "GooglePhotos",
+    "entry_type": "photo",
+    "configs": {
+      "input_directory": "personal-data/google_photos",
+      "filetype": "jpg,JPEG,PNG,HEIC",
+      "filetype_configs": {},
+      "dedup_key": [
+        "source",
+        "startTime",
+        "imageFileName"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "source_name": "FacebookPosts",
+    "entry_type": "photo",
+    "configs": {
+      "input_directory": "personal-data/facebook",
+      "filetype": "json",
+      "filetype_configs": {},
+      "dedup_key": [
+        "source",
+        "startTime",
+        "imageFileName"
+      ]
+    }
   }
 ]
