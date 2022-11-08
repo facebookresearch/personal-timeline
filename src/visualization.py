@@ -39,6 +39,7 @@ class TimelineRenderer:
         self.img_cache = {}
         self.geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
         self.geo_cache = {}
+        self.timeline_cached = None
 
         # for summarization
         self.summarizer = Summarizer()
@@ -319,6 +320,9 @@ class TimelineRenderer:
     def create_timeline(self):
         """Generate JSON object for TimelineJS.
         """
+        if self.timeline_cached is not None:
+            return self.timeline_cached
+
         # add day id for trip days
         for trip in self.trip_index.values():
             current_day = datetime.datetime.fromisoformat(trip.startTime)
@@ -370,6 +374,7 @@ class TimelineRenderer:
             # caching for retrieval
             self.slide_cache[uid] = slide
 
+        self.timeline_cached = result
         return result
 
     def add_summary_to_slide(self, slide: Dict, summary: LLEntrySummary):
