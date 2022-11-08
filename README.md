@@ -142,7 +142,10 @@ Run:
 ```python -m src.workflow```
 
 The script will allow you to choose the steps you want to run from the workflow.  
-Follow the instructions to import and enrich data. (Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
+Follow the instructions to import and enrich data. 
+
+(Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
+(Note*: please select `Yes` at the last step for exporting the LLEntries.)
 
 # Step 4: Create Inverted Index Files:
 
@@ -164,9 +167,30 @@ This will create a `date_inverted_index.json` file in the data directory used in
 ```
 export HF_TOKEN=<the token goes here>
 ```
-* Fill in the user information in `user_info.json`, such as
+* Fill in the user information in `user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
 ```
-{"name": "Hilbert", "address": "Menlo Park, California, United States"}
+{
+    "name": "Hilbert",
+    "address": "Menlo Park, California, United States",
+    "addresses": [
+        {
+            "name": "Work",
+            "address": "Menlo Park, California, United States",
+            "radius": 0.1
+        },
+        {
+            "name": "Home",
+            "address": "Menlo Park, California, United States",
+            "radius": 0.1
+        },
+        {
+            "name": "My neighborhood",
+            "address": "Menlo Park, California, United States",
+            "radius": 1
+        }
+
+    ]
+}
 ```
 
 * Run:
@@ -268,13 +292,33 @@ You need to first set up a Google Map API (free) following these [instructions](
 export GOOGLE_MAP_API=<the API key goes here>
 ```
 
+To embed Spotify, you need to set up a Spotify API (free) following [here](https://developer.spotify.com/dashboard/applications). You need to log in with a spotify account, create a project, and show the `secret`.
+
+```
+export SPOTIFY_TOKEN=<the token goes here>
+export SPOTIFY_SECRET=<the secret goes here>
+```
+
+Install some required packages:
+```
+pip install spotipy flask gensim
+```
+
+If you have previously created some cached images in `images/`, rename it to `static/`
+```
+mv images/ static/
+```
+
 Run
 ```
-python -m src.visualization
+python server.py
 ```
 
-The script will generate a HTML page `index.html` for inspecting the timeline from your browser. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
+It will start a flask server at `http://127.0.0.1:5000`. You can view the timeline this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
 
+You can also search the timeline with queries :).
+
+<!--
 # Step 6: Running the interactive GUI (WIP)
 
 Make sure that you have installed QT from `requirements.txt`. Launch the interactive GUI:
@@ -285,7 +329,7 @@ python -m src.gui.main
 
 Now you can search the timeline with queries!
 
-<!-- #### Currently we use the BLIP package from Salesforce to generate captions.
+#### Currently we use the BLIP package from Salesforce to generate captions.
 
 ----------
 

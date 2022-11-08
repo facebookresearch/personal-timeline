@@ -5,7 +5,6 @@ import pickle
 import datetime
 import matplotlib.pyplot as plt
 import geopy
-import geopy.distance
 import os
 
 from src.persistence.personal_data_db import PersonalDataDBConnector
@@ -14,6 +13,7 @@ from tqdm import tqdm
 
 from typing import Dict, List, Union
 from src.objects.LLEntry_obj import LLEntry, LLEntrySummary
+from src.util import distance
 from PIL import Image
 from sklearn.cluster import KMeans
 from src.enrichment import socratic
@@ -42,11 +42,16 @@ class LLImage:
         self.tags = []
         self.enhance()
 
+        # release memory
+        del self.img
+
 
     def enhance(self, k=5):
         """Run enhencements.
         """
         if not os.path.exists(self.img_path + ".compressed.jpg"):
+            # RGBA -> RGB
+            self.img = self.img.convert("RGB")
             self.img.save(self.img_path + ".compressed.jpg")
 
         # CLIP embeddings and zero-shot image classification
@@ -98,9 +103,9 @@ def str_to_location(loc: str):
     if loc in geo_cache:
         return geo_cache[loc]
     else:
-        geoloc = geolocator.geocode(loc.replace(';', ', '))
+        geoloc = geolocator.geocode(loc.replace(';', ', '), language='en')
         if geoloc is None:
-            geoloc = geolocator.geocode(default_location) # maybe use home as default?
+            geoloc = geolocator.geocode(default_location, language='en') # maybe use home as default?
 
         geo_cache[loc] = geoloc
         return geoloc
@@ -114,7 +119,7 @@ def get_coordinate(loc: Union[str, Location]):
     geoloc = str_to_location(loc)
     return geoloc.latitude, geoloc.longitude
 
-def get_location_attr(loc: Location, attr: str):
+def get_location_attr(loc: Location, attr: Union[str, List]):
     """Return an attribute (city, country, etc.) of a location"""
     if loc is None:
         return ""
@@ -126,17 +131,22 @@ def get_location_attr(loc: Location, attr: str):
     else:
         addr = geo_cache[cood]
     
-    if 'address' in addr.raw and attr in addr.raw['address']:
-        return addr.raw['address'][attr]
-    else:
-        return ""
+    if 'address' in addr.raw: 
+        if isinstance(attr, str):
+            attr = [attr]
+
+        for attr_item in attr:
+            if attr_item in addr.raw['address']:
+                return addr.raw['address'][attr_item]
+    
+    return ""
 
 def is_home(loc: Location, home: Location):
-    """Check if a location is home (within 200km)."""
+    """Check if a location is home (within 100km)."""
     try:
         home = get_coordinate(home)
         loc = get_coordinate(loc)
-        return geopy.distance.geodesic(home, loc).km <= 200.0
+        return distance(home, loc) <= 100.0
     except:
         return True
 
@@ -205,7 +215,7 @@ def summarize_activity(entries: List[LLImage]):
     sorted_places = list(zip(*places_cnt.most_common(3)))[0]
     object_list = ', '.join(list(zip(*objects_cnt.most_common(10)))[0])
     loc = get_location(entries)
-    city = get_location_attr(loc, "city")
+    city = get_location_attr(loc, ["town", "city", "suburb", "county"])
 
     if city.strip() == "":
         tags = []
@@ -249,7 +259,7 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
     summaries = ' '.join(activity_summaries)
 
     loc = get_location(day)
-    loc = get_location_attr(loc, "city")
+    loc = get_location_attr(loc, ["town", "city", "suburb", "county"])
 
     if loc.strip() == "":
         tags = []
@@ -287,18 +297,14 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
 
 def trip_data_to_text(locations: List[Location], start_date: List, num_days: int):
     """Data to text for a trip."""
-    cities = []
-    countries = []
+    loc_str = []
+
     for loc in locations:
-        city = get_location_attr(loc, "city")
-        country = get_location_attr(loc, "country")
+        value = get_location_attr(loc, ["town", "city", "county", "suburb", "state", "country"])
+        if len(value) > 3 and value not in loc_str:
+            loc_str.append(value)
 
-        if len(city) > 3 and city not in cities:
-            cities.append(city)
-        if len(country) > 3 and country not in countries:
-            countries.append(country)
-
-    prompt = f"""Paraphrase "A {num_days}-day trip to {", ".join(cities)} in {start_date.year}/{start_date.month}" in proper English:"""
+    prompt = f"""Paraphrase "A {num_days}-day trip to {", ".join(loc_str[:1])} in {start_date.year}/{start_date.month}" in proper English:"""
     print(prompt)
     response = socratic.generate_captions(prompt, method="Greedy")
     return postprocess_bloom(response)
@@ -319,9 +325,11 @@ def get_location(segment) -> Location:
     """Computer the location of an LLEntry/LLImage/activity/day"""
     if isinstance(segment, LLEntry):
         entry = segment
+
         for loc in entry.locations:
             if loc is not None and loc.address != 'Soul Buoy':
                 return loc
+
         for lat_lon in entry.lat_lon:
             lat_lon = tuple(lat_lon)
             if lat_lon is not None and lat_lon != (0.0, 0.0):
@@ -331,6 +339,7 @@ def get_location(segment) -> Location:
                     loc = geolocator.reverse(lat_lon)
                     geo_cache[lat_lon] = loc
                     return loc
+
 
         return str_to_location(default_location)
         # if hasattr(entry, "startGeoLocation") and entry.startGeoLocation is not None:
@@ -345,7 +354,7 @@ def get_location(segment) -> Location:
         loc_dict = {}
         for entry in segment:
             loc = get_location(entry)
-            city = get_location_attr(loc, "city")
+            city = get_location_attr(loc, ["town", "city", "suburb", "county"])
             city_cnt[city] += 1
             loc_dict[city] = loc
         most_common_city = city_cnt.most_common(1)[0][0]
@@ -576,6 +585,8 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
             end_date_str = end_date.date()
             itinerary = []
             locations = []
+            photo_summary = []
+
             i = 0
             while i < len(segment):
                 loc = get_location(segment[i])
@@ -590,10 +601,12 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
                 segment_photos = sum(sum(segment[start_index:end_index+1], []), [])
                 total_photos += len(segment_photos)
                 itin_entry['photo_summary'] = create_image_summary(segment_photos)
+                if len(photo_summary) == 0:
+                    photo_summary = itin_entry['photo_summary']
                 itinerary.append(itin_entry)
                 i += 1
 
-            num_days = (end_date - start_date).days + 1
+            num_days = (end_date.date() - start_date.date()).days + 1
 
             # TODO: handle itinerary
             trip_summary = LLEntrySummary(type="trip", 
@@ -601,7 +614,7 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
                                      endTime=end_date_str.isoformat(),
                                      locations=locations,
                                      text_summary=trip_data_to_text(locations, start_date, num_days),
-                                     photo_summary=[],
+                                     photo_summary=photo_summary,
                                      stats={"num_photos": total_photos,
                                             "days": num_days},
                                      objects={},

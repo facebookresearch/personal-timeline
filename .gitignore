@@ -4,6 +4,7 @@
 *.pt
 *.db
 *.pyc
+*.html
 raw_data.db
 data
 personal-data

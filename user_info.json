@@ -1,1 +1,22 @@
-{"name": "Hilbert", "address": "Menlo Park, California, United States"}
+{
+    "name": "Hilbert", 
+    "address": "Menlo Park, California, United States",
+    "addresses": [
+        {
+            "name": "Work",
+            "address": "Menlo Park, California, United States",
+            "radius": 0.1
+        },
+        {
+            "name": "Home",
+            "address": "Menlo Park, California, United States",
+            "radius": 0.1
+        },
+        {
+            "name": "My neighborhood",
+            "address": "Menlo Park, California, United States",
+            "radius": 1
+        }
+
+    ]
+}

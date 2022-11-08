@@ -1,0 +1,572 @@
+<!-- 1 -->
+<link title="timeline-styles" rel="stylesheet" 
+      href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+
+<!-- 2 -->
+<script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="topnav">
+  <div class="search-container">
+    <button type="submit" onclick="search_timeline(document.getElementById('search').value)" id="search_btn"><i class="fa fa-search"></i></button>
+    <input type="text" placeholder="Search.." id="search">
+    <button type="submit" onclick="next_result(-1)" id="prev_result_btn"> <i class="fa fa-arrow-circle-left"></i> Go to previous result </button>
+    <button type="submit" onclick="next_result(1)" id="next_result_btn">Go to next result <i class="fa fa-arrow-circle-right"></i></button>
+  </div>
+</div>
+
+<div id="SearchResultContainer">
+  <!-- <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button> -->
+</div>
+
+<div id='timeline-embed' style="width: 100%; height: 1000px"></div>
+
+<!-- 3 -->
+<script type="text/javascript">
+    var input = document.getElementById("search");
+    var search_result = [];
+    var search_result_ptr = 0;
+
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("search_btn").click();
+        }
+    });
+
+    function add_research_result_slide(event) {
+      idx = event.target.result_id;
+      search_result_ptr = idx;
+      if (timeline.getDataById(search_result.slides[search_result_ptr].unique_id) == null)
+        timeline.add(search_result.slides[search_result_ptr]);
+      timeline.goToId(search_result.slides[search_result_ptr].unique_id);
+    }
+
+    function search_timeline(query) {
+      if (query != "") {
+        $.getJSON('http://127.0.0.1:5000/qa', {"search": query}, function(timeline_obj) {
+            // go to first slide
+            search_result = timeline_obj;
+
+            container = document.getElementById("SearchResultContainer");
+            container.innerHTML = "";
+            container.innerHTML += "<div class='row'>";
+            for (var i = 0; i < search_result.slides.length; i++) {
+              bid = "search_result_btn_" + i.toString();
+              // item = search_result.slides[i].start_date;
+              // text = item.month + '/' + item.day + '/' + item.year;// new Date().toLocaleDateString()
+              text = search_result.slides[i].text.headline;
+              container.innerHTML += "<button class='result_btn default' id='" + bid + "')'>" + text + "</button>";
+              // document.getElementById(bid).addEventListener("click", add_research_result_slide, i);
+            }
+            container.innerHTML += "</div><br>";
+            for (var i = 0; i < search_result.slides.length; i++) {
+              bid = "search_result_btn_" + i.toString();
+              document.getElementById(bid).result_id = i;
+              addEventListener("click", add_research_result_slide, false);
+            }
+
+            // go to first slide
+            search_result_ptr = -1;
+            next_result(1);
+          }
+        );
+      }
+    }
+
+    function next_result(delta) {
+      if (search_result.slides.length > 0) {
+        console.log("here");
+        search_result_ptr += delta;
+        if (search_result_ptr >= search_result.slides.length) {
+          search_result_ptr = 0;
+        }
+        if (search_result_ptr < 0) {
+          search_result_ptr = search_result.slides.length - 1;
+        }
+        // render the slide
+        if (timeline.getDataById(search_result.slides[search_result_ptr].unique_id) == null)
+          timeline.add(search_result.slides[search_result_ptr]);
+
+        // go to the slide
+        timeline.goToId(search_result.slides[search_result_ptr].unique_id);
+      }
+    }
+
+    // The TL.Timeline constructor takes at least two arguments:
+    // the id of the Timeline container (no '#'), and
+    // the URL to your JSON data file or Google spreadsheet.
+    // the id must refer to an element "above" this code,
+    // and the element must have CSS styling to give it width and height
+    // optionally, a third argument with configuration options can be passed.
+    // See below for more about options.
+    var timeline = null;
+    var obj = null
+    var options = {timenav_position: "top", duration: 500, timenav_height_percentage: 40};
+    
+    // jQuery.ajaxSetup({async:false});
+
+    function render_timeline(obj) {
+      timeline = new TL.Timeline('timeline-embed', obj, options);
+      timeline.on("change", function(data) {
+        console.log(data.unique_id)
+        $.getJSON('http://127.0.0.1:5000/timeline', {"unique_id": data.unique_id}, function(timeline_obj) {
+          // update timeline with new objects
+          for (var i = 0; i < timeline_obj.slides.length; i++) {
+            if (timeline.getDataById(timeline_obj.slides[i].unique_id) == null)
+              timeline.add(timeline_obj.slides[i]);
+          }});
+      });
+    }
+
+
+    $.getJSON('http://127.0.0.1:5000/init', function(timeline_obj) {
+        obj = timeline_obj;
+        render_timeline(obj);
+    });
+
+    // var timeline_obj = [];
+    // var timeline = null;
+
+    // function render_timeline(obj) {
+    //   // the set of objects to be rendered
+    //   var trip_events = [];
+    //   var day_events = [];
+    //   var activity_events = [];
+    //   var levels = [[], [], []];
+
+    //   for (var i = 0; i < obj.events.length; i++) {
+    //     if (obj.events[i].group == 'trip') {
+    //       levels[0].push(obj.events[i]);
+    //     } else if (obj.events[i].group == 'day') {
+    //       levels[1].push(obj.events[i]);
+    //     } else {
+    //       levels[2].push(obj.events[i]);
+    //     }
+    //   }
+
+    //   if (timeline == null) {
+    //     zoom_level = 4;
+    //     if (levels[0].length > 0)
+    //       current_id = levels[0][0];
+    //     else if (levels[1].length > 0)
+    //       current_id = levels[1][0];
+    //     else if (levels[2].length > 0)
+    //       current_id = levels[2][0];
+    //   } else {
+    //     zoom_level = timeline.zoom_level;
+    //     current_id = timeline.current_id;
+    //   }
+
+    //   // decide whether we need a new timeline
+    //   var new_timeline_obj = []
+
+    //   if (zoom_level >= 0)
+    //     new_timeline_obj = new_timeline_obj.concat(levels[0]);
+    //   if (zoom_level >= 12)
+    //     new_timeline_obj = new_timeline_obj.concat(levels[1]);
+    //   if (zoom_level >= 16)
+    //     new_timeline_obj = new_timeline_obj.concat(levels[2]);
+      
+    //   function sameList(prev, next) {
+    //     if (prev == null || next == null || prev.length != next.length)
+    //       return false;
+    //     for (var i = 0; i < prev.length; i++)
+    //       if (prev[i].unique_id != next[i].unique_id)
+    //         return false;
+    //     return true;
+    //   }
+
+    //   if (!sameList(new_timeline_obj, timeline_obj)) {
+    //     timeline = new TL.Timeline('timeline-embed', {'events': new_timeline_obj});
+    //     timeline.setZoom(zoom_level);
+    //     timeline.goToId(current_id);
+
+    //     timeline_obj = new_timeline_obj;
+    //     timeline.on("zoom_in", function(data) {
+    //       timeline.zoom_level = data.zoom_level;
+    //       timeline.current_id = data.target.current_id;
+    //       render_timeline(obj)
+    //     });
+    //   }
+    // }
+    
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+  margin-bottom: 32px;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: left;
+  margin-bottom: 8px;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-left: 8px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-left: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
+.result_btn {
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 32px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+/* Gray */
+.default {
+  border-color: #e7e7e7;
+  color: black;
+}
+
+.default:hover {
+  background: #e7e7e7;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 16%;
+  padding: 10px 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+</style>
+
+<style>
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+
+  .tooltip .tooltipimage {
+    visibility: hidden;
+    width: 240px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    left: 105%;
+  }
+  
+  .tooltip:hover .tooltipimage {
+    visibility: visible;
+  }
+ 
+  .tooltip .tooltipmap {
+    visibility: hidden;
+    width: 240px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -250px;
+    left: 105%;
+  }
+  
+  .tooltip:hover .tooltipmap {
+    visibility: visible;
+  }
+  
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 240px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+</style>
+
+
+<style>
+.filterDiv {
+  float: left;
+  background-color: #2196F3;
+  color: #ffffff;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  margin-left: 3px;
+  margin-bottom: 5px;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+<body>
+
+<!-- <div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all </button>
+  <button class="btn" onclick="filterSelection('activity')"> Activities </button>
+  <button class="btn" onclick="filterSelection('trip')"> Trips </button>
+  <button class="btn" onclick="filterSelection('day')"> Days </button>
+</div>
+
+<div id="TagsContainer">
+  <button class="btn active" onclick="tagSelection('all')">Show all</button>
+</div>
+
+<div id="NextTagsContainer">
+  <button class="btn active" onclick="nextTagSelection('all')">Show all</button>
+</div>
+
+
+<script>
+var current_type = "all";
+var current_tag = "all";
+var current_next_tag = "all";
+
+
+updateTimeline(current_type, current_tag, current_next_tag);
+
+function filterSelection(type) {
+  if (type != current_type) {
+    current_type = type;
+    updateTimeline(current_type, current_tag, current_next_tag);
+  }
+}
+
+function tagSelection(tag) {
+  if (tag != current_tag) {
+    current_tag = tag;
+    updateTimeline(current_type, current_tag, current_next_tag);
+  }
+}
+
+function nextTagSelection(next_tag) {
+  if (next_tag != current_next_tag) {
+    current_next_tag = next_tag;
+    updateTimeline(current_type, current_tag, current_next_tag);
+  }
+
+}
+
+function most_frequent(arr, k) {
+  var unique = Array.from(new Set(arr));
+  unique.sort((a,b) =>
+         - arr.filter(v => v == a).length
+         + arr.filter(v => v == b).length
+    );
+  return unique.slice(0, k);
+}
+
+function updateTimeline(type, tag, next_tag) {
+  var new_obj = {"events": []}
+  var new_tags = []
+  var new_next_tags = []
+
+  for (var i = 0; i < obj.events.length; i++) {
+    if ((type == "all" || obj.events[i].group == type) &&
+        (tag == "all" || obj.events[i].tags.includes(tag)) &&
+        (next_tag == "all" || obj.events[i].next_tags.includes(next_tag))) {
+      new_obj.events.push(obj.events[i])
+      new_tags = new_tags.concat(obj.events[i].tags);
+      new_next_tags = new_next_tags.concat(obj.events[i].next_tags);
+      // if (timeline.getDataById(obj.events[i].unique_id) == null)
+      //   timeline.add(obj.events[i]);
+    }
+    //  else {
+    //   timeline.removeId(obj.events[i].unique_id);
+    // }
+  }
+  // timeline = new TL.Timeline('timeline-embed', new_obj);
+  render_timeline(new_obj);
+  // render_timeline(new_obj);
+
+  new_tags = most_frequent(new_tags, 15);// Array.from(new Set(new_tags));
+  new_next_tags = most_frequent(new_next_tags, 15);
+
+  // tag_container = document.getElementById("TagsContainer");
+
+  // update tags
+  var containers = ["TagsContainer", "NextTagsContainer"];
+  var functionNames = ["tagSelection", "nextTagSelection"];
+  var tag_lists = [new_tags, new_next_tags];
+  var targeted_tag = [tag, next_tag]
+
+  for (var cid = 0; cid < containers.length; cid++) {
+    var btnContainer = document.getElementById(containers[cid]);
+    if (targeted_tag[cid] == "all") {
+      btnContainer.innerHTML = '<button class="btn active" onclick="' + functionNames[cid] + '(\'all\')">Show all</button>';
+    } else {
+      btnContainer.innerHTML = '<button class="btn" onclick="' + functionNames[cid] + '(\'all\')">Show all</button>';
+    }
+    var new_tags = tag_lists[cid];
+    for (var i = 0; i < new_tags.length; i++) {
+      if (new_tags[i] == targeted_tag[cid]) {
+        btnContainer.innerHTML += '<button class="btn active" onclick="' + functionNames[cid] + '(\'' + new_tags[i] + 
+      '\')">' + new_tags[i] + '</button>';
+      } else {
+        btnContainer.innerHTML += '<button class="btn" onclick="' + functionNames[cid] + '(\'' + new_tags[i] + 
+      '\')">' + new_tags[i] + '</button>';
+      }
+    }
+  }
+}
+
+
+// Add active class to the current button (highlight it)
+var containers = ["myBtnContainer", "TagsContainer", "NextTagsContainer"]
+
+for (var cid = 0; cid < containers.length; cid++) {
+  var btnContainer = document.getElementById(containers[cid]);
+  var btns = btnContainer.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function(){
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+}
+// render_timeline(obj); -->
+
+
+</script>
