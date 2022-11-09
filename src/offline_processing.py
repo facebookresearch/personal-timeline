@@ -14,7 +14,7 @@ from src.util import distance
 from PIL import Image, ImageOps
 from sklearn.cluster import KMeans
 from src.enrichment import socratic
-from src.util import is_home, get_location_attr, geo_cache, geolocator, default_location
+from src.util import is_home, get_location_attr, geo_cache, geolocator, default_location, str_to_location
 from geopy import Location
 
 from pillow_heif import register_heif_opener
@@ -264,7 +264,7 @@ def organize_images_by_tags(images: List[LLImage]):
 
     return result
 
-previous_location = default_location
+previous_location = str_to_location(default_location)
 
 def get_location(segment) -> Location:
     """Computer the location of an LLEntry/LLImage/activity/day"""
