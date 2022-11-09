@@ -177,8 +177,8 @@ class Summarizer:
                                                         float(entry.productPrice))
 
             # total
-            result.append({"text": "You spent a total of $%.1f" % total,
-                           "detail": "You spent a total of $%.1f on %d items." % (total, total_items)})
+            result.append({"text": "Total spent: $%.1f" % total,
+                           "detail": "I spent a total of $%.1f on %d items." % (total, total_items)})
             # the most expensive item
             result.append({"text": "The most expensive item ($%.1f)" % most_expensive.most_common(1)[0][1],
                            "detail": most_expensive.most_common(1)[0][0]})
@@ -240,6 +240,11 @@ class Summarizer:
                     if location is None:
                         continue
 
+                    # show image if possible
+                    media = location
+                    if entry.imageFilePath is not None:
+                        media = self.get_img_path(entry.imageFilePath)
+
                     # check address book
                     lat, lon = location.latitude, location.longitude
                     found = False
@@ -249,9 +254,10 @@ class Summarizer:
                             if distance((addr_lat, addr_lon), (lat, lon)) \
                                 <= address["radius"] and address["name"] not in cache:
                                 cache.add(address["name"])
+
                                 result.append(
                                     {"text": address["name"],
-                                     "media": location})
+                                     "media": media})
                                 found = True
                                 break
 
@@ -265,7 +271,7 @@ class Summarizer:
                             if place_name not in cache:
                                 cache.add(place_name)
                                 result.append({"text": place_name,
-                                            "media": location})
+                                            "media": media})
                             break
             if len(result) <= 5:
                 return result
@@ -277,7 +283,7 @@ class Summarizer:
         """
         result = []
         for entry in entries:
-            if entry.productName == 'Kindle Unlimited':
+            if entry.productName in ['Kindle Unlimited', 'Prime Membership Fee']:
                 continue
             author = entry.author
             if author == '':
@@ -318,7 +324,7 @@ class Summarizer:
                             link = item['external_urls']['spotify']
                             break
             except:
-                print("Spotify Exception: " + artist + " " + tracks)
+                print("Spotify Exception: " + str(artist) + " " + str(tracks))
             
             if link is not None:
                 result[-1]['media'] = link

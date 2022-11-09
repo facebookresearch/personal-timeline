@@ -2,11 +2,14 @@ import datetime
 import pytz
 import geopy
 import dbm
+import json
 
 from datetime import datetime, timedelta
 from timezonefinder import TimezoneFinder
 from sklearn.metrics.pairwise import haversine_distances
 from math import radians
+from typing import Union, List
+from geopy import Location
 
 
 EPOCH = datetime(1970,1,1)
@@ -126,8 +129,13 @@ def distance(latlon_a, latlon_b):
     return result[1, 0] * 6371000 / 1000  # multiply by Earth radius to get kilometers
 
 
-translate_geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
+geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
+geo_cache = {}
 translate_geo_cache = dbm.open('geo_cache', 'c')
+user_info = json.load(open("user_info.json"))
+default_location = user_info["address"]
+
+
 
 def translate_place_name(place_name: str) -> str:
     """Translate a place name to English.
@@ -139,9 +147,67 @@ def translate_place_name(place_name: str) -> str:
         # translate_geo_cache.close()
         return result
     
-    translated_addr = translate_geolocator.geocode(place_name, language="en")
+    translated_addr = geolocator.geocode(place_name, language="en")
     if translated_addr is not None:
         result = translated_addr.address
     translate_geo_cache[place_name] = result
     # translate_geo_cache.close()
     return result
+
+def is_home(loc: Location):
+    """Check if a location is home (within 100km)."""
+    try:
+        home = get_coordinate(default_location)
+        loc = get_coordinate(loc)
+        return distance(home, loc) <= 100.0
+    except:
+        return True
+
+def get_location_attr(loc: Location, attr: Union[str, List]):
+    """Return an attribute (city, country, etc.) of a location"""
+    if loc is None:
+        return ""
+
+    cood = (loc.latitude, loc.longitude)
+    if cood not in geo_cache:
+        addr = geolocator.reverse(cood)
+        geo_cache[cood] = addr
+    else:
+        addr = geo_cache[cood]
+    
+    if 'address' in addr.raw: 
+        if isinstance(attr, str):
+            attr = [attr]
+
+        for attr_item in attr:
+            if attr_item in addr.raw['address']:
+                return addr.raw['address'][attr_item]
+    
+    return ""
+
+# create trip segments: consecutive days with start / end = home
+# geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
+# geo_cache = {}
+default_location = json.load(open('user_info.json'))["address"] # "United States"
+
+def str_to_location(loc: str):
+    """Convert a string to geolocation."""
+    if loc in geo_cache:
+        return geo_cache[loc]
+    else:
+        geoloc = geolocator.geocode(loc.replace(';', ', '), language='en')
+        if geoloc is None:
+            geoloc = geolocator.geocode(default_location, language='en') # maybe use home as default?
+
+        geo_cache[loc] = geoloc
+        return geoloc
+
+
+def get_coordinate(loc: Union[str, Location]):
+    """Get coordinate of a location."""
+    if isinstance(loc, Location):
+        return loc.latitude, loc.longitude
+
+    geoloc = str_to_location(loc)
+    return geoloc.latitude, geoloc.longitude
+
