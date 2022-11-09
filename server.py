@@ -40,7 +40,16 @@ def qa():
 
     new_slides = []
     for qr in query_result:
-        new_slides.append(renderer.uid_to_slide(qr))
+        if isinstance(qr, str):
+            # a single uid
+            new_slide = renderer.uid_to_slide(qr)
+        else:
+            new_slide = renderer.uid_to_slide(qr['unique_id'])
+            for key in qr:
+                if key != 'unique_id':
+                    new_slide[key] = qr[key]
+
+        new_slides.append(new_slide)
     return {'slides': new_slides}
 
 

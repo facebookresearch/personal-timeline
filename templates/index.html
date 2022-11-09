@@ -54,16 +54,24 @@
 
             container = document.getElementById("SearchResultContainer");
             container.innerHTML = "";
-            container.innerHTML += "<div class='row'>";
+            content_str = "<div class='row'>";
             for (var i = 0; i < search_result.slides.length; i++) {
               bid = "search_result_btn_" + i.toString();
-              // item = search_result.slides[i].start_date;
-              // text = item.month + '/' + item.day + '/' + item.year;// new Date().toLocaleDateString()
-              text = search_result.slides[i].text.headline;
-              container.innerHTML += "<button class='result_btn default' id='" + bid + "')'>" + text + "</button>";
-              // document.getElementById(bid).addEventListener("click", add_research_result_slide, i);
+              if (search_result.slides[i].img_path == null) {
+                // non-image
+                text = search_result.slides[i].text.headline;
+                content_str += "<button class='result_btn default' id='" + bid + "')'>" + text + "</button>";
+              } else {
+                text = search_result.slides[i].name
+                img_path = search_result.slides[i].img_path
+                content_str += "<div class='column'><div class='result_img_content'>"
+                content_str += "<img class='rect-img' src='" + img_path + "' style='width:100%'>"
+                content_str += "<button class='overlay' id='" + bid + "')'>" + text + "</button>";
+                content_str += "</div></div>"
+              }
             }
-            container.innerHTML += "</div><br>";
+            content_str += "</div><br>";
+            container.innerHTML += content_str
             for (var i = 0; i < search_result.slides.length; i++) {
               bid = "search_result_btn_" + i.toString();
               document.getElementById(bid).result_id = i;
@@ -331,6 +339,47 @@
     border: 1px solid #ccc;  
   }
 }
+
+/* Content */
+.result_img_content {
+  background-color: #ccc;
+  position: relative;
+  /* padding: 10px; */
+}
+
+.rect-img {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  /* margin-bottom: 6px; */
+  display: block;
+  /* width: 100%; */
+  /* height: auto; */
+}
+
+/* Make the image to responsive */
+
+/* The overlay effect - lays on top of the container and over the image */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.result_img_content:hover .overlay {
+  opacity: 1;
+}
+
 
 .result_btn {
   border: 2px solid black;

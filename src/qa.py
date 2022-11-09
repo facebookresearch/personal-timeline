@@ -6,7 +6,7 @@ import pytz
 import geopy
 import json
 
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Union
 from sentence_transformers import SentenceTransformer
 from src.objects.LLEntry_obj import LLEntrySummary
 from src.summarizer import Summarizer
@@ -43,12 +43,15 @@ class QAEngine:
         combined = list(self.daily_index.values()) + list(self.trip_index.values())
         self.tag_inverted_index = {}
         self.double_tag_index = {}
+        self.double_tag_to_tags = {}
+        self.uid_to_summary = {}
 
         for summary in combined:
             self.all_summaries.append((summary.startTime, summary.endTime))
             self.all_sentences.append(summary.textDescription)
             day = datetime.datetime.fromisoformat(summary.startTime)
             unique_id = '%s_%s_%s_%s' % (summary.type, day.year, day.month, day.day)
+            self.uid_to_summary[unique_id] = summary
             self.unique_ids.append(unique_id)
     
             # inverted index
@@ -65,6 +68,7 @@ class QAEngine:
                         double_tag = tags[tid1] + ' ' + tags[tid2]
                         double_tag = self.preprocess(double_tag)
                         if double_tag not in self.double_tag_index:
+                            self.double_tag_to_tags[double_tag] = (tags[tid1], tags[tid2])
                             self.double_tag_index[double_tag] = set([])
                         self.double_tag_index[double_tag].add(unique_id)
 
@@ -93,6 +97,23 @@ class QAEngine:
             day = next_day
         
         self.embeddings = self.model.encode(self.all_sentences) # N * H
+
+    def get_tag_image(self, tag: str, summary: LLEntrySummary) -> List[str]:
+        """Return image paths of a tag (an object) in a summary.
+        """
+        result = []
+        try:
+            date_str = ', ' + datetime.datetime.fromisoformat(summary.startTime).strftime('%b %d, %Y')
+        except:
+            date_str = ''
+        if summary.objects is not None:
+            for key, value in summary.objects.items():
+                for v in value:
+                    if v['name'] == tag or key == tag:
+                        path = v['img_path']
+                        path = 'static/' + os.path.split(path)[-1] + '.compressed.jpg'
+                        result.append({"img_path": path, 'name': v['name'] + date_str})
+        return result
 
     def summary_to_tags(self, summary: LLEntrySummary) -> List[str]:
         """Generate the list of tags of a summary.
@@ -166,8 +187,8 @@ class QAEngine:
         tokens = simple_preprocess(text)
         return ' '.join(tokens)
 
-    def query(self, text: str, k=9) -> List[str]:
-        """Returns a list of unique_ids of summaries
+    def query(self, text: str, k=9) -> List[Union[str, Dict]]:
+        """Returns a list of unique_ids or objects of summaries
         """
         # exact date search
         formats = ['%Y-%m-%d', '%Y/%m/%d', '%m/%d/%Y',
@@ -179,16 +200,37 @@ class QAEngine:
             except:
                 pass
         
-        # tag search
+        # tag search: 1 tag
         for tag in self.tag_inverted_index:
             if text.lower() == tag.lower():
-                return list(self.tag_inverted_index[tag])
+                result = []
+                for uid in list(self.tag_inverted_index[tag]):
+                    summary = self.uid_to_summary[uid]
+                    objects = self.get_tag_image(tag, summary)
+                    if len(objects) == 0:
+                        result.append(uid)
+                    else:
+                        obj = objects[0]
+                        obj['unique_id'] = uid
+                        result.append(obj)
+                return result
         
-        # two tag
+        # tag search: two tag
         text_preprocessed = self.preprocess(text)
         for tag in self.double_tag_index:
             if text_preprocessed.lower() == tag.lower():
-                return list(self.double_tag_index[tag])
+                result = []
+                for uid in list(self.double_tag_index[tag]):
+                    tag1, tag2 = self.double_tag_to_tags[tag]
+                    summary = self.uid_to_summary[uid]
+                    objects = self.get_tag_image(tag1, summary) + self.get_tag_image(tag2, summary)
+                    if len(objects) == 0:
+                        result.append(uid)
+                    else:
+                        obj = objects[0]
+                        obj['unique_id'] = uid
+                        result.append(obj)
+                return result
 
         # similarity search
         query_emb = self.model.encode([text]) # 1 * H

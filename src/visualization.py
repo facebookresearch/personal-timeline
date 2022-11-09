@@ -313,11 +313,15 @@ class TimelineRenderer:
             value = summary[key]
             if len(value) == 0:
                 continue
+
+            # only special case
+            if key == 'item':
+                key = 'Shopping'
+
             text += f"<p>{key.capitalize()}:</p> <div class='row'>"
 
             for v in value:
                 obj = self.create_hover_object(v)
-                print(v["text"])
                 if v["text"] in ["running", "elliptical", "walking", "yoga", "weight lifting", "rowing"]:
                     obj = f"""<i class="{icon_map[v['text']]}"></i> """ + obj
 
