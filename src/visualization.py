@@ -528,6 +528,23 @@ class TimelineRenderer:
 
         return result
 
+    def get_next_prev(self, unique_id:str) -> List[Dict]:
+        """Return the next and previous slide
+        """
+        tag = unique_id.split('_')[0]
+        result = []
+        for delta in [1, -1]:
+            # TODO: also support months and weeks
+            if tag == 'day':
+                _, year, month, day = unique_id.split('_')
+                delta = datetime.timedelta(days=delta)
+                current_date = datetime.datetime(int(year), int(month), int(day))
+                dt = current_date + delta
+                new_unique_id = '%s_%d_%d_%d' % (tag, dt.year, dt.month, dt.day)
+                result.append(self.uid_to_slide(new_unique_id))
+        return result
+
+
     def uid_to_slide(self, unique_id: str) -> Dict:
         """Retrieve a slide given a unique ID of trip or day.
         """

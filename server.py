@@ -18,12 +18,16 @@ def index():
 
 @app.route('/timeline', methods=['GET'])
 def get_timeline():
-    # print(request.args.keys)
+    # get the next level
     new_slides = renderer.split_slide(request.args['unique_id'])
 
     # don't drip down if nothing new
     if len(new_slides) == 1 and 'trip' not in request.args['unique_id']:
         new_slides = []
+
+    # get the next/prev element at the same level
+    new_slides += renderer.get_next_prev(request.args['unique_id'])
+
     return {'slides': new_slides}
 
 @app.route('/init', methods=['GET'])
