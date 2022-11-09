@@ -29,15 +29,14 @@ class LLImage:
         """Create an image object from LLEntry and run enhencements
         """
         self.img_path = img_path
-        if os.path.exists(img_path):
-            self.img = Image.open(img_path)
-            self.embedding = None
-            self.places = []
-            self.objects = []
-            self.tags = []
-            self.enhance()
-            # release memory
-            del self.img
+        self.img = None
+        self.embedding = None
+        self.places = []
+        self.objects = []
+        self.tags = []
+        self.enhance()
+        # release memory
+        del self.img
 
         self.time = time
         self.loc = loc
@@ -47,6 +46,8 @@ class LLImage:
         """
         if not os.path.exists(self.img_path + ".compressed.jpg"):
             # RGBA -> RGB
+            if self.img == None:
+                self.img = Image.open(self.img_path)
             self.img = ImageOps.exif_transpose(self.img)
             self.img = self.img.convert("RGB")
             self.img.save(self.img_path + ".compressed.jpg")
@@ -59,6 +60,8 @@ class LLImage:
             if os.path.exists(self.img_path + ".emb"):
                 image_features = pickle.load(open(self.img_path + ".emb", "rb"))
             else:
+                if self.img == None:
+                    self.img = Image.open(self.img_path)
                 image_input = model_dict['clip_preprocess'](self.img).unsqueeze(0).to(model_dict['device'])
                 image_features = model_dict['clip_model'].encode_image(image_input)
                 image_features /= image_features.norm(dim=-1, keepdim=True)
@@ -405,7 +408,10 @@ def convert_LLEntry_LLImage(entries: List[LLEntry]):
         if entry.imageFilePath is not None and \
            len(entry.imageFilePath) > 0 and \
             os.path.exists(entry.imageFilePath):
-            image_entries.append(LLImage(entry.imageFilePath, time, loc))
+            try:
+                image_entries.append(LLImage(entry.imageFilePath, time, loc))
+            except:
+                print("Error when processing image:" + entry.imageFilePath)
         else:
             # TODO: ignoring tabular entries for now
             pass
