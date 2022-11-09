@@ -177,7 +177,10 @@ class TimelineRenderer:
         """
         text = ""
         for tag in object_dict:
-            text += f"<p>These are the {tag} that I saw: </p> <div class='row'>"
+            if 'person' in tag or 'people' in tag:
+                continue
+
+            text += f"<p>{tag.capitalize()}: </p> <div class='row'>"
             itemized = []
             for item in object_dict[tag]:
                 img_path = item["img_path"] + '.compressed.jpg'
@@ -296,18 +299,28 @@ class TimelineRenderer:
 
         text = ""
         keys = "exercises,items,places,streamings,books".split(",")
-        verbs = ["did", "purchased", "have been to", "listened to", "read"]
+        # verbs = ["did", "purchased", "have been to", "listened to", "read"]
+        icon_map = {"running": "fa-solid fa-person-running",
+                    "walking": "fa-solid fa-person-walking", 
+                    "weight lifting": "fa-solid fa-dumbbell",
+                    "yoga": "fa-solid fa-seedling",
+                    "elliptical": "fa-regular fa-circle-ellipsis",
+                    "rowing": "fa-solid fa-person-drowning"}
 
-        for key, verb in zip(keys, verbs):
+        for key in keys:
             if key not in summary:
                 continue
             value = summary[key]
             if len(value) == 0:
                 continue
-            text += f"<p>These are the {key} that I {verb}:</p> <div class='row'>"
+            text += f"<p>{key.capitalize()}:</p> <div class='row'>"
 
             for v in value:
                 obj = self.create_hover_object(v)
+                print(v["text"])
+                if v["text"] in ["running", "elliptical", "walking", "yoga", "weight lifting", "rowing"]:
+                    obj = f"""<i class="{icon_map[v['text']]}"></i> """ + obj
+
                 text += f"""<div class="column">
                             <div class="card">{obj}</div></div>
                 """
@@ -328,13 +341,18 @@ class TimelineRenderer:
             current_day = datetime.datetime.fromisoformat(trip.startTime)
             end_time = datetime.datetime.fromisoformat(trip.endTime)
 
+            try:
+                trip_loc_str = trip.textDescription.split("trip to ")[1].split(",")[0]
+            except:
+                continue
+
             day_idx = 1
             while current_day <= end_time:
                 # print(current_day, list(self.daily_index.keys())[:3])
                 if current_day.date() in self.daily_index:
                     day = self.daily_index[current_day.date()]
-                    if 'Day ' not in day.textDescription:
-                        day.textDescription = f'Day {day_idx}: ' + day.textDescription
+                    if 'On the trip to' not in day.textDescription:
+                        day.textDescription = day.textDescription + ": on the trip to " + trip_loc_str
                 day_idx += 1
                 current_day += datetime.timedelta(days=1)
 
@@ -347,7 +365,7 @@ class TimelineRenderer:
             slide = {
                 "start_date": self.convert_date(startTime, 0),
                 "end_date": self.convert_date(endTime, 0),
-                "text": self.create_text("The year of %s" % year, self.organize_LLEntries((startTime, endTime))),
+                "text": self.create_text("The year %s" % year, self.organize_LLEntries((startTime, endTime))),
                 "group": "year",
                 "unique_id": "year_%d" % year}
             result['events'].append(slide)
@@ -465,7 +483,7 @@ class TimelineRenderer:
                 endTime = startTime + datetime.timedelta(days=1)
                 slide = {
                     "start_date": self.convert_date(startTime, 0),
-                    "end_date": self.convert_date(endTime, 0),
+                    # "end_date": self.convert_date(endTime, 0),
                     "text": self.create_text(startTime.strftime("%B %d, %Y"),
                             self.organize_LLEntries((startTime.isoformat(), endTime.isoformat()))),
                     "group": "day",
@@ -519,7 +537,7 @@ class TimelineRenderer:
 
         slide = {
             "start_date": self.convert_date(start_date.isoformat(), 0),
-            "end_date": self.convert_date(end_date.isoformat(), 0),
+            # "end_date": self.convert_date(end_date.isoformat(), 0),
             "text": self.create_text(start_date.strftime("%B %d, %Y"),
                     self.organize_LLEntries((start_date.isoformat(), end_date.isoformat()))),
             "group": "day",

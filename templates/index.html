@@ -4,7 +4,9 @@
 
 <!-- 2 -->
 <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
 
 <div class="topnav">
   <div class="search-container">
@@ -104,14 +106,21 @@
     // See below for more about options.
     var timeline = null;
     var obj = null
-    var options = {timenav_position: "top", duration: 500, timenav_height_percentage: 40};
+    var options = {timenav_position: "top", duration: 500, timenav_height_percentage: 40,
+    track_events: ['back_to_start', 'zoom_in', 'zoom_out']};
     
     // jQuery.ajaxSetup({async:false});
 
     function render_timeline(obj) {
       timeline = new TL.Timeline('timeline-embed', obj, options);
+      var previous_id = null;
       timeline.on("change", function(data) {
         console.log(data.unique_id)
+        if (Math.abs(timeline._getEventIndex(data.unique_id) - 
+                     timeline._getEventIndex(previous_id)) == 1)
+          return;
+        previous_id = data.unique_id;
+
         $.getJSON('http://127.0.0.1:5000/timeline', {"unique_id": data.unique_id}, function(timeline_obj) {
           // update timeline with new objects
           for (var i = 0; i < timeline_obj.slides.length; i++) {
@@ -119,6 +128,59 @@
               timeline.add(timeline_obj.slides[i]);
           }});
       });
+      
+      level_mp = {"hour": 0, "day": 1, "week": 2, "trip": 2, "month": 3, "year": 4};
+
+      // timeline.goToNext = null;
+      timeline._onStorySliderNext = function(data) {
+        timeline.goToPrev();
+        var current_id = timeline.getCurrentSlide().data.unique_id;
+        var current_tag = current_id.split('_')[0];
+        var current_level = level_mp[current_tag];
+        var same_or_upper = [];
+        var target_idx = 0;
+        for (var i = 0; ; i++) {
+          event = timeline.getData(i);
+          if (event == null) break;
+          tag = event.unique_id.split('_')[0];
+          level = level_mp[tag];
+          // console.log(level);
+          if (level >= current_level) {
+            if (event.unique_id == current_id) {
+              target_idx = same_or_upper.length + 1;
+            }
+            same_or_upper.push(event.unique_id);
+          }
+        }
+        // console.log(same_or_upper);
+        // console.log(same_or_upper[target_idx]);
+        timeline.goToId(same_or_upper[target_idx]);
+      };
+
+      timeline._onStorySliderPrevious = function(data) {
+        timeline.goToNext();
+        var current_id = timeline.getCurrentSlide().data.unique_id;
+        var current_tag = current_id.split('_')[0];
+        var current_level = level_mp[current_tag];
+        var same_or_upper = [];
+        var target_idx = 0;
+        for (var i = 0; ; i++) {
+          event = timeline.getData(i);
+          if (event == null) break;
+          tag = event.unique_id.split('_')[0];
+          level = level_mp[tag];
+          // console.log(level);
+          if (level >= current_level) {
+            if (event.unique_id == current_id) {
+              target_idx = same_or_upper.length - 1;
+            }
+            same_or_upper.push(event.unique_id);
+          }
+        }
+        // console.log(same_or_upper);
+        // console.log(same_or_upper[target_idx]);
+        timeline.goToId(same_or_upper[target_idx]);
+      }
     }
 
 

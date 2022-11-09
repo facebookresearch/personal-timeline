@@ -22,7 +22,7 @@ def get_timeline():
     new_slides = renderer.split_slide(request.args['unique_id'])
 
     # don't drip down if nothing new
-    if len(new_slides) == 1:
+    if len(new_slides) == 1 and 'trip' not in request.args['unique_id']:
         new_slides = []
     return {'slides': new_slides}
 
