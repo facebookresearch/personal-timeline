@@ -118,7 +118,7 @@
     var obj = null
     var options = {timenav_position: "top", duration: 500, timenav_height_percentage: 40,
       track_events: ['back_to_start', 'zoom_in', 'zoom_out'],
-      zoom_sequence: [2, 3, 5, 8, 13, 21, 34, 55, 89, 150, 200]
+      zoom_sequence: [2, 3, 5, 8, 13, 21, 34, 55, 89, 150, 300]
     };
     var zoom_level_mp = {"hour": 10, "day": 9, "week": 8, "trip": 8, "month": 4, "year": 2};
 
@@ -133,13 +133,14 @@
       var previous_id = null;
       timeline.on("change", function(data) {
         console.log(data.unique_id)
-        // auto-zoom
-        var zoom_level = get_zoom_level(data.unique_id);
-        timeline.setZoom(zoom_level);
 
         if (Math.abs(timeline._getEventIndex(data.unique_id) - 
                      timeline._getEventIndex(previous_id)) == 1)
           return;
+          
+        // auto-zoom
+        var zoom_level = get_zoom_level(data.unique_id);
+        timeline.setZoom(zoom_level);
         previous_id = data.unique_id;
 
         $.getJSON('http://127.0.0.1:5000/timeline', {"unique_id": data.unique_id}, function(timeline_obj) {
