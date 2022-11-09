@@ -51,31 +51,33 @@
         $.getJSON('http://127.0.0.1:5000/qa', {"search": query}, function(timeline_obj) {
             // go to first slide
             search_result = timeline_obj;
-
             container = document.getElementById("SearchResultContainer");
             container.innerHTML = "";
-            content_str = "<div class='row'>";
-            for (var i = 0; i < search_result.slides.length; i++) {
-              bid = "search_result_btn_" + i.toString();
-              if (search_result.slides[i].img_path == null) {
-                // non-image
-                text = search_result.slides[i].text.headline;
-                content_str += "<button class='result_btn default' id='" + bid + "')'>" + text + "</button>";
-              } else {
-                text = search_result.slides[i].name
-                img_path = search_result.slides[i].img_path
-                content_str += "<div class='column'><div class='result_img_content'>"
-                content_str += "<img class='rect-img' src='" + img_path + "' style='width:100%'>"
-                content_str += "<button class='overlay' id='" + bid + "')'>" + text + "</button>";
-                content_str += "</div></div>"
+
+            if (search_result.slides.length > 1 || !(query.includes('-') || query.includes('/'))) {
+              content_str = "<div class='row'>";
+              for (var i = 0; i < search_result.slides.length; i++) {
+                bid = "search_result_btn_" + i.toString();
+                if (search_result.slides[i].img_path == null) {
+                  // non-image
+                  text = search_result.slides[i].text.headline;
+                  content_str += "<button class='result_btn default' id='" + bid + "')'>" + text + "</button>";
+                } else {
+                  text = search_result.slides[i].name
+                  img_path = search_result.slides[i].img_path
+                  content_str += "<div class='column'><div class='result_img_content'>"
+                  content_str += "<img class='rect-img' src='" + img_path + "' style='width:100%'>"
+                  content_str += "<button class='overlay' id='" + bid + "')'>" + text + "</button>";
+                  content_str += "</div></div>"
+                }
               }
-            }
-            content_str += "</div><br>";
-            container.innerHTML += content_str
-            for (var i = 0; i < search_result.slides.length; i++) {
-              bid = "search_result_btn_" + i.toString();
-              document.getElementById(bid).result_id = i;
-              addEventListener("click", add_research_result_slide, false);
+              content_str += "</div><br>";
+              container.innerHTML += content_str
+              for (var i = 0; i < search_result.slides.length; i++) {
+                bid = "search_result_btn_" + i.toString();
+                document.getElementById(bid).result_id = i;
+                addEventListener("click", add_research_result_slide, false);
+              }
             }
 
             // go to first slide
@@ -115,15 +117,26 @@
     var timeline = null;
     var obj = null
     var options = {timenav_position: "top", duration: 500, timenav_height_percentage: 40,
-    track_events: ['back_to_start', 'zoom_in', 'zoom_out']};
-    
-    // jQuery.ajaxSetup({async:false});
+      track_events: ['back_to_start', 'zoom_in', 'zoom_out'],
+      zoom_sequence: [2, 3, 5, 8, 13, 21, 34, 55, 89, 150, 200]
+    };
+    var zoom_level_mp = {"hour": 10, "day": 9, "week": 8, "trip": 8, "month": 4, "year": 2};
 
+    function get_zoom_level(unique_id) {
+      var tag = unique_id.split('_')[0];
+      return zoom_level_mp[tag];
+    }
+
+    // jQuery.ajaxSetup({async:false});
     function render_timeline(obj) {
       timeline = new TL.Timeline('timeline-embed', obj, options);
       var previous_id = null;
       timeline.on("change", function(data) {
         console.log(data.unique_id)
+        // auto-zoom
+        var zoom_level = get_zoom_level(data.unique_id);
+        timeline.setZoom(zoom_level);
+
         if (Math.abs(timeline._getEventIndex(data.unique_id) - 
                      timeline._getEventIndex(previous_id)) == 1)
           return;
@@ -135,6 +148,7 @@
             if (timeline.getDataById(timeline_obj.slides[i].unique_id) == null)
               timeline.add(timeline_obj.slides[i]);
           }});
+        
       });
       
       level_mp = {"hour": 0, "day": 1, "week": 2, "trip": 2, "month": 3, "year": 4};
@@ -142,10 +156,10 @@
       // timeline.goToNext = null;
       timeline._onStorySliderNext = function(data) {
         timeline.goToPrev();
-        var current_id = timeline.getCurrentSlide().data.unique_id;
+        var current_id = timeline.current_id;
         var current_tag = current_id.split('_')[0];
         var current_level = level_mp[current_tag];
-        var same_or_upper = [];
+        var same_level = [];
         var target_idx = 0;
         for (var i = 0; ; i++) {
           event = timeline.getData(i);
@@ -153,16 +167,19 @@
           tag = event.unique_id.split('_')[0];
           level = level_mp[tag];
           // console.log(level);
-          if (level >= current_level) {
+          if (level == current_level) {
             if (event.unique_id == current_id) {
-              target_idx = same_or_upper.length + 1;
+              target_idx = same_level.length + 1;
             }
-            same_or_upper.push(event.unique_id);
+            same_level.push(event.unique_id);
           }
         }
         // console.log(same_or_upper);
         // console.log(same_or_upper[target_idx]);
-        timeline.goToId(same_or_upper[target_idx]);
+        if (target_idx < same_level.length)
+          timeline.goToId(same_level[target_idx]);
+        else
+          timeline.goToPrev();
       };
 
       timeline._onStorySliderPrevious = function(data) {
@@ -170,7 +187,7 @@
         var current_id = timeline.getCurrentSlide().data.unique_id;
         var current_tag = current_id.split('_')[0];
         var current_level = level_mp[current_tag];
-        var same_or_upper = [];
+        var same_level = [];
         var target_idx = 0;
         for (var i = 0; ; i++) {
           event = timeline.getData(i);
@@ -178,16 +195,19 @@
           tag = event.unique_id.split('_')[0];
           level = level_mp[tag];
           // console.log(level);
-          if (level >= current_level) {
+          if (level == current_level) {
             if (event.unique_id == current_id) {
-              target_idx = same_or_upper.length - 1;
+              target_idx = same_level.length - 1;
             }
-            same_or_upper.push(event.unique_id);
+            same_level.push(event.unique_id);
           }
         }
         // console.log(same_or_upper);
         // console.log(same_or_upper[target_idx]);
-        timeline.goToId(same_or_upper[target_idx]);
+        if (target_idx >= 0)
+          timeline.goToId(same_level[target_idx]);
+        else
+          timeline.goToNext();
       }
     }
 
