@@ -11,7 +11,7 @@ from tqdm import tqdm
 from typing import Dict, List, Union
 from src.objects.LLEntry_obj import LLEntry, LLEntrySummary
 from src.util import distance
-from PIL import Image
+from PIL import Image, ImageOps
 from sklearn.cluster import KMeans
 from src.enrichment import socratic
 from src.util import is_home, get_location_attr, geo_cache, geolocator, default_location
@@ -47,6 +47,7 @@ class LLImage:
         """
         if not os.path.exists(self.img_path + ".compressed.jpg"):
             # RGBA -> RGB
+            self.img = ImageOps.exif_transpose(self.img)
             self.img = self.img.convert("RGB")
             self.img.save(self.img_path + ".compressed.jpg")
 
