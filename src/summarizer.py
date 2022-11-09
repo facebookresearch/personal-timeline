@@ -228,6 +228,10 @@ class Summarizer:
     def summarize_places(self, entries: List[LLEntry]):
         """Summarize a list of LLEntries with locations
         """
+        # prioritize entries with images
+        entries_with_images = [e for e in entries if e.imageFilePath is not None]
+        entries = entries_with_images + [e for e in entries if e.imageFilePath is None]
+
         result = []
         # TODO: detailed location name not in geopy location
         levels = [["town", "city", "county", "suburb"], 
