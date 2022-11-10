@@ -1,29 +1,25 @@
 import pickle
+from typing import List
 
 from elasticsearch import Elasticsearch
-from elasticsearch_dsl import Search
 
 from datetime import datetime
 from elasticsearch_dsl import *
+from elasticsearch_dsl.query import MultiMatch, GeoDistance
 
 from src.objects.LLEntry_obj import LLEntry
 
-# Define a default Elasticsearch client
-connections.create_connection(hosts=['localhost'])
-
 class LLEntryES(Document):
+    #Exact but shrinked version of LLEntry
     type = Keyword() # Comes from EntryType. summary, trip, day, llentry + types specific to llentry: purchase, health
     startTime = Date()
     endTime = Date()
-    #startLocation = Text(analyzer='snowball', fields={'raw': Keyword()})
-    geoLocation = GeoPoint()
-    #title = Text(analyzer='snowball', fields={'raw': Keyword()})
-    #published_from = Date()
-    #lines = Integer()
-    tagList = Keyword()
+    source = Keyword()
+    lat_lon = GeoPoint(multi=True)
+    tags = Keyword(multi=True)
     textDescription = Text(analyzer='snowball')
-    Text(analyzer=None)
-
+    #Contains original LLEntry Object in pickled state
+    obj = Binary()
 
     class Index:
         name = 'lifelog_summary'
@@ -35,57 +31,93 @@ class LLEntryES(Document):
         # self.lines = len(self.body.split())
         return super(LLEntryES, self).save(** kwargs)
 
-    def is_published(self):
-        return datetime.now() > self.published_from
+    def create_es_document_from(self, inputObj:LLEntry):
+        self.meta.id=inputObj.id
+        self.type = inputObj.type
+        self.startTime = inputObj.startTime
+        self.source = inputObj.source
+        self.endTime = inputObj.endTime
+        self.lat_lon = inputObj.lat_lon
+        self.tags = inputObj.tags
+        self.textDescription = inputObj.textDescription
+        self.obj = pickle.dumps(inputObj)
+        return self
 
-    def create_es_document_from(self, obj:LLEntry):
-        self.type = obj.type
-        self.startTime = obj.startTime
-        self.endTime = obj.endTime
-        self.geoLocation = dict(lat=float(obj.latitude), lon=float(obj.longitude))
-        self.tagList = obj.tags
-        self.textDescription = self.textDescription
-        self.object = pickle.dumps(obj)
+class ESHelper:
+    def __init__(self):
+        # Define a default Elasticsearch client
+        connections.create_connection(hosts=['localhost'])
+        LLEntryES.init()
+
+    def save(self, entry:LLEntry):
+        doc = LLEntryES()
+        doc.create_es_document_from(entry)
+        doc.save()
+
+    # Wrapper function around Search
+    # Input: query_str: Query string containing all words that need to
+    #                   be matched across all text/keyword fields
+    # Input: geo_distance: Dictionary with following structure
+    #     "geo_distance": {
+    #         "distance": "2km",
+    #         "lat": 32,
+    #         "lon": -122
+    #     }
+    def search(self, query_str:str, geo_distance:dict) -> List[LLEntry]:
+        client = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+        s = LLEntryES.search()
+        if query_str is not None:
+            s.query = MultiMatch(
+                query=query_str,
+                fields=["tags","textDescription"]
+
+            )
+        if geo_distance is not None:
+            s.filter = GeoDistance(
+                distance=geo_distance.get("distance"),
+                lat_lon={"lat": geo_distance.get("lat"),
+                         "lon": geo_distance.get("lon")}
+            )
+        response = s.execute()
+
+        output = []
+        # print out all the options we got
+        for h in response:
+            print("%15s: %25s" % (query_str, h.meta.id))
+            output.append(pickle.loads(h.obj))
+        return output
 
 
-# create the mappings in elasticsearch
-LLEntryES.init()
-doc = LLEntryES()
-entry = LLEntry("purchase", datetime.now().__str__(),"file")
-entry.latitude = "32.345"
-entry.longitude = "-122.345"
-doc.create_es_document_from(entry)
-doc.save()
-# create and save and article
-# entry = LLEntry("purchase", datetime.now().__str__(),"file")
-# entry.latitude = "32.345"
-# entry.longitude = "-122.345"
-# article = LLEntryES(meta={'id': 42}, title='Hello world!', tags=['test'])
-# article = LLEntryES(entry)
-# article.body = ''' looong text '''
-# article.published_from = datetime.now()
-# article.save()
+def test_class():
+    # Run the code elasticsearch
+    es_helper = ESHelper()
 
-# article = LLEntryES.get(id=42)
-# print("published", article.is_published())
+    # create and save and article
+    entry = LLEntry("purchase", datetime.now().__str__(),"file")
+    entry.id = 1
+    entry.lat_lon = [{"lat":32.345, "lon":-122.345},
+                     {"lat":-32.345, "lon":122.345}]
+    entry.tags = ["hello", "world"]
+    entry.textDescription="I am a text Description"
+    es_helper.save(entry)
 
-# Display cluster health
-print(connections.get_connection().cluster.health())
+    entry.id = 2
+    entry.tags=[]
+    es_helper.save(entry)
 
-# client = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-#
-# s = Search(using=client, index="my-index") \
-#     .filter("term", category="search") \
-#     .query("match", title="python")   \
-#     .exclude("match", description="beta")
-#
-# s.aggs.bucket('per_tag', 'terms', field='tags') \
-#     .metric('max_lines', 'max', field='lines')
-#
-# response = s.execute()
-#
-# for hit in response:
-#     print(hit.meta.score, hit.title)
-#
-# for tag in response.aggregations.per_tag.buckets:
-#     print(tag.key, tag.max_lines.value)
+    article = LLEntryES.get(id=2)
+    x = pickle.loads(article.obj)
+    print("Object same as original?", entry.equals(x))
+
+    #Prepare for search
+    geo_dist = {
+        "distance": "10mi",
+        "lat": -32.3,
+        "lon": 122.3
+    }
+
+    output = es_helper.search("hello text",geo_dist)
+    for o in output:
+        print(o.toJson())
+
+test_class()

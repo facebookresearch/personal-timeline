@@ -1,24 +1,25 @@
 import json
 
-from typing import List, Dict, Tuple
+from typing import List, Dict
 from geopy import Location
 
 class LLEntry:
     def __init__(self, type: str, startTime, source: str):
+        self.id = None
         self.type = type
         self.source = source
 
-        #TIME: as experienced by the user (i.e., what timezone they're in)
-        self.startTime = startTime 
-        self.endTime = startTime #self.startTime -> this should be done during derivation if duration is missing
+        # TIME: as experienced by the user (i.e., what timezone they're in)
+        self.startTime = startTime
+        self.endTime = startTime  # self.startTime -> this should be done during derivation if duration is missing
         self.timezone = None
 
-        #LOCATION start and end. If there's only one, it's the start
+        # LOCATION start and end. If there's only one, it's the start
 
         # NEW: use geopy to standardize geolocations
         # NEW: contains the ordered list of start/end locations, or the list of locations in a trip
         self.locations: List[Location] = []
-        self.lat_lon: List[Tuple] = []
+        self.lat_lon: List[Dict[str,float]] = []
 
         # Purchase
         self.purchase_id = None
@@ -26,14 +27,14 @@ class LLEntry:
         self.productPrice = None
         self.currency = None
         self.productQuantity = None
-        self.author= None
+        self.author = None
 
         # Music
         self.artist = None
         self.track = None
-        self.playDuration:int = 0
+        self.playDuration: int = 0
         self.durationUnit = "ms"
-        self.track_count={}
+        self.track_count = {}
 
         # TEXT of entry (often generated programmatically from source data)
         self.textDescription = None
@@ -45,8 +46,8 @@ class LLEntry:
         # NEW: store a list of image paths
         self.image_paths: List[str] = []
 
-        #IMAGE data
-        self.imageTimestamp:int = 0
+        # IMAGE data
+        self.imageTimestamp: int = 0
         self.imageURL = None
         self.rawImageFilename = None
         self.imageFileName = None
@@ -55,7 +56,7 @@ class LLEntry:
         self.captionEmbedding = None
         self.imageEmbedding = None
         self.imageViews = None
-        self.peopleInImage:list = []
+        self.peopleInImage: list = []
         self.imageWidth = None
         self.imageHeight = None
 
@@ -75,13 +76,21 @@ class LLEntry:
         print(self.type, self.startTime, self.source, self.peopleInImage)
 
     def __str__(self):
-        return self.type + " " + self.startTime + " " + \
+        return self.type + " " + str(self.startTime) + " " + \
                self.source + " " + self.peopleInImage.__str__()
 
     def toJson(self):
         return json.dumps(self.__dict__)
         # return json.dumps(self, default=lambda o: o.__dict__,
         #                 sort_keys=True, indent=4)
+
+    def equals(self, obj: dict):
+        for key in self.__dict__:
+            if obj.__getattribute__(key) != self.__getattribute__(key):
+                print(key, "is different")
+                print(self.__getattribute__(key), obj.__getattribute__(key))
+                return False
+        return True
 
 
 class LLEntrySummary(LLEntry):
@@ -133,7 +142,6 @@ class LLEntrySummary(LLEntry):
         for val in objects.values():
             res += val
         return res
-
 
 
 class LLEntrySummary(LLEntry):
