@@ -141,6 +141,7 @@ def translate_place_name(place_name: str) -> str:
     """Translate a place name to English.
     """
     # print(place_name)
+    result = place_name
 
     if place_name in translate_geo_cache:
         result = translate_geo_cache[place_name].decode('utf8')
@@ -150,7 +151,7 @@ def translate_place_name(place_name: str) -> str:
     translated_addr = geolocator.geocode(place_name, language="en")
     if translated_addr is not None:
         result = translated_addr.address
-    translate_geo_cache[place_name] = result
+        translate_geo_cache[place_name] = result
     # translate_geo_cache.close()
     return result
 
@@ -168,14 +169,16 @@ def get_location_attr(loc: Location, attr: Union[str, List]):
     if loc is None:
         return ""
 
-    cood = (loc.latitude, loc.longitude)
-    if cood not in geo_cache:
-        addr = geolocator.reverse(cood)
-        geo_cache[cood] = addr
-    else:
-        addr = geo_cache[cood]
+    addr = loc
+    if 'address' not in addr.raw:
+        cood = (loc.latitude, loc.longitude)
+        if cood not in geo_cache:
+            addr = geolocator.reverse(cood)
+            geo_cache[cood] = addr
+        else:
+            addr = geo_cache[cood]
     
-    if 'address' in addr.raw: 
+    if 'address' in addr.raw:
         if isinstance(attr, str):
             attr = [attr]
 
