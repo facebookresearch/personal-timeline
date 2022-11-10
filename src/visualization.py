@@ -11,6 +11,7 @@ import geopy
 import pytz
 import calendar
 import pandas as pd
+import random
 
 from typing import Dict, List, Tuple, Union
 from tqdm import tqdm
@@ -172,20 +173,33 @@ class TimelineRenderer:
     def create_text(self, headline, text):
         return {"headline": headline, "text": text}
 
-    def objects_to_text(self, object_dict: Dict):
+    def objects_to_text(self, object_dict: Dict, max_len=30):
         """Convert a object dictionary to text.
         """
         text = ""
+        others = []
+        other_tags = 'person,people,product,building,vehicle,document'.split(',')
         for tag in object_dict:
             if 'person' in tag or 'people' in tag:
                 continue
+            if any([ot in tag for ot in other_tags]):
+                others += object_dict[tag]
+        
+        object_dict["others"] = others
 
+        for tag in object_dict:
+            if any([ot in tag for ot in other_tags]):
+                continue
             text += f"<p>{tag.capitalize()}: </p> <div class='row'>"
             text += """
           <div class="timeline-steps aos-init aos-animate" data-aos="fade-up">
             """
+            
+            object_list = object_dict[tag]
+            if len(object_list) > max_len:
+                object_list = [object_list[i] for i in random.sample(range(len(object_list)), k=max_len)]
 
-            for item in object_dict[tag]:
+            for item in object_list:
                 img_path = item["img_path"] + '.compressed.jpg'
                 name = item["name"]
                 _, tail = os.path.split(img_path)
@@ -207,6 +221,8 @@ class TimelineRenderer:
                 # text += f"""<div class="column">
                 #             <div class="card">{obj}</div></div>"""
             text += "</div></div><br>"
+
+        del object_dict["others"]
 
         return text
 
@@ -272,7 +288,7 @@ class TimelineRenderer:
         summary = self.summarizer.summarize(query_time_range)
 
         text = ""
-        keys = "exercises,items,places,streamings,books".split(",")
+        keys = "exercises,items,common places,places,streamings,books".split(",")
         # verbs = ["did", "purchased", "have been to", "listened to", "read"]
         icon_map = {"running": "fa-solid fa-person-running",
                     "walking": "fa-solid fa-person-walking", 
@@ -351,6 +367,12 @@ class TimelineRenderer:
                     day = self.daily_index[current_day.date()]
                     if 'On the trip to' not in day.textDescription:
                         day.textDescription = day.textDescription + ": on the trip to " + trip_loc_str
+                    
+                    for key in day.objects:
+                        if key not in trip.objects:
+                            trip.objects[key] = []
+                        for v in day.objects[key]:
+                            trip.objects[key].append(v)
                 day_idx += 1
                 current_day += datetime.timedelta(days=1)
 
@@ -378,7 +400,7 @@ class TimelineRenderer:
             slide = {
                 "start_date": self.convert_date(trip.startTime, 0),
                 "end_date": self.convert_date(trip.endTime, 24),
-                "text": self.create_text(trip.textDescription, ""),
+                "text": self.create_text(trip.textDescription, self.objects_to_text(trip.objects)),
                 "media": {"url": self.create_map_link(trip.startGeoLocation)},
                 "group": "trip",
                 "unique_id": uid

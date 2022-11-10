@@ -15,7 +15,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 
 from src.objects.LLEntry_obj import LLEntrySummary, LLEntry
 from src.persistence.personal_data_db import PersonalDataDBConnector
-from src.util import distance, translate_place_name
+from src.util import distance, translate_place_name, get_location_attr
 register_heif_opener()
 
 map_api_key = os.getenv("GOOGLE_MAP_API")
@@ -225,19 +225,15 @@ class Summarizer:
         return result
         
 
-    def summarize_places(self, entries: List[LLEntry]):
+    def summarize_places(self, entries: List[LLEntry], threshold=8):
         """Summarize a list of LLEntries with locations
         """
-        # prioritize entries with images
-        entries_with_images = [e for e in entries if e.imageFilePath != ""]
-        entries = entries_with_images + [e for e in entries if not (e.imageFilePath != "")]
-
         result = []
         # TODO: detailed location name not in geopy location
-        levels = [["town", "city", "county", "suburb"], 
-                  ["state", "country"]]
-        for level in levels:
-            cache = set([])
+        attrs_levels = [["town", "city", "county", "suburb"], ["state", "country"]]
+        place_counter = Counter()
+        
+        for attrs in attrs_levels:
             result = []
             for entry in entries:
                 for location in entry.locations:
@@ -250,39 +246,54 @@ class Summarizer:
                         entry.imageFilePath != "":
                         media = self.get_img_path(entry.imageFilePath)
 
+                    place_name = get_location_attr(location, attrs)
+                    if place_name == "":
+                        continue
+
+                    place_name = translate_place_name(place_name)
+                    # print(place_name)
+
                     # check address book
                     lat, lon = location.latitude, location.longitude
-                    found = False
                     for address in self.addresses:
                         if address["location"] is not None:
                             addr_lat, addr_lon = address["location"].latitude, address["location"].longitude
                             if distance((addr_lat, addr_lon), (lat, lon)) \
-                                <= address["radius"] and address["name"] not in cache:
-                                cache.add(address["name"])
-
-                                result.append(
-                                    {"text": address["name"],
-                                     "media": media, 
-                                     "datetime": datetime.datetime.fromisoformat(entry.startTime)})
-                                found = True
+                                <= address["radius"]:
+                                place_name = address["name"]
                                 break
 
-                    if found:
-                        continue
+                    if len(result) == 0 or result[-1]["text"] != place_name:
+                        result.append({"text": place_name,
+                                    "media": media, 
+                                    "datetime": datetime.datetime.fromisoformat(entry.startTime)})
+                        place_counter[place_name] += 1
+                    elif len(result) > 0 and result[-1]["text"] == place_name \
+                        and isinstance(result[-1]["media"], Location):
+                        # update media
+                        result[-1] = {"text": place_name,
+                                    "media": media, 
+                                    "datetime": datetime.datetime.fromisoformat(entry.startTime)}
 
-                    for attr in level:
-                        if 'address' in location.raw and attr in location.raw['address']:
-                            place_name = location.raw['address'][attr]
-                            place_name = translate_place_name(place_name)
-                            if place_name not in cache:
-                                cache.add(place_name)
-                                result.append({"text": place_name,
-                                            "media": media,
-                                            "datetime": datetime.datetime.fromisoformat(entry.startTime)})
-                            break
-            if len(result) <= 5:
+            if len(result) <= threshold:
                 return result
                     
+        # clean up results by removing places that appear more than 5 times, home, work, etc.
+
+        if len(result) > threshold:
+            new_result = []
+            common_places = {}
+            for item in result:
+                if place_counter[item["text"]] <= threshold:
+                    if len(new_result) == 0 or new_result[-1]["text"] != item["text"]:
+                        new_result.append(item)
+                else:
+                    if item["text"] not in common_places:
+                        del item["datetime"]
+                        common_places[item["text"]] = item
+            # print(new_result, list(common_places.values()))
+            return new_result, list(common_places.values())
+
         return result
 
     def summarize_books(self, entries: List[LLEntry]):
@@ -360,7 +371,15 @@ class Summarizer:
                     summary[stype].append(entry)
 
         summary['exercises'] = self.summarize_exercises(summary['exercises'])
-        summary['places'] = self.summarize_places(summary['places'])
+
+        # places
+        place_summ = self.summarize_places(summary['places'])
+        if isinstance(place_summ, tuple) == 1:
+            summary['places'] = place_summ[0]
+            summary['common places'] = place_summ[1]
+        else:
+            summary['places'] = place_summ
+
         summary['persons'] = self.summarize_persons(summary['persons'])
 
         if not brief:
