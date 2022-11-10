@@ -147,7 +147,7 @@ Follow the instructions to import and enrich data.
 (Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
 (Note*: please select `Yes` at the last step for exporting the LLEntries.)
 
-# Step 4: Create Inverted Index Files:
+# Step 4: Create Inverted Index Files (optional):
 
 1. Create a data directory and a sym link to that directory inside the repo
 

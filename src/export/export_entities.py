@@ -2,6 +2,7 @@ from typing import List
 
 from tqdm import tqdm
 
+from src.persistence.es_index_helper import ESHelper
 from src.persistence.personal_data_db import PersonalDataDBConnector
 import json
 import pickle
@@ -11,6 +12,7 @@ class PhotoExporter:
 
     def __init__(self):
         self.db = PersonalDataDBConnector()
+        self.es_helper = ESHelper()
     def create_export_entity(self):
         #Read data, location, caption from photos
         select_cols = "id, data, location, captions, embeddings, status"
@@ -48,6 +50,8 @@ class PhotoExporter:
 
             # Write enriched_data, set enrichment_done to 1
             #print("Writing enriched data:: ", data.toJson())
+            data.id=row_id
+            self.es_helper.save(data)
             self.db.add_or_replace_personal_data({"enriched_data": data, "export_done": 1, "id": row_id}, "id")
         print("Export entities generated for ", count, " entries")
     def populate_location(self, data:LLEntry, locations:Location) -> LLEntry:
