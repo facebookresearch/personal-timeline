@@ -181,7 +181,10 @@ class TimelineRenderer:
                 continue
 
             text += f"<p>{tag.capitalize()}: </p> <div class='row'>"
-            itemized = []
+            text += """
+          <div class="timeline-steps aos-init aos-animate" data-aos="fade-up">
+            """
+
             for item in object_dict[tag]:
                 img_path = item["img_path"] + '.compressed.jpg'
                 name = item["name"]
@@ -190,12 +193,20 @@ class TimelineRenderer:
                 if not os.path.exists(new_path):
                     os.system('cp "%s" static/' % (img_path))
 
-                # itemized.append(f'<a href="{img_path}">{name}</a>')
-                
                 obj = self.create_hover_object({"text": name, "detail": name, "media": new_path})
-                text += f"""<div class="column">
-                            <div class="card">{obj}</div></div>"""
-            text += "</div><br>"
+                time_str = item['datetime'].strftime('%b %d, %Y %H:%M')
+
+                text += """
+                         <div class="timeline-step">
+                         <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2003">
+                         <div class="inner-circle"></div>
+                      """
+                text += f'<p class="h6 mt-3 mb-1">{time_str}</p>'
+                text += f'<div class="card">{obj}</div></div></div>'
+
+                # text += f"""<div class="column">
+                #             <div class="card">{obj}</div></div>"""
+            text += "</div></div><br>"
 
         return text
 
@@ -213,43 +224,6 @@ class TimelineRenderer:
         text = '_'.join(str(item) for item in [ts['year'], ts['month'], ts['day'], ts['hour']])
 
         return f"{summary.type}_{text}"
-
-    def summary_to_card(self, summary: LLEntrySummary):
-        """Convert a LLEntrySummary to a HTML card
-        """
-        uid = self.get_uid(summary)
-        link = f'summary_{uid}.html'
-
-        if len(summary.image_paths) > 0:
-            img_path = summary.image_paths[0] + '.compressed.jpg'
-            if summary.startTime == summary.endTime:
-                summary_time = summary.startTime
-            else:
-                summary_time = f"{summary.startTime} - {summary.endTime}"
-
-            new_img_path = 'static/' + os.path.split(img_path)[-1]
-            if not os.path.exists(new_img_path):
-                os.system('cp "%s" static/' % (img_path))
-        else:
-            new_img_path = ""
-
-        card = f"""<div class="card"><a href="{link}">
-                   <header class="header-image">
-      <div class="header-image-background" style="background-image: url({new_img_path});"></div>
-      </header></a><article><p class="dateline">
-      <time>
-      {summary_time}</time></p>
-      <a href="{link}"><h3>{summary.textDescription}</h3></a>
-      </article></div>"""
-        return card
-
-    def create_cards(self, summaries: List[LLEntrySummary]):
-        """Generate a list of cards for search results
-        """
-        cards = []
-        for entry in summaries:
-            cards.append(self.summary_to_card(entry))
-        return cards
 
     def create_hover_object(self, object: Dict):
         """Create a hovering object
@@ -315,19 +289,39 @@ class TimelineRenderer:
                 continue
 
             # only special case
-            if key == 'item':
+            if key == 'items':
                 key = 'Shopping'
 
             text += f"<p>{key.capitalize()}:</p> <div class='row'>"
 
-            for v in value:
-                obj = self.create_hover_object(v)
-                if v["text"] in ["running", "elliptical", "walking", "yoga", "weight lifting", "rowing"]:
-                    obj = f"""<i class="{icon_map[v['text']]}"></i> """ + obj
+            if key == 'places' and len(value) > 1:
+                text += """<div class="timeline-steps aos-init aos-animate" data-aos="fade-up">"""
 
-                text += f"""<div class="column">
-                            <div class="card">{obj}</div></div>
-                """
+                for v in value:
+                    obj = self.create_hover_object(v)
+                    try:
+                        time_str = v['datetime'].strftime('%b %d, %Y %H:%M')
+                    except:
+                        time_str = ""
+
+                    text += """
+                            <div class="timeline-step">
+                            <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2003">
+                            <div class="inner-circle"></div>
+                        """
+                    text += f'<p class="h6 mt-3 mb-1">{time_str}</p>'
+                    text += f'<div class="card">{obj}</div></div></div>'
+
+                text += "</div></div><br>"
+            else:
+                for v in value:
+                    obj = self.create_hover_object(v)
+                    if v["text"] in ["running", "elliptical", "walking", "yoga", "weight lifting", "rowing"]:
+                        obj = f"""<i class="{icon_map[v['text']]}"></i> """ + obj
+
+                    text += f"""<div class="column">
+                                <div class="card">{obj}</div></div>
+                    """
 
             text += '</div><br>'
 
@@ -389,8 +383,8 @@ class TimelineRenderer:
                 "group": "trip",
                 "unique_id": uid
             }
-            slide['text']['text'] += self.organize_LLEntries((start_date.isoformat(), 
-                                                              end_date.isoformat()))
+            slide['text']['text'] = self.organize_LLEntries((start_date.isoformat(), 
+                                                              end_date.isoformat())) + slide['text']['text']
             result['events'].append(slide)
 
             # caching for retrieval
@@ -398,6 +392,13 @@ class TimelineRenderer:
 
         self.timeline_cached = result
         return result
+
+    # def get_trip_location(self, summary: LLEntrySummary):
+    #     """Get the main location of a trip.
+    #     """
+    #     for location in summary.locations():
+    #         pass
+
 
     def add_summary_to_slide(self, slide: Dict, summary: LLEntrySummary):
         """Modify a slide by adding a LLEntrySummary object
@@ -408,7 +409,7 @@ class TimelineRenderer:
         # modify text
         original_text = slide["text"]['text']
         slide["text"] = self.create_text(summary.textDescription, self.objects_to_text(summary.objects))
-        slide["text"]['text'] += original_text
+        slide["text"]['text'] = original_text + slide["text"]['text']
 
         # add media
         if summary.type == 'trip':
@@ -551,22 +552,50 @@ class TimelineRenderer:
         if unique_id in self.slide_cache:
             return self.slide_cache[unique_id]
 
-        # for day
-        _, year, month, day = unique_id.split('_')
-        start_date = datetime.datetime(int(year), int(month), int(day))
-        end_date = start_date + datetime.timedelta(days=1)
+        tag = unique_id.split('_')[0]
 
-        slide = {
-            "start_date": self.convert_date(start_date.isoformat(), 0),
-            # "end_date": self.convert_date(end_date.isoformat(), 0),
-            "text": self.create_text(start_date.strftime("%B %d, %Y"),
-                    self.organize_LLEntries((start_date.isoformat(), end_date.isoformat()))),
-            "group": "day",
-            "unique_id": "day_%s_%s_%s" % (year, month, day)
-        }
-        # add summary if indexed
-        if start_date.date() in self.daily_index:
-            self.add_summary_to_slide(slide, self.daily_index[start_date.date()])
+        if tag == 'year':
+            # for year
+            _, year = unique_id.split('_')
+            year = int(year)
+            startTime = '%d-01-01' % year
+            endTime = '%d-01-01' % (year+1)
+            slide = {
+                "start_date": self.convert_date(startTime, 0),
+                "end_date": self.convert_date(endTime, 0),
+                "text": self.create_text("The year %s" % year, self.organize_LLEntries((startTime, endTime))),
+                "group": "year",
+                "unique_id": "year_%d" % year}
+        elif tag == 'month':
+            _, year, month = unique_id.split('_')
+            year, month = int(year), int(month)
+            startTime = datetime.date(year, month, 1)
+            endTime = datetime.date(year, month, calendar.monthrange(year, month)[1]) + datetime.timedelta(days=1)
+            slide = {
+                "start_date": self.convert_date(startTime, 0),
+                "end_date": self.convert_date(endTime, 0),
+                "text": self.create_text(startTime.strftime("%B %Y"), 
+                        self.organize_LLEntries((startTime.isoformat(), endTime.isoformat()))),
+                "group": "month",
+                "unique_id": "month_%d_%d" % (year, month)
+            }
+        else:
+            # for day
+            _, year, month, day = unique_id.split('_')
+            start_date = datetime.datetime(int(year), int(month), int(day))
+            end_date = start_date + datetime.timedelta(days=1)
+
+            slide = {
+                "start_date": self.convert_date(start_date.isoformat(), 0),
+                # "end_date": self.convert_date(end_date.isoformat(), 0),
+                "text": self.create_text(start_date.strftime("%B %d, %Y"),
+                        self.organize_LLEntries((start_date.isoformat(), end_date.isoformat()))),
+                "group": "day",
+                "unique_id": "day_%s_%s_%s" % (year, month, day)
+            }
+            # add summary if indexed
+            if start_date.date() in self.daily_index:
+                self.add_summary_to_slide(slide, self.daily_index[start_date.date()])
         
         self.slide_cache[unique_id] = slide
         return slide
