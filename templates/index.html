@@ -4,7 +4,9 @@
 
 <!-- 2 -->
 <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
 
 <div class="topnav">
   <div class="search-container">
@@ -49,23 +51,34 @@
         $.getJSON('http://127.0.0.1:5000/qa', {"search": query}, function(timeline_obj) {
             // go to first slide
             search_result = timeline_obj;
-
             container = document.getElementById("SearchResultContainer");
             container.innerHTML = "";
-            container.innerHTML += "<div class='row'>";
-            for (var i = 0; i < search_result.slides.length; i++) {
-              bid = "search_result_btn_" + i.toString();
-              // item = search_result.slides[i].start_date;
-              // text = item.month + '/' + item.day + '/' + item.year;// new Date().toLocaleDateString()
-              text = search_result.slides[i].text.headline;
-              container.innerHTML += "<button class='result_btn default' id='" + bid + "')'>" + text + "</button>";
-              // document.getElementById(bid).addEventListener("click", add_research_result_slide, i);
-            }
-            container.innerHTML += "</div><br>";
-            for (var i = 0; i < search_result.slides.length; i++) {
-              bid = "search_result_btn_" + i.toString();
-              document.getElementById(bid).result_id = i;
-              addEventListener("click", add_research_result_slide, false);
+
+            if (search_result.slides.length > 1 || 
+                !(query.includes('-') || query.includes('/') || !isNaN(query))) {
+              content_str = "<div class='row'>";
+              for (var i = 0; i < search_result.slides.length; i++) {
+                bid = "search_result_btn_" + i.toString();
+                if (search_result.slides[i].img_path == null) {
+                  // non-image
+                  text = search_result.slides[i].text.headline;
+                  content_str += "<button class='result_btn default' id='" + bid + "')'>" + text + "</button>";
+                } else {
+                  text = search_result.slides[i].name
+                  img_path = search_result.slides[i].img_path
+                  content_str += "<div class='column'><div class='result_img_content'>"
+                  content_str += "<img class='rect-img' src='" + img_path + "' style='width:100%'>"
+                  content_str += "<button class='overlay' id='" + bid + "')'>" + text + "</button>";
+                  content_str += "</div></div>"
+                }
+              }
+              content_str += "</div><br>";
+              container.innerHTML += content_str
+              for (var i = 0; i < search_result.slides.length; i++) {
+                bid = "search_result_btn_" + i.toString();
+                document.getElementById(bid).result_id = i;
+                addEventListener("click", add_research_result_slide, false);
+              }
             }
 
             // go to first slide
@@ -104,21 +117,100 @@
     // See below for more about options.
     var timeline = null;
     var obj = null
-    var options = {timenav_position: "top", duration: 500, timenav_height_percentage: 40};
-    
-    // jQuery.ajaxSetup({async:false});
+    var options = {timenav_position: "top", duration: 500, timenav_height_percentage: 40,
+      track_events: ['back_to_start', 'zoom_in', 'zoom_out'],
+      zoom_sequence: [0.5, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    };
+    // var zoom_level_mp = {"hour": 10, "day": 9, "week": 8, "trip": 8, "month": 4, "year": 2};
 
+    // function get_zoom_level(unique_id) {
+    //   var tag = unique_id.split('_')[0];
+    //   return zoom_level_mp[tag];
+    // }
+
+    // jQuery.ajaxSetup({async:false});
     function render_timeline(obj) {
       timeline = new TL.Timeline('timeline-embed', obj, options);
+      var previous_id = null;
       timeline.on("change", function(data) {
         console.log(data.unique_id)
+
+        if (Math.abs(timeline._getEventIndex(data.unique_id) - 
+                     timeline._getEventIndex(previous_id)) == 1)
+          return;
+
+        // // auto-zoom
+        // var zoom_level = get_zoom_level(data.unique_id);
+        // timeline.setZoom(zoom_level);
+        // previous_id = data.unique_id;
+
         $.getJSON('http://127.0.0.1:5000/timeline', {"unique_id": data.unique_id}, function(timeline_obj) {
           // update timeline with new objects
           for (var i = 0; i < timeline_obj.slides.length; i++) {
             if (timeline.getDataById(timeline_obj.slides[i].unique_id) == null)
               timeline.add(timeline_obj.slides[i]);
           }});
+        
       });
+      
+      level_mp = {"hour": 0, "day": 1, "week": 2, "trip": 2, "month": 3, "year": 4};
+
+      // timeline.goToNext = null;
+      timeline._onStorySliderNext = function(data) {
+        timeline.goToPrev();
+        var current_id = timeline.current_id;
+        var current_tag = current_id.split('_')[0];
+        var current_level = level_mp[current_tag];
+        var same_level = [];
+        var target_idx = 0;
+        for (var i = 0; ; i++) {
+          event = timeline.getData(i);
+          if (event == null) break;
+          tag = event.unique_id.split('_')[0];
+          level = level_mp[tag];
+          // console.log(level);
+          if (level == current_level) {
+            if (event.unique_id == current_id) {
+              target_idx = same_level.length + 1;
+            }
+            same_level.push(event.unique_id);
+          }
+        }
+        // console.log(same_or_upper);
+        // console.log(same_or_upper[target_idx]);
+        if (target_idx < same_level.length)
+          timeline.goToId(same_level[target_idx]);
+        else
+          timeline.goToPrev();
+      };
+
+      timeline._onStorySliderPrevious = function(data) {
+        timeline.goToNext();
+        var current_id = timeline.getCurrentSlide().data.unique_id;
+        var current_tag = current_id.split('_')[0];
+        var current_level = level_mp[current_tag];
+        var same_level = [];
+        var target_idx = 0;
+        for (var i = 0; ; i++) {
+          event = timeline.getData(i);
+          if (event == null) break;
+          tag = event.unique_id.split('_')[0];
+          level = level_mp[tag];
+          // console.log(level);
+          if (level == current_level) {
+            if (event.unique_id == current_id) {
+              target_idx = same_level.length - 1;
+            }
+            same_level.push(event.unique_id);
+          }
+        }
+        // console.log(same_or_upper);
+        // console.log(same_or_upper[target_idx]);
+        if (target_idx >= 0)
+          timeline.goToId(same_level[target_idx]);
+        else
+          timeline.goToNext();
+      }
     }
 
 
@@ -269,6 +361,47 @@
     border: 1px solid #ccc;  
   }
 }
+
+/* Content */
+.result_img_content {
+  background-color: #ccc;
+  position: relative;
+  /* padding: 10px; */
+}
+
+.rect-img {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  /* margin-bottom: 6px; */
+  display: block;
+  /* width: 100%; */
+  /* height: auto; */
+}
+
+/* Make the image to responsive */
+
+/* The overlay effect - lays on top of the container and over the image */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.result_img_content:hover .overlay {
+  opacity: 1;
+}
+
 
 .result_btn {
   border: 2px solid black;
@@ -570,3 +703,99 @@ for (var cid = 0; cid < containers.length; cid++) {
 
 
 </script>
+
+<style>
+body{margin-top:20px;}
+.timeline-steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.timeline-steps .timeline-step {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 1rem
+}
+
+@media (min-width:768px) {
+    .timeline-steps .timeline-step:not(:last-child):after {
+        content: "";
+        display: block;
+        border-top: .25rem dotted #ccc;
+        width: 3.46rem;
+        position: absolute;
+        left: 7.5rem;
+        top: .3125rem
+    }
+    .timeline-steps .timeline-step:not(:first-child):before {
+        content: "";
+        display: block;
+        border-top: .25rem dotted #ccc;
+        width: 3.8125rem;
+        position: absolute;
+        right: 7.5rem;
+        top: .3125rem
+    }
+}
+
+.timeline-steps .timeline-content {
+    width: 10rem;
+    text-align: center
+}
+
+.timeline-steps .timeline-content .inner-circle {
+    border-radius: 1.5rem;
+    height: 1rem;
+    width: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc
+}
+
+.timeline-steps .timeline-content .inner-circle:before {
+    content: "";
+    background-color: #ccc;
+    display: inline-block;
+    height: 3rem;
+    width: 3rem;
+    min-width: 3rem;
+    border-radius: 6.25rem;
+    opacity: .5
+}
+
+</style>
+
+<!-- <div class="container">                      
+
+  <div class="row">
+      <div class="col">
+          <div class="timeline-steps aos-init aos-animate" data-aos="fade-up">
+              <div class="timeline-step">
+                  <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2003">
+                      <div class="inner-circle"></div>
+                      <p class="h6 mt-3 mb-1">2003</p>
+                      <p class="h6 text-muted mb-0 mb-lg-0">Favland Founded</p>
+                  </div>
+              </div>
+              <div class="timeline-step">
+                  <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2004">
+                      <div class="inner-circle"></div>
+                      <p class="h6 mt-3 mb-1">2004</p>
+                      <p class="h6 text-muted mb-0 mb-lg-0">Launched Trello</p>
+                  </div>
+              </div>
+              <div class="timeline-step mb-0">
+                  <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2020">
+                      <div class="inner-circle"></div>
+                      <p class="h6 mt-3 mb-1">2020</p>
+                      <p class="h6 text-muted mb-0 mb-lg-0">In Fortune 500</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> -->

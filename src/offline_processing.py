@@ -1,10 +1,7 @@
-import json
 import torch
 import numpy as np
 import pickle
 import datetime
-import matplotlib.pyplot as plt
-import geopy
 import os
 
 from src.persistence.personal_data_db import PersonalDataDBConnector
@@ -14,9 +11,10 @@ from tqdm import tqdm
 from typing import Dict, List, Union
 from src.objects.LLEntry_obj import LLEntry, LLEntrySummary
 from src.util import distance
-from PIL import Image
+from PIL import Image, ImageOps
 from sklearn.cluster import KMeans
 from src.enrichment import socratic
+from src.util import is_home, get_location_attr, geo_cache, geolocator, default_location, str_to_location
 from geopy import Location
 
 from pillow_heif import register_heif_opener
@@ -31,26 +29,26 @@ class LLImage:
         """Create an image object from LLEntry and run enhencements
         """
         self.img_path = img_path
-        self.img = Image.open(img_path)
-        self.time = time
-        self.loc = loc
-
-        # numpy array
+        self.img = None
         self.embedding = None
         self.places = []
         self.objects = []
         self.tags = []
         self.enhance()
-
         # release memory
         del self.img
 
+        self.time = time
+        self.loc = loc
 
     def enhance(self, k=5):
         """Run enhencements.
         """
         if not os.path.exists(self.img_path + ".compressed.jpg"):
             # RGBA -> RGB
+            if self.img == None:
+                self.img = Image.open(self.img_path)
+            self.img = ImageOps.exif_transpose(self.img)
             self.img = self.img.convert("RGB")
             self.img.save(self.img_path + ".compressed.jpg")
 
@@ -62,6 +60,8 @@ class LLImage:
             if os.path.exists(self.img_path + ".emb"):
                 image_features = pickle.load(open(self.img_path + ".emb", "rb"))
             else:
+                if self.img == None:
+                    self.img = Image.open(self.img_path)
                 image_input = model_dict['clip_preprocess'](self.img).unsqueeze(0).to(model_dict['device'])
                 image_features = model_dict['clip_model'].encode_image(image_input)
                 image_features /= image_features.norm(dim=-1, keepdim=True)
@@ -93,63 +93,6 @@ class LLImage:
         self.embedding = image_features.squeeze(0).cpu().numpy()
 
 
-# create trip segments: consecutive days with start / end = home
-geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
-geo_cache = {}
-default_location = "United States"
-
-def str_to_location(loc: str):
-    """Convert a string to geolocation."""
-    if loc in geo_cache:
-        return geo_cache[loc]
-    else:
-        geoloc = geolocator.geocode(loc.replace(';', ', '), language='en')
-        if geoloc is None:
-            geoloc = geolocator.geocode(default_location, language='en') # maybe use home as default?
-
-        geo_cache[loc] = geoloc
-        return geoloc
-
-
-def get_coordinate(loc: Union[str, Location]):
-    """Get coordinate of a location."""
-    if isinstance(loc, Location):
-        return loc.latitude, loc.longitude
-
-    geoloc = str_to_location(loc)
-    return geoloc.latitude, geoloc.longitude
-
-def get_location_attr(loc: Location, attr: Union[str, List]):
-    """Return an attribute (city, country, etc.) of a location"""
-    if loc is None:
-        return ""
-
-    cood = (loc.latitude, loc.longitude)
-    if cood not in geo_cache:
-        addr = geolocator.reverse(cood)
-        geo_cache[cood] = addr
-    else:
-        addr = geo_cache[cood]
-    
-    if 'address' in addr.raw: 
-        if isinstance(attr, str):
-            attr = [attr]
-
-        for attr_item in attr:
-            if attr_item in addr.raw['address']:
-                return addr.raw['address'][attr_item]
-    
-    return ""
-
-def is_home(loc: Location, home: Location):
-    """Check if a location is home (within 100km)."""
-    try:
-        home = get_coordinate(home)
-        loc = get_coordinate(loc)
-        return distance(home, loc) <= 100.0
-    except:
-        return True
-
 
 def create_image_summary(images: List[LLImage], k=3):
     """Create a k-image summary using k-means
@@ -170,15 +113,6 @@ def create_image_summary(images: List[LLImage], k=3):
             nearest[label] = img
 
     return [img.img_path for img in nearest if img is not None]
-
-def visualize(image_paths: List[str]):
-    """visualize a list of LLEntries"""
-    plt.figure(figsize=(20,10))
-    columns = 9
-    for i, path in enumerate(image_paths[:9]):
-        img = Image.open(path)
-        plt.subplot(len(image_paths) // columns + 1, columns, i + 1)
-        plt.imshow(img)
 
 
 def postprocess_bloom(answer: str, keywords: List[str]=None):
@@ -297,17 +231,23 @@ def summarize_day(day: List[List[LLImage]], activity_index: Dict):
 
 def trip_data_to_text(locations: List[Location], start_date: List, num_days: int):
     """Data to text for a trip."""
-    loc_str = []
+    loc_cnt = Counter()
 
     for loc in locations:
         value = get_location_attr(loc, ["town", "city", "county", "suburb", "state", "country"])
-        if len(value) > 3 and value not in loc_str:
-            loc_str.append(value)
+        if len(value) > 0:
+            loc_cnt[value] += 1
 
-    prompt = f"""Paraphrase "A {num_days}-day trip to {", ".join(loc_str[:1])} in {start_date.year}/{start_date.month}" in proper English:"""
-    print(prompt)
-    response = socratic.generate_captions(prompt, method="Greedy")
-    return postprocess_bloom(response)
+    if len(loc_cnt) == 0:
+        return f"""A {num_days}-day trip, {start_date.year}"""
+    else:
+        place = loc_cnt.most_common(1)[0][0]
+        return f"""A {num_days}-day trip to {place}, {start_date.year}"""
+
+    # prompt = f"""Paraphrase "A {num_days}-day trip to {", ".join(loc_str[:1])} in {start_date.year}/{start_date.month}" in proper English:"""
+    # print(prompt)
+    # response = socratic.generate_captions(prompt, method="Greedy")
+    # return postprocess_bloom(response)
 
 
 def organize_images_by_tags(images: List[LLImage]):
@@ -317,31 +257,39 @@ def organize_images_by_tags(images: List[LLImage]):
         for tag in image.tags:
             if tag not in result:
                 result[tag] = []
-            result[tag].append({"img_path": image.img_path, "name": image.objects[0]})
+            result[tag].append({"img_path": image.img_path, 
+                                "name": image.objects[0], 
+                                "datetime": datetime.datetime.fromtimestamp(image.time),
+                                "location": image.loc})
 
     return result
 
+previous_location = str_to_location(default_location)
+
 def get_location(segment) -> Location:
     """Computer the location of an LLEntry/LLImage/activity/day"""
+    global previous_location
     if isinstance(segment, LLEntry):
         entry = segment
 
         for loc in entry.locations:
             if loc is not None and loc.address != 'Soul Buoy':
+                previous_location = loc
                 return loc
 
         for lat_lon in entry.lat_lon:
             lat_lon = tuple(lat_lon)
             if lat_lon is not None and lat_lon != (0.0, 0.0):
                 if lat_lon in geo_cache:
+                    previous_location = geo_cache[lat_lon]
                     return geo_cache[lat_lon]
                 else:
                     loc = geolocator.reverse(lat_lon)
                     geo_cache[lat_lon] = loc
+                    previous_location = loc
                     return loc
 
-
-        return str_to_location(default_location)
+        return previous_location
         # if hasattr(entry, "startGeoLocation") and entry.startGeoLocation is not None:
         #     return entry.startGeoLocation
         # else:
@@ -379,7 +327,7 @@ def get_timestamp(obj):
     else:
         return get_timestamp(obj[0])
 
-def create_segments(entries: List[LLImage], user_info: Dict):
+def create_segments(entries: List[LLImage]):
     """Create segments of the timeline"""
     # create segments of activities
     entries.sort(key=lambda x: get_timestamp(x))
@@ -433,14 +381,17 @@ def create_segments(entries: List[LLImage], user_info: Dict):
 
     for i in range(len(day_segments)):
         loc = get_location(day_segments[i])
-        if is_home(loc, user_info["address"]):
+        if is_home(loc):
             trip_segments.append([day_segments[i]])
         else:
             if prev_is_home:
                 trip_segments.append([day_segments[i]])
             else:
-                trip_segments[-1].append(day_segments[i])
-        prev_is_home = is_home(loc, user_info["address"])
+                if get_timestamp(day_segments[i]) >= get_timestamp(trip_segments[-1][-1]) + 43200 * 2 * 3: # 3-day gap ==> consider a new trip
+                    trip_segments.append([day_segments[i]])
+                else:
+                    trip_segments[-1].append(day_segments[i])
+        prev_is_home = is_home(loc)
 
     return trip_segments
 
@@ -455,20 +406,23 @@ def convert_LLEntry_LLImage(entries: List[LLEntry]):
         loc = get_location(entry)
 
         if entry.imageFilePath is not None and \
-           len(entry.imageFilePath) > 0:
-            image_entries.append(LLImage(entry.imageFilePath, time, loc))
+           len(entry.imageFilePath) > 0 and \
+            os.path.exists(entry.imageFilePath):
+            try:
+                image_entries.append(LLImage(entry.imageFilePath, time, loc))
+            except:
+                print("Error when processing image:" + entry.imageFilePath)
         else:
             # TODO: ignoring tabular entries for now
             pass
     return image_entries, tabular_entries
 
 
-def create_trip_summary(entries: List[LLEntry], user_info: Dict):
+def create_trip_summary(entries: List[LLEntry]):
     """Compute a trip summary from a list of LLEntries.
 
     Args:
         entries (List[LLEntry]): all LLEntries within the trip
-        user_info (Dictionary, optional): a json with user's name and address
 
     Returns:
         Dictionary: a JSON object summarizing the trip
@@ -479,7 +433,7 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
 
     ## Step 2: identify activities, days, and trips
     print("Step 2: identify activities, days, and trips (also deduplicate)")
-    segments = create_segments(converted_entries, user_info)
+    segments = create_segments(converted_entries)
 
     ## Step 3: process activities
     print("Step 3: process activities")
@@ -500,22 +454,12 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
                                           startTime=start_time_str.isoformat(),
                                           endTime=end_time_str.isoformat(),
                                           locations=[location],
-                                          text_summary=summarize_activity(activity),
+                                          text_summary="%d:00 to %d:00, %s" % (start_time_str.hour, end_time_str.hour, start_time_str.strftime("%B %d, %Y")), # summarize_activity(activity),
                                           photo_summary=create_image_summary(activity),
                                           stats={"num_photos": len(activity)},
                                           objects=organize_images_by_tags(activity),
                                           source="derived")
 
-        # activity_summary = {
-        #     'date': dt.date(),
-        #     'location': location,
-        #     'start_hour': dt.hour,
-        #     'end_hour': datetime.datetime.fromtimestamp(end_time).hour,
-        #     'summary': summarize_activity(activity),
-        #     'photo_summary': create_image_summary(activity),
-        #     'num_photos': len(activity),
-        #     'objects': organize_images_by_tags(activity)
-        # }
         activity_index[start_time] = activity_summary
 
     import pprint
@@ -543,24 +487,12 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
                                      startTime=date_str.isoformat(),
                                      endTime=date_str.isoformat(), # should be the next day?
                                      locations=locations,
-                                     text_summary=summarize_day(day, activity_index),
+                                     text_summary=date_str.strftime("%B %d, %Y"), # summarize_day(day, activity_index),
                                      photo_summary=create_image_summary(sum(day, [])),
                                      stats={"num_photos": sum([len(act) for act in day]),
                                             "num_activities": len(day)},
                                      objects=organize_images_by_tags(sum(day, [])),
                                      source="derived")
-
-        # day_summary = {
-        #     'date': date_str,
-        #     'start_loc': start,
-        #     'end_loc': end,
-        #     'num_activities': len(day),
-        #     'num_photos': sum([len(act) for act in day]),
-        #     'summary': summarize_day(day, activity_index),
-        #     'photo_summary': create_image_summary(sum(day, [])),
-        #     'objects': organize_images_by_tags(sum(day, []))
-        # }
-        # visualize(day_summary['photo_summary'])
 
         daily_index[date_str] = day_summary
 
@@ -578,7 +510,7 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
         total_photos = 0
 
         # if the segment is a trip
-        if not is_home(loc, user_info["address"]):
+        if not is_home(loc):
             start_date = datetime.datetime.fromtimestamp(get_timestamp(segment[0]))
             start_date_str = start_date.date()
             end_date = datetime.datetime.fromtimestamp(get_timestamp(segment[-1]))
@@ -620,15 +552,6 @@ def create_trip_summary(entries: List[LLEntry], user_info: Dict):
                                      objects={},
                                      source="derived")
 
-            # trip_summary = {
-            #     'start_date': start_date_str,
-            #     'end_date': end_date_str,
-            #     'cities': locations,
-            #     'days': num_days,
-            #     'num_photos': total_photos,
-            #     'itinerary': itinerary,
-            #     'summary': trip_data_to_text(locations, start_date, num_days)
-            # }
             trip_index[start_date_str] = trip_summary
 
     for trip in list(trip_index.values()):
@@ -647,9 +570,7 @@ if __name__ == '__main__':
 
     entries.sort(key=lambda x: get_timestamp(x))
     entries = entries# [:50]
-    user_info = json.load(open("user_info.json"))
-    default_location = user_info["address"]
-    activity_index, daily_index, trip_index = create_trip_summary(entries, user_info)
+    activity_index, daily_index, trip_index = create_trip_summary(entries)
 
     pickle.dump(activity_index, open("activity_index.pkl", "wb"))
     pickle.dump(daily_index, open("daily_index.pkl", "wb"))
