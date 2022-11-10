@@ -190,6 +190,23 @@ class QAEngine:
     def query(self, text: str, k=9) -> List[Union[str, Dict]]:
         """Returns a list of unique_ids or objects of summaries
         """
+        # exact year search
+        try:
+            dt = datetime.datetime.strptime(text, '%Y')
+            return ['year_%d' % (dt.year)]
+        except:
+            pass
+
+        # exact month search
+        formats = ['%Y-%m', '%Y/%m', '%m/%Y',
+                    '%m-%Y', '%y/%m', '%m/%y']
+        for format in formats:
+            try:
+                dt = datetime.datetime.strptime(text, format)
+                return ['month_%d_%d' % (dt.year, dt.month)]
+            except:
+                pass
+
         # exact date search
         formats = ['%Y-%m-%d', '%Y/%m/%d', '%m/%d/%Y',
                     '%y-%m-%d', '%y/%m/%d', '%m/%d/%y']
@@ -199,7 +216,7 @@ class QAEngine:
                 return ['day_%d_%d_%d' % (dt.year, dt.month, dt.day)]
             except:
                 pass
-        
+
         # tag search: 1 tag
         for tag in self.tag_inverted_index:
             if text.lower() == tag.lower():

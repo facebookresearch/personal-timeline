@@ -229,8 +229,8 @@ class Summarizer:
         """Summarize a list of LLEntries with locations
         """
         # prioritize entries with images
-        entries_with_images = [e for e in entries if e.imageFilePath is not None]
-        entries = entries_with_images + [e for e in entries if e.imageFilePath is None]
+        entries_with_images = [e for e in entries if e.imageFilePath != ""]
+        entries = entries_with_images + [e for e in entries if not (e.imageFilePath != "")]
 
         result = []
         # TODO: detailed location name not in geopy location
@@ -246,7 +246,8 @@ class Summarizer:
 
                     # show image if possible
                     media = location
-                    if entry.imageFilePath is not None:
+                    if entry.imageFilePath is not None and \
+                        entry.imageFilePath != "":
                         media = self.get_img_path(entry.imageFilePath)
 
                     # check address book
@@ -261,7 +262,8 @@ class Summarizer:
 
                                 result.append(
                                     {"text": address["name"],
-                                     "media": media})
+                                     "media": media, 
+                                     "datetime": datetime.datetime.fromisoformat(entry.startTime)})
                                 found = True
                                 break
 
@@ -275,7 +277,8 @@ class Summarizer:
                             if place_name not in cache:
                                 cache.add(place_name)
                                 result.append({"text": place_name,
-                                            "media": media})
+                                            "media": media,
+                                            "datetime": datetime.datetime.fromisoformat(entry.startTime)})
                             break
             if len(result) <= 5:
                 return result
