@@ -135,7 +135,7 @@ class PhotoImporter:
 
         obj = LLEntry(self.entry_type, real_start_time, self.source_name)
         obj.startTimeOfDay = real_start_time[11:19]
-        obj.lat_lon.append([latitude, longitude])
+        obj.lat_lon.append({"lat":latitude, "lon":longitude})
 
         #Specific to Image
         obj.imageFilePath = uri

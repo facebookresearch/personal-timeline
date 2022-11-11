@@ -5,7 +5,7 @@ from elasticsearch import Elasticsearch
 
 from datetime import datetime
 from elasticsearch_dsl import *
-from elasticsearch_dsl.query import MultiMatch, GeoDistance
+from elasticsearch_dsl.query import MultiMatch, GeoDistance, Range, Bool
 
 from src.objects.LLEntry_obj import LLEntry
 
@@ -51,33 +51,63 @@ class ESHelper:
 
     def save(self, entry:LLEntry):
         doc = LLEntryES()
+        if entry.endTime == "":
+            entry.endTime = entry.startTime
         doc.create_es_document_from(entry)
         doc.save()
 
     # Wrapper function around Search
     # Input: query_str: Query string containing all words that need to
     #                   be matched across all text/keyword fields
-    # Input: geo_distance: Dictionary with following structure
-    #     "geo_distance": {
+    # Input: search_criteria: Dictionary with following structure:
+    # Possible keys: geo_distance(dict), range_query(list)
+    #   {
+    #       "geo_distance": {
     #         "distance": "2km",
     #         "lat": 32,
     #         "lon": -122
-    #     }
-    def search(self, query_str:str, geo_distance:dict) -> List[LLEntry]:
-        client = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+    #       }
+    #       "range_query": [
+    #           {
+    #               "attribute": "startTime",
+    #                "range": {
+    #                     "lte": 10
+    #                }
+    #           },
+    #           {
+    #               "attribute": "endTime",
+    #                "range": {
+    #                     "gte": "2014-09-05T14:16:56+05:30",
+    #                     "lte": "now"
+    #                }
+    #           }]
+    def search(self, query_str:str, search_criteria:dict, geo_distance:dict, range_query:dict) -> List[LLEntry]:
         s = LLEntryES.search()
         if query_str is not None:
-            s.query = MultiMatch(
+            multi_match = MultiMatch(
                 query=query_str,
                 fields=["tags","textDescription"]
-
             )
+            s = s.query(multi_match)
+        # date_range = Range(startTime={"lte":"2014-09-05T14:16:56+05:30"})
+        date_range=""
+        if range_query is not None:
+            if range_query.get("attribute") == "startTime":
+                date_range = Range(startTime=range_query.get("range"))
+            if range_query.get("attribute") == "endTime":
+                date_range = Range(endTime=range_query.get("range"))
+            s = s.query(date_range)
+
         if geo_distance is not None:
-            s.filter = GeoDistance(
+            gd_query = GeoDistance(
                 distance=geo_distance.get("distance"),
                 lat_lon={"lat": geo_distance.get("lat"),
                          "lon": geo_distance.get("lon")}
             )
+            s = s.query(gd_query)
+
+        print(s.query.to_dict())
+        # print(s.filter.to_dict())
         response = s.execute()
 
         output = []
@@ -93,21 +123,17 @@ def test_class():
     es_helper = ESHelper()
 
     # create and save and article
-    entry = LLEntry("purchase", datetime.now().__str__(),"file")
+    entry = LLEntry("purchase", "2014-09-05T14:16:56+05:30","file")
     entry.id = 1
     entry.lat_lon = [{"lat":32.345, "lon":-122.345},
                      {"lat":-32.345, "lon":122.345}]
     entry.tags = ["hello", "world"]
     entry.textDescription="I am a text Description"
-    es_helper.save(entry)
+    #es_helper.save(entry)
 
     entry.id = 2
     entry.tags=[]
-    es_helper.save(entry)
-
-    article = LLEntryES.get(id=2)
-    x = pickle.loads(article.obj)
-    print("Object same as original?", entry.equals(x))
+    #es_helper.save(entry)
 
     #Prepare for search
     geo_dist = {
@@ -115,9 +141,13 @@ def test_class():
         "lat": -32.3,
         "lon": 122.3
     }
+    range_query = {
+        "attribute": "startTime",
+        "range": {"lte":"2014-09-05T14:16:56+05:30"}
+    }
 
-    output = es_helper.search("hello text",geo_dist)
+    output = es_helper.search("hello text",geo_dist, range_query)
     for o in output:
         print(o.toJson())
 
-#test_class()
+test_class()

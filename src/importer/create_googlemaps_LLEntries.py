@@ -61,7 +61,8 @@ class GoogleMapsImporter(GenericImporter):
         # print(experienced_start_time)
 
         obj = LLEntry(self.entry_type, experienced_start_time, self.source_name)
-        obj.lat_lon.append([convertOutOfE7(start_lat),convertOutOfE7(start_lon)])
+        obj.lat_lon.append({"lat": convertOutOfE7(start_lat),
+                            "lon": convertOutOfE7(start_lon)})
         startTOD = experienced_start_time[11:19]
         obj.startTimeOfDay = startTOD
         textDescription = startTOD[0:5] + ": "
@@ -134,8 +135,10 @@ class GoogleMapsImporter(GenericImporter):
         startTOD = experienced_startTime[11:19]
         textDescription = startTOD[0:5] + ": " + textActivity
         obj = LLEntry(wtype, experienced_startTime, self.source_name)
-        obj.lat_lon.append([start_lat,start_lon])
-        obj.lat_lon.append([end_lat, end_lon])
+        obj.lat_lon.append({"lat": start_lat,
+                            "lon": start_lon})
+        obj.lat_lon.append({"lat": end_lat,
+                            "lon": end_lon})
         obj.startTimeOfDay = startTOD
         experienced_endTime = convertToTimezone(activity["duration"]["endTimestamp"][0:19], ORIGIN_TIMEZONE,
                                                 target_timezone)

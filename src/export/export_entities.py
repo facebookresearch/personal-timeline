@@ -49,8 +49,8 @@ class PhotoExporter:
             data = self.populate_text_description(data)
 
             # Write enriched_data, set enrichment_done to 1
-            #print("Writing enriched data:: ", data.toJson())
             data.id=row_id
+            print("Writing enriched data:: ", data.toJson())
             self.es_helper.save(data)
             self.db.add_or_replace_personal_data({"enriched_data": data, "export_done": 1, "id": row_id}, "id")
         print("Export entities generated for ", count, " entries")
@@ -79,13 +79,17 @@ class PhotoExporter:
             if len(data.locations) > 0:
                 data.textDescription = data.textDescription.replace("$location", str(data.locations[0]))
         else:
-            textDescription = data.startTimeOfDay + ": " + str(data.locations[0])
+            startLocation = ""
+            if len(data.locations) > 0:
+                startLocation = str(data.locations[0])
+            textDescription = data.startTimeOfDay + ": " + startLocation
             textDescription += " with " if len(data.peopleInImage)>0 else ""
             #TODO:Assumes that peopleInImage List has dict with "name" key
             for j in data.peopleInImage:
                 textDescription += "\n " + j["name"]
 
-            for j in data.imageCaptions:
-                textDescription += ", " + j
+            if data.imageCaptions is not None:
+                for j in data.imageCaptions:
+                    textDescription += ", " + j
             data.textDescription = textDescription
         return data

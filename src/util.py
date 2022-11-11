@@ -93,7 +93,7 @@ def convertlatlongToTimezone(lat_string, long_string):
     return (timezone_str)
 
 def convertOutOfE7(s):
-    return str(float(s)/1E7)
+    return float(s)/1E7
 
 def extractYMDHM(date):
     year = int(date[0:4])

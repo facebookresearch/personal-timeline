@@ -65,7 +65,7 @@ class LocationEnricher:
             #print("data.lat_lon", data.__dict__)
             entry_location: List[Location] = []
             for lat_lon_entry in data.lat_lon:
-                entry_location.append(self.calculateLocation(lat_lon_entry[0], lat_lon_entry[1]))
+                entry_location.append(self.calculateLocation(lat_lon_entry.get("lat"), lat_lon_entry.get("lon")))
             #print("Updating location to::: ", photo_location.raw)
             if len(entry_location) > 0:
                 self.db.add_or_replace_personal_data({"location": entry_location, "location_done": '1', "id": row_id}, "id")
