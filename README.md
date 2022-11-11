@@ -98,20 +98,7 @@ Follow the instructions to import and enrich data.
 (Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
 (Note*: please select `Yes` at the last step for exporting the LLEntries.)
 
-# Step 3: Create Inverted Index Files (optional):
-
-1. Create a data directory and a sym link to that directory inside the repo
-
-
-    $ mkdir ~/data  
-    $ ln -s ~/data
-2. Run  
-    
-    
-    $ python -m src.create_index
-This will create a `date_inverted_index.json` file in the data directory used in next step.
-
-# Step 4: Running the offline enrichment and summarization pipeline
+# Step 3: Running the offline enrichment and summarization pipeline
 
 * Install all required packages (see above and `requirements.txt`).
 * Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
@@ -152,7 +139,7 @@ python -m src.offline_processing
 The script will generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`. See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.
 
 
-# Step 5: Generate visualization
+# Step 4: Generate visualization
 
 You need to first set up a Google Map API (free) following these [instructions](https://developers.google.com/maps/documentation/embed/quickstart#create-project).
 
