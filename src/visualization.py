@@ -69,26 +69,46 @@ class TimelineRenderer:
         """visualize a list of images
         """
         signature = '_'.join([os.path.split(path)[1] for path in image_paths])
-        if signature not in self.img_cache:
-            path = "static/summary_%s.png" % (signature)
-            self.img_cache[signature] = path
-        else:
-            path = self.img_cache[signature]
 
-        if os.path.exists(path):
-            return path
+        summary_path = "static/summary_%s.htm" % (signature)
+        link = f'<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="{summary_path}"></iframe>'
+        content_str = """<link rel="stylesheet" href="main.css">"""
+        # content_str += "<div class='summary_img_content'>"
+        content_str += "<div class='row' style='display: flex; align-items: center; justify-content: center; height: 600px;'>"
+        for img_path in image_paths:
+            img_path = os.path.split(img_path)[-1] + '.compressed.jpg'
+            content_str += "<div class='summary_column'>"
+            content_str += "<img class='summary_img' src='" + img_path + "' style='border: 10px solid rgb(255, 255, 255);'>"
+            # content_str += "<button class='overlay' id='" + bid + "')'>" + text + "</button>"
+            content_str += "</div>"
 
-        plt.figure(figsize=(100,50))
-        columns = 9
-        for i, img_path in enumerate(image_paths[:9]):
-            img = Image.open(img_path)
-            plt.subplot(len(image_paths) // columns + 1, columns, i + 1)
-            plt.imshow(img)
-            plt.axis('off')
+        content_str += "</div>"
+        fout = open(summary_path, 'w')
+        fout.write(content_str)
 
-        plt.savefig(path, bbox_inches='tight')
-        plt.close()
-        return path
+        return link
+
+        # if signature not in self.img_cache:
+        #     path = "static/summary_%s.png" % (signature)
+        #     self.img_cache[signature] = path
+        # else:
+        #     path = self.img_cache[signature]
+
+        # if os.path.exists(path):
+        #     return path
+
+        # plt.figure(figsize=(100,50))
+        # columns = 9
+        # for i, img_path in enumerate(image_paths[:9]):
+        #     img = Image.open(img_path)
+        #     plt.subplot(len(image_paths) // columns + 1, columns, i + 1)
+        #     plt.imshow(img)
+        #     plt.axis('off')
+
+        # plt.savefig(path, bbox_inches='tight')
+        # plt.close()
+
+        # return path
 
     def get_city_country(self, location: Location):
         """Get city, state, and country from location
