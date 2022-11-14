@@ -193,7 +193,7 @@ class TimelineRenderer:
     def create_text(self, headline, text):
         return {"headline": headline, "text": text}
 
-    def objects_to_text(self, object_dict: Dict, max_len=30):
+    def objects_to_text(self, object_dict: Dict, start_time=None, end_time=None, max_len=30):
         """Convert a object dictionary to text.
         """
         text = ""
@@ -216,6 +216,16 @@ class TimelineRenderer:
             """
             
             object_list = object_dict[tag]
+
+            # remove objects not fitting in the time range
+            if start_time is not None and end_time is not None:
+                new_object_list = []
+                for item in object_list:
+                    if item["datetime"] is None or (item["datetime"] <= end_time and item["datetime"] >= start_time):
+                        new_object_list.append(item)
+                object_list = new_object_list
+                print(object_list)
+
             if len(object_list) > max_len:
                 object_list = [object_list[i] for i in random.sample(range(len(object_list)), k=max_len)]
 
@@ -420,7 +430,7 @@ class TimelineRenderer:
             slide = {
                 "start_date": self.convert_date(trip.startTime, 0),
                 "end_date": self.convert_date(trip.endTime, 24),
-                "text": self.create_text(trip.textDescription, self.objects_to_text(trip.objects)),
+                "text": self.create_text(trip.textDescription, self.objects_to_text(trip.objects, start_time=start_date, end_time=end_date)),
                 "media": {"url": self.create_map_link(trip.startGeoLocation)},
                 "group": "trip",
                 "unique_id": uid
@@ -449,8 +459,17 @@ class TimelineRenderer:
             return slide
 
         # modify text
+        start_time = datetime.datetime.fromisoformat(summary.startTime)
+        if summary.type == 'day':
+            end_time = start_time + datetime.timedelta(days=1)
+        else:
+            end_time = datetime.datetime.fromisoformat(summary.endTime)
+
         original_text = slide["text"]['text']
-        slide["text"] = self.create_text(summary.textDescription, self.objects_to_text(summary.objects))
+        slide["text"] = self.create_text(summary.textDescription, 
+            self.objects_to_text(summary.objects, 
+                start_time=start_time, 
+                end_time=end_time))
         slide["text"]['text'] = original_text + slide["text"]['text']
 
         # add media
