@@ -224,7 +224,6 @@ class TimelineRenderer:
                     if item["datetime"] is None or (item["datetime"] <= end_time and item["datetime"] >= start_time):
                         new_object_list.append(item)
                 object_list = new_object_list
-                print(object_list)
 
             if len(object_list) > max_len:
                 object_list = [object_list[i] for i in random.sample(range(len(object_list)), k=max_len)]
