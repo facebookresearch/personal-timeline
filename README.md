@@ -21,16 +21,18 @@ In the explanation, we'll assume three directories all sitting within the applic
 5. Activate the newly created environment  
     ```conda activate <env>```
 
-6. Install pip pkgs for the one's missing in conda repo:  
-    ```pip install pillow_heif```
+6. Install pytorch following the instructions [here](https://pytorch.org/get-started/locally/).
 
-7. Install CLIP from OpenAI:
+7. Install pip pkgs for the one's missing in conda repo:  
+    ```pip install pillow_heif wget scikit-learn```
+
+8. Install CLIP from OpenAI:
     ```pip install git+https://github.com/openai/CLIP.git```
 
-8. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
+9. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
     ```$ mkdir ~/personal-data```
 
-9. In your repo, create a Sym link for the above created dir  
+10. In your repo, create a Sym link for the above created dir  
     ```$ ln -s ~/personal-data personal-data```
 
 # Step 1: Downloading your photos

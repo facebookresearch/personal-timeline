@@ -19,6 +19,8 @@ src_path = os.path.dirname(os.path.abspath(__file__))
 prompt_path = os.path.join(src_path, './prompts')
 os.makedirs(prompt_path, exist_ok=True)
 for k, v in url_dict.items():
+    file_path = os.path.join(prompt_path, k)
+    if not os.path.exists(file_path):
         wget.download(v, out=prompt_path)
 
 os.environ['CUDA_VISIBLE_DEVICES'] = ''
