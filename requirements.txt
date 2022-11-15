@@ -1,12 +1,9 @@
-timm==0.4.12
-transformers==4.15.0
+timm
+openai
 sentence-transformers
-fairscale==0.4.4
 pycocotools
-PySimpleGUI
 pytz
 timezonefinder
-torchvision
 pillow
 numpy
 dataclasses
@@ -17,8 +14,11 @@ pandas
 sqlite
 parsedatetime
 matplotlib
-scikit-learn
 urllib3
 elasticsearch-dsl
 pyqt5-sip
 pyqtwebengine
+spotipy
+flask
+gensim
+geopy
