@@ -16,7 +16,7 @@ class LLEntryES(Document):
     endTime = Date()
     source = Keyword()
     lat_lon = GeoPoint(multi=True)
-    tags = Keyword(multi=True)
+    tags = Text(multi=True, analyzer='snowball')
     textDescription = Text(analyzer='snowball')
     #Contains original LLEntry Object in pickled state
     obj = Binary()
@@ -62,6 +62,12 @@ class ESHelper:
     # Input: search_criteria: Dictionary with following structure:
     # Possible keys: geo_distance(dict), range_query(list)
     #   {
+    #       "term": [
+    #             {
+    #                 "type":"trip"
+    #             },
+    #             {}
+    #       ]
     #       "geo_distance": {
     #         "distance": "2km",
     #         "lat": 32,
@@ -81,28 +87,31 @@ class ESHelper:
     #                     "lte": "now"
     #                }
     #           }]
-    def search(self, query_str:str, search_criteria:dict, geo_distance:dict, range_query:dict) -> List[LLEntry]:
+    def search(self, query_str:str, search_criteria:dict) -> List[LLEntry]:
         s = LLEntryES.search()
         if query_str is not None:
             multi_match = MultiMatch(
                 query=query_str,
-                fields=["tags","textDescription"]
+                fields=["tags","textDescription"],
+                fuzziness="AUTO"
             )
             s = s.query(multi_match)
         # date_range = Range(startTime={"lte":"2014-09-05T14:16:56+05:30"})
         date_range=""
-        if range_query is not None:
-            if range_query.get("attribute") == "startTime":
-                date_range = Range(startTime=range_query.get("range"))
-            if range_query.get("attribute") == "endTime":
-                date_range = Range(endTime=range_query.get("range"))
-            s = s.query(date_range)
+        if "range_query" in search_criteria.keys():
+            for list_item in search_criteria.get("range_query"):
+                if list_item.get("attribute") == "startTime":
+                    date_range = Range(startTime=list_item.get("range"))
+                if list_item.get("attribute") == "endTime":
+                    date_range = Range(endTime=list_item.get("range"))
+                s = s.query(date_range)
 
-        if geo_distance is not None:
+        if "geo_distance" in search_criteria.keys():
+            geo_map:dict = search_criteria.get("geo_distance")
             gd_query = GeoDistance(
-                distance=geo_distance.get("distance"),
-                lat_lon={"lat": geo_distance.get("lat"),
-                         "lon": geo_distance.get("lon")}
+                distance=geo_map.get("distance"),
+                lat_lon={"lat": geo_map.get("lat"),
+                         "lon": geo_map.get("lon")}
             )
             s = s.query(gd_query)
 
@@ -129,11 +138,11 @@ def test_class():
                      {"lat":-32.345, "lon":122.345}]
     entry.tags = ["hello", "world"]
     entry.textDescription="I am a text Description"
-    #es_helper.save(entry)
+    es_helper.save(entry)
 
     entry.id = 2
     entry.tags=[]
-    #es_helper.save(entry)
+    es_helper.save(entry)
 
     #Prepare for search
     geo_dist = {
@@ -141,12 +150,17 @@ def test_class():
         "lat": -32.3,
         "lon": 122.3
     }
-    range_query = {
+    range_query = [{
         "attribute": "startTime",
-        "range": {"lte":"2014-09-05T14:16:56+05:30"}
-    }
+        "range": {"gte":"2014-09-05T00:00:00+05:30",
+                  "lte":"2014-09-05T23:59:59+05:30"}
+    }]
 
-    output = es_helper.search("hello text",geo_dist, range_query)
+    search_criteria = {
+        "geo_distance": geo_dist,
+        "range_query": range_query
+    }
+    output = es_helper.search("hellos",search_criteria)
     for o in output:
         print(o.toJson())
 
