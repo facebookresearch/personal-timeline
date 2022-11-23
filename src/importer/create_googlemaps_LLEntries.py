@@ -83,7 +83,7 @@ class GoogleMapsImporter(GenericImporter):
             textDescription = textDescription + " (duration: " + obj.duration + ")"
 
         obj.textDescription = textDescription
-        print("TEXT DESCRIPTION:  ", obj.textDescription)
+        #print("TEXT DESCRIPTION:  ", obj.textDescription)
         return obj
 
     def activitySegmentExtract(self, activity):

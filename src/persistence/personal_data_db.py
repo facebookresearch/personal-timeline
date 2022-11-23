@@ -89,9 +89,10 @@ class PersonalDataDBConnector:
                 create_sql = PersonalDataDBConnector.ddl[table]
                 print("Creating table: ", table, " using SQL:: ", create_sql)
                 self.execute_write(create_sql)
-                for idx_sql in PersonalDataDBConnector.indexes[table]:
-                    print("Creating index using SQL:: ", idx_sql)
-                    self.execute_write(idx_sql)
+                if table in PersonalDataDBConnector.indexes.keys():
+                    for idx_sql in PersonalDataDBConnector.indexes[table]:
+                        print("Creating index using SQL:: ", idx_sql)
+                        self.execute_write(idx_sql)
             else:
                 print("Table ", table, " found.")
             if table in PersonalDataDBConnector.bootstrap_locations.keys():

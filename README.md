@@ -9,8 +9,9 @@ In the explanation, we'll assume three directories all sitting within the applic
 
 1. Install Conda from [this link](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
 
-2. Add conda-forge channel:  
+2. Add additional channels:  
    ```conda config --append channels conda-forge```
+   ```conda config --append channels pytorch```
 
 3. Create a new conda dev environment  
     ```conda create --name <env> python==3.10.4```
@@ -24,7 +25,7 @@ In the explanation, we'll assume three directories all sitting within the applic
 6. Install pytorch following the instructions [here](https://pytorch.org/get-started/locally/).
 
 7. Install pip pkgs for the one's missing in conda repo:  
-    ```pip install pillow_heif wget scikit-learn```
+    ```pip install pillow_heif```
 
 8. Install CLIP from OpenAI:
     ```pip install git+https://github.com/openai/CLIP.git```
