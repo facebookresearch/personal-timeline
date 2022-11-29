@@ -60,7 +60,7 @@ The easiest way to do this on a Mac is:
 3. Unzip the downloaded file and copy the directory `posts` sub-folder to the above folder. The `posts` folder would sit directly under the facebook folder.
 
 ### APPLE HEALTH
-1. Go to to the Apple Health app on your phone and ask to export your data. This will create a file called iwatch.xml and that's the input file to the importer.
+1. Go to the Apple Health app on your phone and ask to export your data. This will create a file called iwatch.xml and that's the input file to the importer.
 2. Create a new directory under `personal-data` folder  
     ```$ mkdir ~/personal-data/apple-health```
 3. Move the downloaded file to this folder.  
@@ -155,11 +155,6 @@ To embed Spotify, you need to set up a Spotify API (free) following [here](https
 ```
 export SPOTIFY_TOKEN=<the token goes here>
 export SPOTIFY_SECRET=<the secret goes here>
-```
-
-Install some required packages:
-```
-pip install spotipy flask gensim
 ```
 
 If you have previously created some cached images in `images/`, rename it to `static/`
