@@ -7,34 +7,12 @@ In the explanation, we'll assume three directories all sitting within the applic
 
 # Step 0: Create environment
 
-1. Install Conda from [this link](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+1. Install Docker for Mac from [this link]().
 
-2. Add additional channels:  
-   ```conda config --append channels conda-forge```
-   ```conda config --append channels pytorch```
+2. Follow steps and Start Docker Deamon
 
-3. Create a new conda dev environment  
-    ```conda create --name <env> python==3.10.4```
-
-4. Install required packages from requirements.txt file:  
-    ```conda install --name <env> --file requirements.txt```
-
-5. Activate the newly created environment  
-    ```conda activate <env>```
-
-6. Install pytorch following the instructions [here](https://pytorch.org/get-started/locally/).
-
-7. Install pip pkgs for the one's missing in conda repo:  
-    ```pip install pillow_heif```
-
-8. Install CLIP from OpenAI:
-    ```pip install git+https://github.com/openai/CLIP.git```
-
-9. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
+3. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
     ```$ mkdir ~/personal-data```
-
-10. In your repo, create a Sym link for the above created dir  
-    ```$ ln -s ~/personal-data personal-data```
 
 # Step 1: Downloading your photos
 
@@ -92,7 +70,14 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
 
 # Step 2: Import your photo data to SQLite (this is what will go into the episodic database)
 
-Run:
+1. Build docker image
+    ```docker build -t pd-importer```
+
+2. Run docker container
+    ```docker run -it --entrypoint bash -v ~/personal-data/:/app/personal-data/ pd-importer```
+    This will give you access to the container's shell with access to personal-data directory.
+
+3. Inside the docker image shell, run the following command:
 ```python -m src.workflow```
 
 The script will allow you to choose the steps you want to run from the workflow.  

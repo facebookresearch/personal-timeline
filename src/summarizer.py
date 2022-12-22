@@ -170,11 +170,11 @@ class Summarizer:
             most_expensive = Counter()
             most_frequent = Counter()
             for entry in entries:
-                total += float(entry.productPrice) * float(entry.productQuantity)
+                total += float(entry.productPrice.replace("$","")) * float(entry.productQuantity)
                 total_items += float(entry.productQuantity)
                 most_frequent[entry.productName] += float(entry.productQuantity)
                 most_expensive[entry.productName] = max(most_expensive[entry.productName], 
-                                                        float(entry.productPrice))
+                                                        float(entry.productPrice.replace("$","")))
 
             # total
             result.append({"text": "Total spent: $%.1f" % total,

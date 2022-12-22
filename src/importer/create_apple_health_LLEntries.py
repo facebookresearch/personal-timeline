@@ -47,7 +47,9 @@ class AppleHealthImporter(GenericImporter):
         return (result)
 
     def import_data(self, field_mappings):
-        entries = self.get_type_files_deep(str(Path(self.configs.input_directory).absolute()),
+        dir_path = str(Path(self.configs.input_directory).absolute())
+        print("Reading", dir_path)
+        entries = self.get_type_files_deep(dir_path,
                                            self.configs.filename_regex,
                                            self.configs.filetype.split(","))
         if len(entries) == 0:
