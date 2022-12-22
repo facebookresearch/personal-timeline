@@ -7,9 +7,9 @@ In the explanation, we'll assume three directories all sitting within the applic
 
 # Step 0: Create environment
 
-1. Install Docker for Mac from [this link]().
+1. Install Docker Desktop from [this link](https://docs.docker.com/desktop/).
 
-2. Follow steps and Start Docker Deamon
+2. Follow install steps and Start the Desktop app.
 
 3. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
     ```$ mkdir ~/personal-data```
@@ -76,6 +76,7 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
 2. Run docker container
     ```docker run -it --entrypoint bash -v ~/personal-data/:/app/personal-data/ pd-importer```
     This will give you access to the container's shell with access to personal-data directory.
+   (Note: Above command is for Mac. Path for mounting Volume may be a bit different for Windows)  
 
 3. Inside the docker image shell, run the following command:
 ```python -m src.workflow```
