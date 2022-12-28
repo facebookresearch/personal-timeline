@@ -38,7 +38,6 @@ if __name__ == '__main__':
     for action in action_arr:
         if action == 'geo_enrich':
             print("Running Location enrichment now...")
-            sleep(2)
             le = LocationEnricher()
             le.enrich()
             print("Location enrichment complete")
@@ -50,8 +49,6 @@ if __name__ == '__main__':
         #     print("Image enrichment complete")
         if action == 'export':
             print("Exporting enriched data to enriched_data...")
-            sleep(2)
             ex = PhotoExporter()
             ex.create_export_entity()
             print("Merge Complete. Full photo entities are available in enriched_data column")
-    print("Thanks for using the demo. See you Later, Gator!!!")

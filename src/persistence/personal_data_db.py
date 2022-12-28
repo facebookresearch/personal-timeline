@@ -30,16 +30,19 @@ import json
 import pickle
 from pathlib import Path
 from sqlite3 import Cursor
+import os
 
 from src.objects.LLEntry_obj import LLEntry
 from src.objects.import_configs import DataSourceList
 
-
+os_path_to_data = "personal-data/app_data"
 class PersonalDataDBConnector:
     def __new__(cls):
         if not hasattr(cls, 'instance'):
             cls.instance = super(PersonalDataDBConnector, cls).__new__(cls)
-            cls.instance.con = sqlite3.connect("raw_data.db")
+            if not os.path.exists(os_path_to_data):
+                os.mkdir(os_path_to_data)
+            cls.instance.con = sqlite3.connect("personal-data/app_data/raw_data.db")
             cls.instance.cursor = cls.instance.con.cursor()
             cls.instance.setup_tables()
         return cls.instance

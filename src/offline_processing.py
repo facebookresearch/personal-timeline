@@ -20,7 +20,6 @@ from geopy import Location
 from pillow_heif import register_heif_opener
 register_heif_opener()
 
-
 class LLImage:
     def __init__(self,
                  img_path: str,
@@ -336,16 +335,17 @@ def create_segments(entries: List[LLImage]):
         """Segment a list of events. The parameter eps defines the (expected) length of the segment."""
         clusters = []
 
-        curr_point = entries[0]
-        curr_cluster = [curr_point]
-        for point in entries[1:]:
-            if get_timestamp(point) <= get_timestamp(curr_point) + eps:
-                curr_cluster.append(point)
-            else:
-                clusters.append(curr_cluster)
-                curr_cluster = [point]
-            curr_point = point
-        clusters.append(curr_cluster)
+        if len(entries) > 0:
+            curr_point = entries[0]
+            curr_cluster = [curr_point]
+            for point in entries[1:]:
+                if get_timestamp(point) <= get_timestamp(curr_point) + eps:
+                    curr_cluster.append(point)
+                else:
+                    clusters.append(curr_cluster)
+                    curr_cluster = [point]
+                curr_point = point
+            clusters.append(curr_cluster)
         return clusters
 
     # create activity segments
@@ -375,6 +375,8 @@ def create_segments(entries: List[LLImage]):
 
     # create day segments
     day_segments = segment(activity_segments, 43200) # 12-hours
+    if len(day_segments)==0:
+        return []
 
     trip_segments = [[day_segments[0]]]
     prev_is_home = True
@@ -572,6 +574,6 @@ if __name__ == '__main__':
     entries = entries# [:50]
     activity_index, daily_index, trip_index = create_trip_summary(entries)
 
-    pickle.dump(activity_index, open("activity_index.pkl", "wb"))
-    pickle.dump(daily_index, open("daily_index.pkl", "wb"))
-    pickle.dump(trip_index, open("trip_index.pkl", "wb"))
+    pickle.dump(activity_index, open("personal-data/app_data/activity_index.pkl", "wb"))
+    pickle.dump(daily_index, open("personal-data/app_data/daily_index.pkl", "wb"))
+    pickle.dump(trip_index, open("personal-data/app_data/trip_index.pkl", "wb"))

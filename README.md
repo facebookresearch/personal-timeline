@@ -14,6 +14,40 @@ In the explanation, we'll assume three directories all sitting within the applic
 3. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
     ```$ mkdir ~/personal-data```
 
+4. Create environment file
+    ```$ touch env.list```
+
+5. Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
+    Add the following line to the `env.list` file:
+    ```
+   HF_TOKEN=<the token goes here>
+    ```
+* Fill in the user information in `user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
+```
+{
+    "name": "Hilbert",
+    "address": "Menlo Park, California, United States",
+    "addresses": [
+        {
+            "name": "Work",
+            "address": "Menlo Park, California, United States",
+            "radius": 0.1
+        },
+        {
+            "name": "Home",
+            "address": "Menlo Park, California, United States",
+            "radius": 0.1
+        },
+        {
+            "name": "My neighborhood",
+            "address": "Menlo Park, California, United States",
+            "radius": 1
+        }
+
+    ]
+}
+```
+
 # Step 1: Downloading your photos
 
 ### GOOGLE PHOTOS
@@ -68,7 +102,7 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
 
 3. Move the data into this folder.
 
-# Step 2: Import your photo data to SQLite (this is what will go into the episodic database)
+# Step 2: Import your photo data to SQLite (this is what will go into the episodic database) and build summaries
 
 1. Build docker image
     ```docker build -t pd-importer```
@@ -87,45 +121,11 @@ Follow the instructions to import and enrich data.
 (Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
 (Note*: please select `Yes` at the last step for exporting the LLEntries.)
 
-# Step 3: Running the offline enrichment and summarization pipeline
-
-* Install all required packages (see above and `requirements.txt`).
-* Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
-```
-export HF_TOKEN=<the token goes here>
-```
-* Fill in the user information in `user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
-```
-{
-    "name": "Hilbert",
-    "address": "Menlo Park, California, United States",
-    "addresses": [
-        {
-            "name": "Work",
-            "address": "Menlo Park, California, United States",
-            "radius": 0.1
-        },
-        {
-            "name": "Home",
-            "address": "Menlo Park, California, United States",
-            "radius": 0.1
-        },
-        {
-            "name": "My neighborhood",
-            "address": "Menlo Park, California, United States",
-            "radius": 1
-        }
-
-    ]
-}
-```
-
-* Run:
-```
-python -m src.offline_processing
-```
-
-The script will generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`. See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.
+The script will add two types of file to `~/personal-data/app_data` folder 
+ - Import your data to an SQLite format file named `raw_data.db`
+ - Generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`. 
+    (See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.)
+    
 
 
 # Step 4: Generate visualization
