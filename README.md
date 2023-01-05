@@ -108,18 +108,12 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
     ```docker build -t pd-importer .```
 
 2. Run docker container
-    ```docker run -it --entrypoint bash -v ~/personal-data/:/app/personal-data/ pd-importer```
-    This will give you access to the container's shell with access to personal-data directory.
-   (Note: Above command is for Mac. Path for mounting Volume may be a bit different for Windows)  
-
-3. Inside the docker image shell, run the following command:
-```python -m src.workflow```
-
-The script will allow you to choose the steps you want to run from the workflow.  
-Follow the instructions to import and enrich data. 
-
-(Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
-(Note*: please select `Yes` at the last step for exporting the LLEntries.)
+    ```docker run -it -v ~/personal-data/:/app/personal-data/ --env-file env.list pd-importer```
+    This will run the script that allows you to choose the steps you want to run from the workflow.  
+    Follow the instructions to import and enrich data. 
+   (Note: Above command is for Mac. Path for mounting Volume may be a bit different for Windows)
+   (Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
+   (Note*: please select `Yes` at the last step for exporting the LLEntries.)
 
 The script will add two types of file to `~/personal-data/app_data` folder 
  - Import your data to an SQLite format file named `raw_data.db`
