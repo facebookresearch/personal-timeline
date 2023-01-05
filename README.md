@@ -9,7 +9,7 @@ In the explanation, we'll assume three directories all sitting within the applic
 
 1. Install Docker Desktop from [this link](https://docs.docker.com/desktop/).
 
-2. Follow install steps and Start the Desktop app.
+2. Follow install steps and use the Desktop app to start the docker engine.
 
 3. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
     ```$ mkdir ~/personal-data```
