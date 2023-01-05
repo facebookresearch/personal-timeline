@@ -105,7 +105,7 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
 # Step 2: Import your photo data to SQLite (this is what will go into the episodic database) and build summaries
 
 1. Build docker image
-    ```docker build -t pd-importer```
+    ```docker build -t pd-importer .```
 
 2. Run docker container
     ```docker run -it --entrypoint bash -v ~/personal-data/:/app/personal-data/ pd-importer```
