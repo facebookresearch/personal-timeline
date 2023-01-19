@@ -17,8 +17,6 @@ parsedatetime
 matplotlib
 urllib3
 elasticsearch-dsl
-# pyqt5-sip
-# pyqtwebengine
 spotipy
 flask
 gensim
