@@ -19,7 +19,7 @@ In the explanation, we'll assume three directories all sitting within the applic
     ```$ touch configs/frontend.env.list```
 
 5. Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
-    Add the following line to the `env.list` file:
+    Add the following line to the `ingest.env.list` file:
     ```
    HF_TOKEN=<the token goes here>
     ```
@@ -87,7 +87,7 @@ They separate Amazon purchases from Kindle purchases into two different director
 The file you need for Amazon purchases is Retail.OrderHistory.1.csv
 The file you need for Kindle purchases is Digital Items.csv
 
-2. Create two new directory under `personal-data` folder  
+2. Create two new directory under `personal-data` folder
     ```$ mkdir ~/personal-data/amazon```  
     ```$ mkdir ~/personal-data/amazon-kindle```
 
@@ -106,7 +106,7 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
 # Step 2: Import your photo data to SQLite (this is what will go into the episodic database) and build summaries
 
 1. Build docker image
-    ```docker build -t pd-importer .```
+    ```docker build -t pd-importer -f docker/ingest/Dockerfile .```
 
 2. Run docker container
     ```docker run -it -v ~/personal-data/:/app/personal-data/ --env-file configs/ingest.env.list pd-importer```
@@ -127,14 +127,14 @@ The script will add two types of file to `~/personal-data/app_data` folder
 
 You need to first set up a Google Map API (free) following these [instructions](https://developers.google.com/maps/documentation/embed/quickstart#create-project).
 
-Copy the following lines to `fronted.env.list`:
+Copy the following lines to `frontend.env.list`:
 ```
 GOOGLE_MAP_API=<the API key goes here>
 ```
 
 To embed Spotify, you need to set up a Spotify API (free) following [here](https://developer.spotify.com/dashboard/applications). You need to log in with a spotify account, create a project, and show the `secret`.
 
-Copy the following lines to `fronted.env.list`:
+Copy the following lines to `frontend.env.list`:
 ```
 SPOTIFY_TOKEN=<the token goes here>
 SPOTIFY_SECRET=<the secret goes here>
