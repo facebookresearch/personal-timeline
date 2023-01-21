@@ -4,8 +4,9 @@
 *.pt
 *.db
 *.pyc
-*.html
 static/*
+src/frontend/static/*
 raw_data.db
 data
 personal-data
+/configs/

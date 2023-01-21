@@ -15,7 +15,7 @@ In the explanation, we'll assume three directories all sitting within the applic
     ```$ mkdir ~/personal-data```
 
 4. Create environment file
-    ```$ touch env.list```
+    ```$ touch source/ingest/env.list```
 
 5. Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
     Add the following line to the `env.list` file:
@@ -97,7 +97,7 @@ The file you need for Kindle purchases is Digital Items.csv
 1. Download your data from Spotify here -- https://support.spotify.com/us/article/data-rights-and-privacy-settings/
 They say it can take up to 30 days, but it took about 2 days. They'll email you when it's ready.
 
-2. Create two new directory under `personal-data` folder  
+2. Create a new directory under `personal-data` folder  
     ```$ mkdir ~/personal-data/spotify``` 
 
 3. Move the data into this folder.
@@ -108,7 +108,7 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
     ```docker build -t pd-importer .```
 
 2. Run docker container
-    ```docker run -it -v ~/personal-data/:/app/personal-data/ --env-file env.list pd-importer```
+    ```docker run -it -v ~/personal-data/:/app/personal-data/ --env-file configs/ingest.env.list pd-importer```
     This will run the script that allows you to choose the steps you want to run from the workflow.  
     Follow the instructions to import and enrich data. 
    (Note: Above command is for Mac. Path for mounting Volume may be a bit different for Windows)
@@ -126,15 +126,17 @@ The script will add two types of file to `~/personal-data/app_data` folder
 
 You need to first set up a Google Map API (free) following these [instructions](https://developers.google.com/maps/documentation/embed/quickstart#create-project).
 
+Copy the following lines to `fronted.env.list`:
 ```
-export GOOGLE_MAP_API=<the API key goes here>
+GOOGLE_MAP_API=<the API key goes here>
 ```
 
 To embed Spotify, you need to set up a Spotify API (free) following [here](https://developer.spotify.com/dashboard/applications). You need to log in with a spotify account, create a project, and show the `secret`.
 
+Copy the following lines to `fronted.env.list`:
 ```
-export SPOTIFY_TOKEN=<the token goes here>
-export SPOTIFY_SECRET=<the secret goes here>
+SPOTIFY_TOKEN=<the token goes here>
+SPOTIFY_SECRET=<the secret goes here>
 ```
 
 If you have previously created some cached images in `images/`, rename it to `static/`
