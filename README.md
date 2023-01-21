@@ -15,7 +15,8 @@ In the explanation, we'll assume three directories all sitting within the applic
     ```$ mkdir ~/personal-data```
 
 4. Create environment file
-    ```$ touch source/ingest/env.list```
+    ```$ touch configs/ingest.env.list```
+    ```$ touch configs/frontend.env.list```
 
 5. Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
     Add the following line to the `env.list` file:
