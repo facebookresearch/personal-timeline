@@ -112,7 +112,7 @@ class GoogleMapsImporter(GenericImporter):
             "longitudeE7" not in activity["startLocation"] or \
             "latitudeE7" not in activity["endLocation"] is None or \
             "longitudeE7" not in activity["endLocation"] is None:
-            print("Some Location data is missing. Skipping", activity)
+            #print("Some Location data is missing. Skipping", activity)
             return
 
         start_lat = convertOutOfE7(activity["startLocation"]["latitudeE7"])
@@ -188,7 +188,7 @@ class GoogleMapsImporter(GenericImporter):
                 else:
                     print("Can't recognize key", key_list[0])
                 if obj is None:
-                    print("Skipping row:", i)
+                    #print("Skipping row:", i)
                     continue
                 data_entry = self.build_db_entry(obj)
                 self.pdc.add_or_replace_personal_data(data_entry, "dedup_key")

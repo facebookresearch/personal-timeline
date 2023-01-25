@@ -6,7 +6,5 @@
 *.pyc
 static/*
 src/frontend/static/*
-raw_data.db
-data
 personal-data
-/configs/
+env/

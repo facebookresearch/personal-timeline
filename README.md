@@ -11,19 +11,21 @@ In the explanation, we'll assume three directories all sitting within the applic
 
 2. Follow install steps and use the Desktop app to start the docker engine.
 
-3. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
-    ```$ mkdir ~/personal-data```
+3. Run init script
+    ```
+    sh init.sh
+    ```
+This will create a bunch of files/folders/symlinks needed for running the app.
+This will also create a new directory under your home folder `~/personal-data`, the directory where your personal data will reside.
 
-4. Create environment file
-    ```$ touch configs/ingest.env.list```
-    ```$ touch configs/frontend.env.list```
-
-5. Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
-    Add the following line to the `ingest.env.list` file:
+# Step 1: General Setup
+## For Data Ingestion
+1. Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
+    Add the following line to the `configs/ingest.env.list` file:
     ```
    HF_TOKEN=<the token goes here>
     ```
-* Fill in the user information in `user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
+2. Fill in the user information in `user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
 ```
 {
     "name": "Hilbert",
@@ -49,7 +51,30 @@ In the explanation, we'll assume three directories all sitting within the applic
 }
 ```
 
-# Step 1: Downloading your photos
+## For Data visualization
+
+1. To set up a Google Map API (free), follow these [instructions](https://developers.google.com/maps/documentation/embed/quickstart#create-project).
+
+Copy the following lines to `configs/frontend.env.list`:
+    ```
+    GOOGLE_MAP_API=<the API key goes here>
+    ```
+
+2. To embed Spotify, you need to set up a Spotify API (free) following [here](https://developer.spotify.com/dashboard/applications). You need to log in with a spotify account, create a project, and show the `secret`.
+
+Copy the following lines to `configs/frontend.env.list`:
+    ```
+    SPOTIFY_TOKEN=<the token goes here>
+    SPOTIFY_SECRET=<the secret goes here>
+    ```
+
+3. If you have previously created some cached images in `images/`, rename it to `static/`
+    ```
+    mv images/ static/
+    ```
+
+
+# Step 2: Downloading your personal data
 
 ### GOOGLE PHOTOS
 1. You need to download your Google photos from [Google Takeout](https://takeout.google.com/).  
@@ -61,22 +86,17 @@ The easiest way to do this on a Mac is:
      -- Select the .HEIC files you want to convert.   
      -- Right click and choose "quick actions" and then you'll have an option to convert the image.  
      -- If you're converting many photos, this may take a few minutes. -->
-2. Create a new directory under `personal-data` folder  
-    ```$ mkdir ~/personal-data/google_photos```
-3. Move all the unzipped folders inside `personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
+
+2. Move all the unzipped folders inside `~/personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
 
 ### FACEBOOK DATA
 1. Go to [Facebook Settings](https://www.facebook.com/settings?tab=your_facebook_information) 
 2. Click on <b>Download your information</b> and download FB data in JSON format
-3. Create a new directory under `personal-data` folder  
-    ```$ mkdir ~/personal-data/facebook```
-3. Unzip the downloaded file and copy the directory `posts` sub-folder to the above folder. The `posts` folder would sit directly under the facebook folder.
+3. Unzip the downloaded file and copy the directory `posts` sub-folder to `~/personal-data/facebook`. The `posts` folder would sit directly under the facebook folder.
 
 ### APPLE HEALTH
 1. Go to the Apple Health app on your phone and ask to export your data. This will create a file called iwatch.xml and that's the input file to the importer.
-2. Create a new directory under `personal-data` folder  
-    ```$ mkdir ~/personal-data/apple-health```
-3. Move the downloaded file to this folder.  
+2. Move the downloaded file to this `~/personal-data/apple-health`
 
 ### AMAZON
 1. Request your data from Amazon here: https://www.amazon.com/gp/help/customer/display.html?nodeId=GXPU3YPMBZQRWZK2
@@ -87,131 +107,50 @@ They separate Amazon purchases from Kindle purchases into two different director
 The file you need for Amazon purchases is Retail.OrderHistory.1.csv
 The file you need for Kindle purchases is Digital Items.csv
 
-2. Create two new directory under `personal-data` folder
-    ```$ mkdir ~/personal-data/amazon```  
-    ```$ mkdir ~/personal-data/amazon-kindle```
-
-3. Move data for amazon purchases to `amazon` folder and of kindle downloads to `amazon-kindle` folder
+2. Move data for amazon purchases to `~/personal-data/amazon` folder and of kindle downloads to `~/personal-data/amazon-kindle` folder
 
 ### SPOTIFY
 
 1. Download your data from Spotify here -- https://support.spotify.com/us/article/data-rights-and-privacy-settings/
 They say it can take up to 30 days, but it took about 2 days. They'll email you when it's ready.
 
-2. Create a new directory under `personal-data` folder  
-    ```$ mkdir ~/personal-data/spotify``` 
+2. Move the data into `~/personal-data/spotify` folder.
 
-3. Move the data into this folder.
+# Step 3: Running the code
+Now that we have all the data and setting in place, we can either run individual steps or the end-to-end system.
+This will import your photo data to SQLite (this is what will go into the episodic database), build summaries
+and make data available for visualization and search.
 
-# Step 2: Import your photo data to SQLite (this is what will go into the episodic database) and build summaries
 
-1. Build docker image
-    ```docker build -t pd-importer -f docker/ingest/Dockerfile .```
-
-2. Run docker container
-    ```docker run -it -v ~/personal-data/:/app/personal-data/ --env-file configs/ingest.env.list pd-importer```
-    This will run the script that allows you to choose the steps you want to run from the workflow.  
-    Follow the instructions to import and enrich data. 
-   (Note: Above command is for Mac. Path for mounting Volume may be a bit different for Windows)
-   (Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
-   (Note*: please select `Yes` at the last step for exporting the LLEntries.)
-
-The script will add two types of file to `~/personal-data/app_data` folder 
+Running the Ingestion container will add two types of file to `~/personal-data/app_data` folder
  - Import your data to an SQLite format file named `raw_data.db`
  - Generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`. 
     (See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.)
-    
+
+Running the Frontend will start a flask server inside a docker container at `http://127.0.0.1:5000`. 
+You can view the timeline via this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
 
 
-# Step 4: Generate visualization
-
-You need to first set up a Google Map API (free) following these [instructions](https://developers.google.com/maps/documentation/embed/quickstart#create-project).
-
-Copy the following lines to `frontend.env.list`:
+### Option 1:
+To run the pipeline end-to end(both frontend and backend), simply run 
 ```
-GOOGLE_MAP_API=<the API key goes here>
-```
-
-To embed Spotify, you need to set up a Spotify API (free) following [here](https://developer.spotify.com/dashboard/applications). You need to log in with a spotify account, create a project, and show the `secret`.
-
-Copy the following lines to `frontend.env.list`:
-```
-SPOTIFY_TOKEN=<the token goes here>
-SPOTIFY_SECRET=<the secret goes here>
+docker-compose up -d
 ```
 
-If you have previously created some cached images in `images/`, rename it to `static/`
+### Option 2:
+You can also run ingestion and visualization separately.
+To start data ingestion, use  
 ```
-mv images/ static/
+docker-compose up -d backend
+```  
+To start visualization
 ```
-
-Run
-```
-python server.py
-```
-
-It will start a flask server at `http://127.0.0.1:5000`. You can view the timeline this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
-
-You can also search the timeline with queries :).
-
-<!--
-# Step 6: Running the interactive GUI (WIP)
-
-Make sure that you have installed QT from `requirements.txt`. Launch the interactive GUI:
-
-```
-python -m src.gui.main
+docker-compose up -d frontend
 ```
 
-Now you can search the timeline with queries!
-
-#### Currently we use the BLIP package from Salesforce to generate captions.
-
-----------
-This part of README is in progress. Please ignore:
-
-You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the right place (there's always a variable at the top of the file with the pointer).
-
-### GOOGLE TIMELINE
-Go to Google Takeout -- https://takeout.google.com/settings/takeout and ask to download your maps data.
-
-Clone  https://github.com/salesforce/BLIP
-
-Run:
-    
-    python -m src.get_captions
-
-
-
-### APPLE HEALTH
-Run:
-    
-    python -m code.create_apple_health_LLEntries.py
-
-
-# CREATING THE LIFELOG (old version)
-
-## Step 1: create an inverted index from date to all the entries from the different services.
-
-Run 
-    
-    python -m src.create_index
-Make sure that the variable DATA_DIR is the absolute path to the data directory.
-
-## Step 2: Create the summary entries (daily, monthly, more to come)
-
-In create_summary_LLEntries.py there's a variable with a list of cities that you consider home or around your home (hence, if you're there, you're not on a trip). Update that list to suit your situation. It's a hack -- we'll do it automatically at some point.
-
-Run 
-
-    python -m src.create_summary_LLEntries.py
-
-# VISUALIZATION
-
-install PySimpleGUI
-
-Run 
-
-    python -m src.timeline.py
-
-Make sure the variable image_directory_path points to the directory with your photos. -->
+# Step 4: Check progress
+Once the docker command is run, you can see running containers for backend and frontend in the docker for Mac UI.
+Copy the container Id for ingest and see logs by running the following command:  
+```
+docker logs -f <container_id>
+```

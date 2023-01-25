@@ -83,6 +83,9 @@ class PersonalDataDBConnector:
             self.con.execute(sql)
         self.con.commit()
 
+    def get_data_source_location(self):
+        return PersonalDataDBConnector.bootstrap_locations["data_source"]
+
     def setup_tables(self):
         for table in PersonalDataDBConnector.tables:
             lookup_sql = "SELECT name FROM sqlite_master WHERE name='" + table + "'"
@@ -192,3 +195,15 @@ class PersonalDataDBConnector:
         else:
             #print(filename, " found.")
             return True
+
+    def print_data_stats_by_source(self):
+        stats_sql = """SELECT ds.source_name, COUNT(*) as count
+                    from data_source ds LEFT JOIN personal_data pd 
+                    on pd.source_id=ds.id group by ds.source_name asc"""
+        res = self.cursor.execute(stats_sql)
+
+        print("Data Stats by source:::")
+        print("Source", ": ", "Count")
+        for row in res.fetchall():
+           print(row[0],": ", row[1])
+

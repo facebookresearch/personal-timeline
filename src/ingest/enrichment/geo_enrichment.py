@@ -46,10 +46,12 @@ class LocationEnricher:
         self.cache_miss += 1
         return location
 
-    def enrich(self):
+    def enrich(self, incremental=True):
         select_cols = "id, data"
         select_count = "count(*)"
-        where_clause={"location_done": "=0", "data": "is not NULL"}
+        where_clause={"data": "is not NULL"}
+        if incremental == True:
+            where_clause["location_done"] = "=0"
         count_res = self.db.search_personal_data(select_count, where_clause)
         pending = count_res.fetchone()
         if pending is None:

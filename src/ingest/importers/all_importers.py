@@ -145,7 +145,7 @@ class GenericImporter:
 #This class supports import of non-nested JSON files
 class SimpleJSONImporter(GenericImporter):
     def __init__(self, source_id:int, source_name:str, entry_type:EntryType, configs:SourceConfigs):
-        print("JSONImporter")
+        # print("JSONImporter")
         super().__init__(source_id, source_name, entry_type, configs)
     
     def import_data(self, field_mappings:list):
@@ -173,7 +173,7 @@ class SimpleJSONImporter(GenericImporter):
 
 class CSVImporter(GenericImporter):
     def __init__(self, source_id:int, source_name: str, entry_type: EntryType, configs:SourceConfigs):
-        print("CSVImporter")
+        #print("CSVImporter")
         super().__init__(source_id, source_name, entry_type, configs)
 
     def import_data(self, field_mappings: list):

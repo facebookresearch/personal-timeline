@@ -19,7 +19,7 @@ ORIGIN_TIMEZONE = "America/Los_Angeles"
 
 class AppleHealthImporter(GenericImporter):
     def __init__(self, source_id:int, source_name: str, entry_type: EntryType, configs:SourceConfigs):
-        print("AppleHealthImporter")
+        # print("AppleHealthImporter")
         self.current_timezone = "America/Los_Angeles"
         self.activityTranslation = {"HKWorkoutActivityTypeRunning": "running",
                                'HKWorkoutActivityTypeElliptical': "elliptical",

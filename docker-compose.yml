@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: src/frontend/Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./personal-data/:/app/personal-data/
+    env_file:
+      - env/frontend.env.list
+
+  backend:
+    build:
+      context: .
+      dockerfile: src/ingest/Dockerfile
+    volumes:
+      - ./personal-data/:/app/personal-data/
+    env_file:
+      - env/ingest.env.list
+      - src/conf/ingest_configs

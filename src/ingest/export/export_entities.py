@@ -10,10 +10,13 @@ class PhotoExporter:
 
     def __init__(self):
         self.db = PersonalDataDBConnector()
-    def create_export_entity(self):
+    def create_export_entity(self, incremental=True):
         #Read data, location, caption from photos
         select_cols = "id, data, location, captions, embeddings, status"
-        where_clause = {"export_done": "=0", "data":"is not NULL"}
+        where_clause = {"data": "is not NULL"}
+        if incremental == True:
+            where_clause["export_done"] = "=0"
+
         select_count = "count(*)"
         count_res = self.db.search_personal_data(select_count, where_clause)
         pending = count_res.fetchone()

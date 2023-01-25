@@ -14,21 +14,6 @@ class GenericImportOrchestrator:
         self.pdc = PersonalDataDBConnector()
         self.import_greenlit_sources = []
 
-    def seek_user_consent(self):
-        existing_sources = self.pdc.read_data_source_conf("id, source_name, configs")
-        if existing_sources is not None:
-            for source in existing_sources:
-                id = source[0]
-                source_name = source[1]
-                conf:SourceConfigs = pickle.loads(source[2])
-                print("Configurations found for ", source_name)
-                #print("Configs: ", conf.__dict__)
-                uinput = input("Import data for " + source_name + " from '"+ conf.input_directory +"' [y/n]? ")
-                if uinput.lower() == 'y':
-                    self.import_greenlit_sources.append(source_name)
-        else:
-            print("No Data source registered with importers.")
-
     def add_new_source(self, datasource: DataSourceList):
         # TODO: Insert new entry to Data Source
         datasource.__dict__
@@ -37,17 +22,15 @@ class GenericImportOrchestrator:
         if len(self.import_greenlit_sources) == 0:
             print("No generic imports scheduled.")
         else:
-            for source in self.import_greenlit_sources:
-                result = self.pdc.read_data_source_conf("id, source_name, entry_type, configs, field_mappings", source)
-                if len(result) == 1:
-                    source_id = result[0][0]
-                    source_name = result[0][1]
-                    entry_type = result[0][2]
-                    configs: SourceConfigs = pickle.loads(result[0][3])
-                    field_mappings: list = pickle.loads(result[0][4])
-                    #print("Configs for ", source_name, ": ")
-                    #print(configs.__dict__)
-                    #print(field_mappings)
+            existing_sources = self.pdc.read_data_source_conf("id, source_name, entry_type, configs, field_mappings")
+            if existing_sources is not None:
+                for source in existing_sources:
+                    source_id = source[0]
+                    source_name = source[1]
+                    entry_type = source[2]
+                    configs: SourceConfigs = pickle.loads(source[3])
+                    field_mappings: list = pickle.loads(source[4])
+                    print("Configurations found for ", source_name +". Attempting to import data from", configs.input_directory)
                     imp=None
                     if source_name == "GoogleTimeline":
                         imp = GoogleMapsImporter(source_id, source_name, entry_type, configs)
@@ -61,8 +44,10 @@ class GenericImportOrchestrator:
                         imp = CSVImporter(source_id, source_name, entry_type, configs)  # TODO CSV
                     elif configs.filetype == FileType.XML and source_name=="AppleHealth":
                         imp = AppleHealthImporter(source_id, source_name, entry_type, configs) #TODO XML
-                    print("Beginning import for", imp.source_name)
+                    # print("Beginning import for", imp.source_name)
                     imp.import_data(field_mappings)
+            else:
+                print("No Data source registered with importers.")
 
     def import_from_xml(self, source_name: str, configs: SourceConfigs, field_mappings: list):
         print("XML")
