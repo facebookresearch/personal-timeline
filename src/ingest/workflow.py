@@ -39,7 +39,7 @@ if __name__ == '__main__':
             print("Running Location enrichment now...")
             if os.environ["incremental_geo_enrich"] is not None and os.environ["incremental_geo_enrich"]!='':
                 geoenrich_increments = os.environ["incremental_geo_enrich"]
-            print("Incremental Gro Enrich flag is set to ", geoenrich_increments)
+            print("Incremental Geo Enrich flag is set to ", geoenrich_increments)
             le = LocationEnricher()
             le.enrich(geoenrich_increments)
             print("Location enrichment complete")
