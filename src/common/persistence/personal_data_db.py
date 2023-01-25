@@ -199,7 +199,7 @@ class PersonalDataDBConnector:
     def print_data_stats_by_source(self):
         stats_sql = """SELECT ds.source_name, COUNT(*) as count
                     from data_source ds LEFT JOIN personal_data pd 
-                    on pd.source_id=ds.id group by ds.source_name asc"""
+                    on pd.source_id=ds.id group by ds.source_name"""
         res = self.cursor.execute(stats_sql)
 
         print("Data Stats by source:::")
