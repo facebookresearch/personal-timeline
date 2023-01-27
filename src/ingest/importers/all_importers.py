@@ -152,7 +152,7 @@ class SimpleJSONImporter(GenericImporter):
         entries = self.get_type_files_deep(str(Path(self.configs.input_directory).absolute()),
                                       self.configs.filename_regex,
                                       self.configs.filetype.split(","))
-        if len(entries) == 0:
+        if entries is None or len(entries) == 0:
             print("NotFound: Data expected in", self.configs.input_directory, "while importing for", self.source_name)
             if self.configs.filename_regex is not None:
                 print("File pattern searched for:", self.configs.filename_regex, "extn:",self.configs.filetype)

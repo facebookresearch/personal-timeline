@@ -17,7 +17,7 @@ from src.ingest.importers.generic_importer_workflow import GenericImportOrchestr
 # 5. Generate Summaries -> Some Storage TBD
 if __name__ == '__main__':
     action_arr = []
-    print("Welcome to the import workflow for everything personal!!!")
+    print("--------------Data Import Start--------------")
     # print("Let's begin. Press [n] at anytime to break")
     # inp = input("1. Google Photos (data must be present in personal-data/google_photos) [y/n]? ").upper()
     # action_arr.append("gp") if inp == 'Y' else None
@@ -58,4 +58,8 @@ if __name__ == '__main__':
             ex.create_export_entity(export_increments)
             print("Merge Complete. Full photo entities are available in enriched_data column")
     # Print Import Summary
+    print("------------------------------------------------")
+    print("--------------Data Stats By Source--------------")
+    print("------------------------------------------------")
     PersonalDataDBConnector().print_data_stats_by_source()
+    print("--------------Data Import Complete--------------")

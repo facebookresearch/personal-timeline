@@ -1,10 +1,9 @@
 from pathlib import Path
 import json
 import os
-from src.common.persistence.personal_data_db import PersonalDataDBConnector
 from src.common.objects.import_configs import DataSourceList
 
-bootstrap_file = PersonalDataDBConnector().get_data_source_location()
+bootstrap_file = "src/common/bootstrap/data_source.json"
 cwd = str(Path().absolute())
 bootstrap_file = cwd + "/" + bootstrap_file
 with open(bootstrap_file, 'r') as f1:

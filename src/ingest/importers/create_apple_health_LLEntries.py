@@ -52,7 +52,7 @@ class AppleHealthImporter(GenericImporter):
         entries = self.get_type_files_deep(dir_path,
                                            self.configs.filename_regex,
                                            self.configs.filetype.split(","))
-        if len(entries) == 0:
+        if entries is None or len(entries) == 0:
             print("NotFound: Data expected in ", self.configs.input_directory, " while importing for ",
                   self.source_name)
             if self.configs.filename_regex is not None:

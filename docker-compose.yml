@@ -9,6 +9,8 @@ services:
       - "5000:5000"
     volumes:
       - ./personal-data/:/app/personal-data/
+    environment:
+      - APP_DATA_DIR=personal-data/app_data
     env_file:
       - env/frontend.env.list
 
@@ -18,6 +20,8 @@ services:
       dockerfile: src/ingest/Dockerfile
     volumes:
       - ./personal-data/:/app/personal-data/
+    environment:
+      - APP_DATA_DIR=personal-data/app_data
     env_file:
       - env/ingest.env.list
-      - src/conf/ingest_configs
+      - conf/ingest.conf

@@ -68,11 +68,6 @@ Copy the following lines to `configs/frontend.env.list`:
     SPOTIFY_SECRET=<the secret goes here>
     ```
 
-3. If you have previously created some cached images in `images/`, rename it to `static/`
-    ```
-    mv images/ static/
-    ```
-
 
 # Step 2: Downloading your personal data
 
@@ -127,10 +122,6 @@ Running the Ingestion container will add two types of file to `~/personal-data/a
  - Generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`. 
     (See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.)
 
-Running the Frontend will start a flask server inside a docker container at `http://127.0.0.1:5000`. 
-You can view the timeline via this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
-
-
 ### Option 1:
 To run the pipeline end-to end(both frontend and backend), simply run 
 ```
@@ -154,3 +145,10 @@ Copy the container Id for ingest and see logs by running the following command:
 ```
 docker logs -f <container_id>
 ```
+
+# Step 5: Visualization
+
+Running the Frontend will start a flask server inside a docker container at `http://127.0.0.1:5000`. 
+You can view the timeline via this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
+* Note: Accessing UI via `http://localhost:5000` does not render the timeline due to some CORS Policy restrictions. 
+Make sure you are using `127.0.0.1` as prescribed.

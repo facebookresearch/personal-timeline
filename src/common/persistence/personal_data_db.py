@@ -35,14 +35,15 @@ import os
 from src.common.objects.LLEntry_obj import LLEntry
 from src.common.objects.import_configs import DataSourceList
 
-os_path_to_data = "personal-data/app_data"
+os_path_to_data = os.environ['APP_DATA_DIR']
 class PersonalDataDBConnector:
     def __new__(cls):
         if not hasattr(cls, 'instance'):
             cls.instance = super(PersonalDataDBConnector, cls).__new__(cls)
             if not os.path.exists(os_path_to_data):
+                print("Path does not exist. Creating", os_path_to_data)
                 os.mkdir(os_path_to_data)
-            cls.instance.con = sqlite3.connect("personal-data/app_data/raw_data.db")
+            cls.instance.con = sqlite3.connect(os.path.join(os_path_to_data, "raw_data.db"))
             cls.instance.cursor = cls.instance.con.cursor()
             cls.instance.setup_tables()
         return cls.instance

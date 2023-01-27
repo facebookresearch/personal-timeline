@@ -1,5 +1,5 @@
 #! /bin/bash
-mkdir ~/personal-data
+mkdir -p ~/personal-data/app_data/static
 ln -s ~/personal-data
 touch env/ingest.env.list
 touch env/frontend.env.list
