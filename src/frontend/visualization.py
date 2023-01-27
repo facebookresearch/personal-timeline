@@ -63,7 +63,7 @@ class TimelineRenderer:
         """
         signature = '_'.join([os.path.split(path)[1] for path in image_paths])
 
-        summary_path = "static/summary_%s.htm" % (signature)
+        summary_path = os.path.join(os.environ["APP_DATA_DIR"],"static/summary_%s.htm" % (signature))
         link = f'<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="{summary_path}"></iframe>'
         content_str = """<link rel="stylesheet" href="main.css">"""
         # content_str += "<div class='summary_img_content'>"
@@ -227,9 +227,9 @@ class TimelineRenderer:
                 img_path = item["img_path"] + '.compressed.jpg'
                 name = item["name"]
                 _, tail = os.path.split(img_path)
-                new_path = os.path.join('static/', tail)
+                new_path = os.path.join(os.environ["APP_DATA_DIR"], 'static', tail)
                 if not os.path.exists(new_path):
-                    os.system('cp "%s" static/' % (img_path))
+                    os.system('cp "%s" %s' % (img_path, os.path.join(os.environ["APP_DATA_DIR"],"static/")))
 
                 obj = self.create_hover_object({"text": name, "detail": name, "media": new_path})
                 time_str = item['datetime'].strftime('%b %d, %Y %H:%M')
@@ -656,10 +656,11 @@ class TimelineRenderer:
         return slide
 
 if __name__ == '__main__':
-    if not os.path.exists("static/"):
-        os.makedirs("static/")
+    static_path = os.path.join(os.environ["APP_DATA_DIR"], "static")
+    print("Path for storing Static Visualization files is ", static_path)
+    os.makedirs(static_path, exist_ok=True)
 
-    renderer = TimelineRenderer(path='..')
+    renderer = TimelineRenderer()
     json_obj = renderer.create_timeline()
     # template = open('index.html.template').read()
     # template = template.replace('"timeline object template"', json.dumps(json_obj))

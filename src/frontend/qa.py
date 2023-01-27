@@ -111,7 +111,7 @@ class QAEngine:
                 for v in value:
                     if v['name'] == tag or key == tag:
                         path = v['img_path']
-                        path = 'static/' + os.path.split(path)[-1] + '.compressed.jpg'
+                        path = os.path.join(os.environ["APP_DATA_DIR"],'static', (os.path.split(path)[-1] + '.compressed.jpg'))
                         result.append({"img_path": path, 'name': v['name'] + date_str})
         return result
 
