@@ -1,9 +1,11 @@
 from flask import Flask, request, render_template
 from src.frontend.visualization import TimelineRenderer
 from src.frontend.qa import QAEngine
+import os
 
+static_folder = os.path.join(os.environ['APP_DATA_DIR'],'static')
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="")
 
 # for profiling
 # from werkzeug.middleware.profiler import ProfilerMiddleware
@@ -58,4 +60,4 @@ def qa():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run('0.0.0.0', debug=True)
