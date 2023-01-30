@@ -5,7 +5,7 @@ import os
 
 static_folder = os.path.join(os.environ['APP_DATA_DIR'],'static')
 
-app = Flask(__name__, static_folder="")
+app = Flask(__name__, static_folder=static_folder)
 
 # for profiling
 # from werkzeug.middleware.profiler import ProfilerMiddleware
