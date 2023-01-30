@@ -1,10 +1,8 @@
 import datetime
-import os
 from pathlib import Path
 
 import pytz
 import geopy
-import dbm
 import json
 
 from datetime import datetime, timedelta
@@ -14,6 +12,7 @@ from math import radians
 from typing import Union, List
 from geopy import Location
 
+from src.common.geo_helper import GeoHelper
 
 EPOCH = datetime(1970,1,1)
 
@@ -132,7 +131,7 @@ def distance(latlon_a, latlon_b):
     return result[1, 0] * 6371000 / 1000  # multiply by Earth radius to get kilometers
 
 
-geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
+geolocator = GeoHelper()
 geo_cache = {}
 try:
     translate_geo_cache = {} #dbm.open('personal-data/app_data/geo_cache', 'c')
@@ -180,7 +179,7 @@ def get_location_attr(loc: Location, attr: Union[str, List]):
     if 'address' not in addr.raw:
         cood = (loc.latitude, loc.longitude)
         if cood not in geo_cache:
-            addr = geolocator.reverse(cood)
+            addr = geolocator.calculateLocation(loc.latitude, loc.longitude)
             geo_cache[cood] = addr
         else:
             addr = geo_cache[cood]

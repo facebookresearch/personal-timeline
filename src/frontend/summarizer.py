@@ -6,7 +6,6 @@ from pathlib import Path
 import pandas as pd
 import spotipy
 import json
-import geopy
 
 from glob import glob
 from typing import List, Tuple
@@ -15,9 +14,11 @@ from geopy import Location
 from collections import Counter
 from spotipy.oauth2 import SpotifyClientCredentials
 
+from src.common.geo_helper import GeoHelper
 from src.common.objects.LLEntry_obj import LLEntry
 from src.common.persistence.personal_data_db import PersonalDataDBConnector
 from src.common.util import distance, translate_place_name, get_location_attr
+
 register_heif_opener()
 
 
@@ -31,7 +32,7 @@ class Summarizer:
         self.trip_index = pickle.load(open('personal-data/app_data/trip_index.pkl', 'rb'))
 
         # load addresses
-        self.geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
+        self.geolocator = GeoHelper()
         self.addresses = json.load(open("src/common/user_info.json"))["addresses"]
         for addr in self.addresses:
             addr["location"] = self.geolocator.geocode(addr["address"])

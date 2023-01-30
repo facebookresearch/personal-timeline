@@ -8,12 +8,11 @@ from src.common.objects.LLEntry_obj import LLEntry
 from src.common.objects.import_configs import SourceConfigs
 from src.common.util import *
 import time
-from geopy.geocoders import Nominatim
 
 # This is where the photos and their jsons sit
 ORIGIN_TIMEZONE = str(pytz.utc)
 global geolocator
-geolocator = Nominatim(user_agent="pim_photo")
+geolocator = GeoHelper()
 
 
 # se: True if it's for start, False for end
@@ -25,7 +24,7 @@ class GoogleMapsImporter(GenericImporter):
     def calculateLocationFromLatLong(self, lat, lon):
         # print ("lat is ", lat)
         time.sleep(1)
-        location = geolocator.reverse(str(lat) + "," + str(lon), addressdetails=True)
+        location = geolocator.calculateLocation(str(lat), str(lon), addressdetails=True)
         return (location)
 
     def generate_textDescription(self, details):
