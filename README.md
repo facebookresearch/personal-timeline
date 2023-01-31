@@ -13,7 +13,7 @@ In the explanation, we'll assume three directories all sitting within the applic
 
 3. Run init script
     ```
-    sh init.sh
+    sh src/init.sh
     ```
 This will create a bunch of files/folders/symlinks needed for running the app.
 This will also create a new directory under your home folder `~/personal-data`, the directory where your personal data will reside.
@@ -21,7 +21,7 @@ This will also create a new directory under your home folder `~/personal-data`, 
 # Step 1: General Setup
 ## For Data Ingestion
 1. Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
-    Add the following line to the `configs/ingest.env.list` file:
+    Add the following line to the `env/ingest.env.list` file:
     ```
    HF_TOKEN=<the token goes here>
     ```
@@ -57,14 +57,14 @@ values for these parameters can be adjusted.
 
 1. To set up a Google Map API (free), follow these [instructions](https://developers.google.com/maps/documentation/embed/quickstart#create-project).
 
-Copy the following lines to `configs/frontend.env.list`:
+Copy the following lines to `env/frontend.env.list`:
     ```
     GOOGLE_MAP_API=<the API key goes here>
     ```
 
 2. To embed Spotify, you need to set up a Spotify API (free) following [here](https://developer.spotify.com/dashboard/applications). You need to log in with a spotify account, create a project, and show the `secret`.
 
-Copy the following lines to `configs/frontend.env.list`:
+Copy the following lines to `env/frontend.env.list`:
     ```
     SPOTIFY_TOKEN=<the token goes here>
     SPOTIFY_SECRET=<the secret goes here>
