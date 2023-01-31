@@ -5,6 +5,5 @@
 *.db
 *.pyc
 static/*
-src/frontend/static/*
 personal-data
 env/
