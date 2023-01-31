@@ -40,5 +40,5 @@ class LocationEnricher:
             #print("Updating location to::: ", photo_location.raw)
             if len(entry_location) > 0:
                 self.db.add_or_replace_personal_data({"location": entry_location, "location_done": '1', "id": row_id}, "id")
-        print("Cache Hits: ", self.geo_helper.cache_hits," Cache misses: ", self.geo_helper.cache_miss)
+        print("Cache Hits: ", self.geo_helper.reverse_cache_hits, " Cache misses: ", self.geo_helper.reverse_cache_miss)
         print("Geo Processing completed for ", count, " entries")
