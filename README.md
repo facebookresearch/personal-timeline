@@ -74,18 +74,37 @@ SPOTIFY_SECRET=<the secret goes here>
 
 # Step 2: Downloading your personal data
 
-### GOOGLE PHOTOS
-1. You need to download your Google photos from [Google Takeout](https://takeout.google.com/).  
+We currently supports 9 data sources. Here is a summary table:
+
+| Digital Services | Instructions                                                                        | Destinations                                                             | Use cases                                              |
+|------------------|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------|
+| Apple Health     | [Link](https://github.com/alonhalevy/personal-timeline#apple-health)  | personal-data/apple-health                                               | Exercise patterns, calorie counts                      |
+| Amazon           | [Link](https://github.com/alonhalevy/personal-timeline#amazon)        | personal-data/amazon                                                     | Product recommendation, purchase history summarization |
+| Amazon Kindle    | [Link](https://github.com/alonhalevy/personal-timeline#amazon)        | personal-data/amazon-kindle                                              | Book recommendation                                    |
+| Spotify          | [Link](https://github.com/alonhalevy/personal-timeline#spotify)       | personal-data/spotify                                                    | Music / streaming recommendation                       |
+| Venmo            | [Link](https://github.com/alonhalevy/personal-timeline#venmo)         | personal-data/venmo                                                      | Monthly spend summarization                            |
+| Libby            | [Link](https://github.com/alonhalevy/personal-timeline#libby)         | personal-data/libby                                                      | Book recommendation                                    |
+| Google Photos    | [Link](https://github.com/alonhalevy/personal-timeline#google-photos) | personal-data/google_photos                                              | Food recommendation, object detections,                |
+| Google Location  | [Link](https://github.com/alonhalevy/personal-timeline#google-photos) | personal-data/google-timeline/Location History/Semantic Location History | Location tracking / visualization                      |
+| Facebook posts   | [Link](https://github.com/alonhalevy/personal-timeline#facebook-data) | personal-data/facebook                                                   | Question-Answering over FB posts / photos              |
+
+### GOOGLE PHOTOS and Timeline
+<!--1. You need to download your Google photos from [Google Takeout](https://takeout.google.com/).  
 The download from Google Takeout would be in multiple zip files. Unzip all the files.
 
-<!-- 2. It may be the case that some of your photo files are .HEIC. In that case follow the steps below to convert them to .jpeg  
+2. It may be the case that some of your photo files are .HEIC. In that case follow the steps below to convert them to .jpeg  
 The easiest way to do this on a Mac is:
 
      -- Select the .HEIC files you want to convert.   
      -- Right click and choose "quick actions" and then you'll have an option to convert the image.  
-     -- If you're converting many photos, this may take a few minutes. -->
+     -- If you're converting many photos, this may take a few minutes. 
 
-2. Move all the unzipped folders inside `~/personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
+2. Move all the unzipped folders inside `~/personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.-->
+
+1. You can download your Google photos and location (also gmail, map and google calendar) data from [Google Takeout](https://takeout.google.com/).
+2. The download from Google Takeout would be in multiple zip files. Unzip all the files.
+3. For Google photos, move all the unzipped folders inside `~/personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
+4. For Google locations, move the unzipped files to `personal-data/google-timeline/Location History/Semantic Location History`.
 
 ### FACEBOOK DATA
 1. Go to [Facebook Settings](https://www.facebook.com/settings?tab=your_facebook_information) 
@@ -106,6 +125,17 @@ The file you need for Amazon purchases is Retail.OrderHistory.1.csv
 The file you need for Kindle purchases is Digital Items.csv
 
 2. Move data for amazon purchases to `~/personal-data/amazon` folder and of kindle downloads to `~/personal-data/amazon-kindle` folder
+
+### Venmo
+1. Download your data from Venmo here -- https://help.venmo.com/hc/en-us/articles/360016096974-Transaction-History
+
+2. Move the data into `~/personal-data/venmo` folder.
+
+### Libby
+1. Download your data from Libby here -- https://libbyapp.com/timeline/activities. Click on `Actions` then `Export Timeline`
+
+2. Move the data into `~/personal-data/libby` folder.
+
 
 ### SPOTIFY
 
