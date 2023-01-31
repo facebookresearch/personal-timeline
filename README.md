@@ -7,108 +7,25 @@ In the explanation, we'll assume three directories all sitting within the applic
 
 # Step 0: Create environment
 
-1. Install Conda from [this link](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+1. Install Docker Desktop from [this link](https://docs.docker.com/desktop/).
 
-2. Add additional channels:  
-   ```conda config --append channels conda-forge```
-   ```conda config --append channels pytorch```
+2. Follow install steps and use the Desktop app to start the docker engine.
 
-3. Create a new conda dev environment  
-    ```conda create --name <env> python==3.10.4```
+3. Run init script
+    ```
+    sh src/init.sh
+    ```
+This will create a bunch of files/folders/symlinks needed for running the app.
+This will also create a new directory under your home folder `~/personal-data`, the directory where your personal data will reside.
 
-4. Install required packages from requirements.txt file:  
-    ```conda install --name <env> --file requirements.txt```
-
-5. Activate the newly created environment  
-    ```conda activate <env>```
-
-6. Install pytorch following the instructions [here](https://pytorch.org/get-started/locally/).
-
-7. Install pip pkgs for the one's missing in conda repo:  
-    ```pip install pillow_heif```
-
-8. Install CLIP from OpenAI:
-    ```pip install git+https://github.com/openai/CLIP.git```
-
-9. Create a new directory under your home folder (this is where all your personal-data will be downloaded)  
-    ```$ mkdir ~/personal-data```
-
-10. In your repo, create a Sym link for the above created dir  
-    ```$ ln -s ~/personal-data personal-data```
-
-# Step 1: Downloading your photos
-
-### GOOGLE PHOTOS
-1. You need to download your Google photos from [Google Takeout](https://takeout.google.com/).  
-The download from Google Takeout would be in multiple zip files. Unzip all the files.
-
-<!-- 2. It may be the case that some of your photo files are .HEIC. In that case follow the steps below to convert them to .jpeg  
-The easiest way to do this on a Mac is:
-
-     -- Select the .HEIC files you want to convert.   
-     -- Right click and choose "quick actions" and then you'll have an option to convert the image.  
-     -- If you're converting many photos, this may take a few minutes. -->
-2. Create a new directory under `personal-data` folder  
-    ```$ mkdir ~/personal-data/google_photos```
-3. Move all the unzipped folders inside `personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
-
-### FACEBOOK DATA
-1. Go to [Facebook Settings](https://www.facebook.com/settings?tab=your_facebook_information) 
-2. Click on <b>Download your information</b> and download FB data in JSON format
-3. Create a new directory under `personal-data` folder  
-    ```$ mkdir ~/personal-data/facebook```
-3. Unzip the downloaded file and copy the directory `posts` sub-folder to the above folder. The `posts` folder would sit directly under the facebook folder.
-
-### APPLE HEALTH
-1. Go to the Apple Health app on your phone and ask to export your data. This will create a file called iwatch.xml and that's the input file to the importer.
-2. Create a new directory under `personal-data` folder  
-    ```$ mkdir ~/personal-data/apple-health```
-3. Move the downloaded file to this folder.  
-
-### AMAZON
-1. Request your data from Amazon here: https://www.amazon.com/gp/help/customer/display.html?nodeId=GXPU3YPMBZQRWZK2
-They say it can take up to 30 days, but it took about 2 days. They'll email you when it's ready.
-
-They separate Amazon purchases from Kindle purchases into two different directories.
-
-The file you need for Amazon purchases is Retail.OrderHistory.1.csv
-The file you need for Kindle purchases is Digital Items.csv
-
-2. Create two new directory under `personal-data` folder  
-    ```$ mkdir ~/personal-data/amazon```  
-    ```$ mkdir ~/personal-data/amazon-kindle```
-
-3. Move data for amazon purchases to `amazon` folder and of kindle downloads to `amazon-kindle` folder
-
-### SPOTIFY
-
-1. Download your data from Spotify here -- https://support.spotify.com/us/article/data-rights-and-privacy-settings/
-They say it can take up to 30 days, but it took about 2 days. They'll email you when it's ready.
-
-2. Create two new directory under `personal-data` folder  
-    ```$ mkdir ~/personal-data/spotify``` 
-
-3. Move the data into this folder.
-
-# Step 2: Import your photo data to SQLite (this is what will go into the episodic database)
-
-Run:
-```python -m src.workflow```
-
-The script will allow you to choose the steps you want to run from the workflow.  
-Follow the instructions to import and enrich data. 
-
-(Note: please select `No` for image enrichment for now. It is currently implemented within the `offline_processing.py` step.)
-(Note*: please select `Yes` at the last step for exporting the LLEntries.)
-
-# Step 3: Running the offline enrichment and summarization pipeline
-
-* Install all required packages (see above and `requirements.txt`).
-* Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
-```
-export HF_TOKEN=<the token goes here>
-```
-* Fill in the user information in `user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
+# Step 1: General Setup
+## For Data Ingestion
+1. Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
+    Add the following line to the `env/ingest.env.list` file:
+    ```
+   HF_TOKEN=<the token goes here>
+    ```
+2. Fill in the user information in `user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
 ```
 {
     "name": "Hilbert",
@@ -133,102 +50,108 @@ export HF_TOKEN=<the token goes here>
     ]
 }
 ```
+3. Ingestion configs are controlled via parameters in `conf/ingest.conf` file. The configurations
+are defaulted for optimized processing and don't need to be changed. 
+You can adjust values for these parameters to run importer with a different configuration.
 
-* Run:
+## For Data visualization
+
+1. To set up a Google Map API (free), follow these [instructions](https://developers.google.com/maps/documentation/embed/quickstart#create-project).
+
+Copy the following lines to `env/frontend.env.list`:
 ```
-python -m src.offline_processing
-```
-
-The script will generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`. See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.
-
-
-# Step 4: Generate visualization
-
-You need to first set up a Google Map API (free) following these [instructions](https://developers.google.com/maps/documentation/embed/quickstart#create-project).
-
-```
-export GOOGLE_MAP_API=<the API key goes here>
+GOOGLE_MAP_API=<the API key goes here>
 ```
 
-To embed Spotify, you need to set up a Spotify API (free) following [here](https://developer.spotify.com/dashboard/applications). You need to log in with a spotify account, create a project, and show the `secret`.
+2. To embed Spotify, you need to set up a Spotify API (free) following [here](https://developer.spotify.com/dashboard/applications). You need to log in with a spotify account, create a project, and show the `secret`.
 
+Copy the following lines to `env/frontend.env.list`:
 ```
-export SPOTIFY_TOKEN=<the token goes here>
-export SPOTIFY_SECRET=<the secret goes here>
-```
-
-If you have previously created some cached images in `images/`, rename it to `static/`
-```
-mv images/ static/
+SPOTIFY_TOKEN=<the token goes here>
+SPOTIFY_SECRET=<the secret goes here>
 ```
 
-Run
-```
-python server.py
-```
 
-It will start a flask server at `http://127.0.0.1:5000`. You can view the timeline this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
+# Step 2: Downloading your personal data
 
-You can also search the timeline with queries :).
+### GOOGLE PHOTOS
+1. You need to download your Google photos from [Google Takeout](https://takeout.google.com/).  
+The download from Google Takeout would be in multiple zip files. Unzip all the files.
 
-<!--
-# Step 6: Running the interactive GUI (WIP)
+<!-- 2. It may be the case that some of your photo files are .HEIC. In that case follow the steps below to convert them to .jpeg  
+The easiest way to do this on a Mac is:
 
-Make sure that you have installed QT from `requirements.txt`. Launch the interactive GUI:
+     -- Select the .HEIC files you want to convert.   
+     -- Right click and choose "quick actions" and then you'll have an option to convert the image.  
+     -- If you're converting many photos, this may take a few minutes. -->
 
-```
-python -m src.gui.main
-```
+2. Move all the unzipped folders inside `~/personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
 
-Now you can search the timeline with queries!
-
-#### Currently we use the BLIP package from Salesforce to generate captions.
-
-----------
-This part of README is in progress. Please ignore:
-
-You will also be downloading data files from other services. Put these anywhere you want and make sure the importers point to the right place (there's always a variable at the top of the file with the pointer).
-
-### GOOGLE TIMELINE
-Go to Google Takeout -- https://takeout.google.com/settings/takeout and ask to download your maps data.
-
-Clone  https://github.com/salesforce/BLIP
-
-Run:
-    
-    python -m src.get_captions
-
-
+### FACEBOOK DATA
+1. Go to [Facebook Settings](https://www.facebook.com/settings?tab=your_facebook_information) 
+2. Click on <b>Download your information</b> and download FB data in JSON format
+3. Unzip the downloaded file and copy the directory `posts` sub-folder to `~/personal-data/facebook`. The `posts` folder would sit directly under the facebook folder.
 
 ### APPLE HEALTH
-Run:
-    
-    python -m code.create_apple_health_LLEntries.py
+1. Go to the Apple Health app on your phone and ask to export your data. This will create a file called iwatch.xml and that's the input file to the importer.
+2. Move the downloaded file to this `~/personal-data/apple-health`
+
+### AMAZON
+1. Request your data from Amazon here: https://www.amazon.com/gp/help/customer/display.html?nodeId=GXPU3YPMBZQRWZK2
+They say it can take up to 30 days, but it took about 2 days. They'll email you when it's ready.
+
+They separate Amazon purchases from Kindle purchases into two different directories.
+
+The file you need for Amazon purchases is Retail.OrderHistory.1.csv
+The file you need for Kindle purchases is Digital Items.csv
+
+2. Move data for amazon purchases to `~/personal-data/amazon` folder and of kindle downloads to `~/personal-data/amazon-kindle` folder
+
+### SPOTIFY
+
+1. Download your data from Spotify here -- https://support.spotify.com/us/article/data-rights-and-privacy-settings/
+They say it can take up to 30 days, but it took about 2 days. They'll email you when it's ready.
+
+2. Move the data into `~/personal-data/spotify` folder.
+
+# Step 3: Running the code
+Now that we have all the data and setting in place, we can either run individual steps or the end-to-end system.
+This will import your photo data to SQLite (this is what will go into the episodic database), build summaries
+and make data available for visualization and search.
 
 
-# CREATING THE LIFELOG (old version)
+Running the Ingestion container will add two types of file to `~/personal-data/app_data` folder
+ - Import your data to an SQLite format file named `raw_data.db`
+ - Generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`. 
+    (See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.)
 
-## Step 1: create an inverted index from date to all the entries from the different services.
+### Option 1:
+To run the pipeline end-to end(both frontend and backend), simply run 
+```
+docker-compose up -d
+```
 
-Run 
-    
-    python -m src.create_index
-Make sure that the variable DATA_DIR is the absolute path to the data directory.
+### Option 2:
+You can also run ingestion and visualization separately.
+To start data ingestion, use  
+```
+docker-compose up -d backend
+```  
+To start visualization
+```
+docker-compose up -d frontend
+```
 
-## Step 2: Create the summary entries (daily, monthly, more to come)
+# Step 4: Check progress
+Once the docker command is run, you can see running containers for backend and frontend in the docker for Mac UI.
+Copy the container Id for ingest and see logs by running the following command:  
+```
+docker logs -f <container_id>
+```
 
-In create_summary_LLEntries.py there's a variable with a list of cities that you consider home or around your home (hence, if you're there, you're not on a trip). Update that list to suit your situation. It's a hack -- we'll do it automatically at some point.
+# Step 5: Visualization
 
-Run 
-
-    python -m src.create_summary_LLEntries.py
-
-# VISUALIZATION
-
-install PySimpleGUI
-
-Run 
-
-    python -m src.timeline.py
-
-Make sure the variable image_directory_path points to the directory with your photos. -->
+Running the Frontend will start a flask server inside a docker container at `http://127.0.0.1:5000`. 
+You can view the timeline via this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
+* Note: Accessing UI via `http://localhost:5000` does not render the timeline due to some CORS Policy restrictions. 
+Make sure you are using `127.0.0.1` as prescribed.

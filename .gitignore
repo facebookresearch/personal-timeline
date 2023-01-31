@@ -4,8 +4,6 @@
 *.pt
 *.db
 *.pyc
-*.html
 static/*
-raw_data.db
-data
 personal-data
+env/
