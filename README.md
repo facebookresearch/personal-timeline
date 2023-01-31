@@ -50,6 +50,8 @@ This will also create a new directory under your home folder `~/personal-data`, 
     ]
 }
 ```
+3. Ingestion configs are controlled via parameters in `conf/ingest.conf` file. To run importer with a different configuration,
+values for these parameters can be adjusted.
 
 ## For Data visualization
 
