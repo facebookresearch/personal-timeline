@@ -58,17 +58,17 @@ values for these parameters can be adjusted.
 1. To set up a Google Map API (free), follow these [instructions](https://developers.google.com/maps/documentation/embed/quickstart#create-project).
 
 Copy the following lines to `env/frontend.env.list`:
-    ```
-    GOOGLE_MAP_API=<the API key goes here>
-    ```
+```
+GOOGLE_MAP_API=<the API key goes here>
+```
 
 2. To embed Spotify, you need to set up a Spotify API (free) following [here](https://developer.spotify.com/dashboard/applications). You need to log in with a spotify account, create a project, and show the `secret`.
 
 Copy the following lines to `env/frontend.env.list`:
-    ```
-    SPOTIFY_TOKEN=<the token goes here>
-    SPOTIFY_SECRET=<the secret goes here>
-    ```
+```
+SPOTIFY_TOKEN=<the token goes here>
+SPOTIFY_SECRET=<the secret goes here>
+```
 
 
 # Step 2: Downloading your personal data
