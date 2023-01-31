@@ -14,6 +14,6 @@ with open(bootstrap_file, 'r') as f1:
     for entry in ds_list.data_sources:
         dir_for_reading_input = entry.configs.input_directory
         if not os.path.exists(dir_for_reading_input):
-            os.mkdir(dir_for_reading_input)
+            os.makedirs(dir_for_reading_input, exist_ok=True)
         else:
             print(dir_for_reading_input, "already exists!")
