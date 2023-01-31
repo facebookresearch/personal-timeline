@@ -1,3 +1,4 @@
+import json
 import os
 
 from src.common.persistence.personal_data_db import PersonalDataDBConnector
@@ -18,19 +19,11 @@ from src.ingest.importers.generic_importer_workflow import GenericImportOrchestr
 if __name__ == '__main__':
     action_arr = []
     print("--------------Data Import Start--------------")
-    # print("Let's begin. Press [n] at anytime to break")
-    # inp = input("1. Google Photos (data must be present in personal-data/google_photos) [y/n]? ").upper()
-    # action_arr.append("gp") if inp == 'Y' else None
-    # inp = input("2. Facebook Posts (data must be present in personal-data/facebook/posts) [y/n]? ").upper()
-    # action_arr.append("fp")  if inp == 'Y' else None
     gip = GenericImportOrchestrator()
     # Enrich Location after import is complete
-    # inp = input("Should I run location enrichment on entities [y/n]? ").upper()
-    action_arr.append("geo_enrich") # if inp == 'Y' else None
-    # inp = input("Should I run image enrichment [y/n]? ").upper()
-    action_arr.append("image_enrich") # if inp == 'Y' else None
-    # inp = input("Merge enrichments to raw data in the end [y/n]? ").upper()
-    action_arr.append("export") # if inp == 'Y' else None
+    action_arr.append("geo_enrich")
+    action_arr.append("image_enrich")
+    action_arr.append("export")
     if len(action_arr)==0:
         print("No new import task.")
     gip.start_import()
@@ -56,7 +49,12 @@ if __name__ == '__main__':
                 export_increments = os.environ["incremental_export"]
             print("Incremental Export flag is set to ", export_increments)
             ex.create_export_entity(export_increments)
-            print("Merge Complete. Full photo entities are available in enriched_data column")
+            print("Merge Complete. Enriched entities pushed to enriched_data column")
+            if os.environ["export_enriched_data_to_json"]:
+                export_path = os.path.join(os.environ["APP_DATA_DIR"], 'enriched_data.json')
+                json.dump(ex.get_all_data(), open(export_path, "w"))
+                print("Data exported as json to", export_path)
+
     # Print Import Summary
     print("------------------------------------------------")
     print("--------------Data Stats By Source--------------")

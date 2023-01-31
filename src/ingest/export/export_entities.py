@@ -1,3 +1,4 @@
+import json
 from typing import List
 
 from tqdm import tqdm
@@ -7,14 +8,29 @@ import pickle
 from geopy.location import Location
 from src.common.objects.LLEntry_obj import LLEntry
 class PhotoExporter:
-
     def __init__(self):
         self.db = PersonalDataDBConnector()
+        self.export_list: List[LLEntry] = []
+
+    def get_all_data(self):
+        if len(self.export_list) == 0:
+            self.generate_export_list()
+        return self.export_list
+    def generate_export_list(self):
+        select_cols = "enriched_data"
+        where_clause = {"enriched_data": "is not NULL"}
+        res = self.db.search_personal_data(select_cols, where_clause)
+        count = 0
+        for row in tqdm(res.fetchall()):
+            count += 1
+            data: LLEntry = pickle.loads(row[0])
+            self.export_list.append(data.toDict())
+
     def create_export_entity(self, incremental=True):
         #Read data, location, caption from photos
         select_cols = "id, data, location, captions, embeddings, status"
         where_clause = {"data": "is not NULL"}
-        if incremental == True:
+        if incremental:
             where_clause["export_done"] = "=0"
 
         select_count = "count(*)"

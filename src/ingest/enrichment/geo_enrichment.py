@@ -19,7 +19,7 @@ class LocationEnricher:
         select_cols = "id, data"
         select_count = "count(*)"
         where_clause={"data": "is not NULL"}
-        if incremental == True:
+        if incremental:
             where_clause["location_done"] = "=0"
         count_res = self.db.search_personal_data(select_count, where_clause)
         pending = count_res.fetchone()

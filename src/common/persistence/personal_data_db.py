@@ -35,7 +35,7 @@ import os
 from src.common.objects.LLEntry_obj import LLEntry
 from src.common.objects.import_configs import DataSourceList
 
-os_path_to_data = os.environ['APP_DATA_DIR']
+os_path_to_data = os.environ['APP_DATA_DIR'] if 'APP_DATA_DIR' in os.environ else "personal-data/app_data"
 class PersonalDataDBConnector:
     def __new__(cls):
         if not hasattr(cls, 'instance'):
@@ -200,7 +200,9 @@ class PersonalDataDBConnector:
     def print_data_stats_by_source(self):
         stats_sql = """SELECT ds.source_name, COUNT(*) as count
                     from data_source ds LEFT JOIN personal_data pd 
-                    on pd.source_id=ds.id group by ds.source_name"""
+                    on pd.source_id=ds.id 
+                    where pd.data is not null
+                    group by ds.source_name"""
         res = self.cursor.execute(stats_sql)
 
         print("Data Stats by source:::")

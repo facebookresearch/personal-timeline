@@ -80,6 +80,10 @@ class LLEntry:
         # return json.dumps(self, default=lambda o: o.__dict__,
         #                 sort_keys=True, indent=4)
 
+    def toDict(self):
+        j = self.__dict__
+        j['locations'] = [o.address if o is not None else "" for o in j['locations']]
+        return j
 
 class LLEntrySummary(LLEntry):
     def __init__(self,
