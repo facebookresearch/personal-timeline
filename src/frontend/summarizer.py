@@ -201,7 +201,8 @@ class Summarizer:
             img_path += '.compressed.jpg'
         if 'static/' not in img_path:
             original = img_path
-            img_path = os.path.join(os.environ["APP_DATA_DIR"],'static') + os.path.split(img_path)[-1]
+            # Not supposed to be full path.
+            img_path = 'static/' + os.path.split(img_path)[-1]
             if os.path.exists(original):
                 os.system('cp "%s" %s' % (original, os.path.join(os.environ["APP_DATA_DIR"],'static/')))
         return img_path

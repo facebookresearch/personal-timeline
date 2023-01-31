@@ -37,7 +37,7 @@ class GeoHelper:
     def reverse_cache_key(self, latitude:float, longitude:float):
         return str(latitude)+","+str(longitude)
 
-    def calculateLocation(self, latitude: float, longitude: float) -> Location:
+    def calculateLocation(self, latitude: float, longitude: float, language:str='en') -> Location:
         if latitude is None or longitude is None:
             return None
         reverse_cache_key = self.reverse_cache_key(latitude, longitude)
@@ -46,7 +46,7 @@ class GeoHelper:
             #print(reverse_cache_key, " found in location cache. Returning ", str(cached_loc))
             self.reverse_cache_hits+=1
             return cached_loc
-        location = reverse(str(latitude) + "," + str(longitude), addressdetails=True)
+        location = reverse(str(latitude) + "," + str(longitude), addressdetails=True, language=language)
         # location = reverse((50.6539239, -120.3385242), language='en', exactly_one=True)
         #print("Location:: ", str(location))
         GeoHelper.geo_reverse_cache[reverse_cache_key] = location

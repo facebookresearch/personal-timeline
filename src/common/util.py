@@ -2,7 +2,6 @@ import datetime
 from pathlib import Path
 
 import pytz
-import geopy
 import json
 
 from datetime import datetime, timedelta

@@ -24,7 +24,7 @@ class LLImage:
                  img_path: str,
                  time: int,
                  loc: Location):
-        """Create an image object from LLEntry and run enhencements
+        """Create an image object from LLEntry and run enhancements
         """
         self.img_path = img_path
         self.img = None

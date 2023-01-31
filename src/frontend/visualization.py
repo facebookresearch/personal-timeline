@@ -13,6 +13,7 @@ from tqdm import tqdm
 from pillow_heif import register_heif_opener
 from geopy import Location
 
+from src.common.geo_helper import GeoHelper
 from src.common.objects.LLEntry_obj import LLEntrySummary
 from src.frontend.summarizer import Summarizer
 register_heif_opener()
@@ -26,7 +27,7 @@ class TimelineRenderer:
         self.daily_index = pickle.load(open('personal-data/app_data/daily_index.pkl', 'rb'))
         self.trip_index = pickle.load(open('personal-data/app_data/trip_index.pkl', 'rb'))
         self.img_cache = {}
-        self.geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
+        self.geolocator = GeoHelper()
         self.geo_cache = {}
         self.timeline_cached = None
 
@@ -63,7 +64,7 @@ class TimelineRenderer:
         """
         signature = '_'.join([os.path.split(path)[1] for path in image_paths])
 
-        summary_path = os.path.join(os.environ["APP_DATA_DIR"],"static/summary_%s.htm" % (signature))
+        summary_path = "static/summary_%s.htm" % (signature)
         link = f'<iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="{summary_path}"></iframe>'
         content_str = """<link rel="stylesheet" href="main.css">"""
         # content_str += "<div class='summary_img_content'>"
@@ -115,7 +116,7 @@ class TimelineRenderer:
             if coord in self.geo_cache:
                 location = self.geo_cache[coord]
             else:
-                location = self.geolocator.reverse(coord, language='en')
+                location = self.geolocator.calculateLocation(location.latitude, location.longitude)
                 self.geo_cache[coord] = location
 
         res = []
@@ -227,7 +228,7 @@ class TimelineRenderer:
                 img_path = item["img_path"] + '.compressed.jpg'
                 name = item["name"]
                 _, tail = os.path.split(img_path)
-                new_path = os.path.join(os.environ["APP_DATA_DIR"], 'static', tail)
+                new_path = os.path.join('static', tail)
                 if not os.path.exists(new_path):
                     os.system('cp "%s" %s' % (img_path, os.path.join(os.environ["APP_DATA_DIR"],"static/")))
 

@@ -3,11 +3,12 @@ import os
 import numpy as np
 import datetime
 import pytz
-import geopy
 import json
 
 from typing import Dict, List, Tuple, Union
 from sentence_transformers import SentenceTransformer
+
+from src.common.geo_helper import GeoHelper
 from src.common.objects.LLEntry_obj import LLEntrySummary
 from src.frontend.summarizer import Summarizer
 from gensim.utils import simple_preprocess
@@ -33,7 +34,7 @@ class QAEngine:
         # self.home_address = geolocator.geocode(user_info["address"])
 
         # TODO: move to a global geo engine
-        geolocator = geopy.geocoders.Nominatim(user_agent="my_request")
+        geolocator = GeoHelper()
         self.addresses = user_info["addresses"]
         for addr in self.addresses:
             addr["location"] = geolocator.geocode(addr["address"])
