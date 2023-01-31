@@ -84,7 +84,7 @@ We currently supports 9 data sources. Here is a summary table:
 | Spotify          | [Link](https://github.com/alonhalevy/personal-timeline#spotify)       | personal-data/spotify                                                    | Music / streaming recommendation                       |
 | Venmo            | [Link](https://github.com/alonhalevy/personal-timeline#venmo)         | personal-data/venmo                                                      | Monthly spend summarization                            |
 | Libby            | [Link](https://github.com/alonhalevy/personal-timeline#libby)         | personal-data/libby                                                      | Book recommendation                                    |
-| Google Photos    | [Link](https://github.com/alonhalevy/personal-timeline#google-photos) | personal-data/google_photos                                              | Food recommendation, object detections,                |
+| Google Photos    | [Link](https://github.com/alonhalevy/personal-timeline#google-photos) | personal-data/google_photos                                              | Food recommendation, Object detections, and more               |
 | Google Location  | [Link](https://github.com/alonhalevy/personal-timeline#google-photos) | personal-data/google-timeline/Location History/Semantic Location History | Location tracking / visualization                      |
 | Facebook posts   | [Link](https://github.com/alonhalevy/personal-timeline#facebook-data) | personal-data/facebook                                                   | Question-Answering over FB posts / photos              |
 
