@@ -88,7 +88,7 @@ We currently supports 9 data sources. Here is a summary table:
 | Google Location  | [Link](https://github.com/alonhalevy/personal-timeline#google-photos) | personal-data/google-timeline/Location History/Semantic Location History | Location tracking / visualization                      |
 | Facebook posts   | [Link](https://github.com/alonhalevy/personal-timeline#facebook-data) | personal-data/facebook                                                   | Question-Answering over FB posts / photos              |
 
-### GOOGLE PHOTOS and Timeline
+### GOOGLE PHOTOS and GOOGLE TIMELINE
 <!--1. You need to download your Google photos from [Google Takeout](https://takeout.google.com/).  
 The download from Google Takeout would be in multiple zip files. Unzip all the files.
 
