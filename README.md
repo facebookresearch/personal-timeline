@@ -126,12 +126,12 @@ The file you need for Kindle purchases is Digital Items.csv
 
 2. Move data for amazon purchases to `~/personal-data/amazon` folder and of kindle downloads to `~/personal-data/amazon-kindle` folder
 
-### Venmo
+### VENMO
 1. Download your data from Venmo here -- https://help.venmo.com/hc/en-us/articles/360016096974-Transaction-History
 
 2. Move the data into `~/personal-data/venmo` folder.
 
-### Libby
+### LIBBY
 1. Download your data from Libby here -- https://libbyapp.com/timeline/activities. Click on `Actions` then `Export Timeline`
 
 2. Move the data into `~/personal-data/libby` folder.
