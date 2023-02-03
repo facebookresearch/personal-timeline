@@ -3,7 +3,7 @@ import os
 
 from src.common.persistence.personal_data_db import PersonalDataDBConnector
 from src.ingest.enrichment.geo_enrichment import LocationEnricher
-# from src.enrichment.image_enrichment import ImageEnricher
+from src.ingest.enrichment.image_enrichment import ImageEnricher
 
 from src.ingest.export.export_entities import PhotoExporter
 from src.ingest.importers.generic_importer_workflow import GenericImportOrchestrator
@@ -36,12 +36,12 @@ if __name__ == '__main__':
             le = LocationEnricher()
             le.enrich(geoenrich_increments)
             print("Location enrichment complete")
-        # if action == 'image_enrich':
-        #     print("Running Image enrichment now...")
-        #     sleep(2)
-        #     le = ImageEnricher()
-        #     le.enrich()
-        #     print("Image enrichment complete")
+        if action == 'image_enrich':
+            print("Running Image enrichment now...")
+            # sleep(2)
+            le = ImageEnricher()
+            le.enrich()
+            print("Image enrichment complete")
         if action == 'export':
             print("Exporting enriched data to enriched_data...")
             ex = PhotoExporter()

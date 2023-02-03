@@ -3,6 +3,7 @@ import numpy as np
 import pickle
 import datetime
 import os
+import json
 
 from src.common.persistence.personal_data_db import PersonalDataDBConnector
 from collections import Counter
@@ -10,14 +11,11 @@ from tqdm import tqdm
 
 from typing import Dict, List
 from src.common.objects.LLEntry_obj import LLEntry, LLEntrySummary
-from PIL import Image, ImageOps
 from sklearn.cluster import KMeans
-from src.ingest.enrichment import socratic
+from src.ingest.enrichment.image_enrichment import ImageEnricher
 from src.common.util import is_home, get_location_attr, geo_cache, geolocator, default_location, str_to_location
 from geopy import Location
-
-from pillow_heif import register_heif_opener
-register_heif_opener()
+from src.ingest.enrichment import socratic
 
 class LLImage:
     def __init__(self,
@@ -27,69 +25,12 @@ class LLImage:
         """Create an image object from LLEntry and run enhancements
         """
         self.img_path = img_path
-        self.img = None
-        self.embedding = None
-        self.places = []
-        self.objects = []
-        self.tags = []
-        self.enhance()
-        # release memory
-        del self.img
-
+        enriched, self.embedding = ImageEnricher.enhance(img_path)
+        self.places = enriched["places"]
+        self.objects = enriched["objects"]
+        self.tags = enriched["tags"]
         self.time = time
         self.loc = loc
-
-    def enhance(self, k=5):
-        """Run enhencements.
-        """
-        if not os.path.exists(self.img_path + ".compressed.jpg"):
-            # RGBA -> RGB
-            if self.img == None:
-                self.img = Image.open(self.img_path)
-            self.img = ImageOps.exif_transpose(self.img)
-            self.img = self.img.convert("RGB")
-            self.img.save(self.img_path + ".compressed.jpg")
-
-        # CLIP embeddings and zero-shot image classification
-        model_dict = socratic.model_dict
-        drop_gpu = socratic.drop_gpu
-
-        with torch.no_grad():
-            if os.path.exists(self.img_path + ".emb"):
-                image_features = pickle.load(open(self.img_path + ".emb", "rb"))
-            else:
-                if self.img == None:
-                    self.img = Image.open(self.img_path)
-                image_input = model_dict['clip_preprocess'](self.img).unsqueeze(0).to(model_dict['device'])
-                image_features = model_dict['clip_model'].encode_image(image_input)
-                image_features /= image_features.norm(dim=-1, keepdim=True)
-                pickle.dump(image_features, open(self.img_path + ".emb", "wb"))
-
-            sim = (100.0 * image_features @ model_dict['openimage_classifier_weights'].T).softmax(dim=-1)
-            _, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
-            openimage_classes = [model_dict['openimage_classnames'][idx] for idx in indices]
-
-            sim = (100.0 * image_features @ model_dict['tencentml_classifier_weights'].T).softmax(dim=-1)
-            _, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
-            tencentml_classes = [model_dict['tencentml_classnames'][idx] for idx in indices]
-
-            sim = (100.0 * image_features @ model_dict['place365_classifier_weights'].T).softmax(dim=-1)
-            _, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
-            self.places = [model_dict['place365_classnames'][idx] for idx in indices]
-
-            self.objects = openimage_classes + tencentml_classes
-
-            # simple tagging for food, animal, person, vehicle, building, scenery, document, commodity, other objects
-            sim = (100.0 * image_features @ model_dict['simple_tag_weights'].T).softmax(dim=-1)
-            _, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
-            tag = [model_dict['simple_tag_classnames'][idx] for idx in indices][0]
-            if tag == 'other objects':
-                self.tags = []
-            else:
-                self.tags = [tag]
-
-        self.embedding = image_features.squeeze(0).cpu().numpy()
-
 
 
 def create_image_summary(images: List[LLImage], k=3):
