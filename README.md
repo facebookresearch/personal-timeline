@@ -11,7 +11,9 @@ In the explanation, we'll assume three directories all sitting within the applic
 
 2. Follow install steps and use the Desktop app to start the docker engine.
 
-3. Run init script
+3. Make sure you have Python3 installed.
+
+4. Run init script
     ```
     sh src/init.sh
     ```
@@ -25,7 +27,7 @@ This will also create a new directory under your home folder `~/personal-data`, 
     ```
    HF_TOKEN=<the token goes here>
     ```
-2. Fill in the user information in `user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
+2. Fill in the user information in `src/common/user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
 ```
 {
     "name": "Hilbert",

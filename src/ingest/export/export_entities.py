@@ -26,7 +26,7 @@ class PhotoExporter:
             data: LLEntry = pickle.loads(row[0])
             self.export_list.append(data.toDict())
 
-    def create_export_entity(self, incremental=True):
+    def create_export_entity(self, incremental:bool=True):
         #Read data, location, caption from photos
         select_cols = "id, data, location, captions, embeddings, status"
         where_clause = {"data": "is not NULL"}
@@ -43,7 +43,6 @@ class PhotoExporter:
         res = self.db.search_personal_data(select_cols, where_clause)
         count = 0
         for row in tqdm(res.fetchall()):
-            count += 1
             row_id = int(row[0])
             data: LLEntry = pickle.loads(row[1])
             locations:List[Location] = pickle.loads(row[2]) if row[2] is not None else None
@@ -67,6 +66,7 @@ class PhotoExporter:
             # Write enriched_data, set enrichment_done to 1
             #print("Writing enriched data:: ", data.toJson())
             self.db.add_or_replace_personal_data({"enriched_data": data, "export_done": 1, "id": row_id}, "id")
+            count += 1
         print("Export entities generated for ", count, " entries")
     def populate_location(self, data:LLEntry, locations:Location) -> LLEntry:
         if locations is not None:
