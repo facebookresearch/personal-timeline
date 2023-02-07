@@ -71,7 +71,7 @@ class ImageEnricher:
         embedding = image_features.squeeze(0).cpu().numpy()
         return {"objects": objects, "places": places, "tags": tags}, embedding
 
-    def enrich(self, incremental=True):
+    def enrich(self, incremental:bool=True):
         select_cols = "id, data"
         select_count = "count(*)"
         where_clause={"data": "is not NULL"}
@@ -86,17 +86,16 @@ class ImageEnricher:
         res = self.db.search_personal_data(select_cols, where_clause)
         count = 0
         for row in tqdm(res.fetchall()):
-            count += 1
             row_id = int(row[0])
             data:LLEntry = pickle.loads(row[1])
-
             if data.imageFilePath is not None and \
                 len(data.imageFilePath) > 0 and \
                 os.path.exists(data.imageFilePath):
                 image_tags, _ = ImageEnricher.enhance(data.imageFilePath)
                 data.imageCaptions = json.dumps(image_tags)
                 self.db.add_or_replace_personal_data({"captions": data.imageCaptions, 
-                                                      "captions_done": '1', 
+                                                      "captions_done": 1,
                                                       "id": row_id}, "id")
+                count += 1
 
         print("Image Processing completed for ", count, " entries")

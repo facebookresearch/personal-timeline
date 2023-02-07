@@ -15,7 +15,7 @@ class LocationEnricher:
         self.geo_helper = GeoHelper()
         self.db = PersonalDataDBConnector()
 
-    def enrich(self, incremental=True):
+    def enrich(self, incremental:bool=True):
         select_cols = "id, data"
         select_count = "count(*)"
         where_clause={"data": "is not NULL"}
@@ -30,7 +30,6 @@ class LocationEnricher:
         res = self.db.search_personal_data(select_cols, where_clause)
         count = 0
         for row in tqdm(res.fetchall()):
-            count +=1
             row_id = int(row[0])
             data:LLEntry = pickle.loads(row[1])
             #print("data.lat_lon", data.__dict__)
@@ -39,6 +38,7 @@ class LocationEnricher:
                 entry_location.append(self.geo_helper.calculateLocation(lat_lon_entry[0], lat_lon_entry[1]))
             #print("Updating location to::: ", photo_location.raw)
             if len(entry_location) > 0:
-                self.db.add_or_replace_personal_data({"location": entry_location, "location_done": '1', "id": row_id}, "id")
+                count += 1
+                self.db.add_or_replace_personal_data({"location": entry_location, "location_done": 1, "id": row_id}, "id")
         print("Cache Hits: ", self.geo_helper.reverse_cache_hits, " Cache misses: ", self.geo_helper.reverse_cache_miss)
         print("Geo Processing completed for ", count, " entries")

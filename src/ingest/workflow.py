@@ -20,37 +20,48 @@ if __name__ == '__main__':
     action_arr = []
     print("--------------Data Import Start--------------")
     gip = GenericImportOrchestrator()
+    if os.getenv("ingest_new_data") is not None and os.environ["ingest_new_data"] != ''\
+            and os.environ["ingest_new_data"] == "True":
+        print("Ingest new Data is set to true")
+        gip.start_import()
     # Enrich Location after import is complete
     action_arr.append("geo_enrich")
     action_arr.append("image_enrich")
     action_arr.append("export")
     if len(action_arr)==0:
         print("No new import task.")
-    gip.start_import()
     for action in action_arr:
         if action == 'geo_enrich':
             print("Running Location enrichment now...")
-            if os.environ["incremental_geo_enrich"] is not None and os.environ["incremental_geo_enrich"]!='':
-                geoenrich_increments = os.environ["incremental_geo_enrich"]
-            print("Incremental Geo Enrich flag is set to ", geoenrich_increments)
             le = LocationEnricher()
-            le.enrich(geoenrich_increments)
+            if os.getenv("incremental_geo_enrich") is not None and os.environ["incremental_geo_enrich"]!='':
+                geoenrich_increments = True if os.environ["incremental_geo_enrich"] == "True" else False
+                le.enrich(geoenrich_increments)
+            else:
+                le.enrich()
             print("Location enrichment complete")
         if action == 'image_enrich':
             print("Running Image enrichment now...")
             # sleep(2)
             le = ImageEnricher()
-            le.enrich()
+            if os.getenv("incremental_image_enrich") is not None and os.environ["incremental_image_enrich"]!='':
+                image_enrich_increments = True if os.environ["incremental_image_enrich"] == "True" else False
+                le.enrich(image_enrich_increments)
+            else:
+                le.enrich()
             print("Image enrichment complete")
         if action == 'export':
             print("Exporting enriched data to enriched_data...")
             ex = PhotoExporter()
-            if os.environ["incremental_export"] is not None and os.environ["incremental_export"]!='':
-                export_increments = os.environ["incremental_export"]
-            print("Incremental Export flag is set to ", export_increments)
-            ex.create_export_entity(export_increments)
+            if os.getenv("incremental_export") is not None and os.environ["incremental_export"]!='':
+                export_increments = True if os.environ["incremental_export"] == "True" else False
+                print("Incremental Export flag is set to ", export_increments)
+                ex.create_export_entity(export_increments)
+            else:
+                ex.create_export_entity()
             print("Merge Complete. Enriched entities pushed to enriched_data column")
-            if os.environ["export_enriched_data_to_json"]:
+            if os.getenv("export_enriched_data_to_json") is not None\
+                    and os.environ["export_enriched_data_to_json"] == "True":
                 export_path = os.path.join(os.environ["APP_DATA_DIR"], 'enriched_data.json')
                 json.dump(ex.get_all_data(), open(export_path, "w"))
                 print("Data exported as json to", export_path)
