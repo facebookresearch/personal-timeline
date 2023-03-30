@@ -24,4 +24,5 @@ geopy
 wget==3.2
 pillow_heif
 pysqlite3
+langchain==0.0.127
 git+https://github.com/openai/CLIP.git
