@@ -2,12 +2,15 @@ import pickle
 import os
 import torch
 import json
+import numpy as np
 
 from tqdm import tqdm
 from src.common.objects.LLEntry_obj import LLEntry
 from PIL import Image, ImageOps
 from src.ingest.enrichment import socratic
 from src.common.persistence.personal_data_db import PersonalDataDBConnector
+from typing import List
+
 
 class ImageEnricher:
     def __init__(self) -> None:
@@ -71,7 +74,33 @@ class ImageEnricher:
         embedding = image_features.squeeze(0).cpu().numpy()
         return {"objects": objects, "places": places, "tags": tags}, embedding
 
+    def deduplicate(self, img_paths: List[str]):
+        """Deduplicate a list of images.
+
+        Args:
+            img_paths (List of str): the image paths
+
+        Returns:
+            List of str: the image paths that are duplicate.
+        """
+        img_paths.sort()
+        res = []
+
+        for i in tqdm(range(len(img_paths))):
+            img_path = img_paths[i]
+            if os.path.exists(img_path + ".emb"):
+                image_features = pickle.load(open(img_path + ".emb", "rb"))
+                embedding = image_features.squeeze(0).cpu().numpy()
+
+            if i > 0:
+                sim = np.dot(embedding, prev_embedding)
+                if sim > 0.9:
+                    res.append(img_path)
+            prev_embedding = embedding
+        return res
+
     def enrich(self, incremental:bool=True):
+        # enhencement
         select_cols = "id, data"
         select_count = "count(*)"
         where_clause={"data": "is not NULL"}
@@ -83,19 +112,34 @@ class ImageEnricher:
             print("No pending image enrichments")
             return
         # print("Total enrichments to be done: ", pending[0])
+        
         res = self.db.search_personal_data(select_cols, where_clause)
         count = 0
+        img_paths = []
+        row_ids = []
         for row in tqdm(res.fetchall()):
             row_id = int(row[0])
+            row_ids.append(row_id)
+
             data:LLEntry = pickle.loads(row[1])
             if data.imageFilePath is not None and \
                 len(data.imageFilePath) > 0 and \
                 os.path.exists(data.imageFilePath):
                 image_tags, _ = ImageEnricher.enhance(data.imageFilePath)
+                img_paths.append(data.imageFilePath)
                 data.imageCaptions = json.dumps(image_tags)
                 self.db.add_or_replace_personal_data({"captions": data.imageCaptions, 
                                                       "captions_done": 1,
                                                       "id": row_id}, "id")
                 count += 1
+        
+        # deduplicate
+        duplicates = set(self.deduplicate(img_paths))
+        print("Found %d duplicates" % len(duplicates))
+        for row_id, img_path in zip(row_ids, img_paths):
+            self.db.add_or_replace_personal_data({"active": int(img_path in duplicates),
+                                                  "dedup_done": 1,
+                                                  "id": row_id}, "id")
+
 
         print("Image Processing completed for ", count, " entries")
