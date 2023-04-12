@@ -1,63 +1,147 @@
-from flask import Flask, request, render_template
-from src.frontend.visualization import TimelineRenderer
-from src.frontend.qa import QAEngine
 import os
+import sys
+import inspect
+import os.path as osp
+from flask_cors import CORS
 
-static_folder = os.path.join(os.environ['APP_DATA_DIR'],'static')
+from flask import Flask, redirect, url_for, request, render_template, send_from_directory
+from backend.qa_engine import QAEngine
+from backend.chatgpt_engine import ChatGPTEngine
+# from posttext import PostText
 
-app = Flask(__name__, static_folder=static_folder)
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0, parentdir)
 
-# for profiling
+
+app = Flask(__name__)
+CORS(app)
+
+# # for profiling
 # from werkzeug.middleware.profiler import ProfilerMiddleware
 # app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
 
-renderer = TimelineRenderer()
-qa_engine = QAEngine(summarizer=renderer.summarizer)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+# create CLIP search engine
+clip_search_engine = None
 
-@app.route('/timeline', methods=['GET'])
-def get_timeline():
-    # get the next level
-    new_slides = renderer.split_slide(request.args['unique_id'])
+# the preprocessed aria video path in mp4 format
+# if it is a symbolic link to a manifold bucket, it might create latency to display it
+aria_video_path = "data/videos"
 
-    # don't drip down if nothing new
-    if len(new_slides) == 1 and 'trip' not in request.args['unique_id']:
-        new_slides = []
+# the preprocessed aria thumbnail path in jpg format
+# if it is a symbolic link to a manifold bucket, it might create latency to display all
+aria_thumbnail_path = "data/clip_search/lifelog_thumbnails"
 
-    # get the next/prev element at the same level
-    new_slides += renderer.get_next_prev(request.args['unique_id'])
+# asset_folder = "/Users/zhaoyang/develop/EgoQA/research_ui/public"
+asset_folder = "public"
 
-    return {'slides': new_slides}
+# Digital data QA engine
+qa_engine = None
 
-@app.route('/init', methods=['GET'])
-def new_timeline():
-    return renderer.create_timeline()
-    # new_slides = renderer.split_slide(request.args['unique_id'])
-    # return {'slides': new_slides}
+# ChatGPT Engine (for baseline purpose)
+chatgpt_engine = ChatGPTEngine()
 
-@app.route('/qa', methods=['GET'])
-def qa():
-    query = request.args.get('search')
-    print(query)
-    query_result = qa_engine.query(query, k=4)
+@app.route('/test', methods=['GET'])
+def test():
+    """
+    TODO: make calls to the appropriate python function
+    TODO: we may want to change these API's to POST apis
+    """
+    # query = request.args.get('event')
+    for key in request.args:
+        print(key, request.args[key])
+    return {'message': 'okay'}
 
-    new_slides = []
-    for qr in query_result:
-        if isinstance(qr, str):
-            # a single uid
-            new_slide = renderer.uid_to_slide(qr)
-        else:
-            new_slide = renderer.uid_to_slide(qr['unique_id'])
-            for key in qr:
-                if key != 'unique_id':
-                    new_slide[key] = qr[key]
+@app.route('/launch', methods=['GET'])
+def launch():
+    """Launch a query engine.
+    """
+    dataset = request.args.get('dataset')
+    global qa_engine
+    global clip_search_engine
 
-        new_slides.append(new_slide)
-    return {'slides': new_slides}
+    if dataset == 'Aria':
+        from lib.clip_search_lifelog.clip_search_engine import ClipSearchEngine
+        clip_search_engine = ClipSearchEngine(manifold_mount_path="public/data")
+    elif dataset == 'Digital':
+        qa_engine = QAEngine('public/digital_data')
+    elif 'Aria Pilot' in dataset:
+        # Aria Pilot User 0
+        uid = int(dataset.split(' ')[-1])
+        qa_engine = QAEngine('public/aria_pilot/aria_pilot_dataset_user_%d' % uid)
+
+    return {'message': 'okay'}
+
+
+@app.route('/query', methods=['GET'])
+def query():
+    """Query the posttext engine.
+    """
+    # return {'message': 'okay'}
+    query = request.args.get('query')
+    method = request.args.get('qa')
+    print(method)
+
+    if method == 'ChatGPT':
+        return {"question": query, "method": method, "answer": chatgpt_engine.query(query), "sources": []}
+
+    # embedding-based QA
+    if qa_engine != None:
+        res = qa_engine.query(query, method=method)
+        res["method"] = method
+        return res
+
+    # CLIP search
+    print(f"search recordings for {query}")
+    (
+        gaia_ids,
+        frame_indices,
+        sim_scores,
+    ) = clip_search_engine.query_text2vid(query_text=query, top_k=10)
+
+    clip_search_result = f"Found top-{len(gaia_ids)} matching recordings."
+
+    # fetch the top-1 most relevant video that exists
+    # fetch the top-K thumbnails
+    video_url = None
+    thumbnail_paths = []
+    for idx, (gaia_id, frame_idx) in enumerate(zip(gaia_ids, frame_indices)):
+        t_path = osp.join(aria_thumbnail_path, f"{gaia_id}", "thumbnails", "thumbnail_{:05d}.jpg".format(frame_idx))
+
+        if video_url is None:
+            video_url = osp.join(aria_video_path, f"movie_{gaia_ids[0]}.mp4")
+            if not osp.exists(osp.join(asset_folder, video_url)):
+                print(f"Did not find video for {video_url}. Seek the next top relevant video path.")
+                video_url = None
+
+        thumbnail_paths.append({
+            "itemImageSrc": t_path,
+            "thumbnailImageSrc": t_path,
+            "alt": f"thumbnail_top_{idx}",
+            "title": f"thumbnail_top_{idx}",
+        })
+
+    # fetch the worldstates
+    worldstate = {
+        "data": "",
+        "gaia_ids": gaia_ids,
+    }
+
+#     prompt, sql_before, sql_after, result = engine.query(q)
+#     return {'prompt': prompt,
+#             'sql_before': sql_before,
+#             'sql_after': sql_after,
+#             'result': result}
+
+    print(video_url)
+
+    return {'gaia_ids': gaia_ids,
+            'video_url': video_url,
+            'image_paths': thumbnail_paths,
+            "query": query,
+            "world_state": worldstate}
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', debug=True)
+    app.run(host="::", port=8085, debug=True)
