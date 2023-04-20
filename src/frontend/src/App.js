@@ -3,11 +3,9 @@ import './App.css';
 import React, { useEffect, useState, useRef } from 'react';
 import { Terminal } from 'primereact/terminal';
 import { TerminalService } from 'primereact/terminalservice';
-import { Panel } from 'primereact/panel';
 import { ProgressBar } from 'primereact/progressbar';
 import { TabView, TabPanel } from 'primereact/tabview';
 import { Card } from 'primereact/card';
-import { Chip } from 'primereact/chip';
 import { Button } from 'primereact/button';
 import { Timeline } from 'primereact/timeline';
 import { addDays } from './timeline/builders'
@@ -97,8 +95,14 @@ function App() {
   // qa engine
   const [qa, setQA] = useState(null);
 
+  // sample questions
+  const [sampleQuestions, setSampleQuestions] = useState([
+    "Show me some photos of plants in my neighborhood", 
+    "Which cities did I visit when I visited Japan?",
+    "How many books did I purchase in 04/2019?"]);
+
   // different qa methods
-  const qa_methods = ["ChatGPT", "Retrieval-based", "View-based"]
+  const qa_methods = ["ChatGPT", "ChatGPT (titles)", "ChatGPT (summaries)", "Retrieval-based", "View-based"]
 
   // mapping names of the different maps to indices
   // const view_name_mp = {
@@ -686,6 +690,32 @@ function App() {
     </>;
   }
 
+  const copyToClipboard = async (textToCopy) => {
+    // Navigator clipboard api needs a secure context (https)
+    if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(textToCopy);
+    } else {
+        // Use the 'out of viewport hidden text area' trick
+        const textArea = document.createElement("textarea");
+        textArea.value = textToCopy;
+
+        // Move textarea out of the viewport so it's not visible
+        textArea.style.position = "absolute";
+        textArea.style.left = "-999999px";
+
+        document.body.prepend(textArea);
+        textArea.select();
+
+        try {
+            document.execCommand('copy');
+        } catch (error) {
+            console.error(error);
+        } finally {
+            textArea.remove();
+        }
+    };
+  }
+
   useEffect(() => { importDigitalData(tracks, setTracks, setSelectedDateRange, toast); }, []);
   
   return (
@@ -714,6 +744,15 @@ function App() {
                     <label className="ml-2">View-based</label>
                 </div> */}
       </div>
+      <span className='my-2'> {sampleQuestions.map((q) => {return <Button className='mx-2 my-1 p-chip p-chip-text overflow-x-auto' label={q} onClick={() =>
+        {
+          if (qa === null) {
+            setQA('Retrieval-based');
+          }
+          // navigator.clipboard.writeText(q);
+          copyToClipboard(q);
+          toast.current.show({ severity: 'success', summary: 'Success', detail: 'Copied to clipboard!' });
+        }}/> }) } </span>
       <Terminal className="text-lg line-height-3" style={{ maxWidth: '800px', height: '500px' }} welcomeMessage="Welcome to TL-QA" prompt="TL-QA $" />
       <ProgressBar mode="indeterminate" style={{ maxWidth: '800px', height: '6px', display: running ? '' : 'none' }}></ProgressBar>
       </div>
