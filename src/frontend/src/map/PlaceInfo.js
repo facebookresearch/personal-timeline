@@ -52,17 +52,9 @@ export default function PlaceInfo(props) {
           }}
         >
           <div>
-            <Button className="justify-content-center p-1 border-noround" label={selected.start.toDateString()} link 
+            <Button className="justify-content-center p-1 border-noround" label={selected.title} link 
               onClick={() => {
-                let start = addDays(new Date(selected.start.toDateString()), -selected.start.getDay());
-                let end = addDays(start, 7);
-                // props.setSelectedDateRange([start, end]);
-                props.setSelectedCenter(selected);
-
-                // the ID is not auto-generated
-                if (selected.id && !String(selected.id).includes('-el-')) {
-                  props.setSelectedIDs([selected.id]);
-                }
+                return null;
               }} />
           </div>
         </InfoWindowF>

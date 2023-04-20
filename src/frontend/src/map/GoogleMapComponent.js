@@ -31,7 +31,7 @@ export default function GoogleMapComponent(props) {
   return (
     <GoogleMap
       id="map"
-      mapContainerStyle={{height: props.height, width: "100%"}}
+      mapContainerStyle={{height: props.height, width: props.width || "100%"}}
       zoom={14}
       center={
         selectedCenter ? {

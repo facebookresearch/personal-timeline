@@ -17,6 +17,9 @@ import { RadioButton } from 'primereact/radiobutton';
 import { Image } from 'primereact/image';
 import { Dialog } from 'primereact/dialog';
 import { Calendar } from 'primereact/calendar';
+import { Divider } from 'primereact/divider';
+import { Dropdown } from 'primereact/dropdown';
+import { Toolbar } from 'primereact/toolbar';
 
 
 import HeatMap from '@uiw/react-heat-map';
@@ -64,6 +67,9 @@ function App() {
   // zoom-level
   const [zoom, setZoom] = useState(2);
 
+  // selected track
+  const [selectedTrack, setSelectedTrack] = useState(null);
+
   // world-state
   const [worldState, setWorldState] = useState({
     'gaia_id': 'none',
@@ -101,9 +107,9 @@ function App() {
   //   "map": 5, "details": 6
   // }
   const view_name_mp = {
-    "timeline": 0, "query_result": 1,
-    "retrieval_result": 2, "heatmap": 3,
-    "map": 4, "details": 5
+    "query_result": 0,
+    "retrieval_result": 1, 
+    "map": 2, "details": 3
   }
 
   // Toast
@@ -487,6 +493,43 @@ function App() {
     );
   };
 
+  const customizedContent_v2 = (item) => {
+    return (
+      <Card title={item.title} subTitle={item.date} className='mb-3 shadow-3'>
+        {item.summary && <ShowMore summary={item.summary} />}
+        {item.image && <Image src={`${item.image}`} alt={item.name} height={200} width={200} className="shadow-1" preview />}
+        {item.spotify &&
+          <iframe style={{ "borderRadius": "12px" }} src={item.spotify.replace('/track/', '/embed/track/')}
+            width="200" height="200" frameBorder="0" allow="autoplay;
+                clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"
+          />
+        }
+        {item.video && events.length <= 100 &&
+          <Video_ video_path={item.video}/>}
+
+        {item.data.speech && item.data.speech.length >= 100 &&
+          <Button className="my-2" label="Conversation" link onClick={() => {
+            setShowSpeech(true);
+            setCurrentSpeech(item.data.speech);}}/>
+        }
+
+        {item.lat && item.long && <GoogleMapComponent geo={[item]} height="13vh" width="13vh" 
+          setSelectedDateRange={setSelectedDateRange} setSelectedIDs={setSelectedIDs} />
+        }
+
+        {item.data.exercise_text &&
+          <Button className="my-2" label="Exercise" link onClick={() => {
+            setShowSpeech(true);
+            setCurrentSpeech(item.data.exercise_text);}}/>
+        }
+
+        <Button className="my-2" label="More details" link onClick={() => {
+          setWorldState(item.data);
+          setActiveIndex(view_name_mp["details"]);
+        }} />
+      </Card>
+    );
+  };
   /**
    * For QA, given the array of episode ID's, select and display episodes from different tracks.
    * @param {Array} sources - ID's of the supporting episodes
@@ -509,47 +552,155 @@ function App() {
     return res;
   }
 
-  useEffect(() => { importDigitalData(tracks, setTracks, setSelectedDateRange, toast); }, []);
+  const events_to_timeline = (tracks, selectedDateRange, selectedTrack) => {
+    // start/end dates
+    let [start, end] = [startDay, today];
+    if (selectedDateRange && selectedDateRange.length == 2) {
+      [start, end] = selectedDateRange;
+      if (end === null) {
+        end = addDays(start, 1);
+      }
+    }
 
+    // collect events
+    let events = []
+    for (let i = 0; i < tracks.length; i++) {
+      // console.log(selectedTrack);
+      if (selectedTrack && tracks[i].title !== selectedTrack.name) {
+        continue;
+      }
+      for (let j = 0; j < tracks[i].elements.length; j++) {
+        let element = tracks[i].elements[j];
+        if (element.start.getTime() >= start.getTime() && element.start.getTime() <= end.getTime()) {
+          events.push(element_to_event(tracks[i].title, tracks[i].elements[j]));
+        }
+      }
+    }
+
+    events.sort((a, b) => {
+      let a_time = new Date(a.date).getTime();
+      let b_time = new Date(b.date).getTime();
+      return a_time - b_time;
+    });
+
+    // year, month, day
+    let new_events = []
+    for (let i = 0; i < events.length; i++) {
+      // if not same year
+      if (i === 0 || new Date(events[i].date).getFullYear() !== new Date(events[i-1].date).getFullYear()) {
+        new_events.push({"year": new Date(events[i].date).getFullYear()});
+      }
+
+      if (i === 0 || new Date(events[i].date).getMonth() !== new Date(events[i-1].date).getMonth()) {
+        new_events.push({"month": new Date(events[i].date).getMonth()});
+      }
+
+      if (i === 0 || new Date(events[i].date).getDate() !== new Date(events[i-1].date).getDate()) {
+        new_events.push({"day": new Date(events[i].date).toDateString()});
+      }
+
+      new_events.push(events[i]);
+    }
+
+    let to_content = (_input) => {
+      return <div>
+      {"year" in _input &&  <> <h3> <i className='pi pi-calendar-plus' /> Year {_input.year}</h3></>}
+      {"month" in _input && <><Divider className='my-3'/> <h3>{["January", "February", "March",
+    "April", "May", "June",
+    "July", "August", "September",
+    "October", "November", "December"][_input.month]}</h3></>}
+      {"day" in _input && <><Divider className='my-3'/><h3>{_input.day}</h3></>}
+      {"title" in _input && customizedContent_v2(_input)}
+      </div>;
+    }
+
+    // return <div>{events.map(customizedContent)} </div>
+    return <div>{new_events.map(to_content)} </div>
+    // to_content
+  }
+
+  const generate_summaries = (tracks) => {
+    let purchase = [];
+    let places = [];
+    let books = [];
+    let streaming = []
+
+    for (let i = 0; i < tracks.length; i++) {
+      for (let j = 0; j < tracks[i].elements.length; j++) {
+        let element = tracks[i].elements[j];
+        let event = element_to_event(tracks[i].title, element);
+        if (tracks[i].title === 'purchase') {
+          purchase.push(event);
+        } else if (tracks[i].title === 'streaming') {
+          streaming.push(event);
+        } else if (tracks[i].title === 'places') {
+          places.push(event);
+        } else if (tracks[i].title === 'books') {
+          books.push(event);
+        }
+      }
+    }
+
+    // purchase
+    return <>
+    <Card title="Places you visited" className='mb-3 shadow-3'>
+      <div className="grid">
+      {places.slice(0, 8).map((event) => {
+        return <div className="col-fixed mx-3 my-3" style={{width: "150px"}}><GoogleMapComponent geo={[event]} height="10vh" width="10vh" 
+                setSelectedDateRange={setSelectedDateRange} setSelectedIDs={setSelectedIDs}/>
+               </div>;
+      }
+      )}      
+      </div>
+    </Card>
+
+    <Card title="Books you read" className='mb-3 shadow-3'>
+      <div className="grid">
+      {books.slice(0, 12).map((item) => {
+        return <div className="col-fixed mx-2 my-2" style={{width: "100px"}}>
+        {item.image && <Image src={`${item.image}`} alt={item.name} height={100} width={100} className="shadow-1" preview />}
+               </div>;
+      }
+      )}      
+      </div>
+    </Card>
+
+    <Card title="Purchases you made" className='mb-3 shadow-3'>
+      {purchase.slice(0, 7).map((event) => {return <><Divider/>
+        {event.title}
+      </>})}
+    </Card>
+
+    <Card title="Content you stream" className='mb-3 shadow-3'>
+    <div className="grid">
+      {streaming.slice(0, 9).map((item) => {
+                return <div className="col-fixed mx-2 my-2" style={{width: "200px"}}>
+                <iframe style={{ "borderRadius": "12px" }} src={item.spotify.replace('/track/', '/embed/track/')}
+            width="200" height="200" frameBorder="0" allow="autoplay;
+                clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"/>
+                       </div>;
+        })}
+      </div>
+    </Card>
+
+    </>;
+  }
+
+  useEffect(() => { importDigitalData(tracks, setTracks, setSelectedDateRange, toast); }, []);
+  
   return (
     <div className="App">
-      <h1 className="title">Personal Timeline</h1>
       {/* For message (success, fail) display */}
       <Toast ref={toast}></Toast>
 
-      {/* For selecting date range */}
-      <span className="p-float-label">
-      <Calendar className="mr-4" inputId="date_range" value={selectedDateRange} onChange={(e) => {
-          setSelectedDateRange(e.value);
-        }} selectionMode="range" readOnlyInput />
-      <label htmlFor="date_range">Date Range</label>
+      <h1 className="my-0 title">Personal Timeline</h1>
+      <h3 className="font-light">Research by Meta AI</h3>
+      <Divider className='my-3'/>
 
-      {/* Showing the start and end date of the selected date range */}
-      {selectedDateRange && <Chip label={
-          selectedDateRange[1] !== null ?
-          `From ${selectedDateRange[0].toDateString()} to ${selectedDateRange[1].toDateString()}` :
-          `On ${selectedDateRange[0].toDateString()}`
-        }
-        removable onRemove={() => {
-          setSelectedDateRange(null);
-          setZoom(2);
-        }} />}
-      </span>
-
-      {/* The horizontal timeline for navigation */}
-      <Panel className="my-5" header="Timeline" toggleable style={{ maxWidth: '1000px' }}>
-        <EpiTimeline
-          startDay={startDay}
-          selectedDateRange={selectedDateRange}
-          setSelectedDateRange={setSelectedDateRange}
-          zoom={zoom}
-          setZoom={setZoom}
-          tracks={tracks}
-          set_tracks={setTracks} />
-      </Panel>
-
-
+      <h2 className="">Query your personal timeline</h2>
       {/* QA dialog box */}
+      <div class="grid">
+      <div class="col-fixed mr-6" style={{width: '800px'}}>
       <p>Enter a question or "<strong>clear</strong>" to clear all commands.</p>
       <div className="flex flex-wrap gap-3 my-3">
         {qa_methods.map((method) => {
@@ -563,32 +714,17 @@ function App() {
                     <label className="ml-2">View-based</label>
                 </div> */}
       </div>
-      <Terminal className="text-lg line-height-3" style={{ maxWidth: '1000px', height: '200px' }} welcomeMessage="Welcome to TL-QA" prompt="TL-QA $" />
-      <ProgressBar mode="indeterminate" style={{ maxWidth: '1000px', height: '6px', display: running ? '' : 'none' }}></ProgressBar>
-
-      {/* Showing the episode ID's included in the answer */}
-      {/* {selectedIDs && <Chip className="my-5" label={`Showing: ${selectedIDs}`} style={{ maxWidth: '1000px' }}
-        removable onRemove={() => {
-          setSelectedIDs(null);
-          //  setZoom(2);
-        }} />} */}
-
-      {/* Dialog box for speech/conversation */}
-      <SpeechDialog content={currentSpeech} visible={showSpeech} setVisible={setShowSpeech}/>
+      <Terminal className="text-lg line-height-3" style={{ maxWidth: '800px', height: '500px' }} welcomeMessage="Welcome to TL-QA" prompt="TL-QA $" />
+      <ProgressBar mode="indeterminate" style={{ maxWidth: '800px', height: '6px', display: running ? '' : 'none' }}></ProgressBar>
+      </div>
 
       {/* Container for all the detailed views */}
-      <TabView className="my-3" style={{ maxWidth: '1000px' }}
+      <div class="col-fixed" style={{width: '800px'}}>
+      <TabView className="my-3" style={{ maxWidth: '800px' }}
         activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
 
-        {/* The vertical timeline */}
-        <TabPanel header="Timeline Events" style={{ maxWidth: '1000px', maxHeight: '1000px' }}>
-          <div className='card overflow-auto' style={{ maxHeight: '1000px' }}>
-            {events.length <= 1000 && <Timeline value={events} align="alternate" className="customized-timeline" marker={customizedMarker} content={customizedContent} />}
-          </div>
-        </TabPanel>
-
         {/* QA result */}
-        <TabPanel header="Query result" style={{ maxWidth: '1000px' }}>
+        <TabPanel header="Query result" style={{ maxWidth: '800px' }}>
           <p className="m-0">
             <SyntaxHighlighter language="javascript" style={coy}>
               {JSON.stringify(answer, null, 2)}
@@ -607,14 +743,71 @@ function App() {
         </TabPanel> */}
 
         {/* Retrieval results (for supporting evidence) */}
-        <TabPanel header="Retrieval Results" style={{ maxWidth: '1000px' }}>
-          {answer.sources && <div className='card overflow-auto' style={{ maxHeight: '1000px' }}>
+        <TabPanel header="Retrieval Results" style={{ maxWidth: '800px' }}>
+          {answer.sources && <div className='card overflow-auto' style={{ maxHeight: '500px' }}>
             <Timeline value={source_to_events(answer.sources)} align="alternate" className="customized-timeline" marker={customizedMarker} content={customizedContent} />
           </div>}
         </TabPanel>
 
-        {/* Heatmap */}
-        <TabPanel header="Heatmap" toggleable style={{ maxWidth: '1000px' }}>
+        {/* Displaying geo locations on GoogleMap */}
+        <TabPanel header="Map" style={{ maxWidth: '800px' }}>
+          <GoogleMapComponent geo={geo} height="36vh" setSelectedDateRange={setSelectedDateRange} setSelectedIDs={setSelectedIDs} />
+        </TabPanel>
+
+        {/* Displaying the raw JSON object for an episode */}
+        <TabPanel header="Details" style={{ maxWidth: '800px' }}>
+          <SyntaxHighlighter language="javascript" style={coy}>
+            {JSON.stringify(worldState, null, 2)}
+          </SyntaxHighlighter>
+        </TabPanel>
+
+      </TabView>
+      </div>
+      </div>
+
+      <Divider className='my-5'/>
+      <h2 className="my-5">Your personal timeline</h2>
+
+      <div class="grid">
+      <div class="col-fixed mr-6" style={{width: '800px'}}>
+
+      <Toolbar start={<span className="p-float-label">
+      <Calendar className="mr-4" inputId="date_range" value={selectedDateRange} onChange={(e) => {
+          setSelectedDateRange(e.value);
+        }} selectionMode="range" readOnlyInput />
+      <label htmlFor="date_range">Date Range</label>
+
+      {/* Showing the start and end date of the selected date range */}
+      {/* {selectedDateRange && <Chip label={
+          selectedDateRange[1] !== null ?
+          `From ${selectedDateRange[0].toDateString()} to ${selectedDateRange[1].toDateString()}` :
+          `On ${selectedDateRange[0].toDateString()}`
+        }
+        removable onRemove={() => {
+          setSelectedDateRange(null);
+          setZoom(2);
+        }} />} */}
+      </span>} 
+      
+      end={      <Dropdown value={selectedTrack} onChange={(e) => setSelectedTrack(e.value)} options={ Object.keys(icon_map).map((option) => {return {name: option}}) } optionLabel="name" 
+      placeholder="All Events" showClear className="w-full md:w-14rem" />} />
+
+      {/* For selecting date range */}
+      
+              {/* The vertical timeline */}
+        <Card className='card overflow-auto' >
+          <div style={{ maxWidth: '800px', maxHeight: '2500px' }}>
+            {/* {<Timeline value={events} align="alternate" className="customized-timeline" marker={customizedMarker} content={customizedContent} />} */}
+            {events_to_timeline(tracks, selectedDateRange, selectedTrack)}
+          </div>
+        </Card>
+      </div>
+
+      <div class="col-fixed" style={{width: '800px'}}>
+        {/* Summaries */}
+        {generate_summaries(tracks)}
+        
+        <Card title="Heatmap" className='shadow-3'>
           <div className='card overflow-x-auto'>
             <HeatMap
               className='text-sm'
@@ -642,22 +835,10 @@ function App() {
               style={{ height: 200 }}
             />
           </div>
-        </TabPanel>
+        </Card>
+      </div>
 
-        {/* Displaying geo locations on GoogleMap */}
-        <TabPanel header="Map" style={{ maxWidth: '1000px' }}>
-          <GoogleMapComponent geo={geo} height="60vh" setSelectedDateRange={setSelectedDateRange} setSelectedIDs={setSelectedIDs} />
-        </TabPanel>
-
-        {/* Displaying the raw JSON object for an episode */}
-        <TabPanel header="Details" style={{ maxWidth: '1000px' }}>
-          <SyntaxHighlighter language="javascript" style={coy}>
-            {JSON.stringify(worldState, null, 2)}
-          </SyntaxHighlighter>
-        </TabPanel>
-
-      </TabView>
-
+      </div>
     </div>
   );
 }
