@@ -38,3 +38,20 @@
     transform: rotate(360deg);
   }
 }
+
+.terminal-demo p {
+  margin-top: 0;
+}
+.terminal-demo .p-terminal {
+  background-color: #212121;
+  color: #fff;
+}
+.terminal-demo .p-terminal .p-terminal-command {
+  color: #80cbc4;
+}
+.terminal-demo .p-terminal .p-terminal-prompt {
+  color: #ffd54f;
+}
+.terminal-demo .p-terminal .p-terminal-response {
+  color: #9fa8da;
+}

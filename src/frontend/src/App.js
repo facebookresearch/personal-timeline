@@ -26,8 +26,6 @@ import GoogleMapComponent from './map/GoogleMapComponent';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import EpiTimeline from "./timeline/EpiTimeline"
-
 import "video-react/dist/video-react.css"; // import css
 import importDigitalData from './service/DigitalDataImportor';
 
@@ -62,21 +60,14 @@ function App() {
   // selected start/end date
   const [selectedDateRange, setSelectedDateRange] = useState(null);
 
-  // zoom-level
-  const [zoom, setZoom] = useState(2);
-
   // selected track
   const [selectedTrack, setSelectedTrack] = useState(null);
 
   // world-state
   const [worldState, setWorldState] = useState({
-    'gaia_id': 'none',
-    'some_attribute': 'val',
-    'actions': ['a1', 'a2']
+    'id': 'none',
+    'some_attribute': 'val'
   });
-
-  // images
-  const [images, setImages] = useState(null);
 
   // events to be shown in the timeline
   const [events, setEvents] = useState([]);
@@ -86,11 +77,6 @@ function App() {
 
   // selected view's index (timeline, map, etc.)
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // for displaying the speech dialog
-  const [showSpeech, setShowSpeech] = useState(false);
-
-  const [currentSpeech, setCurrentSpeech] = useState("");
 
   // qa engine
   const [qa, setQA] = useState(null);
@@ -102,7 +88,7 @@ function App() {
     "How many books did I purchase in 04/2019?"]);
 
   // different qa methods
-  const qa_methods = ["ChatGPT", "ChatGPT (titles)", "ChatGPT (summaries)", "Retrieval-based", "View-based"]
+  const qa_methods = ["ChatGPT", "Retrieval-based", "View-based"]
 
   // mapping names of the different maps to indices
   // const view_name_mp = {
@@ -459,44 +445,6 @@ function App() {
    * @param {Object} item - the event to be displayed
    * @returns
    */
-  const customizedContent = (item) => {
-    return (
-      <Card title={item.title} subTitle={item.date}>
-        {item.summary && <ShowMore summary={item.summary} />}
-        {item.image && <Image src={`${item.image}`} alt={item.name} width={200} className="shadow-1" />}
-        {item.spotify &&
-          <iframe style={{ "borderRadius": "12px" }} src={item.spotify.replace('/track/', '/embed/track/')}
-            width="100%" height="380" frameBorder="0" allow="autoplay;
-                clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"
-          />
-        }
-        {item.video && events.length <= 100 &&
-          <Video_ video_path={item.video}/>}
-
-        {item.data.speech && item.data.speech.length >= 100 &&
-          <Button className="my-2" label="Conversation" link onClick={() => {
-            setShowSpeech(true);
-            setCurrentSpeech(item.data.speech);}}/>
-        }
-
-        {item.lat && item.long && <GoogleMapComponent geo={[item]} height="20vh"
-          setSelectedDateRange={setSelectedDateRange} setSelectedIDs={setSelectedIDs} />
-        }
-
-        {item.data.exercise_text &&
-          <Button className="my-2" label="Exercise" link onClick={() => {
-            setShowSpeech(true);
-            setCurrentSpeech(item.data.exercise_text);}}/>
-        }
-
-        <Button className="my-2" label="More details" link onClick={() => {
-          setWorldState(item.data);
-          setActiveIndex(view_name_mp["details"]);
-        }} />
-      </Card>
-    );
-  };
-
   const customizedContent_v2 = (item) => {
     return (
       <Card title={item.title} subTitle={item.date} className='mb-3 shadow-3'>
@@ -527,10 +475,12 @@ function App() {
             setCurrentSpeech(item.data.exercise_text);}}/>
         }
 
+        <div>
         <Button className="my-2" label="More details" link onClick={() => {
           setWorldState(item.data);
           setActiveIndex(view_name_mp["details"]);
         }} />
+        </div>
       </Card>
     );
   };
@@ -556,8 +506,8 @@ function App() {
     return res;
   }
 
-  const events_to_timeline = (tracks, selectedDateRange, selectedTrack) => {
-    // start/end dates
+  const events_to_timeline = (tracks, selectedDateRange, selectedTrack, sources) => {
+
     let [start, end] = [startDay, today];
     if (selectedDateRange && selectedDateRange.length == 2) {
       [start, end] = selectedDateRange;
@@ -567,25 +517,30 @@ function App() {
     }
 
     // collect events
-    let events = []
-    for (let i = 0; i < tracks.length; i++) {
-      // console.log(selectedTrack);
-      if (selectedTrack && tracks[i].title !== selectedTrack.name) {
-        continue;
-      }
-      for (let j = 0; j < tracks[i].elements.length; j++) {
-        let element = tracks[i].elements[j];
-        if (element.start.getTime() >= start.getTime() && element.start.getTime() <= end.getTime()) {
-          events.push(element_to_event(tracks[i].title, tracks[i].elements[j]));
+    // start/end dates
+    let events = [];
+    if (sources) {
+      events = source_to_events(sources);
+    } else {
+      for (let i = 0; i < tracks.length; i++) {
+        // console.log(selectedTrack);
+        if (selectedTrack && tracks[i].title !== selectedTrack.name) {
+          continue;
+        }
+        for (let j = 0; j < tracks[i].elements.length; j++) {
+          let element = tracks[i].elements[j];
+          if (element.start.getTime() >= start.getTime() && element.start.getTime() <= end.getTime()) {
+            events.push(element_to_event(tracks[i].title, tracks[i].elements[j]));
+          }
         }
       }
-    }
 
-    events.sort((a, b) => {
-      let a_time = new Date(a.date).getTime();
-      let b_time = new Date(b.date).getTime();
-      return a_time - b_time;
-    });
+      events.sort((a, b) => {
+        let a_time = new Date(a.date).getTime();
+        let b_time = new Date(b.date).getTime();
+        return a_time - b_time;
+      });
+    }
 
     // year, month, day
     let new_events = []
@@ -648,14 +603,17 @@ function App() {
     // purchase
     return <>
     <Card title="Places you visited" className='mb-3 shadow-3'>
-      <div className="grid">
+      <div style={{width: "500px"}}><GoogleMapComponent geo={places} height="20vh" width="47vh" 
+                setSelectedDateRange={setSelectedDateRange} setSelectedIDs={setSelectedIDs}/>
+      </div>      
+      {/* <div className="grid">
       {places.slice(0, 8).map((event) => {
         return <div className="col-fixed mx-3 my-3" style={{width: "150px"}}><GoogleMapComponent geo={[event]} height="10vh" width="10vh" 
                 setSelectedDateRange={setSelectedDateRange} setSelectedIDs={setSelectedIDs}/>
                </div>;
       }
       )}      
-      </div>
+      </div> */}
     </Card>
 
     <Card title="Books you read" className='mb-3 shadow-3'>
@@ -753,7 +711,9 @@ function App() {
           copyToClipboard(q);
           toast.current.show({ severity: 'success', summary: 'Success', detail: 'Copied to clipboard!' });
         }}/> }) } </span>
+      <div class="terminal-demo">
       <Terminal className="text-lg line-height-3" style={{ maxWidth: '800px', height: '500px' }} welcomeMessage="Welcome to TL-QA" prompt="TL-QA $" />
+      </div>
       <ProgressBar mode="indeterminate" style={{ maxWidth: '800px', height: '6px', display: running ? '' : 'none' }}></ProgressBar>
       </div>
 
@@ -783,8 +743,8 @@ function App() {
 
         {/* Retrieval results (for supporting evidence) */}
         <TabPanel header="Retrieval Results" style={{ maxWidth: '800px' }}>
-          {answer.sources && <div className='card overflow-auto' style={{ maxHeight: '500px' }}>
-            <Timeline value={source_to_events(answer.sources)} align="alternate" className="customized-timeline" marker={customizedMarker} content={customizedContent} />
+          {answer.sources && <div className='card overflow-auto' style={{ maxHeight: '700px' }}>
+            {events_to_timeline(tracks, null, null, answer.sources)}
           </div>}
         </TabPanel>
 
@@ -837,7 +797,7 @@ function App() {
         <Card className='card overflow-auto' >
           <div style={{ maxWidth: '800px', maxHeight: '2500px' }}>
             {/* {<Timeline value={events} align="alternate" className="customized-timeline" marker={customizedMarker} content={customizedContent} />} */}
-            {events_to_timeline(tracks, selectedDateRange, selectedTrack)}
+            {events_to_timeline(tracks, selectedDateRange, selectedTrack, null)}
           </div>
         </Card>
       </div>
