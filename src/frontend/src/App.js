@@ -579,6 +579,14 @@ function App() {
   }
 
   const generate_summaries = (tracks) => {
+    let [start, end] = [startDay, today];
+    if (selectedDateRange && selectedDateRange.length == 2) {
+      [start, end] = selectedDateRange;
+      if (end === null) {
+        end = addDays(start, 1);
+      }
+    }
+
     let purchase = [];
     let places = [];
     let books = [];
@@ -587,22 +595,24 @@ function App() {
     for (let i = 0; i < tracks.length; i++) {
       for (let j = 0; j < tracks[i].elements.length; j++) {
         let element = tracks[i].elements[j];
-        let event = element_to_event(tracks[i].title, element);
-        if (tracks[i].title === 'purchase') {
-          purchase.push(event);
-        } else if (tracks[i].title === 'streaming') {
-          streaming.push(event);
-        } else if (tracks[i].title === 'places') {
-          places.push(event);
-        } else if (tracks[i].title === 'books') {
-          books.push(event);
+        if (element.start.getTime() >= start.getTime() && element.start.getTime() <= end.getTime()) {
+          let event = element_to_event(tracks[i].title, element);
+          if (tracks[i].title === 'purchase') {
+            purchase.push(event);
+          } else if (tracks[i].title === 'streaming' && event.spotify) {
+            streaming.push(event);
+          } else if (tracks[i].title === 'places') {
+            places.push(event);
+          } else if (tracks[i].title === 'books') {
+            books.push(event);
+          }
         }
       }
     }
 
     // purchase
     return <>
-    <Card title="Places you visited" className='mb-3 shadow-3'>
+    {places.length > 0 && <Card title="Places you visited" className='mb-3 shadow-3'>
       <div style={{width: "500px"}}><GoogleMapComponent geo={places} height="20vh" width="47vh" 
                 setSelectedDateRange={setSelectedDateRange} setSelectedIDs={setSelectedIDs}/>
       </div>      
@@ -614,9 +624,9 @@ function App() {
       }
       )}      
       </div> */}
-    </Card>
+    </Card>}
 
-    <Card title="Books you read" className='mb-3 shadow-3'>
+    {books.length > 0 && <Card title="Books you read" className='mb-3 shadow-3'>
       <div className="grid">
       {books.slice(0, 12).map((item) => {
         return <div className="col-fixed mx-2 my-2" style={{width: "100px"}}>
@@ -625,15 +635,15 @@ function App() {
       }
       )}      
       </div>
-    </Card>
+    </Card>}
 
-    <Card title="Purchases you made" className='mb-3 shadow-3'>
+    {purchase.length > 0 && <Card title="Purchases you made" className='mb-3 shadow-3'>
       {purchase.slice(0, 7).map((event) => {return <><Divider/>
         {event.title}
       </>})}
-    </Card>
+    </Card>}
 
-    <Card title="Content you stream" className='mb-3 shadow-3'>
+    {streaming.length > 0 && <Card title="Content you stream" className='mb-3 shadow-3'>
     <div className="grid">
       {streaming.slice(0, 9).map((item) => {
                 return <div className="col-fixed mx-2 my-2" style={{width: "200px"}}>
@@ -643,7 +653,7 @@ function App() {
                        </div>;
         })}
       </div>
-    </Card>
+    </Card>}
 
     </>;
   }
