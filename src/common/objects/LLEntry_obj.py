@@ -22,6 +22,7 @@ class LLEntry:
 
         # Purchase
         self.purchase_id = ""
+        self.productId = None
         self.productName = ""
         self.productPrice = ""
         self.currency = ""

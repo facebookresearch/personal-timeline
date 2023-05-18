@@ -103,6 +103,12 @@
         "target": "productQuantity",
         "src_type": "str",
         "target_type": "number"
+      },
+      {
+        "src": "ASIN/ISBN",
+        "target": "productId",
+        "src_type": "str",
+        "target_type": "number"
       }
     ]
   },
@@ -140,6 +146,12 @@
       {
         "src": "OurPriceCurrencyCode",
         "target": "currency",
+        "src_type": "str",
+        "target_type": "number"
+      },
+      {
+        "src": "ASIN/ISBN",
+        "target": "productId",
         "src_type": "str",
         "target_type": "number"
       }

@@ -28,8 +28,10 @@ from src.common.objects.EntryTypes import EntryType
 #           FieldMapping(
 #               src: str                ([Required when mapping present]: Field name in input file)
 #               target: str             ([Required when mapping present]: Attribute name in LLEntry class)
-#               src_type: str           ([Required when mapping present]: Data type of field in Source)
-#               target_type: str        ([Required when mapping present]: Data type of attribute in LLEntry class)
+#               src_type: str           ([Required when mapping present]: Data type of field in Source
+#                                                    Possible values: str, dict, datetime, number, not tested fully)
+#               target_type: str        ([Required when mapping present]: Data type of attribute in LLEntry class
+#                                                    Possible values: str, dict, datetime, number, not tested fully))
 #               default_value: str      ([Optional]: Value to store when data is absent.
 #                                                    Values default to None if default_value is not provided)
 #               functions: list         ([Optional]: Function to evaluate to convert source value to target value.
