@@ -201,7 +201,7 @@ Information on both scenarios is detailed below.
 irrespective of the path you choose to add the new source.
 This file contains a list of all data sources that are processed by the importer. 
 In code, these configs are deserialized to class structure defined in [import_configs.py](src/common/objects/import_configs.py).
-- Refer to [Class Hierarchy]((src/common/objects/import_configs.py)) to properly add an entry to 
+- Refer to [Class Hierarchy](src/common/objects/import_configs.py) to properly add an entry to 
 [data_source.json](src/common/bootstrap/data_source.json). Give a unique source id to your data source.
 
 
