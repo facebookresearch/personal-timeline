@@ -1,10 +1,11 @@
 import pickle
+import logging as log
 
 from src.ingest.importers.create_facebook_LLEntries import FacebookPhotosImporter
 from src.ingest.importers.create_google_photo_LLEntries import GooglePhotosImporter
 from src.ingest.importers.create_googlemaps_LLEntries import GoogleMapsImporter
 from src.ingest.importers.create_apple_health_LLEntries import AppleHealthImporter
-from src.ingest.importers.all_importers import SimpleJSONImporter, CSVImporter
+from src.ingest.importers.generic_importer import SimpleJSONImporter, CSVImporter
 from src.common.objects.import_configs import DataSourceList, SourceConfigs, FileType
 from src.common.persistence.personal_data_db import PersonalDataDBConnector
 
@@ -27,7 +28,8 @@ class GenericImportOrchestrator:
                 entry_type = source[2]
                 configs: SourceConfigs = pickle.loads(source[3])
                 field_mappings: list = pickle.loads(source[4])
-                print("Configurations found for ", source_name +". Attempting to import data from", configs.input_directory)
+                log.info(f"Configurations found for {source_name}. "
+                         f"Attempting to import data from {configs.input_directory}")
                 imp=None
                 if source_name == "GoogleTimeline":
                     imp = GoogleMapsImporter(source_id, source_name, entry_type, configs)
@@ -35,16 +37,16 @@ class GenericImportOrchestrator:
                     imp = GooglePhotosImporter(source_id, source_name, entry_type, configs)
                 elif source_name == "FacebookPosts":
                     imp = FacebookPhotosImporter(source_id, source_name, entry_type, configs)
+                elif source_name == "AppleHealth" and configs.filetype == FileType.XML:
+                    imp = AppleHealthImporter(source_id, source_name, entry_type, configs)
                 elif configs.filetype == FileType.JSON:
                     imp = SimpleJSONImporter(source_id, source_name, entry_type, configs)
                 elif configs.filetype == FileType.CSV:
-                    imp = CSVImporter(source_id, source_name, entry_type, configs)  # TODO CSV
-                elif configs.filetype == FileType.XML and source_name=="AppleHealth":
-                    imp = AppleHealthImporter(source_id, source_name, entry_type, configs) #TODO XML
-                # print("Beginning import for", imp.source_name)
+                    imp = CSVImporter(source_id, source_name, entry_type, configs)
+                print("Beginning import for", imp.source_name)
                 imp.import_data(field_mappings)
         else:
-            print("No Data source registered with importers.")
+            log.info("No Data source registered with importers.")
 
     def import_from_xml(self, source_name: str, configs: SourceConfigs, field_mappings: list):
         print("XML")

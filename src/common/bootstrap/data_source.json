@@ -6,9 +6,7 @@
     "configs": {
       "input_directory": "personal-data/apple-health",
       "filetype": "xml",
-      "filetype_configs": {
-        "root": "Workout"
-      },
+      "filetype_configs": {},
       "dedup_key": ["source", "startTime"]
     },
     "field_mappings": [

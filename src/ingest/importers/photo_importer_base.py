@@ -13,12 +13,13 @@ from PIL import Image
 from pillow_heif import register_heif_opener
 
 from src.common.objects.import_configs import SourceConfigs
+from src.ingest.importers.generic_importer import GenericImporter
 
 register_heif_opener()
 
 from src.common.persistence.personal_data_db import PersonalDataDBConnector
 
-class PhotoImporter:
+class PhotoImporter(GenericImporter):
     @abstractmethod
     def __init__(self, source_id:int, source_name:str, entry_type:EntryType, configs:SourceConfigs):
         self.pdc = PersonalDataDBConnector()
