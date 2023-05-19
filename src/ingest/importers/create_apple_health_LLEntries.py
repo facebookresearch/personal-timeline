@@ -1,10 +1,4 @@
-import os
-from pathlib import Path
-from time import sleep
-
 from tqdm import tqdm
-
-
 
 from src.ingest.importers.generic_importer import GenericImporter
 from src.common.objects.EntryTypes import EntryType
