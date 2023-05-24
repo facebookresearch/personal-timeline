@@ -2,8 +2,48 @@ import json
 from enum import Enum
 
 from src.common.objects.EntryTypes import EntryType
-
-
+# Each element of this list is a dictionary with following attributes:
+# Class Hierarchy:
+# DataSourceList: list[
+#   DataSource(
+#       id: str                         ([Required] Unique source id.)
+#       source_name: str                ([Required]: Name of the import source)
+#       entry_type: src.common.objects.EntryTypes.EntryType ->
+#                                       ([Required]: One of the allowed values from Enum EntryType)
+#       configs: SourceConfigs(
+#           input_directory = str       ([Required]: Directory containing data for this source)
+#           filetype = str              ([Required]: xml/csv/json)
+#           filename_regex = str        ([Optional]: regex for files)
+#           filetype_configs = dict {
+#               skiprows: int           ([Optional]: Used for CSV filetype for skipping
+#                                                   first n rows of the csv. Defaults to 0)
+#           }
+#           dedup_key = str             ([Required]: List of attributes to use as composite key for
+#                                                   deduplication when processing/re-processing data)
+#       ),
+#       field_mappings: list[           ([Required for config driven sources/
+#                                         Optional for custom sources]:
+#                                                   List containing mapping of field from input file to
+#                                                   an attribute in LLEntry class.)
+#           FieldMapping(
+#               src: str                ([Required when mapping present]: Field name in input file)
+#               target: str             ([Required when mapping present]: Attribute name in LLEntry class)
+#               src_type: str           ([Required when mapping present]: Data type of field in Source
+#                                                    Possible values: str, dict, datetime, number, not tested fully)
+#               target_type: str        ([Required when mapping present]: Data type of attribute in LLEntry class
+#                                                    Possible values: str, dict, datetime, number, not tested fully))
+#               default_value: str      ([Optional]: Value to store when data is absent.
+#                                                    Values default to None if default_value is not provided)
+#               functions: list         ([Optional]: Function to evaluate to convert source value to target value.
+#                                                    Since this list is parsed in sequence, this function has access
+#                                                    to mappings already done. As such, it can work on the src,
+#                                                    as well as already mapped target attributes. FOr usage refer to
+#                                                    data_source.json and evaluate_functions in
+#                                                    [generic_importer.py](src/ingest/importers/generic_importer.py)
+#           )
+#       ]
+#   )
+# ]
 def get_val_or_none(kv:dict, key:str):
     if key in kv.keys():
         return kv[key]

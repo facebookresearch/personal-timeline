@@ -6,9 +6,7 @@
     "configs": {
       "input_directory": "personal-data/apple-health",
       "filetype": "xml",
-      "filetype_configs": {
-        "root": "Workout"
-      },
+      "filetype_configs": {},
       "dedup_key": ["source", "startTime"]
     },
     "field_mappings": [
@@ -105,6 +103,12 @@
         "target": "productQuantity",
         "src_type": "str",
         "target_type": "number"
+      },
+      {
+        "src": "ASIN/ISBN",
+        "target": "productId",
+        "src_type": "str",
+        "target_type": "number"
       }
     ]
   },
@@ -142,6 +146,12 @@
       {
         "src": "OurPriceCurrencyCode",
         "target": "currency",
+        "src_type": "str",
+        "target_type": "number"
+      },
+      {
+        "src": "ASIN/ISBN",
+        "target": "productId",
         "src_type": "str",
         "target_type": "number"
       }

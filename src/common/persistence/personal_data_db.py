@@ -202,11 +202,11 @@ class PersonalDataDBConnector:
                     from data_source ds LEFT JOIN personal_data pd 
                     on pd.source_id=ds.id 
                     where pd.data is not null
-                    group by ds.source_name"""
+                    group by ds.source_name
+                    order by ds.id"""
         res = self.cursor.execute(stats_sql)
 
         print("Data Stats by source:::")
         print("Source", ": ", "Count")
         for row in res.fetchall():
            print(row[0],": ", row[1])
-

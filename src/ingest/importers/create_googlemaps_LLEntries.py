@@ -2,7 +2,7 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-from src.ingest.importers.all_importers import GenericImporter
+from src.ingest.importers.generic_importer import GenericImporter
 from src.common.objects.EntryTypes import EntryType
 from src.common.objects.LLEntry_obj import LLEntry
 from src.common.objects.import_configs import SourceConfigs
