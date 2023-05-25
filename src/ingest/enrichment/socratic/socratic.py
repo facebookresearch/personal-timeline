@@ -1,15 +1,8 @@
 import os
 import torch
-import time
 import clip
-import requests
 import csv
 import wget
-import openai
-import dbm
-
-from PIL import Image
-from transformers import BloomTokenizerFast
 
 url_dict = {'clip_ViTL14_openimage_classifier_weights.pt': 'https://raw.githubusercontent.com/geonm/socratic-models-demo/master/prompts/clip_ViTL14_openimage_classifier_weights.pt',
             'clip_ViTL14_place365_classifier_weights.pt': 'https://raw.githubusercontent.com/geonm/socratic-models-demo/master/prompts/clip_ViTL14_place365_classifier_weights.pt',
@@ -28,9 +21,6 @@ for k, v in url_dict.items():
         wget.download(v, out=checkpoint_path)
 
 os.environ['CUDA_VISIBLE_DEVICES'] = ''
-
-API_URL = "https://api-inference.huggingface.co/models/bigscience/bloom"
-HF_TOKEN = os.environ["HF_TOKEN"]
 
 def load_openimage_classnames(csv_path):
     csv_data = open(csv_path)
@@ -169,91 +159,8 @@ def generate_prompt(openimage_classes, tencentml_classes, place365_classes, imgt
     I think there might be a {object_list} in this {img_type}.
     A creative short caption I can generate to describe this image is:'''
 
-    #prompt_search = f'''Let's list keywords that include the following description.
-    #This image is a {img_type}. There {ppl_result}.
-    #I think this photo was taken at a {sorted_places[0]}, {sorted_places[1]}, or {sorted_places[2]}.
-    #I think there might be a {object_list} in this {img_type}.
-    #Relevant keywords which we can list and are seperated with comma are:'''
-
     return prompt_caption
 
-
-bad_words_ids = BloomTokenizerFast.from_pretrained("bigscience/bloom").encode("intelligent creative image caption captioning bot summarize", add_special_tokens=False)
-# print(bad_words_ids)
-
-def generate_captions(prompt, num_captions=3, method="Greedy"):
-    cache = dbm.open('bloom_cache', 'c')
-    if prompt in cache:
-        res = cache[prompt]
-        cache.close()
-        return res
-
-    headers = {"Authorization": f"Bearer {HF_TOKEN}"}
-
-    max_length = 16
-    seed = 42
-    # sample_or_greedy = 'Greedy'
-    input_sentence = prompt
-    if method == "Sample":
-        parameters = {
-            "max_new_tokens": max_length,
-            "top_p": 0.7,
-            "do_sample": True,
-            "seed": seed,
-            "early_stopping": False,
-            "length_penalty": 0.0,
-            "eos_token_id": None,
-            "bad_words_ids": bad_words_ids
-        }
-    else:
-        parameters = {
-            "max_new_tokens": max_length,
-            "do_sample": False,
-            "seed": seed,
-            "early_stopping": False,
-            "length_penalty": 0.0,
-            "eos_token_id": None,
-            "bad_words_ids": bad_words_ids
-        }
-
-    payload = {"inputs": input_sentence, "parameters": parameters, "options" : {"use_cache": False}}
-
-    bloom_results = []
-    while len(bloom_results) == 0:
-        response = requests.post(API_URL, headers=headers, json=payload)
-        output = response.json()
-        if isinstance(output, list) and len(output) > 0:
-            generated_text = output[0]['generated_text'].replace(prompt, '').split('.')[0] + '.'
-            bloom_results.append(generated_text)
-        else:
-            time.sleep(5)
-
-    cache[prompt] = bloom_results[0]
-    cache.close()
-    return bloom_results[0]
-
-
-def generate_text_gpt3(prompt):
-    """Prompting GPT-3
-    """
-    cache = dbm.open('gpt3_cache', 'c')
-    if prompt in cache:
-        return cache[prompt]
-
-    openai.api_key = os.getenv("OPENAI_API_KEY")
-    response = openai.Completion.create(
-        model="text-davinci-002",
-        prompt=prompt,
-        temperature=0,
-        max_tokens=16,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0,
-        stop=["\n"])
-
-    res = getattr(getattr(response, 'choices')[0], "text")
-    cache[prompt] = res
-    return res
 
 def sorting_texts(image_features, captions):
     with torch.no_grad():
@@ -276,31 +183,8 @@ def postprocess_results(scores, classes):
     return outputs
 
 
-def image_captioning(image):
-    start_time = time.time()
-    image_features, openimage_scores, openimage_classes, tencentml_scores, tencentml_classes, place365_scores, place365_classes, imgtype_scores, imgtype_classes, ppl_scores, ppl_classes, ifppl_scores, ifppl_classes = zeroshot_classifier(image)
-    end_zeroshot = time.time()
-    prompt_caption = generate_prompt(openimage_classes, tencentml_classes, place365_classes, imgtype_classes, ppl_classes, ifppl_classes)
-    generated_captions = generate_captions(prompt_caption, num_captions=1)
-    end_bloom = time.time()
-    caption_scores, sorted_captions = sorting_texts(image_features, generated_captions)
-
-    output_dict = {}
-    output_dict['inference_time'] = {'CLIP inference': end_zeroshot - start_time,
-                                     'BLOOM request': end_bloom - end_zeroshot}
-
-    output_dict['generated_captions'] = postprocess_results(caption_scores, sorted_captions)
-    output_dict['reasoning'] = {'openimage_results': postprocess_results(openimage_scores, openimage_classes),
-                                'tencentml_results': postprocess_results(tencentml_scores, tencentml_classes),
-                                'place365_results': postprocess_results(place365_scores, place365_classes),
-                                'imgtype_results': postprocess_results(imgtype_scores, imgtype_classes),
-                                'ppl_results': postprocess_results(ppl_scores, ppl_classes),
-                                'ifppl_results': postprocess_results(ifppl_scores, ifppl_classes)}
-    return output_dict
-
 global model_dict
 model_dict = load_models()
 
 if __name__ == '__main__':
-    img = Image.open('example.jpg')
-    print(image_captioning(img))
+    pass

@@ -16,38 +16,10 @@ This will create a bunch of files/folders/symlinks needed for running the app.
 This will also create a new directory under your home folder `~/personal-data`, the directory where your personal data will reside.
 
 # Step 1: General Setup
-## For Data Ingestion
-1. Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
-    Add the following line to the `env/ingest.env.list` file:
-    ```
-   HF_TOKEN=<the token goes here>
-    ```
-2. Fill in the user information in `src/common/user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
-```
-{
-    "name": "Hilbert",
-    "address": "Menlo Park, California, United States",
-    "addresses": [
-        {
-            "name": "Work",
-            "address": "Menlo Park, California, United States",
-            "radius": 0.1
-        },
-        {
-            "name": "Home",
-            "address": "Menlo Park, California, United States",
-            "radius": 0.1
-        },
-        {
-            "name": "My neighborhood",
-            "address": "Menlo Park, California, United States",
-            "radius": 1
-        }
 
-    ]
-}
-```
-3. Ingestion configs are controlled via parameters in `conf/ingest.conf` file. The configurations
+## For Data Ingestion
+
+Ingestion configs are controlled via parameters in `conf/ingest.conf` file. The configurations
 are defaulted for optimized processing and don't need to be changed. 
 You can adjust values for these parameters to run importer with a different configuration.
 
@@ -67,6 +39,16 @@ Copy the following lines to `env/frontend.env.list`:
 SPOTIFY_TOKEN=<the token goes here>
 SPOTIFY_SECRET=<the secret goes here>
 ```
+
+## For Question-Answering
+
+Setup an OpenAI API following these [instructions](https://openai.com/api/).
+
+Copy the following lines to `env/frontend.env.list`:
+```
+OPENAI_API_KEY=<the API key goes here>
+```
+
 
 
 # Step 2: Downloading your personal data
@@ -179,9 +161,16 @@ Copy the container Id for ingest and see logs by running the following command:
 docker logs -f <container_id>
 ```
 
-# Step 5: Visualization
+# Step 5: Visualization and Question Answering
 
-Running the Frontend will start a flask server inside a docker container at `http://127.0.0.1:5000`. 
-You can view the timeline via this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
+Running the Frontend will start a ReactJS UI and a flask server of the QA system inside a docker container at `http://127.0.0.1:5000`.
+
+We provide an anonymized digital data dataset for testing the UI and QA system, see [here](DATASET.md) for more details.
+
+TODO: add details of the UI
+
+TODO: add details of the QA system
+
+<!-- You can view the timeline via this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
 * Note: Accessing UI via `http://localhost:5000` does not render the timeline due to some CORS Policy restrictions. 
-Make sure you are using `127.0.0.1` as prescribed.
+Make sure you are using `127.0.0.1` as prescribed. -->
