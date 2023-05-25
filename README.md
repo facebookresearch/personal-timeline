@@ -1,10 +1,5 @@
 This file explains how to create LifeLog entries from several data sources.
 
-
-In the explanation, we'll assume three directories all sitting within the application directory:
-  code, data, photos
-  All code should be run in the code directory. Photos should be stored in the photos directory. The data directory will contain the json files that are created in the process of building the lifelog.
-
 # Step 0: Create environment
 
 1. Install Docker Desktop from [this link](https://docs.docker.com/desktop/).
@@ -90,6 +85,9 @@ We currently supports 9 data sources. Here is a summary table:
 | Google Location  | [Link](https://github.com/alonhalevy/personal-timeline#google-photos) | personal-data/google-timeline/Location History/Semantic Location History | Location tracking / visualization                      |
 | Facebook posts   | [Link](https://github.com/alonhalevy/personal-timeline#facebook-data) | personal-data/facebook                                                   | Question-Answering over FB posts / photos              |
 
+If you have a different data source not listed above, follow the instructions [here](NEW_DATASOURCE.md)
+to add this data source to the importer.
+
 ### GOOGLE PHOTOS and GOOGLE TIMELINE
 <!--1. You need to download your Google photos from [Google Takeout](https://takeout.google.com/).  
 The download from Google Takeout would be in multiple zip files. Unzip all the files.
@@ -160,18 +158,18 @@ Running the Ingestion container will add two types of file to `~/personal-data/a
 ### Option 1:
 To run the pipeline end-to end(both frontend and backend), simply run 
 ```
-docker-compose up -d
+docker-compose up -d --build
 ```
 
 ### Option 2:
 You can also run ingestion and visualization separately.
 To start data ingestion, use  
 ```
-docker-compose up -d backend
+docker-compose up -d backend --build
 ```  
 To start visualization
 ```
-docker-compose up -d frontend
+docker-compose up -d frontend --build
 ```
 
 # Step 4: Check progress

@@ -11,10 +11,12 @@ from src.common.objects.EntryTypes import EntryType
 from src.common.objects.LLEntry_obj import LLEntry
 from src.common.objects.import_configs import SourceConfigs, FieldMapping
 import parsedatetime
+
 #Keep imports that may be used in dynamic function evaluation
 from datetime import datetime, timedelta
 
 from src.common.persistence.personal_data_db import PersonalDataDBConnector
+from src.common.util import *
 
 
 class GenericImporter:
@@ -29,6 +31,22 @@ class GenericImporter:
     @abstractmethod
     def import_data(self, field_mappings:list):
         pass
+
+    def generate_textDescription(self, details):
+        result = details["start"] + ": "
+        if "activity" not in details:
+            return (result+ "unidentified activity")
+        result = result + details["activity"] + " "
+        if "duration" in details:
+            result = result + truncateStringNum(details["duration"],0) + " minutes "
+        if "distance" in details:
+            distanceNum = truncateStringNum(details["distance"],2)
+            if distanceNum != "0.0":
+                result = result + distanceNum  + " miles "
+        #if details["indoor"] != "0":
+    #        result = result + "(indoors)"
+
+        return (result)
 
     def get_type_files_deep(self, pathname: str, filename_pattern: str, type: list) -> list:
         json_files = []
@@ -191,7 +209,10 @@ class CSVImporter(GenericImporter):
             return
         for entry in tqdm(entries):
             print("Reading CSV:", entry)
-            df = pd.read_csv(entry, skiprows=self.configs.filetype_configs["skiprows"],dtype=str)
+            skip_rows = 0
+            if self.configs.filetype_configs is not None and "skiprows" in self.configs.filetype_configs.keys():
+                skip_rows = self.configs.filetype_configs["skiprows"]
+            df = pd.read_csv(entry, skiprows=skip_rows, dtype=str)
             for index, row in tqdm(df.iterrows(), total=df.shape[0]):
                 obj = self.create_LLEntry(row.to_dict(), field_mappings)
                 if obj is None:
