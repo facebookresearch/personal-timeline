@@ -84,8 +84,8 @@ function App() {
   // sample questions
   const [sampleQuestions, setSampleQuestions] = useState([
     "Show me some photos of plants in my neighborhood", 
-    "Which cities did I visit when I visited Japan?",
-    "How many books did I purchase in 04/2019?"]);
+    "Which cities did I visit when I traveled to Japan?",
+    "How many books did I purchase in April?"]);
 
   // different qa methods
   const qa_methods = ["ChatGPT", "Retrieval-based", "View-based"]
