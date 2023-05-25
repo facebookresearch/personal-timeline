@@ -138,13 +138,13 @@ Running the Ingestion container will add two types of file to `~/personal-data/a
     (See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.)
 
 ### Option 1:
-To run the pipeline end-to end(both frontend and backend), simply run 
+To run the pipeline end-to-end (both frontend and backend), simply run 
 ```
 docker-compose up -d --build
 ```
 
 ### Option 2:
-You can also run ingestion and visualization separately.
+You can also run ingestion, visualization, and the QA engine separately.
 To start data ingestion, use  
 ```
 docker-compose up -d backend --build
@@ -152,6 +152,10 @@ docker-compose up -d backend --build
 To start visualization
 ```
 docker-compose up -d frontend --build
+```
+To start the QA engine
+```
+docker-compose up -d qa --build
 ```
 
 # Step 4: Check progress
@@ -163,7 +167,7 @@ docker logs -f <container_id>
 
 # Step 5: Visualization and Question Answering
 
-Running the Frontend will start a ReactJS UI and a flask server of the QA system inside a docker container at `http://127.0.0.1:5000`.
+Running the Frontend will start a ReactJS UI and a flask server of the QA system inside a docker container at `http://localhost:3000`.
 
 We provide an anonymized digital data dataset for testing the UI and QA system, see [here](DATASET.md) for more details.
 

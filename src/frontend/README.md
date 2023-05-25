@@ -1,4 +1,4 @@
-# Personal Timeline
+# Personal Timeline UI
 
 Create and activate a new conda env:
 ```

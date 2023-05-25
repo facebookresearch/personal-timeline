@@ -1,13 +1,10 @@
-FROM python:3.10.4
+FROM node:18.16.0
 
 WORKDIR /app
 
-COPY src/requirements.txt .
-RUN python -m pip install wheel setuptools pip --upgrade
-RUN --mount=type=cache,target=/root/.cache \
-    pip install -r requirements.txt
+RUN yarn add primereact primeicons video-react react-timelines @react-google-maps/api @uiw/react-heat-map react-syntax-highlighter @babel/runtime
 
-COPY src/frontend src/frontend
-COPY src/common src/common
+COPY src/frontend .
 
-CMD ["python", "-m", "src.frontend.server"]
+CMD ["yarn"]
+CMD ["yarn", "start"]

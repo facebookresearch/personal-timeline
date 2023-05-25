@@ -6,7 +6,20 @@ services:
       context: .
       dockerfile: src/frontend/Dockerfile
     ports:
-      - "5000:5000"
+      - "3000:3000"
+    volumes:
+      - ./personal-data/:/app/personal-data/
+    environment:
+      - APP_DATA_DIR=/app/personal-data/app_data
+    env_file:
+      - env/frontend.env.list
+
+  qa:
+    build:
+      context: .
+      dockerfile: src/frontend/Dockerfile-qa
+    ports:
+      - "8085:8085"
     volumes:
       - ./personal-data/:/app/personal-data/
     environment:
