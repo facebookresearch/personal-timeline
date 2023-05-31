@@ -44,12 +44,9 @@ def launch():
     global qa_engine
     global chatgpt_engine
     
-    try:
-        qa_engine = QAEngine('public/digital_data')
-        chatgpt_engine = ChatGPTEngine()
-        return {'message': 'okay'}
-    except Exception as e:
-        return {'message': str(e)}
+    qa_engine = QAEngine('public/digital_data')
+    chatgpt_engine = ChatGPTEngine()
+    return {'message': 'okay'}
 
 
 @app.route('/query', methods=['GET'])

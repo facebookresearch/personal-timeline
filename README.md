@@ -133,9 +133,8 @@ and make data available for visualization and search.
 
 
 Running the Ingestion container will add two types of file to `~/personal-data/app_data` folder
- - Import your data to an SQLite format file named `raw_data.db`
- - Generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`. 
-    (See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.)
+ - Import your data to an SQLite DB named `raw_data.db`
+ - Export your personal data into csv files such as `books.csv`, `exercise.csv`, etc.
 
 ### Option 1:
 To run the pipeline end-to-end (both frontend and backend), simply run 
@@ -171,9 +170,21 @@ Running the Frontend will start a ReactJS UI and a flask server of the QA system
 
 We provide an anonymized digital data dataset for testing the UI and QA system, see [here](DATASET.md) for more details.
 
-TODO: add details of the UI
+![Timeline Visualization](ui.png)
 
-TODO: add details of the QA system
+![QA Engine](qa.png)
+
+There are 3 options for the QA engine:
+* *ChatGPT*: uses OpenAI's gpt-3.5-turbo [API](https://platform.openai.com/docs/models/overview) without the personal timeline as context. It answers world knowledge question such as `what is the GDP of US in 2021` but not personal questions.
+* *Retrieval-based*: answers question by retrieving the top-k most relevant episodes from the personal timeline as the LLM's context. It can answer questions over the personal timeline such as `show me some plants in my neighborhood`.
+* *View-based*: translates the input question to a (customized) SQL query over tabular views (e.g., books, exercise, etc.) of the personal timeline. This QA engine is good at answering aggregate queries (`how many books did I purchase?`) and min/max queries (`when was the last time I travel to Japan`).
+
+Example questions you may try:
+* ``Show me some photos of plants in my neighborhood''
+* ``Which cities did I visit when I traveled to Japan?''
+* ``How many books did I purchase in April?''
+
+
 
 <!-- You can view the timeline via this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
 * Note: Accessing UI via `http://localhost:5000` does not render the timeline due to some CORS Policy restrictions. 

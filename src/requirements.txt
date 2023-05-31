@@ -33,3 +33,4 @@ langchain==0.0.180
 sqlparse
 flask-cors
 git+https://github.com/openai/CLIP.git
+tiktoken
