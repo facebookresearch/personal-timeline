@@ -1,0 +1,8 @@
+plotly
+matplotlib
+scikit-learn
+openai
+flask
+langchain
+faiss-cpu
+mlflow

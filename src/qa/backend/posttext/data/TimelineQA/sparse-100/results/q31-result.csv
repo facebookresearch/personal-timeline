@@ -1,0 +1,2 @@
+count(distinct r.place)
+5

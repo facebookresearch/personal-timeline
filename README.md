@@ -168,7 +168,7 @@ docker logs -f <container_id>
 
 Running the Frontend will start a ReactJS UI and a flask server of the QA system inside a docker container at `http://localhost:3000`.
 
-We provide an anonymized digital data dataset for testing the UI and QA system, see [here](DATASET.md) for more details.
+We provide an anonymized digital data [dataset](sample_data/) for testing the UI and QA system, see [here](DATASET.md) for more details.
 
 ![Timeline Visualization](ui.png)
 

@@ -1,0 +1,53 @@
+eid,start_date,end_date,city,place_visit_date,place,people,action,emotion
+e2,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/13,Liberty Bell,"Carter, Kayden",took a group photo,impressed
+e3,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/14,Philadelphia Museum of Art,"Carter, Kayden",recorded some videos,happy
+e4,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/15,Ipanema,"Carter, Kayden",bought some souvenirs,happy
+e5,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/16,Carnaval,"Carter, Kayden",took a selfie,impressed
+e6,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e594,2011/05/08,2011/05/22,"London, UK",2011/05/09,Tower of London,"Benjamin, Avery",took a group photo,happy
+e595,2011/05/08,2011/05/22,"London, UK",2011/05/10,London Eye,"Benjamin, Avery",bought some souvenirs,special
+e596,2011/05/08,2011/05/22,"London, UK",2011/05/11,Westminster,"Benjamin, Avery",took a selfie,special
+e597,2011/05/08,2011/05/22,"London, UK",2011/05/12,Camden,"Benjamin, Avery",recorded some videos,happy
+e598,2011/05/08,2011/05/22,"London, UK",2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e1232,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/03,Wat Traimit,Andrew,bought some souvenirs,happy
+e1233,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/04,Wat Arun,Andrew,took a selfie,impressed
+e1234,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/05,Grand Palace,Andrew,took a selfie,happy
+e1235,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/06,National Museum & Wang Na Palace,Andrew,took a selfie,impressed
+e1236,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/07,Wat Suthat,Andrew,took a group photo,happy
+e1868,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/07,Philadelphia Museum of Art,"Emily, Carter",took a group photo,special
+e1869,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/08,Liberty Bell,"Emily, Carter",bought some souvenirs,special
+e1870,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/09,Carnaval,"Emily, Carter",recorded some videos,happy
+e1871,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/10,Ipanema,"Emily, Carter",recorded some videos,happy
+e1872,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e2507,2014/01/23,2014/01/29,"Sydney, Australia",2014/01/24,Sydney Opera House,"Emily, Carter, Andrew",took a group photo,happy
+e2508,2014/01/23,2014/01/29,"Sydney, Australia",2014/01/25,Bondi Beach,"Emily, Carter, Andrew",recorded some videos,special
+e2509,2014/01/23,2014/01/29,"Sydney, Australia",2014/01/26,Sydney Harbour Bridge,"Emily, Carter, Andrew",took a selfie,happy
+e3806,2016/05/07,2016/05/20,"London, UK",2016/05/08,Westminster,Andrew,took a group photo,happy
+e3807,2016/05/07,2016/05/20,"London, UK",2016/05/09,Hyde Park,Andrew,took a group photo,special
+e3808,2016/05/07,2016/05/20,"London, UK",2016/05/10,Camden,Andrew,took a group photo,impressed
+e3809,2016/05/07,2016/05/20,"London, UK",2016/05/11,London Eye,Andrew,recorded some videos,happy
+e3810,2016/05/07,2016/05/20,"London, UK",2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e4450,2017/03/05,2017/03/16,"Paris, France",2017/03/06,Champs Elysées,"Andrew, Emily",bought some souvenirs,impressed
+e4451,2017/03/05,2017/03/16,"Paris, France",2017/03/07,Montmartre,"Andrew, Emily",recorded some videos,happy
+e4452,2017/03/05,2017/03/16,"Paris, France",2017/03/08,Louvre Museum,"Andrew, Emily",took a selfie,special
+e4453,2017/03/05,2017/03/16,"Paris, France",2017/03/09,Eiffel Tower,"Andrew, Emily",took a selfie,special
+e4454,2017/03/05,2017/03/16,"Paris, France",2017/03/10,Notre Dame Cathedral,"Andrew, Emily",bought some souvenirs,impressed
+e5096,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/10,Grand Palace,"Kayden, Carter, Emily",took a selfie,impressed
+e5097,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/11,Wat Suthat,"Kayden, Carter, Emily",bought some souvenirs,special
+e5098,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/12,National Museum & Wang Na Palace,"Kayden, Carter, Emily",took a selfie,special
+e5099,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/13,Wat Traimit,"Kayden, Carter, Emily",bought some souvenirs,impressed
+e5100,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/14,Wat Arun,"Kayden, Carter, Emily",bought some souvenirs,happy
+e5725,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/20,Sugarloaf,"Eva, Olivia",took a selfie,special
+e5726,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/21,Ipanema,"Eva, Olivia",took a group photo,happy
+e5727,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/22,Carnaval,"Eva, Olivia",took a selfie,happy
+e5728,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/23,Copacabana,"Eva, Olivia",recorded some videos,special
+e5729,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/24,Cristo Redentor,"Eva, Olivia",took a group photo,impressed
+e6409,2020/05/02,2020/05/12,"Miami, US",2020/05/03,Miami Beach,"Emily, Andrew",took a group photo,impressed
+e6410,2020/05/02,2020/05/12,"Miami, US",2020/05/04,Vizcaya Museum and Gardens,"Emily, Andrew",bought some souvenirs,impressed
+e6411,2020/05/02,2020/05/12,"Miami, US",2020/05/05,South Beach,"Emily, Andrew",bought some souvenirs,special
+e6412,2020/05/02,2020/05/12,"Miami, US",2020/05/06,Art Deco Historic District,"Emily, Andrew",took a group photo,happy
+e7049,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/08,Miracle Garden,"Emily, Carter",took a group photo,special
+e7050,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/09,Dubai Aquarium & Underwater Zoo,"Emily, Carter",took a group photo,happy
+e7051,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/10,Burj Khalifa,"Emily, Carter",bought some souvenirs,impressed
+e77100,2022/02/22,2022/02/28,"Shanghai, China",2022/02/22,"Shanghai, China","Emily, Carter","sightseeing",impressed
+e31510,2015/03/03,2015/03/15,"Shanghai, China",2015/03/03,"Shanghai, China","Benjamin","sightseeing",impressed

@@ -1,0 +1,693 @@
+eid,date,fruits,drinks,toiletries,people_string
+e21,2010/01/14,"watermelons, apples","tea, sports drinks, pineapple juice","paper towel, body lotion, shaving cream, conditioner",
+e22,2010/01/16,"blackberries, clementines, guava, nectarines",tea,toothbrush,Avery
+e25,2010/01/22,"peaches, strawberries, oranges","orange juice, guava juice",mouthwash,
+e27,2010/01/31,"bananas, pineapples, guava","guava juice, soda","toothpaste, mouthwash, paper towel",
+e32,2010/02/23,"apples, bananas, blackberries, pears","apple juice, coffee","toothbrush, body lotion, paper towel, shampoo",
+e35,2010/02/26,"pineapples, cherres",sports drinks,"conditioner, body lotion, paper towel, toothbrush","Andrew, Carter, Emily"
+e38,2010/03/10,"oranges, apples, blueberries","tea, mineral water","paper towel, toothpaste, facial wash, mouth wash",
+e41,2010/03/15,nectarines,sports drinks,"body lotion, mouth wash, mouthwash, toilet paper",
+e43,2010/03/24,"blueberries, pineapples, apples, watermelons","mineral water, tea","toilet paper, mouth wash, facial wash","Carter, Kayden, Andrew, Emily"
+e44,2010/03/28,"clementines, mangos, pineapples, apricots","mineral water, chocolate milk, mango juice","toilet paper, toothbrush",
+e45,2010/03/29,"nectarines, apricots, pears","mineral water, mango juice, coffee, pineapple juice","mouth wash, body lotion, conditioner",
+e53,2010/05/04,"pineapples, mangos, blackberries, strawberries",chocolate milk,"facial wash, mouth wash, toilet paper, mouthwash",
+e57,2010/05/10,"blackberries, cherres","milk, guava juice","conditioner, body lotion",
+e58,2010/05/14,"cherres, apples","milk, orange juice","mouth wash, facial wash, toothpaste, conditioner","Rylee, Olivia, Piper, Eva, Layla, Nora, Lydia"
+e60,2010/05/23,"pears, blackberries, guava","mineral water, orange juice","toothpaste, shaving cream","Carter, Kayden, Andrew, Emily"
+e62,2010/06/01,"mangos, cherres","soda, mineral water, pineapple juice, chocolate milk",mouth wash,
+e65,2010/06/05,"guava, blueberries","coffee, milk, chocolate milk","mouth wash, mouthwash, facial wash","Olivia, Claire, Hazel, Nevaeh"
+e69,2010/06/30,"cherres, pineapples, peaches, guava",orange juice,shampoo,
+e73,2010/07/17,oranges,sports drinks,"paper towel, toilet paper, toothpaste, body lotion","Claire, Kinsley, Hazel, Rylee, Avery, Piper, Piper, Eva"
+e74,2010/07/20,blueberries,"tea, apple juice, mineral water","shampoo, shaving cream, facial wash, toothbrush",
+e76,2010/08/05,"apples, raspberries, blackberries",mineral water,"toothbrush, toilet paper, toothpaste",
+e79,2010/08/06,"clementines, mangos, oranges","pineapple juice, soda",mouth wash,
+e80,2010/08/10,apricots,pineapple juice,"toilet paper, shampoo",
+e82,2010/08/14,"pears, mandarins, oranges","coffee, apple juice, orange juice","conditioner, shaving cream","Emily, Kayden, Andrew, Carter"
+e83,2010/08/17,"cherres, clementines","sports drinks, mango juice","shaving cream, conditioner, mouth wash","Avery, Eva, Rylee, Piper, Kinsley"
+e88,2010/08/31,"strawberries, mangos","coffee, pineapple juice, guava juice, mango juice","toothbrush, mouthwash",
+e89,2010/09/08,cherres,"sports drinks, mango juice, apple juice, guava juice",toothbrush,
+e92,2010/09/12,"pineapples, watermelons","mango juice, mineral water, milk","shampoo, conditioner, body lotion, toilet paper","Nora, Layla, Kinsley, Rylee, Claire, Hazel"
+e96,2010/09/21,"nectarines, oranges","mineral water, guava juice","conditioner, shaving cream, facial wash, toothpaste",Kayden
+e98,2010/09/25,watermelons,"chocolate milk, coffee, pineapple juice",toothbrush,
+e100,2010/10/02,"clementines, bananas","sports drinks, milk, chocolate milk","shaving cream, facial wash",
+e101,2010/10/04,"strawberries, blackberries","mango juice, chocolate milk","conditioner, toothbrush",
+e103,2010/10/13,mangos,"chocolate milk, guava juice, mineral water, milk","mouth wash, toothbrush, shampoo","Hazel, Kinsley, Lydia, Nora, Eva, Piper, Piper"
+e106,2010/10/15,"blueberries, cherres, mangos","guava juice, soda","facial wash, toothpaste, toilet paper","Kayden, Carter"
+e108,2010/10/23,"clementines, strawberries, cherres",guava juice,toilet paper,"Andrew, Carter, Emily, Kayden"
+e109,2010/10/27,"apricots, apples, blueberries, pears",chocolate milk,toothpaste,
+e110,2010/10/29,"cherres, nectarines, raspberries","chocolate milk, coffee, orange juice","paper towel, toothpaste, toothbrush, shaving cream",
+e111,2010/11/02,pineapples,apple juice,"body lotion, toothbrush",
+e113,2010/11/06,mangos,"tea, pineapple juice","body lotion, mouth wash, conditioner","Jackson, Benjamin, Willow"
+e114,2010/11/10,"clementines, nectarines, pears, oranges","chocolate milk, milk",mouth wash,
+e116,2010/11/16,"cherres, strawberries, bananas, pineapples","soda, guava juice",shampoo,
+e118,2010/11/28,apples,orange juice,mouth wash,
+e120,2010/12/07,"pears, oranges","mineral water, chocolate milk","toilet paper, facial wash, paper towel",
+e123,2010/12/17,"apricots, blackberries, oranges, pears",mango juice,paper towel,
+e124,2010/12/22,"blackberries, strawberries","orange juice, milk, apple juice, soda","toilet paper, conditioner, body lotion, mouth wash",
+e125,2010/12/29,"strawberries, blueberries, apricots",coffee,paper towel,"Claire, Layla, Lydia"
+e126,2010/12/31,"apples, pineapples, cherres, peaches",guava juice,"body lotion, paper towel","Kayden, Emily, Carter"
+e1533,2011/01/16,peaches,"tea, coffee",body lotion,Willow
+e1535,2011/01/29,"mangos, watermelons, blackberries, pineapples","apple juice, mango juice","toilet paper, conditioner",
+e1536,2011/02/02,"raspberries, watermelons, mandarins",guava juice,"shampoo, toilet paper, conditioner, toothpaste",
+e1537,2011/02/08,"apples, pineapples, strawberries, apricots",sports drinks,"facial wash, toilet paper, toothbrush",
+e1541,2011/02/21,"oranges, mangos, pineapples, cherres","chocolate milk, guava juice","mouthwash, mouth wash, facial wash",
+e1543,2011/03/04,"peaches, mandarins, watermelons",sports drinks,"shaving cream, mouth wash, mouthwash, shampoo","Avery, Piper, Layla, Olivia"
+e1545,2011/03/10,"nectarines, watermelons, apricots","mango juice, mineral water","facial wash, toothbrush, mouthwash","Nora, Nevaeh, Kinsley, Piper, Piper, Avery, Claire, Lydia, Eva"
+e1549,2011/03/18,"watermelons, nectarines, strawberries","mango juice, coffee, apple juice, mineral water","toothpaste, shaving cream, toilet paper",
+e1550,2011/03/24,nectarines,pineapple juice,"facial wash, paper towel, shampoo","Emily, Andrew, Kayden"
+e1552,2011/03/26,pineapples,"pineapple juice, guava juice","shaving cream, paper towel, toothpaste",Andrew
+e1553,2011/03/30,"strawberries, mangos, pears, pineapples","mango juice, coffee","mouthwash, facial wash",
+e1557,2011/04/03,"peaches, mandarins",apple juice,"body lotion, conditioner, shampoo, mouthwash",
+e1558,2011/04/07,"pears, nectarines",apple juice,"toilet paper, facial wash, paper towel",
+e1561,2011/04/10,"apricots, watermelons, peaches, oranges","chocolate milk, tea, orange juice, apple juice","conditioner, mouth wash, toilet paper",
+e1562,2011/04/12,peaches,sports drinks,"toothpaste, toilet paper, mouth wash, facial wash","Emily, Carter, Kayden"
+e1564,2011/04/22,strawberries,"milk, mineral water","body lotion, conditioner, mouth wash",
+e1567,2011/04/23,"strawberries, apricots, peaches, blueberries","pineapple juice, soda","facial wash, body lotion, shampoo","Jackson, Benjamin, Willow"
+e1568,2011/04/27,"guava, watermelons, pineapples",chocolate milk,"toothpaste, mouth wash","Emily, Kayden, Carter"
+e1571,2011/05/09,"bananas, nectarines, clementines","coffee, mineral water, guava juice","toothbrush, toilet paper",Kayden
+e1573,2011/05/18,"peaches, guava","apple juice, mango juice, tea",body lotion,
+e1577,2011/05/29,"oranges, nectarines, pears","coffee, mango juice","mouthwash, toothbrush, shaving cream","Eva, Hazel"
+e1579,2011/06/06,"apples, peaches, bananas, blueberries","coffee, soda, orange juice",toothbrush,
+e1582,2011/06/11,apricots,"coffee, mango juice, mineral water","mouthwash, toothbrush","Kayden, Emily"
+e1583,2011/06/14,"cherres, apricots","mango juice, guava juice, tea","facial wash, toothpaste",
+e1584,2011/06/18,"bananas, apples","soda, mineral water","toothpaste, body lotion, toilet paper",
+e1585,2011/06/24,"mangos, strawberries, pineapples, apricots","apple juice, coffee, pineapple juice","toothpaste, facial wash",
+e1588,2011/06/30,"strawberries, clementines, oranges","mineral water, sports drinks, tea","facial wash, toilet paper, mouthwash",
+e1592,2011/07/04,"apples, mangos, guava","guava juice, tea","body lotion, facial wash, toilet paper",
+e1593,2011/07/06,"mandarins, oranges, cherres","orange juice, mineral water, guava juice","shaving cream, toilet paper, body lotion, conditioner","Avery, Layla, Hazel, Olivia, Claire"
+e1595,2011/07/12,"watermelons, strawberries, mandarins","guava juice, mango juice",mouthwash,"Benjamin, Willow, Jackson, Avery"
+e1599,2011/07/19,"watermelons, mandarins, pineapples","apple juice, guava juice","body lotion, mouthwash, paper towel, shaving cream","Avery, Benjamin, Willow"
+e1602,2011/07/24,"apricots, oranges",soda,"body lotion, mouth wash",
+e1605,2011/08/01,"watermelons, peaches, mandarins, oranges","mineral water, pineapple juice, sports drinks","mouthwash, conditioner, toothpaste, paper towel","Layla, Rylee, Hazel, Kinsley, Olivia, Lydia"
+e1609,2011/08/08,"pears, pineapples","mango juice, coffee, apple juice, tea","shaving cream, toothpaste","Andrew, Carter"
+e1612,2011/08/15,"guava, pears, watermelons","tea, apple juice, guava juice, coffee","paper towel, shampoo",
+e1613,2011/08/23,raspberries,"chocolate milk, pineapple juice, sports drinks, orange juice","mouthwash, mouth wash",
+e1616,2011/09/04,"apples, apricots","mineral water, sports drinks, mango juice, guava juice",paper towel,"Kinsley, Nevaeh, Rylee, Avery, Piper, Layla"
+e1617,2011/09/07,"guava, mandarins","chocolate milk, guava juice, apple juice, milk",mouth wash,Jackson
+e1619,2011/09/30,"oranges, apricots","milk, pineapple juice, apple juice","shaving cream, toothpaste, facial wash, mouthwash",
+e1622,2011/10/13,"pineapples, guava, mangos","sports drinks, pineapple juice","facial wash, toilet paper","Andrew, Kayden, Carter, Emily"
+e1624,2011/10/19,"mandarins, apricots","chocolate milk, soda, milk","conditioner, shampoo, shaving cream, paper towel",
+e1628,2011/10/24,"pineapples, guava, blackberries","tea, milk","mouth wash, shampoo, toothbrush","Benjamin, Avery, Willow, Jackson"
+e1629,2011/10/31,"peaches, nectarines","apple juice, mango juice, soda","body lotion, facial wash, paper towel",
+e1630,2011/11/05,"watermelons, guava, blueberries, blackberries","orange juice, pineapple juice","toothbrush, shampoo, conditioner",
+e1632,2011/11/17,"blackberries, apricots, strawberries, blueberries","soda, mango juice","shampoo, mouthwash, paper towel","Layla, Claire, Nora, Piper, Avery, Nevaeh, Hazel, Piper, Rylee, Olivia, Eva, Kinsley, Lydia"
+e1634,2011/11/26,"apricots, apples, mandarins, watermelons",apple juice,"conditioner, toothbrush, shaving cream","Carter, Kayden"
+e1635,2011/12/02,"bananas, mandarins, pineapples, pears","tea, pineapple juice","mouthwash, facial wash","Avery, Benjamin, Willow"
+e1637,2011/12/04,"blackberries, bananas, pineapples, apricots","orange juice, apple juice, tea",mouth wash,
+e1638,2011/12/09,watermelons,"coffee, milk","shaving cream, body lotion, mouth wash",Carter
+e1641,2011/12/11,pears,"mineral water, apple juice, coffee","toothbrush, conditioner, shampoo, body lotion","Lydia, Nora, Olivia, Rylee"
+e1645,2011/12/18,pears,"tea, mineral water, mango juice","conditioner, toilet paper",
+e1647,2011/12/25,"raspberries, blueberries","sports drinks, mango juice","conditioner, paper towel, toothpaste, mouth wash",
+e3068,2012/01/12,peaches,mineral water,"shampoo, toothbrush, facial wash, shaving cream",Hazel
+e3070,2012/01/17,"nectarines, strawberries","guava juice, coffee, apple juice, tea",conditioner,"Carter, Kayden, Emily"
+e3072,2012/01/28,"mangos, oranges, apples, peaches","apple juice, coffee, mineral water","mouthwash, toothpaste, conditioner, body lotion","Andrew, Emily, Kayden, Carter"
+e3075,2012/01/30,"guava, cherres, strawberries, nectarines","apple juice, soda, coffee",paper towel,"Andrew, Emily"
+e3077,2012/02/06,"mangos, oranges",soda,"toothpaste, shampoo, conditioner, body lotion","Kinsley, Olivia, Piper, Rylee, Nora, Lydia"
+e3078,2012/02/08,watermelons,"tea, orange juice",facial wash,
+e3080,2012/02/14,"guava, apricots","soda, pineapple juice","body lotion, facial wash",
+e3081,2012/02/16,"bananas, blueberries, raspberries","guava juice, pineapple juice",mouth wash,"Emily, Kayden, Andrew, Carter"
+e3084,2012/02/25,peaches,"milk, sports drinks",toothpaste,"Kayden, Emily, Andrew, Carter"
+e3089,2012/02/28,"clementines, oranges",soda,"shampoo, facial wash, body lotion","Kayden, Carter, Andrew, Emily"
+e3090,2012/03/02,"blackberries, blueberries, strawberries","mineral water, milk","shampoo, mouthwash","Hazel, Layla, Piper, Olivia, Eva, Avery, Nora"
+e3093,2012/03/06,"blueberries, strawberries, pears, apricots",soda,"mouth wash, conditioner, toothbrush",
+e3094,2012/03/15,pears,"chocolate milk, mango juice","mouth wash, conditioner",Kayden
+e3096,2012/03/21,"clementines, mandarins",coffee,shampoo,
+e3098,2012/03/25,"nectarines, mangos, mandarins","mineral water, soda","shaving cream, mouthwash","Piper, Avery, Claire"
+e3099,2012/03/31,"blueberries, clementines, watermelons","coffee, pineapple juice, milk","toothbrush, conditioner, toilet paper, paper towel","Piper, Piper, Rylee, Avery, Layla, Hazel, Lydia, Kinsley, Eva, Nevaeh"
+e3100,2012/04/07,"clementines, raspberries, guava","milk, chocolate milk, mineral water, guava juice",toothbrush,"Kayden, Andrew"
+e3102,2012/05/06,"blackberries, clementines","tea, mango juice, sports drinks, apple juice","conditioner, shaving cream, mouthwash, toilet paper",
+e3103,2012/05/16,"nectarines, raspberries","orange juice, tea, chocolate milk","facial wash, mouth wash, body lotion","Piper, Nevaeh, Olivia, Avery, Lydia, Nora, Piper, Layla, Claire, Eva"
+e3107,2012/05/31,"apples, strawberries, nectarines, cherres",orange juice,"toothbrush, toilet paper",Benjamin
+e3109,2012/06/04,"blackberries, bananas","pineapple juice, mineral water, coffee","toothbrush, toothpaste",
+e3110,2012/06/07,"apples, bananas","guava juice, soda, pineapple juice, coffee","toilet paper, facial wash, toothbrush, mouth wash",Nevaeh
+e3111,2012/06/16,"cherres, apples, guava","guava juice, tea","facial wash, paper towel, toilet paper",
+e3114,2012/06/17,"nectarines, oranges, guava, mangos","apple juice, sports drinks",shampoo,
+e3115,2012/06/22,"cherres, strawberries",apple juice,"toothpaste, shampoo, toilet paper","Nora, Layla"
+e3117,2012/06/26,mangos,soda,"paper towel, shaving cream, facial wash","Andrew, Emily, Carter, Kayden"
+e3118,2012/06/27,"blackberries, mangos, cherres, guava",sports drinks,"toothbrush, paper towel, mouth wash, conditioner",
+e3122,2012/07/02,pears,"pineapple juice, sports drinks","mouthwash, shampoo, mouth wash",
+e3123,2012/07/04,blueberries,"soda, coffee","facial wash, shaving cream",Andrew
+e3126,2012/07/16,peaches,"apple juice, orange juice","mouth wash, shampoo",
+e3128,2012/07/22,watermelons,"apple juice, orange juice, mineral water, tea","toothbrush, body lotion, toothpaste",
+e3129,2012/07/28,"apples, blackberries",guava juice,"toothpaste, shampoo, facial wash, body lotion",
+e3131,2012/07/29,"bananas, nectarines, apples",chocolate milk,"mouthwash, body lotion, shampoo, mouth wash",
+e3132,2012/08/03,"mandarins, clementines","mango juice, coffee","toilet paper, shaving cream, mouthwash, body lotion","Kayden, Carter, Emily, Andrew"
+e3133,2012/08/08,"blueberries, apricots","mineral water, mango juice, apple juice",toothbrush,Carter
+e3138,2012/08/20,"apples, cherres","milk, sports drinks","mouth wash, paper towel, facial wash","Kayden, Andrew, Carter, Emily"
+e3139,2012/08/24,"pineapples, cherres, clementines, pears","milk, orange juice","toothbrush, paper towel, facial wash, conditioner",Andrew
+e3142,2012/08/29,cherres,"milk, pineapple juice, orange juice","paper towel, toothpaste","Willow, Benjamin, Jackson, Avery"
+e3143,2012/09/10,"raspberries, peaches, guava","milk, soda","facial wash, conditioner","Andrew, Carter, Kayden"
+e3147,2012/09/29,"mangos, pears, pineapples, apricots","tea, orange juice, soda, apple juice",paper towel,"Lydia, Piper, Kinsley, Avery"
+e3149,2012/10/03,"peaches, nectarines, raspberries",mineral water,"conditioner, toothpaste, mouth wash, shampoo",
+e3150,2012/10/09,"raspberries, apples","orange juice, chocolate milk, apple juice, pineapple juice",shampoo,"Piper, Nora"
+e3151,2012/10/11,"apricots, raspberries, oranges","milk, soda",paper towel,
+e3152,2012/10/15,"pineapples, apples, cherres, blueberries","milk, mineral water, pineapple juice, coffee","mouth wash, facial wash","Carter, Andrew, Emily"
+e3153,2012/10/19,"nectarines, clementines, pears","tea, sports drinks","paper towel, toothpaste, facial wash, shampoo","Lydia, Piper, Eva, Piper"
+e3154,2012/10/22,raspberries,"apple juice, tea, soda, mineral water","toothpaste, toilet paper",
+e3155,2012/10/26,"blueberries, nectarines",mango juice,"shaving cream, conditioner, toilet paper",
+e3159,2012/11/04,"mandarins, raspberries, mangos","chocolate milk, sports drinks","shaving cream, mouth wash",
+e3160,2012/11/07,"apricots, pineapples, peaches, raspberries","guava juice, sports drinks, soda, pineapple juice","toothpaste, paper towel","Andrew, Carter, Kayden"
+e3162,2012/11/13,raspberries,"sports drinks, chocolate milk","toothpaste, mouthwash, mouth wash, shampoo","Rylee, Claire, Piper, Nevaeh, Hazel, Lydia, Avery, Eva, Piper"
+e3164,2012/11/22,"apples, strawberries, pineapples","apple juice, chocolate milk","shampoo, mouth wash, facial wash, body lotion","Carter, Emily, Kayden"
+e3167,2012/11/25,"clementines, blackberries, apples, blueberries","mineral water, guava juice","mouth wash, facial wash","Jackson, Avery, Willow"
+e3170,2012/12/08,"oranges, mangos, strawberries","mineral water, coffee, mango juice","conditioner, paper towel, toothpaste",
+e3172,2012/12/10,watermelons,"milk, mango juice, soda, guava juice","paper towel, toilet paper, shaving cream",
+e3173,2012/12/12,"raspberries, cherres, mangos","tea, guava juice, apple juice, coffee",toilet paper,
+e3175,2012/12/17,"cherres, apples","mineral water, tea","mouthwash, toothpaste, conditioner, paper towel","Jackson, Benjamin, Avery, Willow"
+e3176,2012/12/21,pineapples,"milk, guava juice","toothpaste, shampoo, body lotion, mouthwash","Willow, Jackson"
+e4601,2013/01/01,"peaches, clementines","tea, milk, orange juice",toothpaste,
+e4602,2013/01/06,"blackberries, bananas, apricots","guava juice, coffee","shaving cream, toothpaste, conditioner",
+e4610,2013/02/10,"peaches, strawberries","coffee, guava juice","shaving cream, mouth wash",
+e4612,2013/02/18,"guava, raspberries, pineapples, watermelons","orange juice, milk, chocolate milk","toothbrush, paper towel, toilet paper, body lotion",
+e4617,2013/03/14,"clementines, pineapples, cherres","chocolate milk, orange juice, apple juice, sports drinks",toilet paper,
+e4618,2013/03/15,"guava, watermelons, apricots","mango juice, chocolate milk, sports drinks, milk","mouthwash, shaving cream, conditioner, shampoo",
+e4621,2013/03/21,"mangos, raspberries, guava","soda, orange juice",shampoo,"Emily, Kayden, Carter, Andrew"
+e4622,2013/03/24,mandarins,tea,"toothbrush, mouth wash","Rylee, Lydia, Claire, Layla, Nevaeh, Olivia, Avery, Piper"
+e4625,2013/03/30,watermelons,"milk, guava juice, chocolate milk",shaving cream,"Emily, Kayden, Carter, Andrew"
+e4627,2013/04/08,"clementines, peaches, pineapples, guava","apple juice, pineapple juice, tea","conditioner, shampoo, mouthwash",
+e4628,2013/04/10,"blueberries, nectarines, raspberries","pineapple juice, soda, milk","toilet paper, shampoo",
+e4629,2013/04/13,"guava, pineapples",apple juice,"toothbrush, paper towel","Avery, Benjamin"
+e4631,2013/04/24,"apples, raspberries, oranges, mandarins","coffee, sports drinks",mouthwash,"Andrew, Emily, Kayden"
+e4632,2013/04/28,"guava, apples, pineapples, raspberries","milk, soda, pineapple juice","toothpaste, body lotion",
+e4635,2013/05/06,"strawberries, watermelons, cherres, guava","pineapple juice, apple juice, tea","toilet paper, toothpaste, conditioner","Piper, Layla, Piper, Claire, Rylee, Eva, Nora"
+e4636,2013/05/12,peaches,"mineral water, orange juice, guava juice, chocolate milk","body lotion, mouthwash, mouth wash, toothbrush",
+e4641,2013/05/30,apples,"soda, milk, mango juice","paper towel, toothbrush","Emily, Kayden, Andrew, Carter"
+e4643,2013/06/08,"blackberries, clementines, guava","guava juice, apple juice",toothpaste,Carter
+e4644,2013/06/17,peaches,"milk, guava juice",facial wash,
+e4646,2013/06/30,"mangos, pears, nectarines","pineapple juice, apple juice","paper towel, toothbrush",
+e4647,2013/07/04,cherres,"mango juice, sports drinks, orange juice",body lotion,
+e4648,2013/07/05,apples,"soda, sports drinks, apple juice, orange juice",toothpaste,"Emily, Kayden, Andrew, Carter"
+e4651,2013/07/19,"nectarines, blackberries",chocolate milk,"toothpaste, facial wash",
+e4652,2013/07/25,"blackberries, pears, watermelons, peaches","chocolate milk, mineral water, milk, tea",paper towel,
+e4653,2013/07/29,"peaches, watermelons","guava juice, apple juice","mouthwash, toilet paper, paper towel, toothpaste",
+e4657,2013/07/30,oranges,"orange juice, tea","shampoo, body lotion","Kinsley, Olivia, Hazel, Piper, Avery, Lydia, Layla, Rylee, Nora, Piper, Eva"
+e4658,2013/08/03,"apricots, apples, pineapples, watermelons","tea, milk","mouthwash, body lotion",
+e4661,2013/08/10,apples,"guava juice, mango juice","body lotion, shampoo, shaving cream, toothpaste",
+e4663,2013/08/17,"raspberries, mangos, bananas, guava",soda,"toothpaste, body lotion",
+e4664,2013/08/23,"bananas, guava, nectarines","sports drinks, soda, apple juice, chocolate milk",toilet paper,
+e4669,2013/09/22,"oranges, peaches","pineapple juice, guava juice, orange juice","body lotion, shampoo",
+e4671,2013/10/01,"oranges, guava",guava juice,"facial wash, shampoo, mouth wash, toothbrush",
+e4672,2013/10/09,"cherres, apricots, oranges","apple juice, orange juice","conditioner, mouthwash, toilet paper",
+e4676,2013/10/22,"mandarins, strawberries, pineapples","guava juice, milk, tea","paper towel, mouth wash","Carter, Emily, Kayden, Andrew"
+e4677,2013/10/27,"cherres, mangos, apples, watermelons","apple juice, pineapple juice, mineral water, coffee",toothpaste,"Kinsley, Hazel, Avery, Nora, Rylee, Layla"
+e4680,2013/11/04,"mangos, pears, cherres",guava juice,"toothpaste, facial wash, shaving cream, shampoo","Benjamin, Jackson, Willow, Avery"
+e4683,2013/11/13,"nectarines, bananas, blueberries","chocolate milk, mineral water, mango juice","body lotion, mouth wash, shampoo",
+e4684,2013/11/18,"mangos, oranges","guava juice, mineral water, tea","body lotion, paper towel, toothpaste, mouthwash",
+e4687,2013/11/19,"pineapples, apples, peaches","tea, apple juice, milk",shaving cream,"Willow, Benjamin, Jackson, Avery"
+e4688,2013/11/25,blackberries,"pineapple juice, coffee, tea",mouth wash,
+e4690,2013/11/28,"cherres, guava",mineral water,shampoo,"Willow, Benjamin, Jackson, Avery"
+e4691,2013/12/01,"nectarines, bananas","mango juice, mineral water",shampoo,
+e4694,2013/12/13,"pears, apples",pineapple juice,"toothbrush, toilet paper, conditioner",
+e4695,2013/12/20,"mandarins, raspberries","pineapple juice, coffee","facial wash, body lotion, toothbrush",Emily
+e4698,2013/12/26,"apples, oranges","sports drinks, apple juice, mango juice, tea",toothbrush,Andrew
+e4699,2013/12/28,"blackberries, pineapples, mandarins, apricots",guava juice,"toothpaste, facial wash, shampoo","Rylee, Kinsley, Avery, Claire, Eva, Nevaeh, Nora"
+e6061,2014/01/07,mangos,"mango juice, sports drinks, chocolate milk","conditioner, shampoo, paper towel, body lotion","Emily, Andrew, Carter, Kayden"
+e6065,2014/01/16,"blackberries, bananas","pineapple juice, tea, mango juice","shampoo, toothbrush","Andrew, Emily, Kayden"
+e6066,2014/01/18,"oranges, bananas, apricots, strawberries",guava juice,"toothpaste, conditioner, paper towel, facial wash","Jackson, Willow, Benjamin"
+e6069,2014/01/29,"watermelons, strawberries","mango juice, guava juice, pineapple juice, sports drinks","body lotion, toothpaste","Eva, Nevaeh, Lydia, Nora, Hazel, Piper, Olivia"
+e6071,2014/02/09,"raspberries, apricots, pineapples",mango juice,"toilet paper, mouthwash",
+e6074,2014/02/12,"blueberries, blackberries, mandarins",chocolate milk,"paper towel, mouth wash, toilet paper","Kayden, Emily, Carter"
+e6075,2014/02/17,guava,"pineapple juice, orange juice, guava juice, tea",facial wash,
+e6080,2014/02/26,bananas,"guava juice, pineapple juice",toothbrush,"Carter, Kayden, Emily"
+e6083,2014/03/12,"oranges, apricots, peaches, blackberries","coffee, tea, pineapple juice, milk","facial wash, mouthwash, shaving cream, mouth wash",
+e6084,2014/03/16,"mandarins, blackberries, oranges, raspberries","soda, milk, chocolate milk, sports drinks","toothpaste, conditioner, mouth wash, toothbrush",
+e6087,2014/03/20,"cherres, strawberries",coffee,"body lotion, mouth wash, toothpaste, shampoo",
+e6088,2014/03/23,mangos,"soda, guava juice, sports drinks","shaving cream, toothpaste, mouthwash, facial wash",
+e6092,2014/04/04,"oranges, blueberries, strawberries, cherres","chocolate milk, milk, apple juice",mouth wash,"Kayden, Carter, Emily"
+e6094,2014/04/10,bananas,"coffee, chocolate milk, tea, apple juice","toothbrush, paper towel",Emily
+e6096,2014/04/16,"apricots, guava, peaches, watermelons",apple juice,"toothpaste, paper towel, shaving cream, toilet paper",Willow
+e6098,2014/04/27,"bananas, guava","sports drinks, chocolate milk, pineapple juice, mineral water","shampoo, facial wash, mouthwash, toilet paper","Emily, Andrew, Kayden"
+e6101,2014/05/08,"watermelons, mandarins, guava","soda, orange juice, mango juice","paper towel, toilet paper, shampoo, shaving cream",
+e6102,2014/05/10,oranges,"mineral water, orange juice, soda","shaving cream, toothpaste, paper towel, conditioner",
+e6105,2014/05/18,"pineapples, peaches, clementines",apple juice,"mouth wash, mouthwash, conditioner, toilet paper","Piper, Nora, Kinsley, Piper, Hazel, Lydia, Avery"
+e6107,2014/05/26,"apples, strawberries","guava juice, tea, pineapple juice","toothbrush, mouth wash",Jackson
+e6108,2014/06/03,"raspberries, oranges",guava juice,conditioner,
+e6110,2014/06/04,"mandarins, nectarines","milk, tea","paper towel, mouthwash, toothpaste",
+e6113,2014/06/12,oranges,"tea, chocolate milk, pineapple juice, mineral water","toothpaste, mouth wash, facial wash","Emily, Carter, Andrew"
+e6117,2014/06/22,bananas,"pineapple juice, chocolate milk, sports drinks, mango juice","shaving cream, mouthwash, shampoo, paper towel","Kayden, Carter, Andrew"
+e6119,2014/06/28,"mandarins, nectarines","sports drinks, soda","toothpaste, conditioner",
+e6122,2014/07/05,oranges,"tea, orange juice, apple juice","body lotion, conditioner, shampoo, facial wash","Kayden, Emily, Carter"
+e6124,2014/07/11,"nectarines, blackberries","mango juice, milk, guava juice, chocolate milk","shaving cream, conditioner","Andrew, Carter, Emily, Kayden"
+e6125,2014/07/21,"mandarins, raspberries","pineapple juice, sports drinks","shaving cream, mouth wash, shampoo",
+e6126,2014/07/24,strawberries,"apple juice, tea, soda","toothbrush, toothpaste, mouth wash, mouthwash",
+e6127,2014/07/26,"guava, pears, blueberries","mango juice, mineral water, coffee",shampoo,
+e6130,2014/08/09,"watermelons, pineapples, bananas","chocolate milk, pineapple juice, guava juice",conditioner,"Carter, Kayden"
+e6135,2014/08/20,"nectarines, peaches, guava, bananas","tea, milk, mango juice",shampoo,Avery
+e6136,2014/08/24,"apples, watermelons","milk, orange juice",body lotion,"Layla, Eva, Piper, Rylee, Hazel, Avery, Nora, Piper, Olivia, Nevaeh"
+e6141,2014/09/15,mandarins,"chocolate milk, orange juice, mineral water","facial wash, shampoo, mouthwash",
+e6144,2014/09/18,cherres,"orange juice, coffee, mineral water","facial wash, conditioner, toothbrush, toilet paper","Benjamin, Jackson, Avery, Willow"
+e6145,2014/09/21,"mandarins, blackberries","soda, mango juice","mouth wash, facial wash",
+e6147,2014/10/03,"mangos, pears, watermelons","mango juice, sports drinks, apple juice, mineral water","mouth wash, conditioner","Avery, Benjamin, Jackson, Willow"
+e6148,2014/10/07,"raspberries, blackberries","orange juice, sports drinks, mineral water, soda","toothpaste, body lotion",
+e6150,2014/10/09,mandarins,"apple juice, mango juice, chocolate milk","toothpaste, paper towel, toilet paper, shaving cream","Emily, Kayden, Carter"
+e6151,2014/10/12,"cherres, watermelons",pineapple juice,"shampoo, toothbrush, toothpaste",
+e6153,2014/10/21,"strawberries, blueberries, pineapples, mandarins","mango juice, pineapple juice","toilet paper, mouth wash, paper towel",
+e6154,2014/10/24,"clementines, mandarins","mineral water, milk, sports drinks, soda","mouth wash, shaving cream, toothbrush",
+e6158,2014/11/01,"apples, mandarins","soda, chocolate milk, coffee",conditioner,
+e6162,2014/11/17,"oranges, raspberries",pineapple juice,"shampoo, conditioner",
+e6164,2014/11/25,mangos,"chocolate milk, mineral water, mango juice","toothbrush, conditioner","Jackson, Benjamin"
+e6166,2014/12/02,"clementines, cherres, apricots, blackberries","pineapple juice, sports drinks, apple juice, coffee","conditioner, paper towel, body lotion, mouth wash","Carter, Andrew, Kayden, Emily"
+e6169,2014/12/04,"strawberries, blackberries, apricots, watermelons","tea, mango juice","mouthwash, shampoo",Nora
+e6170,2014/12/08,"mandarins, pineapples, raspberries","guava juice, coffee, sports drinks, tea",toothbrush,
+e6171,2014/12/11,"clementines, raspberries","soda, chocolate milk","mouthwash, body lotion",
+e6172,2014/12/15,"blackberries, apples, pineapples","coffee, mineral water",facial wash,
+e6174,2014/12/22,strawberries,"guava juice, mango juice, apple juice, coffee","shampoo, toothbrush, mouthwash",Carter
+e6175,2014/12/25,"pineapples, watermelons, clementines","chocolate milk, sports drinks, apple juice, orange juice","paper towel, facial wash, shaving cream, shampoo",
+e6176,2014/12/27,"apricots, blueberries, peaches","coffee, guava juice","shaving cream, shampoo, facial wash",
+e6178,2014/12/31,"blueberries, clementines, oranges, bananas","guava juice, soda, pineapple juice",body lotion,
+e7599,2015/01/02,"apples, mandarins",sports drinks,"toothbrush, paper towel, shampoo",
+e7600,2015/01/06,"strawberries, peaches, apples, watermelons",milk,"facial wash, mouth wash, body lotion","Emily, Kayden, Andrew, Carter"
+e7602,2015/01/09,"apricots, nectarines, cherres, pineapples","soda, mango juice, milk, pineapple juice",mouth wash,"Emily, Kayden, Andrew"
+e7603,2015/01/12,"pineapples, watermelons, clementines","mango juice, apple juice",facial wash,
+e7605,2015/01/16,mandarins,"chocolate milk, milk, mineral water, mango juice","body lotion, facial wash, shaving cream, conditioner",
+e7606,2015/01/20,apricots,"chocolate milk, mineral water","body lotion, toothbrush, shaving cream","Andrew, Emily"
+e7611,2015/01/30,"cherres, nectarines, watermelons","coffee, apple juice, soda","toothpaste, shampoo, conditioner",
+e7612,2015/02/02,"pineapples, blueberries","coffee, chocolate milk, soda, orange juice","shaving cream, mouth wash, toothpaste",
+e7618,2015/02/15,"nectarines, watermelons, blueberries","guava juice, apple juice","toilet paper, mouthwash",
+e7621,2015/02/21,"mandarins, blueberries",chocolate milk,"facial wash, toilet paper, shaving cream",
+e7622,2015/02/22,"apples, guava, watermelons, pears","guava juice, pineapple juice, mineral water, sports drinks","mouthwash, paper towel","Avery, Rylee, Piper"
+e7625,2015/02/28,"blackberries, bananas, cherres","mango juice, sports drinks, tea, soda","facial wash, mouthwash, toothpaste",
+e7626,2015/03/03,"pineapples, nectarines, mandarins","mineral water, apple juice, mango juice","shaving cream, mouthwash","Andrew, Kayden, Carter, Emily"
+e7629,2015/03/09,"clementines, nectarines, watermelons","coffee, soda, orange juice, milk","conditioner, paper towel",
+e7631,2015/03/14,"apricots, mangos","orange juice, coffee, chocolate milk","body lotion, toothbrush, shaving cream, toothpaste",Claire
+e7632,2015/03/16,raspberries,"tea, mango juice","facial wash, mouth wash",
+e7634,2015/03/20,"peaches, clementines, watermelons","milk, mineral water, guava juice","facial wash, paper towel, mouthwash, shaving cream",
+e7638,2015/03/26,"peaches, pineapples, nectarines","tea, orange juice","toilet paper, mouth wash, shampoo","Avery, Piper, Nevaeh, Hazel, Claire, Rylee, Eva, Olivia, Layla, Nora"
+e7639,2015/03/29,blueberries,"guava juice, milk, chocolate milk, apple juice","conditioner, shampoo, mouth wash, toilet paper","Emily, Carter"
+e7642,2015/04/13,"apples, oranges","soda, guava juice, orange juice, mango juice","toothbrush, toothpaste, mouth wash",
+e7643,2015/04/16,"blackberries, peaches",apple juice,paper towel,"Benjamin, Willow"
+e7645,2015/04/25,"guava, nectarines, apples","apple juice, milk","toothbrush, toilet paper",
+e7648,2015/05/06,"blueberries, apples, mangos","guava juice, pineapple juice","toothpaste, mouthwash","Hazel, Piper, Eva, Lydia, Piper, Nevaeh, Avery, Layla, Rylee, Nora, Kinsley, Olivia, Claire"
+e7650,2015/05/09,"clementines, nectarines, cherres, guava","soda, chocolate milk","toilet paper, mouth wash",
+e7651,2015/05/10,"mangos, strawberries","milk, mango juice, apple juice","toothpaste, toothbrush, toilet paper","Jackson, Benjamin"
+e7655,2015/05/15,"clementines, pears, cherres","mango juice, coffee","shampoo, toothpaste, paper towel","Emily, Kayden, Carter"
+e7656,2015/05/20,peaches,tea,mouthwash,
+e7660,2015/05/27,"clementines, strawberries","mango juice, pineapple juice","mouth wash, paper towel",Kayden
+e7662,2015/06/19,"pineapples, blackberries, watermelons",mango juice,"shaving cream, body lotion, mouthwash","Lydia, Eva, Olivia, Kinsley, Nevaeh, Rylee, Piper, Nora, Hazel, Avery, Layla, Piper, Claire"
+e7663,2015/06/24,"mandarins, nectarines",coffee,"shaving cream, mouth wash",
+e7667,2015/06/25,"mandarins, nectarines, pineapples, cherres","tea, mineral water","shampoo, mouth wash","Jackson, Benjamin, Willow, Avery"
+e7668,2015/06/29,raspberries,"apple juice, pineapple juice, guava juice, sports drinks","toothpaste, conditioner, toothbrush, toilet paper","Piper, Layla, Kinsley"
+e7669,2015/07/06,"blackberries, clementines","tea, guava juice","toilet paper, facial wash",
+e7672,2015/07/10,oranges,"apple juice, orange juice, pineapple juice","facial wash, conditioner, paper towel","Lydia, Layla, Avery, Piper, Nora, Claire, Eva, Kinsley, Rylee, Nevaeh, Olivia, Hazel"
+e7675,2015/07/25,"pears, apricots","guava juice, pineapple juice, orange juice, coffee","toothpaste, paper towel, toothbrush, facial wash",
+e7677,2015/08/03,pears,milk,"toothbrush, mouth wash, body lotion, toothpaste","Rylee, Olivia, Kinsley, Claire, Lydia"
+e7678,2015/08/08,"apricots, mandarins, strawberries, nectarines","pineapple juice, coffee, mineral water",toothpaste,"Jackson, Benjamin, Willow"
+e7679,2015/08/11,bananas,"apple juice, milk, pineapple juice, soda","mouthwash, facial wash",
+e7681,2015/08/13,raspberries,"sports drinks, guava juice, coffee","facial wash, paper towel",
+e7682,2015/08/16,"oranges, bananas, peaches, pears","chocolate milk, pineapple juice, sports drinks","mouthwash, paper towel",
+e7684,2015/08/25,"guava, bananas, mandarins, raspberries",mango juice,"paper towel, mouth wash, conditioner, shampoo",
+e7685,2015/08/27,blueberries,"guava juice, mineral water, sports drinks",toothpaste,"Piper, Piper, Rylee"
+e7686,2015/09/02,"apricots, watermelons, bananas","coffee, pineapple juice, mango juice","shaving cream, mouth wash, toilet paper","Kayden, Andrew, Emily"
+e7691,2015/09/13,"apricots, guava, raspberries","guava juice, coffee","toothpaste, body lotion","Kayden, Emily, Andrew"
+e7695,2015/09/24,"guava, blackberries, apples, raspberries","coffee, sports drinks",toothbrush,"Nevaeh, Claire, Lydia, Layla"
+e7699,2015/10/01,"nectarines, clementines, cherres, pears",sports drinks,"toilet paper, body lotion",
+e7700,2015/10/07,"blackberries, mangos","sports drinks, orange juice",shaving cream,
+e7702,2015/10/10,"nectarines, strawberries, watermelons, apples",coffee,"shaving cream, body lotion","Andrew, Kayden"
+e7704,2015/10/20,"peaches, raspberries, watermelons, pears","apple juice, mineral water","body lotion, toothpaste",
+e7707,2015/11/03,oranges,"tea, coffee","conditioner, shaving cream",Emily
+e7708,2015/11/08,"nectarines, pears, apples, blackberries","orange juice, sports drinks, pineapple juice","body lotion, shampoo","Piper, Rylee, Claire, Nora, Kinsley, Olivia, Piper, Eva, Lydia, Nevaeh, Avery"
+e7712,2015/11/13,apples,"apple juice, milk, chocolate milk, coffee",mouthwash,
+e7713,2015/11/21,"blackberries, peaches",mango juice,paper towel,"Nevaeh, Nora, Kinsley, Olivia, Avery, Claire, Layla, Hazel, Rylee, Lydia, Piper, Piper, Eva"
+e7716,2015/11/28,"raspberries, peaches, watermelons","orange juice, sports drinks, apple juice, guava juice","toilet paper, conditioner, paper towel","Claire, Kinsley, Eva, Layla, Nevaeh"
+e7717,2015/12/02,"apples, oranges, pineapples, guava","soda, mineral water, tea, mango juice",facial wash,
+e7720,2015/12/04,pears,sports drinks,"conditioner, mouthwash",
+e7721,2015/12/06,"pineapples, apricots","coffee, soda",facial wash,
+e7722,2015/12/10,apricots,"guava juice, orange juice, chocolate milk",mouth wash,"Piper, Hazel, Claire, Lydia"
+e7723,2015/12/13,"peaches, raspberries","chocolate milk, soda, orange juice","shaving cream, facial wash, toothpaste, toothbrush",
+e7726,2015/12/19,"watermelons, apricots, pears, strawberries","tea, mineral water","mouth wash, toilet paper, facial wash, body lotion",
+e7727,2015/12/21,"blackberries, raspberries","soda, milk, tea","shampoo, toilet paper, mouthwash, mouth wash",
+e7730,2015/12/26,"strawberries, nectarines, blueberries, mangos","mango juice, pineapple juice, milk, chocolate milk","shaving cream, toothbrush",
+e7731,2015/12/27,"oranges, raspberries",mineral water,"paper towel, body lotion, facial wash",
+e9111,2016/01/26,"pears, mandarins, blackberries, mangos","mango juice, mineral water, chocolate milk","shampoo, toilet paper, mouth wash",Kinsley
+e9113,2016/01/30,"blueberries, cherres, clementines","mineral water, soda, coffee","toothpaste, toothbrush, shampoo, body lotion",
+e9114,2016/02/02,"mandarins, peaches, apricots","chocolate milk, soda","paper towel, toothbrush",
+e9118,2016/02/07,"blueberries, apricots, bananas, pineapples","guava juice, chocolate milk",toilet paper,"Nora, Layla, Olivia, Kinsley, Hazel, Rylee, Avery, Lydia, Nevaeh, Piper, Claire, Eva, Piper"
+e9121,2016/02/13,mandarins,chocolate milk,"mouthwash, facial wash","Kinsley, Nevaeh, Layla, Piper, Eva, Nora, Lydia, Rylee, Avery, Hazel, Olivia, Claire, Piper"
+e9123,2016/02/23,"nectarines, clementines","mineral water, sports drinks, guava juice, chocolate milk","mouthwash, toothbrush",Carter
+e9125,2016/02/27,pineapples,mineral water,"conditioner, shaving cream, mouthwash","Andrew, Carter"
+e9126,2016/03/02,peaches,chocolate milk,"paper towel, facial wash, toilet paper, body lotion",
+e9130,2016/03/08,clementines,mineral water,body lotion,"Nora, Nevaeh, Hazel, Avery, Olivia, Piper, Rylee, Lydia, Claire"
+e9133,2016/03/12,"mangos, cherres, pears","soda, tea, guava juice, coffee","toothbrush, toothpaste",
+e9134,2016/03/15,"strawberries, pears","sports drinks, chocolate milk",toothpaste,"Emily, Andrew"
+e9141,2016/04/01,"pineapples, guava, bananas","milk, coffee, tea",facial wash,
+e9143,2016/04/13,raspberries,"coffee, tea, apple juice","conditioner, toothbrush",Emily
+e9144,2016/04/17,"cherres, apricots","guava juice, orange juice, coffee",toothpaste,
+e9151,2016/05/19,"cherres, guava, bananas","apple juice, mineral water","toothpaste, paper towel, toilet paper, toothbrush","Avery, Willow, Benjamin, Jackson"
+e9155,2016/05/26,"blackberries, guava, blueberries, mandarins",milk,body lotion,
+e9157,2016/05/27,"nectarines, pears, guava","mineral water, chocolate milk","conditioner, toilet paper, facial wash, shaving cream","Willow, Benjamin"
+e9158,2016/06/01,"bananas, cherres, oranges, blackberries","mineral water, milk, orange juice, tea",toothbrush,
+e9163,2016/06/21,"nectarines, pears, raspberries, apricots","mineral water, mango juice, orange juice, soda","body lotion, mouth wash",
+e9168,2016/06/28,"pineapples, mangos, oranges, mandarins","mango juice, mineral water","toilet paper, body lotion, toothpaste",
+e9171,2016/07/06,clementines,"orange juice, chocolate milk, mango juice, apple juice",toothpaste,"Andrew, Carter"
+e9176,2016/07/14,strawberries,"sports drinks, coffee","paper towel, toothbrush",
+e9177,2016/07/15,"blueberries, apples, raspberries, mandarins",milk,"conditioner, mouth wash, shaving cream, shampoo","Andrew, Emily, Kayden"
+e9178,2016/07/19,"peaches, blueberries, apples, raspberries","orange juice, apple juice","shaving cream, paper towel, toothpaste, toilet paper",
+e9182,2016/07/23,"raspberries, peaches, watermelons",coffee,mouth wash,
+e9183,2016/07/28,apples,"pineapple juice, milk, chocolate milk, mango juice",facial wash,"Nevaeh, Eva, Kinsley, Hazel, Nora, Claire, Rylee, Olivia, Lydia, Layla, Piper"
+e9184,2016/07/31,mandarins,"chocolate milk, mango juice, soda",toilet paper,
+e9185,2016/08/03,mangos,"milk, orange juice",toothbrush,"Andrew, Kayden, Emily"
+e9187,2016/08/08,"guava, blueberries","apple juice, mineral water, coffee, orange juice","shaving cream, mouth wash, body lotion, toothbrush",
+e9190,2016/08/15,apples,"mineral water, guava juice","mouthwash, facial wash, shaving cream","Emily, Carter, Andrew, Kayden"
+e9193,2016/08/30,"pineapples, apples","pineapple juice, sports drinks, milk, coffee",conditioner,Emily
+e9195,2016/09/03,raspberries,"mango juice, apple juice","shaving cream, paper towel, conditioner, mouthwash",
+e9196,2016/09/07,"cherres, strawberries, raspberries, oranges","apple juice, orange juice, coffee, guava juice","paper towel, shampoo, mouth wash, toothbrush",
+e9197,2016/09/14,"pineapples, peaches","orange juice, chocolate milk, guava juice","shampoo, mouthwash, facial wash, toilet paper",
+e9200,2016/09/20,"blueberries, cherres",sports drinks,body lotion,
+e9204,2016/10/02,watermelons,"pineapple juice, sports drinks, apple juice",mouthwash,
+e9205,2016/10/04,"apricots, mandarins","pineapple juice, apple juice, tea","mouthwash, shaving cream, facial wash",
+e9206,2016/10/08,"mandarins, watermelons, blackberries","coffee, orange juice","toothbrush, shampoo","Rylee, Olivia, Piper, Nora, Hazel, Lydia, Layla"
+e9209,2016/10/26,"raspberries, strawberries, watermelons","sports drinks, apple juice, milk, chocolate milk","shampoo, mouthwash, toothpaste, conditioner","Carter, Kayden"
+e9210,2016/10/28,"strawberries, clementines, cherres",coffee,"shampoo, facial wash, toothpaste","Benjamin, Jackson"
+e9211,2016/10/31,pineapples,"pineapple juice, chocolate milk",paper towel,
+e9214,2016/11/06,cherres,"orange juice, mineral water, coffee","toilet paper, conditioner",
+e9215,2016/11/07,"pears, mangos, bananas, nectarines","soda, coffee",facial wash,"Kayden, Andrew"
+e9217,2016/11/19,"watermelons, pineapples, mandarins","apple juice, chocolate milk, soda",toilet paper,
+e9219,2016/11/29,peaches,"soda, coffee",toothpaste,
+e9222,2016/12/02,"cherres, mangos, strawberries, pineapples","apple juice, milk, pineapple juice, mango juice",mouthwash,
+e9223,2016/12/05,"blackberries, raspberries, mandarins",apple juice,"mouthwash, shampoo, toothbrush",
+e9225,2016/12/11,"nectarines, mandarins, oranges","pineapple juice, milk","toothpaste, mouth wash, shaving cream, body lotion",Emily
+e9226,2016/12/15,"bananas, oranges","apple juice, guava juice, mineral water, milk","toilet paper, shampoo, mouthwash",
+e9230,2016/12/17,"peaches, pineapples",apple juice,"shaving cream, shampoo",Kayden
+e10659,2017/01/04,apples,sports drinks,toothbrush,"Claire, Nora"
+e10663,2017/01/09,"bananas, raspberries, apricots",soda,"body lotion, shampoo, mouth wash, conditioner",Emily
+e10664,2017/01/14,"apricots, peaches","mineral water, milk",facial wash,
+e10666,2017/01/19,watermelons,pineapple juice,"conditioner, mouth wash, toothbrush, toothpaste",
+e10668,2017/01/25,"mandarins, guava, clementines",chocolate milk,"conditioner, mouthwash, paper towel","Benjamin, Willow"
+e10671,2017/01/30,"peaches, bananas, cherres, watermelons","sports drinks, guava juice, tea","toothpaste, paper towel, mouth wash",
+e10676,2017/02/08,apricots,"chocolate milk, apple juice, soda","body lotion, mouthwash",
+e10680,2017/02/12,"peaches, mangos, raspberries, cherres","pineapple juice, tea, chocolate milk, sports drinks","toothbrush, shaving cream, mouth wash, facial wash",
+e10681,2017/02/17,"apples, guava, pears, blackberries","sports drinks, orange juice, guava juice",conditioner,
+e10683,2017/02/20,"pineapples, guava, clementines, strawberries","apple juice, guava juice, milk","shampoo, toilet paper, toothpaste, mouth wash","Emily, Andrew"
+e10684,2017/03/03,"blackberries, bananas, cherres","guava juice, chocolate milk",paper towel,Carter
+e10686,2017/03/06,"strawberries, nectarines, clementines, guava","sports drinks, apple juice, coffee, tea","shaving cream, mouth wash, toothpaste","Rylee, Eva, Lydia, Nora, Hazel, Nevaeh, Piper, Piper"
+e10687,2017/03/10,"nectarines, blueberries, blackberries, strawberries","tea, mango juice, apple juice","mouth wash, mouthwash, toilet paper, facial wash","Carter, Andrew, Kayden"
+e10690,2017/03/18,raspberries,"chocolate milk, milk, mango juice",shaving cream,"Carter, Kayden, Emily"
+e10697,2017/04/04,"bananas, blueberries, peaches","tea, mineral water, coffee","mouthwash, shampoo","Emily, Andrew, Kayden, Carter"
+e10698,2017/04/05,"clementines, apples, cherres, blackberries","milk, apple juice, tea","mouthwash, body lotion, shaving cream",
+e10700,2017/04/09,"pineapples, blueberries, watermelons, peaches",soda,"mouth wash, mouthwash, shampoo","Avery, Jackson"
+e10703,2017/04/17,"clementines, oranges, guava",mango juice,"body lotion, shampoo, paper towel, shaving cream",
+e10705,2017/04/27,"clementines, nectarines, oranges","apple juice, guava juice","facial wash, mouth wash, shampoo, paper towel","Benjamin, Willow"
+e10708,2017/05/05,"mangos, oranges, watermelons, blueberries",apple juice,"mouthwash, facial wash, body lotion",Willow
+e10712,2017/05/11,"mandarins, pineapples","apple juice, milk","toothpaste, paper towel, shaving cream",
+e10714,2017/05/27,"apricots, pineapples, strawberries","pineapple juice, mango juice, sports drinks","facial wash, mouthwash, paper towel, toilet paper","Nora, Avery, Piper, Nevaeh, Claire, Rylee, Hazel, Lydia, Kinsley, Olivia"
+e10716,2017/06/03,pineapples,"tea, coffee","mouth wash, mouthwash","Willow, Benjamin"
+e10721,2017/06/12,mangos,tea,mouth wash,
+e10722,2017/06/15,"mandarins, guava, clementines",tea,mouth wash,Andrew
+e10723,2017/06/24,mandarins,guava juice,"toothpaste, toothbrush",
+e10724,2017/06/28,blackberries,milk,toothbrush,
+e10728,2017/07/03,"nectarines, mangos, peaches, watermelons","sports drinks, chocolate milk",mouthwash,
+e10729,2017/07/05,"bananas, oranges, apples, cherres","tea, coffee","mouthwash, body lotion, shampoo",
+e10731,2017/07/10,"bananas, oranges",sports drinks,"shaving cream, body lotion, toothpaste","Hazel, Claire, Eva, Nora, Nevaeh, Avery, Rylee"
+e10735,2017/07/26,"nectarines, bananas, cherres","soda, chocolate milk","mouth wash, shampoo",
+e10737,2017/08/02,"apples, peaches, oranges, pears","guava juice, tea",shampoo,
+e10739,2017/08/09,raspberries,"sports drinks, mango juice","body lotion, shaving cream, mouthwash",
+e10741,2017/08/14,strawberries,"chocolate milk, orange juice, mango juice, sports drinks","mouth wash, toothpaste, shaving cream",Emily
+e10742,2017/08/19,nectarines,"sports drinks, chocolate milk, apple juice, mango juice",mouth wash,
+e10744,2017/08/20,"apricots, strawberries, mandarins, raspberries",milk,"shampoo, paper towel, body lotion",
+e10745,2017/08/25,"pears, bananas",orange juice,"paper towel, conditioner, mouth wash",
+e10746,2017/08/31,"oranges, watermelons",milk,mouth wash,
+e10748,2017/09/08,"guava, watermelons","mango juice, guava juice, chocolate milk, apple juice","toothpaste, paper towel",
+e10749,2017/09/11,"raspberries, guava, pineapples, watermelons","soda, guava juice, orange juice","paper towel, mouthwash, toothpaste, body lotion",
+e10750,2017/09/13,nectarines,"soda, sports drinks, guava juice","toilet paper, facial wash, mouth wash, toothpaste","Jackson, Benjamin, Willow, Avery"
+e10754,2017/10/01,"watermelons, strawberries","chocolate milk, soda, mineral water","toothpaste, body lotion, mouthwash, paper towel",Nevaeh
+e10755,2017/10/07,"apricots, peaches","tea, apple juice, sports drinks",conditioner,
+e10758,2017/10/17,"cherres, mangos, watermelons, clementines","tea, orange juice",shaving cream,"Claire, Avery, Kinsley, Piper, Nora, Eva, Hazel, Rylee, Piper"
+e10759,2017/10/19,"oranges, raspberries",chocolate milk,"mouthwash, toilet paper, toothbrush",Emily
+e10762,2017/10/27,"guava, pears","mineral water, orange juice","shaving cream, mouthwash, toilet paper, paper towel",
+e10763,2017/11/04,"raspberries, pears, cherres",sports drinks,"mouthwash, conditioner","Rylee, Avery, Hazel"
+e10766,2017/11/08,"nectarines, apples, raspberries","guava juice, coffee, soda",conditioner,"Kayden, Carter, Emily, Andrew"
+e10769,2017/11/14,"watermelons, cherres, guava, strawberries","coffee, sports drinks","shaving cream, facial wash, conditioner","Emily, Andrew"
+e10773,2017/11/20,"mangos, blackberries, mandarins, apples","pineapple juice, apple juice",toothpaste,"Rylee, Nora, Lydia, Claire, Piper, Avery"
+e10774,2017/12/01,"apricots, guava","chocolate milk, mineral water, milk, soda","mouthwash, shampoo",
+e10776,2017/12/05,mangos,"sports drinks, coffee","shampoo, shaving cream",
+e10778,2017/12/12,"guava, apples","mango juice, pineapple juice, guava juice, milk","facial wash, toilet paper, conditioner, toothbrush","Piper, Nevaeh, Lydia"
+e12170,2018/01/10,"apples, apricots, clementines, pears",pineapple juice,"mouth wash, shaving cream","Emily, Andrew, Carter"
+e12172,2018/01/16,"blackberries, mangos, apricots","tea, chocolate milk, soda, mango juice","conditioner, toilet paper, shampoo",Andrew
+e12173,2018/01/21,"guava, clementines, pears","sports drinks, soda","toothpaste, body lotion, conditioner, paper towel",
+e12175,2018/01/26,nectarines,"guava juice, milk, mineral water, sports drinks","conditioner, toothpaste, mouth wash",
+e12176,2018/01/29,"guava, peaches, blackberries, mangos","chocolate milk, apple juice, orange juice","paper towel, facial wash, shaving cream","Carter, Emily, Andrew"
+e12179,2018/02/05,"oranges, nectarines, apricots","mango juice, mineral water, tea, pineapple juice","conditioner, toothpaste, shampoo, facial wash","Benjamin, Jackson"
+e12180,2018/02/11,"blueberries, guava, apricots, raspberries","guava juice, mineral water, sports drinks, coffee","mouth wash, body lotion",
+e12182,2018/02/15,"apples, raspberries",chocolate milk,body lotion,
+e12184,2018/02/23,"apricots, bananas","pineapple juice, soda",toothpaste,
+e12186,2018/02/28,blackberries,"apple juice, coffee, mineral water, mango juice","facial wash, conditioner, toilet paper, body lotion","Kayden, Emily, Andrew, Carter"
+e12189,2018/03/06,"blueberries, pears","mineral water, milk","toothpaste, mouthwash, shaving cream",
+e12190,2018/03/11,"clementines, mangos, peaches","orange juice, mineral water, apple juice, milk",toothbrush,"Carter, Kayden, Emily"
+e12193,2018/03/15,"watermelons, pineapples, mangos","pineapple juice, mango juice, sports drinks","body lotion, conditioner, facial wash, paper towel","Kayden, Carter"
+e12196,2018/03/21,"blackberries, apples",chocolate milk,"mouth wash, body lotion, mouthwash",
+e12198,2018/03/31,"blackberries, bananas, mangos, apples",apple juice,"paper towel, toilet paper, mouth wash, conditioner","Carter, Emily"
+e12200,2018/04/02,mangos,"mineral water, chocolate milk, tea, milk","body lotion, toilet paper, facial wash, toothpaste",
+e12201,2018/04/05,"nectarines, blueberries, pears, cherres",sports drinks,body lotion,"Willow, Avery, Jackson"
+e12202,2018/04/12,mandarins,"mango juice, tea",body lotion,
+e12204,2018/05/06,peaches,"apple juice, orange juice, milk",toothbrush,
+e12206,2018/05/10,"clementines, watermelons","coffee, soda, milk","toilet paper, shaving cream, mouth wash, shampoo",
+e12210,2018/05/27,cherres,"apple juice, milk, sports drinks",toothbrush,
+e12212,2018/05/30,"cherres, apples",pineapple juice,"paper towel, shaving cream",Andrew
+e12213,2018/06/01,pineapples,"pineapple juice, guava juice, soda, orange juice","shaving cream, paper towel",
+e12216,2018/06/04,"oranges, apples, apricots, blackberries","apple juice, orange juice",paper towel,"Avery, Willow, Benjamin, Jackson"
+e12217,2018/06/10,"strawberries, watermelons, bananas","coffee, mineral water, milk, chocolate milk","shampoo, mouth wash, shaving cream, toothbrush",
+e12219,2018/06/16,"mandarins, mangos, apricots, bananas","soda, apple juice","paper towel, mouthwash, toothpaste",
+e12220,2018/06/20,strawberries,sports drinks,shaving cream,
+e12221,2018/06/23,"raspberries, pears, oranges, clementines",orange juice,"toilet paper, shaving cream, mouthwash","Andrew, Kayden, Carter"
+e12224,2018/06/26,"oranges, guava, apricots","guava juice, mineral water","paper towel, body lotion",
+e12225,2018/07/07,"pineapples, raspberries, strawberries","soda, apple juice, milk",toothbrush,Emily
+e12230,2018/07/17,"strawberries, mandarins, pineapples, guava","soda, orange juice, guava juice, coffee","shampoo, conditioner","Kayden, Andrew, Carter"
+e12231,2018/07/19,"oranges, watermelons, apricots","soda, orange juice, sports drinks","toothpaste, mouthwash","Layla, Piper, Lydia, Nora, Rylee, Olivia"
+e12232,2018/07/25,"pears, apples, pineapples",guava juice,body lotion,
+e12233,2018/07/26,"strawberries, apples","orange juice, apple juice","mouthwash, facial wash, toothpaste, shaving cream",
+e12235,2018/08/07,"pears, bananas, guava, cherres","tea, soda",shampoo,"Nora, Layla, Avery, Lydia, Eva, Olivia, Nevaeh, Rylee, Piper, Claire, Piper, Hazel, Kinsley"
+e12238,2018/08/15,"peaches, guava, pineapples","apple juice, orange juice, coffee","mouth wash, facial wash",
+e12239,2018/08/19,"bananas, pineapples, guava, apples","apple juice, chocolate milk",conditioner,
+e12240,2018/08/22,oranges,"pineapple juice, tea","paper towel, facial wash, shampoo, shaving cream","Kinsley, Lydia, Claire, Avery, Layla, Nevaeh, Hazel, Olivia"
+e12241,2018/08/23,"strawberries, mandarins, apples, oranges","soda, sports drinks, milk, pineapple juice","shampoo, facial wash",
+e12243,2018/08/27,"oranges, strawberries, raspberries","sports drinks, soda, tea",facial wash,"Hazel, Nevaeh, Rylee, Layla"
+e12244,2018/09/01,"mandarins, bananas",coffee,conditioner,
+e12246,2018/09/09,"mangos, mandarins, oranges, blueberries",mineral water,"facial wash, conditioner, mouth wash",
+e12248,2018/09/14,"peaches, blueberries, raspberries",orange juice,"toilet paper, shaving cream, mouth wash",
+e12251,2018/09/23,"watermelons, pears, pineapples","chocolate milk, sports drinks, soda, apple juice","mouth wash, toothpaste","Emily, Andrew, Kayden, Carter"
+e12254,2018/10/02,peaches,"apple juice, pineapple juice, orange juice",paper towel,Andrew
+e12255,2018/10/05,"mangos, peaches, pineapples, bananas","tea, guava juice","body lotion, toothpaste, toothbrush, shaving cream",Olivia
+e12259,2018/10/08,"guava, apples, clementines, peaches",pineapple juice,facial wash,
+e12262,2018/10/15,"blackberries, clementines","mango juice, mineral water",paper towel,"Nora, Avery"
+e12263,2018/10/20,"apricots, nectarines","coffee, tea, pineapple juice","toothpaste, mouth wash, toothbrush, toilet paper",
+e12266,2018/11/01,"mangos, raspberries, blueberries, cherres","soda, coffee, sports drinks, milk",toilet paper,
+e12269,2018/11/10,raspberries,"chocolate milk, orange juice, sports drinks, milk","toothpaste, body lotion, toilet paper","Hazel, Piper, Kinsley, Nora"
+e12271,2018/11/16,"cherres, pineapples","chocolate milk, soda, milk",mouthwash,"Kayden, Carter, Emily"
+e12274,2018/11/20,"pineapples, watermelons, pears, bananas","soda, sports drinks","shampoo, conditioner","Kinsley, Hazel, Layla"
+e12275,2018/11/25,"bananas, strawberries, watermelons",mango juice,"mouthwash, conditioner, body lotion, toothpaste","Nora, Eva, Hazel, Rylee, Nevaeh, Lydia, Claire, Layla, Piper"
+e12277,2018/11/28,"peaches, raspberries, nectarines","guava juice, soda, sports drinks","shaving cream, mouth wash, toilet paper",
+e12278,2018/11/29,apples,"milk, orange juice, mango juice, chocolate milk","paper towel, mouthwash, toilet paper, body lotion","Piper, Olivia, Piper, Kinsley, Rylee, Nevaeh, Hazel, Avery, Layla, Eva, Nora"
+e12280,2018/12/09,"pineapples, raspberries, peaches, cherres","apple juice, tea, orange juice","toothbrush, body lotion, toilet paper",
+e12281,2018/12/20,"pears, watermelons, mangos, guava","orange juice, coffee",shampoo,"Kinsley, Hazel, Nevaeh"
+e13646,2019/01/06,"blueberries, pineapples","guava juice, chocolate milk, milk, soda","toilet paper, toothbrush, mouth wash, shaving cream",
+e13649,2019/01/08,"mandarins, guava, peaches","mango juice, mineral water, chocolate milk, pineapple juice","facial wash, paper towel, shampoo, body lotion",
+e13650,2019/01/14,"apricots, blueberries","guava juice, apple juice, sports drinks",toothbrush,"Willow, Avery, Benjamin"
+e13653,2019/01/17,nectarines,"chocolate milk, guava juice, sports drinks, apple juice","facial wash, paper towel, toilet paper, shaving cream",
+e13654,2019/01/18,"apples, nectarines, guava, blackberries","guava juice, apple juice","toothpaste, mouth wash","Emily, Andrew"
+e13656,2019/01/26,"bananas, watermelons, peaches","tea, apple juice","shaving cream, mouth wash, mouthwash, toothpaste",
+e13657,2019/02/02,"apples, bananas, pineapples","soda, guava juice, orange juice, milk","body lotion, mouth wash, facial wash",
+e13660,2019/02/05,"blackberries, pears","apple juice, sports drinks","mouthwash, body lotion, toilet paper",
+e13661,2019/02/08,"peaches, nectarines, raspberries","sports drinks, soda","shaving cream, toothbrush","Emily, Kayden, Carter"
+e13663,2019/02/18,"oranges, clementines, apples","sports drinks, coffee, mineral water, soda","facial wash, shampoo","Olivia, Claire"
+e13664,2019/02/24,"apricots, strawberries, pineapples","apple juice, sports drinks, coffee",body lotion,
+e13666,2019/02/28,apples,"milk, soda, apple juice, pineapple juice","toothpaste, conditioner","Claire, Layla, Olivia, Lydia, Avery, Hazel"
+e13667,2019/03/04,"bananas, raspberries, blueberries, nectarines","mango juice, mineral water, pineapple juice, orange juice",body lotion,
+e13668,2019/03/07,"guava, peaches",chocolate milk,mouthwash,"Emily, Andrew"
+e13669,2019/03/11,"watermelons, mandarins",mango juice,"conditioner, toothbrush, shampoo","Piper, Olivia, Nevaeh, Nora, Piper, Eva, Kinsley, Claire"
+e13670,2019/03/16,clementines,"mineral water, pineapple juice, soda","toothbrush, body lotion, mouthwash",
+e13672,2019/03/19,"pears, raspberries, mangos, bananas","pineapple juice, soda, tea, chocolate milk","conditioner, toothbrush",
+e13673,2019/03/25,"nectarines, apples, blackberries","mango juice, orange juice, mineral water, milk","toilet paper, shaving cream, mouthwash",
+e13677,2019/04/13,"oranges, peaches, nectarines, bananas","guava juice, soda, mineral water, orange juice","toilet paper, body lotion",
+e13679,2019/04/20,"mangos, blackberries","pineapple juice, sports drinks","body lotion, toilet paper",
+e13680,2019/04/29,"clementines, mandarins, blackberries, bananas","milk, tea, apple juice, coffee",mouth wash,"Olivia, Lydia, Avery, Claire, Piper, Nevaeh, Layla, Rylee, Eva, Kinsley, Nora, Hazel"
+e13682,2019/05/03,"mandarins, clementines",pineapple juice,"body lotion, shaving cream, mouth wash, toothbrush",
+e13685,2019/05/12,"clementines, mangos","apple juice, mango juice, mineral water","mouth wash, paper towel","Avery, Jackson, Willow"
+e13688,2019/05/27,"cherres, nectarines","chocolate milk, mango juice, soda","conditioner, toothpaste, shaving cream, toilet paper",
+e13691,2019/06/06,"raspberries, blueberries, cherres, apples","mineral water, chocolate milk",toothpaste,
+e13692,2019/06/08,"apples, pears","mineral water, sports drinks",shampoo,
+e13694,2019/06/12,"blueberries, nectarines",soda,"conditioner, mouthwash",
+e13695,2019/06/15,"cherres, watermelons, nectarines, guava","tea, orange juice, mango juice","facial wash, body lotion, shaving cream, toothpaste",Andrew
+e13698,2019/06/22,watermelons,"mineral water, guava juice","mouth wash, conditioner, shampoo, paper towel","Nevaeh, Olivia, Kinsley, Avery, Lydia"
+e13700,2019/06/25,"apples, nectarines","tea, mineral water, chocolate milk, mango juice","toothbrush, shampoo",
+e13701,2019/06/28,"pineapples, blueberries","coffee, sports drinks, tea, milk","shampoo, toothbrush, mouthwash, toilet paper",
+e13707,2019/07/24,"bananas, blackberries","guava juice, tea, soda","mouthwash, toilet paper",
+e13708,2019/07/26,"guava, cherres, mangos, nectarines",coffee,"shaving cream, mouth wash, toothpaste","Lydia, Eva, Nevaeh, Olivia, Claire, Piper"
+e13711,2019/08/02,oranges,guava juice,"toothpaste, mouthwash, toilet paper","Rylee, Nora, Olivia, Piper, Claire, Layla, Kinsley, Eva, Nevaeh, Lydia, Avery, Hazel, Piper"
+e13715,2019/08/06,"blueberries, apricots, raspberries","guava juice, tea, orange juice","paper towel, mouth wash, mouthwash, shaving cream","Andrew, Kayden, Carter"
+e13716,2019/08/09,"cherres, pears, clementines, oranges","mango juice, mineral water, milk, chocolate milk","toilet paper, toothpaste, body lotion",
+e13722,2019/08/19,"pineapples, mangos, peaches","mineral water, coffee, chocolate milk","mouthwash, shampoo, toothpaste",Carter
+e13725,2019/08/20,"clementines, apricots",chocolate milk,"shaving cream, mouthwash, toothpaste",
+e13728,2019/09/01,raspberries,"pineapple juice, milk, mango juice","mouth wash, body lotion",
+e13730,2019/09/08,guava,"milk, sports drinks, chocolate milk, mineral water","mouthwash, mouth wash","Andrew, Emily"
+e13732,2019/09/14,"peaches, cherres","apple juice, soda",toothpaste,"Jackson, Avery"
+e13734,2019/09/24,"strawberries, blueberries, cherres",mineral water,"toilet paper, toothbrush, mouthwash","Carter, Emily, Kayden"
+e13735,2019/09/30,apples,"soda, mango juice, milk, chocolate milk","mouth wash, body lotion",
+e13737,2019/10/02,watermelons,"sports drinks, orange juice, mineral water, mango juice",shampoo,Andrew
+e13738,2019/10/06,"apricots, strawberries, raspberries","chocolate milk, sports drinks","toothpaste, shampoo","Jackson, Avery, Willow"
+e13740,2019/10/08,"peaches, bananas, oranges, apples",tea,"mouthwash, mouth wash, toothbrush, toothpaste","Kayden, Carter, Andrew"
+e13741,2019/10/13,bananas,"mango juice, pineapple juice","conditioner, toothbrush, toilet paper, paper towel","Layla, Nevaeh, Olivia, Kinsley, Rylee, Claire, Piper, Avery, Piper, Eva"
+e13745,2019/11/04,"blueberries, apricots, pears, peaches","mineral water, coffee",facial wash,
+e13748,2019/11/22,"clementines, apples","chocolate milk, soda, pineapple juice, sports drinks",shaving cream,"Kayden, Andrew"
+e13751,2019/11/28,"strawberries, blueberries, watermelons, raspberries","coffee, apple juice",facial wash,Carter
+e13753,2019/12/09,bananas,soda,"toothbrush, paper towel",
+e13756,2019/12/15,bananas,"coffee, milk","mouthwash, shaving cream, mouth wash",Andrew
+e13760,2019/12/22,blackberries,"chocolate milk, tea, mineral water",mouth wash,Willow
+e15132,2020/01/03,mandarins,"chocolate milk, guava juice","mouth wash, toothbrush",Eva
+e15133,2020/01/04,"mangos, oranges, apricots, bananas","mineral water, orange juice",toothbrush,
+e15135,2020/01/18,"cherres, pears","guava juice, tea",toilet paper,"Piper, Avery, Nevaeh, Olivia, Eva, Lydia, Claire, Nora"
+e15138,2020/01/24,"pears, clementines, apricots","soda, pineapple juice, orange juice","toothpaste, body lotion, paper towel, toothbrush",
+e15140,2020/01/30,"apricots, strawberries, pears, blueberries","apple juice, soda, coffee, sports drinks",conditioner,"Eva, Layla, Kinsley, Piper, Lydia, Piper"
+e15141,2020/02/01,"blueberries, mangos","mineral water, chocolate milk, mango juice",body lotion,
+e15143,2020/02/06,"blackberries, apricots, blueberries","soda, mineral water","toilet paper, body lotion",
+e15144,2020/02/08,"pineapples, apples","soda, sports drinks, mineral water","paper towel, toothpaste",Emily
+e15145,2020/02/13,"watermelons, guava, bananas, apricots","coffee, orange juice, soda","toothbrush, conditioner, toilet paper","Olivia, Lydia, Eva, Rylee, Avery, Piper, Kinsley, Nevaeh, Nora, Piper, Claire"
+e15146,2020/02/15,"clementines, mangos","pineapple juice, milk, mineral water, chocolate milk","conditioner, toothpaste, toilet paper, paper towel","Andrew, Carter, Emily, Kayden"
+e15151,2020/02/29,"blueberries, apricots, mandarins, watermelons",mango juice,"toilet paper, shaving cream, mouthwash","Piper, Nevaeh"
+e15152,2020/03/05,"clementines, mangos, raspberries",pineapple juice,"toilet paper, shaving cream, conditioner",
+e15153,2020/03/07,"watermelons, pineapples, apricots",apple juice,"body lotion, toothpaste",
+e15155,2020/03/14,"peaches, blueberries",chocolate milk,"paper towel, facial wash, toilet paper","Kinsley, Eva, Lydia, Layla, Nevaeh, Claire"
+e15157,2020/03/24,"apples, pineapples",mineral water,"body lotion, mouth wash, shaving cream, mouthwash","Avery, Willow, Benjamin, Jackson"
+e15159,2020/03/27,"guava, raspberries, bananas","mango juice, apple juice","toothbrush, body lotion",
+e15161,2020/04/01,"pears, nectarines",guava juice,"facial wash, toilet paper, shaving cream",
+e15162,2020/04/06,cherres,"apple juice, soda, coffee",conditioner,"Emily, Carter, Kayden, Andrew"
+e15163,2020/04/08,"mangos, pears, pineapples","tea, soda, orange juice","toothpaste, conditioner, mouth wash","Kinsley, Hazel, Piper, Lydia, Eva, Olivia, Rylee"
+e15164,2020/04/13,"apples, blueberries, watermelons","pineapple juice, chocolate milk, coffee, tea","mouth wash, toothbrush, mouthwash","Piper, Piper, Layla, Nevaeh, Claire, Olivia, Nora, Avery, Hazel, Rylee, Eva, Kinsley, Lydia"
+e15166,2020/04/17,"mandarins, blackberries, apples, strawberries","sports drinks, apple juice","toothpaste, paper towel, facial wash, shampoo",
+e15168,2020/04/25,"apricots, guava",pineapple juice,paper towel,Willow
+e15170,2020/04/29,"watermelons, apricots, peaches, pears",tea,"conditioner, paper towel, shaving cream, toothpaste","Andrew, Carter, Emily, Kayden"
+e15171,2020/05/03,mangos,"pineapple juice, guava juice","mouth wash, toilet paper, body lotion",
+e15174,2020/05/17,pears,"guava juice, coffee",facial wash,
+e15175,2020/05/21,"oranges, strawberries",orange juice,"mouth wash, mouthwash, shaving cream, conditioner",
+e15177,2020/06/01,"oranges, mangos, mandarins","mineral water, mango juice, orange juice","mouth wash, shaving cream",
+e15178,2020/06/08,strawberries,soda,"shaving cream, toothpaste",Andrew
+e15181,2020/06/12,"strawberries, bananas","chocolate milk, guava juice, pineapple juice","toilet paper, body lotion, paper towel",
+e15182,2020/06/22,"pears, oranges, cherres","chocolate milk, milk","body lotion, shaving cream, toothbrush, mouth wash",
+e15184,2020/06/28,pineapples,"pineapple juice, tea, mineral water","shampoo, toilet paper, body lotion, mouthwash","Andrew, Emily, Carter"
+e15187,2020/07/03,"watermelons, pineapples","milk, mango juice, apple juice, soda",body lotion,Andrew
+e15190,2020/07/12,"clementines, apples, blackberries, pineapples","orange juice, mineral water, milk, chocolate milk",mouthwash,"Nora, Kinsley, Lydia, Eva, Layla, Piper, Claire, Piper"
+e15191,2020/07/20,nectarines,"sports drinks, guava juice, milk","paper towel, shaving cream, conditioner",Avery
+e15192,2020/07/22,"peaches, raspberries, pineapples, mandarins","guava juice, pineapple juice","paper towel, toothbrush",
+e15195,2020/07/30,"peaches, nectarines, clementines, strawberries","mineral water, tea",mouthwash,Jackson
+e15196,2020/08/04,"pineapples, cherres, blueberries, strawberries","coffee, tea, mineral water, chocolate milk","shampoo, conditioner, paper towel","Benjamin, Jackson, Avery"
+e15198,2020/08/05,"strawberries, cherres, guava","guava juice, orange juice, mango juice, milk",shampoo,
+e15199,2020/08/11,"blackberries, guava, mandarins","milk, guava juice, chocolate milk, sports drinks",shampoo,
+e15201,2020/08/15,"bananas, watermelons, blueberries, raspberries","chocolate milk, mineral water, soda","conditioner, paper towel, mouthwash, toothpaste","Willow, Avery, Jackson, Benjamin"
+e15202,2020/08/20,"nectarines, cherres, pears","mineral water, soda","paper towel, facial wash, mouth wash, shampoo","Nevaeh, Rylee"
+e15203,2020/08/24,"peaches, apricots, bananas",tea,"mouth wash, shaving cream",Emily
+e15207,2020/08/31,"apples, blueberries","pineapple juice, sports drinks, guava juice","paper towel, toilet paper",
+e15209,2020/09/05,peaches,"guava juice, orange juice, mango juice","shampoo, shaving cream, toothpaste",
+e15214,2020/09/29,raspberries,milk,"paper towel, shampoo","Emily, Kayden"
+e15216,2020/10/02,"clementines, pineapples, mandarins, apples",chocolate milk,toothbrush,"Carter, Emily"
+e15217,2020/10/05,"guava, oranges, clementines","chocolate milk, guava juice, sports drinks","toilet paper, toothbrush, toothpaste",
+e15219,2020/10/13,pears,guava juice,"toothpaste, conditioner, body lotion, shaving cream",Emily
+e15221,2020/10/16,"blackberries, clementines, mangos","tea, pineapple juice, chocolate milk, guava juice","toothbrush, toothpaste, shaving cream, mouth wash",
+e15222,2020/10/20,"mandarins, nectarines, peaches","sports drinks, chocolate milk, orange juice",conditioner,
+e15225,2020/11/01,"nectarines, strawberries, oranges, apricots","soda, guava juice, sports drinks, pineapple juice",toilet paper,
+e15228,2020/11/09,"nectarines, watermelons","guava juice, orange juice","paper towel, conditioner, mouth wash",
+e15230,2020/11/11,"mandarins, nectarines, oranges","milk, soda","body lotion, facial wash, shampoo, shaving cream",Carter
+e15231,2020/11/16,strawberries,"tea, milk",facial wash,Andrew
+e15234,2020/11/26,blueberries,"sports drinks, pineapple juice, tea, orange juice","mouthwash, body lotion",
+e15235,2020/11/29,"raspberries, blackberries, cherres, oranges","apple juice, sports drinks","mouthwash, shampoo, facial wash, conditioner",
+e15237,2020/12/05,"clementines, peaches, apricots",chocolate milk,"paper towel, toothpaste","Jackson, Willow, Avery, Benjamin"
+e15241,2020/12/10,"apricots, raspberries, strawberries","apple juice, soda","mouthwash, conditioner, toilet paper",
+e16613,2021/01/03,raspberries,"mineral water, mango juice","conditioner, shampoo, shaving cream",
+e16614,2021/01/07,"mandarins, nectarines, pineapples, raspberries","coffee, tea","shaving cream, toothpaste, mouthwash, mouth wash","Lydia, Layla, Claire"
+e16615,2021/01/09,"strawberries, watermelons, blackberries","soda, sports drinks, guava juice",toilet paper,"Willow, Jackson"
+e16619,2021/01/27,"peaches, apples, cherres, strawberries","pineapple juice, apple juice","body lotion, mouth wash","Piper, Rylee, Layla, Lydia, Eva, Claire, Avery, Piper, Olivia, Nevaeh, Nora, Kinsley, Hazel"
+e16621,2021/01/30,"watermelons, oranges","chocolate milk, sports drinks, mineral water, tea","facial wash, mouth wash, mouthwash, toilet paper","Carter, Andrew, Kayden, Emily"
+e16625,2021/02/06,blackberries,"tea, soda",toothbrush,
+e16626,2021/02/10,"apples, cherres","sports drinks, coffee","facial wash, toilet paper","Kayden, Andrew, Carter, Emily"
+e16631,2021/02/14,"clementines, mandarins, cherres, blueberries","coffee, tea, soda","shaving cream, toothpaste, conditioner",
+e16632,2021/02/17,"cherres, mangos",milk,"shampoo, toothpaste, shaving cream",
+e16633,2021/02/23,raspberries,milk,mouth wash,"Piper, Piper, Claire, Eva, Lydia, Kinsley, Rylee, Layla, Olivia, Nora, Nevaeh"
+e16636,2021/02/27,"oranges, watermelons, blackberries","apple juice, guava juice, milk","toothbrush, facial wash, toilet paper, shampoo","Emily, Kayden, Andrew"
+e16637,2021/03/01,nectarines,"sports drinks, milk","mouth wash, shampoo",
+e16638,2021/03/08,"apples, peaches","mineral water, apple juice, tea, guava juice","toilet paper, paper towel",Andrew
+e16639,2021/03/18,watermelons,"mango juice, guava juice",mouth wash,
+e16641,2021/03/22,"strawberries, blueberries","pineapple juice, chocolate milk, guava juice, tea","mouth wash, mouthwash",
+e16642,2021/03/26,"blackberries, nectarines","pineapple juice, soda","toothpaste, conditioner, facial wash, shaving cream",
+e16643,2021/04/01,mandarins,"mango juice, mineral water, orange juice",body lotion,"Nevaeh, Claire, Layla, Piper, Piper, Lydia, Rylee"
+e16646,2021/04/14,peaches,"apple juice, sports drinks","facial wash, mouth wash",
+e16653,2021/04/23,"strawberries, mangos, peaches","soda, sports drinks, milk, pineapple juice","body lotion, shampoo, toothpaste, toothbrush",Jackson
+e16655,2021/05/01,"cherres, mangos, oranges, blueberries",mineral water,"facial wash, mouth wash","Piper, Olivia, Avery, Claire, Kinsley, Layla"
+e16657,2021/05/13,"bananas, pineapples, cherres","milk, sports drinks, tea, guava juice","toothpaste, paper towel",
+e16659,2021/05/15,"cherres, oranges","mango juice, guava juice, tea","mouth wash, paper towel","Kinsley, Rylee, Piper, Piper, Eva, Nevaeh, Olivia, Lydia, Avery, Hazel"
+e16660,2021/05/19,"blackberries, blueberries, apples, raspberries","orange juice, coffee, mango juice","body lotion, toothpaste, shaving cream","Avery, Jackson, Benjamin, Willow"
+e16662,2021/05/31,mangos,"guava juice, apple juice","shampoo, mouth wash, conditioner","Avery, Willow, Jackson"
+e16665,2021/06/09,"apples, bananas, cherres, mangos","coffee, chocolate milk, pineapple juice","toilet paper, toothbrush",Andrew
+e16668,2021/06/11,apricots,"coffee, pineapple juice","shampoo, toothpaste","Willow, Avery"
+e16669,2021/06/16,"bananas, raspberries",apple juice,body lotion,
+e16671,2021/06/24,mandarins,orange juice,"paper towel, shaving cream, mouth wash, mouthwash",
+e16674,2021/07/08,"apricots, peaches, oranges, cherres",pineapple juice,"paper towel, body lotion, toothpaste, shaving cream",
+e16677,2021/07/15,"mangos, blueberries",mango juice,"shampoo, toothbrush",
+e16679,2021/07/17,"pears, clementines, oranges","orange juice, pineapple juice",body lotion,"Kayden, Andrew, Emily, Carter"
+e16682,2021/07/29,"nectarines, apples","coffee, soda, mango juice","mouth wash, toothpaste, shampoo",
+e16685,2021/08/02,"clementines, raspberries","pineapple juice, soda, guava juice, coffee","shaving cream, toothbrush",Kayden
+e16688,2021/08/19,"pears, blackberries, apples","guava juice, apple juice","body lotion, mouthwash, toothpaste, paper towel",
+e16694,2021/09/06,mangos,"tea, chocolate milk, orange juice","paper towel, mouth wash, toothpaste, toothbrush","Claire, Eva, Nevaeh, Piper, Olivia, Piper, Layla, Lydia, Hazel, Kinsley"
+e16696,2021/09/21,peaches,"tea, orange juice, mineral water, coffee","toothbrush, conditioner","Avery, Benjamin, Jackson, Willow"
+e16698,2021/09/26,blueberries,milk,toothpaste,"Carter, Kayden, Emily, Andrew"
+e16701,2021/10/07,"blackberries, peaches","soda, mineral water, mango juice, pineapple juice","paper towel, body lotion, mouthwash",Lydia
+e16703,2021/10/12,"watermelons, blackberries","mineral water, coffee, pineapple juice",shaving cream,"Willow, Benjamin, Jackson"
+e16706,2021/10/19,"clementines, watermelons, mandarins","orange juice, sports drinks, apple juice, guava juice",shampoo,Eva
+e16708,2021/10/22,"bananas, blueberries, mangos, pineapples","guava juice, mango juice, orange juice, coffee","shaving cream, toothpaste, shampoo, mouthwash","Carter, Emily, Andrew, Kayden"
+e16709,2021/10/28,"clementines, pears, watermelons, guava",mineral water,"toilet paper, toothpaste, paper towel, facial wash",Carter
+e16712,2021/10/31,"guava, nectarines, peaches","soda, apple juice, orange juice, milk",facial wash,
+e16714,2021/11/06,"nectarines, mangos, raspberries, pineapples","soda, tea, milk, apple juice","shaving cream, conditioner",Andrew
+e16715,2021/11/10,cherres,"tea, coffee, orange juice","conditioner, paper towel, shaving cream",
+e16716,2021/11/15,"apples, apricots, raspberries, blackberries","mango juice, coffee, apple juice","facial wash, paper towel",
+e16718,2021/11/29,"mandarins, guava, raspberries, watermelons",soda,"shampoo, mouth wash, toothpaste",
+e16723,2021/12/21,blueberries,"orange juice, coffee, guava juice","toothpaste, toothbrush, body lotion, mouthwash","Carter, Emily, Kayden"
+e18131,2022/01/01,"pears, peaches, pineapples, mandarins",milk,facial wash,"Carter, Andrew, Kayden, Emily"
+e18134,2022/01/16,strawberries,"guava juice, tea, apple juice","toilet paper, mouth wash, paper towel, shaving cream","Rylee, Claire, Layla, Piper, Piper, Nora, Eva, Nevaeh, Lydia, Hazel, Olivia"
+e18135,2022/01/20,"bananas, cherres, mangos, blueberries","pineapple juice, orange juice, coffee, mineral water",shaving cream,"Jackson, Benjamin"
+e18138,2022/01/24,pineapples,orange juice,"toothpaste, paper towel, shaving cream",
+e18139,2022/01/27,"oranges, watermelons","sports drinks, pineapple juice","shaving cream, mouthwash",
+e18144,2022/02/20,"pineapples, watermelons, cherres, pears","orange juice, apple juice","mouthwash, facial wash, conditioner, shampoo","Carter, Andrew, Emily, Kayden"
+e18146,2022/03/01,"bananas, raspberries, mangos, guava","mineral water, coffee, soda, sports drinks","facial wash, mouthwash, toilet paper, body lotion","Piper, Hazel"
+e18148,2022/03/11,apricots,"milk, sports drinks",shampoo,"Jackson, Avery, Benjamin, Willow"
+e18149,2022/03/24,apricots,"soda, sports drinks, milk",conditioner,"Jackson, Benjamin, Willow, Avery"
+e18151,2022/03/26,"bananas, peaches, mandarins, cherres",pineapple juice,mouthwash,Carter
+e18152,2022/03/29,"mandarins, blackberries, apples","mineral water, guava juice",conditioner,
+e18155,2022/04/03,pineapples,"guava juice, milk, orange juice, sports drinks","toilet paper, shampoo","Carter, Andrew"
+e18156,2022/04/05,"apricots, mangos, peaches","pineapple juice, mineral water, orange juice, guava juice",mouthwash,
+e18160,2022/04/16,guava,"tea, guava juice, orange juice, sports drinks","shaving cream, mouth wash",
+e18161,2022/04/19,"guava, blueberries","mango juice, sports drinks, soda, orange juice","toothpaste, shampoo","Andrew, Kayden, Emily"
+e18165,2022/05/02,strawberries,"coffee, milk, guava juice, mineral water","shampoo, facial wash, shaving cream, toothbrush","Avery, Willow, Jackson, Benjamin"
+e18168,2022/05/08,"strawberries, peaches","apple juice, orange juice, guava juice, chocolate milk","facial wash, toilet paper, shaving cream",
+e18169,2022/05/10,"nectarines, cherres, watermelons, mangos","coffee, guava juice, orange juice, mineral water",conditioner,
+e18172,2022/05/19,"cherres, mandarins, clementines, pineapples","chocolate milk, tea","toothpaste, body lotion, mouthwash, shampoo","Kayden, Andrew, Emily, Carter"
+e18177,2022/05/28,"blackberries, bananas, raspberries","pineapple juice, sports drinks, coffee",conditioner,"Andrew, Kayden, Carter"
+e18178,2022/06/02,"peaches, bananas, apricots, pears",chocolate milk,"paper towel, facial wash, shaving cream, conditioner",
+e18180,2022/06/09,pears,"orange juice, mango juice","shampoo, facial wash",
+e18182,2022/06/17,"clementines, strawberries, apricots","tea, mango juice, mineral water, sports drinks",toothbrush,
+e18185,2022/06/24,"oranges, bananas, raspberries, peaches","soda, orange juice","body lotion, shampoo, toothpaste, toilet paper",
+e18189,2022/06/27,"apples, clementines, mandarins, oranges",pineapple juice,"toothbrush, conditioner, mouthwash, body lotion",
+e18190,2022/06/29,oranges,"orange juice, guava juice, milk","mouth wash, toilet paper, toothbrush","Nevaeh, Olivia, Kinsley, Avery, Layla, Eva"
+e18193,2022/07/10,guava,orange juice,"toilet paper, toothbrush",
+e18195,2022/07/17,"apricots, raspberries, blackberries, watermelons",mineral water,"body lotion, mouth wash","Piper, Kinsley"
+e18198,2022/07/27,"peaches, bananas","mineral water, guava juice, pineapple juice",mouthwash,"Benjamin, Willow, Jackson, Avery"
+e18202,2022/08/11,"guava, bananas","sports drinks, chocolate milk, mineral water, soda",toothpaste,"Eva, Kinsley, Olivia, Avery, Piper, Rylee, Nora, Lydia, Claire, Nevaeh, Layla, Piper, Hazel"
+e18208,2022/08/23,"bananas, pineapples","coffee, milk, sports drinks, guava juice","paper towel, shampoo","Piper, Avery, Olivia, Lydia, Eva, Hazel, Rylee, Nora, Kinsley, Claire, Layla, Nevaeh, Piper"
+e18212,2022/08/27,"cherres, apricots","apple juice, mango juice, guava juice, milk","conditioner, toilet paper, shampoo","Rylee, Lydia, Claire, Eva, Kinsley"
+e18213,2022/08/30,bananas,"chocolate milk, apple juice, milk, soda",facial wash,
+e18215,2022/09/05,"apricots, apples, pineapples, nectarines","soda, pineapple juice",mouth wash,
+e18216,2022/09/08,"watermelons, strawberries, clementines, apples","mineral water, sports drinks, chocolate milk","shaving cream, mouthwash, toothbrush",
+e18220,2022/09/19,"cherres, guava, pears, clementines","soda, tea",toilet paper,
+e18221,2022/09/23,"nectarines, watermelons",mango juice,"mouthwash, body lotion, conditioner, toothbrush",
+e18223,2022/09/26,"mangos, pineapples, apricots, mandarins","mineral water, chocolate milk, tea, mango juice",shaving cream,"Avery, Jackson"
+e18224,2022/10/06,"oranges, pineapples, pears, blueberries",pineapple juice,"toothbrush, mouth wash, body lotion, conditioner","Willow, Benjamin, Jackson, Avery"
+e18227,2022/10/19,strawberries,"soda, pineapple juice, chocolate milk","shaving cream, toilet paper, mouthwash, shampoo","Emily, Andrew, Carter"
+e18228,2022/10/22,"bananas, mandarins","apple juice, mineral water, sports drinks, soda","facial wash, paper towel, shaving cream",
+e18229,2022/10/25,"guava, clementines, cherres, blackberries","coffee, chocolate milk, mango juice, mineral water",shampoo,
+e18231,2022/10/29,"cherres, pears",chocolate milk,"mouthwash, conditioner, paper towel, facial wash","Kayden, Andrew, Carter, Emily"
+e18232,2022/11/02,"bananas, oranges, peaches, strawberries","milk, pineapple juice, sports drinks","toilet paper, shaving cream, shampoo",
+e18234,2022/11/06,"apricots, pears, blueberries, clementines","guava juice, apple juice, chocolate milk, mineral water",facial wash,
+e18235,2022/11/11,"peaches, guava, strawberries","orange juice, pineapple juice, mango juice","shampoo, mouthwash",
+e18239,2022/11/14,"bananas, strawberries, clementines, watermelons","mineral water, soda, orange juice","facial wash, shaving cream, toothpaste",
+e18240,2022/11/15,"blueberries, clementines","apple juice, coffee, pineapple juice, tea",toothpaste,"Jackson, Benjamin"
+e18241,2022/11/22,oranges,soda,conditioner,"Kinsley, Claire, Olivia, Lydia, Nevaeh"
+e18246,2022/12/04,"apricots, mandarins, apples","guava juice, sports drinks","paper towel, toilet paper, toothpaste",
+e18247,2022/12/06,"watermelons, raspberries, mangos","soda, guava juice, chocolate milk","paper towel, facial wash, shaving cream, toilet paper",
+e18249,2022/12/15,"blackberries, mandarins, guava, nectarines","apple juice, mango juice, coffee","toilet paper, body lotion, toothbrush","Kayden, Emily"
+e18252,2022/12/29,"bananas, nectarines, mangos","milk, orange juice, apple juice",paper towel,

@@ -17,7 +17,7 @@ services:
   qa:
     build:
       context: .
-      dockerfile: src/frontend/Dockerfile-qa
+      dockerfile: src/qa/Dockerfile
     ports:
       - "8085:8085"
     volumes:

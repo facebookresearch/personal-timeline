@@ -1,0 +1,97 @@
+eid,start_date,end_date,city,dining_date,food_type,food_location,place_visit_date,place,people,action,emotion
+e7,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/13,Chinese food,High Street Philly,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e8,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/15,Chinese food,High Street Philly,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e9,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/16,street food,Lunch Street,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e10,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/17,Japanese food,High Street Philly,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e11,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/18,Japanese food,Wood Street Pizza,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e1515,2011/02/14,2011/02/27,"Shanghai, China",2011/02/15,Italian food,Fangbang Xi Lu,,,,,
+e1516,2011/02/14,2011/02/27,"Shanghai, China",2011/02/16,Indian food,Fangbang Xi Lu,,,,,
+e1517,2011/02/14,2011/02/27,"Shanghai, China",2011/02/17,Italian food,South Bund Fabric Market,,,,,
+e1518,2011/02/14,2011/02/27,"Shanghai, China",2011/02/18,Italian food,Fangbang Xi Lu,,,,,
+e1519,2011/02/14,2011/02/27,"Shanghai, China",2011/02/19,street food,South Bund Fabric Market,,,,,
+e1520,2011/02/14,2011/02/27,"Shanghai, China",2011/02/20,Japanese food,Yuyuan Lu junction,,,,,
+e1521,2011/02/14,2011/02/27,"Shanghai, China",2011/02/22,Indian food,Wanhangdu Lu junction,,,,,
+e1522,2011/02/14,2011/02/27,"Shanghai, China",2011/02/23,Chinese food,South Bund Fabric Market,,,,,
+e1523,2011/02/14,2011/02/27,"Shanghai, China",2011/02/24,local food,South Bund Fabric Market,,,,,
+e1524,2011/02/14,2011/02/27,"Shanghai, China",2011/02/26,Indian food,Yuyuan Lu junction,,,,,
+e1525,2011/02/14,2011/02/27,"Shanghai, China",2011/02/27,Chinese food,Fangbang Xi Lu,,,,,
+e3049,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/03,Japanese food,Love Crepe,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3050,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/05,Italian food,Bombay Street Kitchen,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3051,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/06,local food,Bombay Street Kitchen,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3052,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/07,street food,Bombay Street Kitchen,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3053,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/09,Japanese food,Bombay Street Kitchen,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3054,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/10,Chinese food,Bombay Street Kitchen,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3055,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/11,Japanese food,Love Crepe,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3056,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/12,local food,Thievery Chicken & Charcoal,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3057,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/13,Indian food,Bombay Street Kitchen,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3058,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/14,street food,Love Crepe,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3059,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/15,Italian food,Thievery Chicken & Charcoal,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3060,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/16,Italian food,Bombay Street Kitchen,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e3061,2012/05/02,2012/05/17,"Sydney, Australia",2012/05/17,Japanese food,Bombay Street Kitchen,2012/05/05,Bondi Beach,Piper,recorded some videos,impressed
+e4589,2013/01/20,2013/01/27,"Bangkok, Thailand",2013/01/21,Chinese food,Victory Monument,2013/01/25,Wat Traimit,"Carter, Andrew",took a group photo,impressed
+e4590,2013/01/20,2013/01/27,"Bangkok, Thailand",2013/01/22,Italian food,Victory Monument,2013/01/25,Wat Traimit,"Carter, Andrew",took a group photo,impressed
+e4591,2013/01/20,2013/01/27,"Bangkok, Thailand",2013/01/23,Japanese food,Ratchawat Market,2013/01/25,Wat Traimit,"Carter, Andrew",took a group photo,impressed
+e4592,2013/01/20,2013/01/27,"Bangkok, Thailand",2013/01/25,Indian food,Ratchawat Market,2013/01/25,Wat Traimit,"Carter, Andrew",took a group photo,impressed
+e4593,2013/01/20,2013/01/27,"Bangkok, Thailand",2013/01/26,Indian food,Victory Monument,2013/01/25,Wat Traimit,"Carter, Andrew",took a group photo,impressed
+e4594,2013/01/20,2013/01/27,"Bangkok, Thailand",2013/01/27,Chinese food,Ratchawat Market,2013/01/25,Wat Traimit,"Carter, Andrew",took a group photo,impressed
+e6049,2014/01/13,2014/01/23,"Bangkok, Thailand",2014/01/14,Italian food,Ratchawat Market,2014/01/18,Grand Palace,Piper,bought some souvenirs,special
+e6050,2014/01/13,2014/01/23,"Bangkok, Thailand",2014/01/15,local food,Ratchawat Market,2014/01/18,Grand Palace,Piper,bought some souvenirs,special
+e6051,2014/01/13,2014/01/23,"Bangkok, Thailand",2014/01/17,Japanese food,Ratchawat Market,2014/01/18,Grand Palace,Piper,bought some souvenirs,special
+e6052,2014/01/13,2014/01/23,"Bangkok, Thailand",2014/01/18,Italian food,Yaowarat,2014/01/18,Grand Palace,Piper,bought some souvenirs,special
+e6053,2014/01/13,2014/01/23,"Bangkok, Thailand",2014/01/20,Italian food,Ratchawat Market,2014/01/18,Grand Palace,Piper,bought some souvenirs,special
+e6054,2014/01/13,2014/01/23,"Bangkok, Thailand",2014/01/22,Chinese food,Ratchawat Market,2014/01/18,Grand Palace,Piper,bought some souvenirs,special
+e6055,2014/01/13,2014/01/23,"Bangkok, Thailand",2014/01/23,Chinese food,Yaowarat,2014/01/18,Grand Palace,Piper,bought some souvenirs,special
+e7585,2015/04/28,2015/05/11,"Seoul, South Korea",2015/04/30,Chinese food,Seoul Bamdokkaebi Night Market,2015/05/01,N Seoul Tower,Carter,recorded some videos,special
+e7586,2015/04/28,2015/05/11,"Seoul, South Korea",2015/05/01,street food,Common Ground,2015/05/01,N Seoul Tower,Carter,recorded some videos,special
+e7587,2015/04/28,2015/05/11,"Seoul, South Korea",2015/05/02,Indian food,Seoul Bamdokkaebi Night Market,2015/05/01,N Seoul Tower,Carter,recorded some videos,special
+e7588,2015/04/28,2015/05/11,"Seoul, South Korea",2015/05/04,local food,Common Ground,2015/05/01,N Seoul Tower,Carter,recorded some videos,special
+e7589,2015/04/28,2015/05/11,"Seoul, South Korea",2015/05/06,local food,Seoul Bamdokkaebi Night Market,2015/05/01,N Seoul Tower,Carter,recorded some videos,special
+e7590,2015/04/28,2015/05/11,"Seoul, South Korea",2015/05/07,Italian food,Myeongdong Street Food Alley,2015/05/01,N Seoul Tower,Carter,recorded some videos,special
+e7591,2015/04/28,2015/05/11,"Seoul, South Korea",2015/05/08,local food,Seoul Bamdokkaebi Night Market,2015/05/01,N Seoul Tower,Carter,recorded some videos,special
+e7592,2015/04/28,2015/05/11,"Seoul, South Korea",2015/05/10,Indian food,Common Ground,2015/05/01,N Seoul Tower,Carter,recorded some videos,special
+e7593,2015/04/28,2015/05/11,"Seoul, South Korea",2015/05/11,Italian food,Myeongdong Street Food Alley,2015/05/01,N Seoul Tower,Carter,recorded some videos,special
+e9094,2016/04/12,2016/04/20,"Rio, Brazil",2016/04/13,Japanese food,Bolinho de bacalhau,2016/04/17,Carnaval,"Benjamin, Jackson, Willow",took a group photo,special
+e9095,2016/04/12,2016/04/20,"Rio, Brazil",2016/04/14,Italian food,Tapioca,2016/04/17,Carnaval,"Benjamin, Jackson, Willow",took a group photo,special
+e9096,2016/04/12,2016/04/20,"Rio, Brazil",2016/04/15,Japanese food,Bolinho de bacalhau,2016/04/17,Carnaval,"Benjamin, Jackson, Willow",took a group photo,special
+e9097,2016/04/12,2016/04/20,"Rio, Brazil",2016/04/16,Japanese food,Bolinho de bacalhau,2016/04/17,Carnaval,"Benjamin, Jackson, Willow",took a group photo,special
+e9098,2016/04/12,2016/04/20,"Rio, Brazil",2016/04/17,Japanese food,Tapioca,2016/04/17,Carnaval,"Benjamin, Jackson, Willow",took a group photo,special
+e9099,2016/04/12,2016/04/20,"Rio, Brazil",2016/04/18,Italian food,Pão de queijo,2016/04/17,Carnaval,"Benjamin, Jackson, Willow",took a group photo,special
+e9100,2016/04/12,2016/04/20,"Rio, Brazil",2016/04/19,Chinese food,Bolinho de bacalhau,2016/04/17,Carnaval,"Benjamin, Jackson, Willow",took a group photo,special
+e9101,2016/04/12,2016/04/20,"Rio, Brazil",2016/04/20,Indian food,Pão de queijo,2016/04/17,Carnaval,"Benjamin, Jackson, Willow",took a group photo,special
+e10653,2017/05/12,2017/05/18,"Bangkok, Thailand",2017/05/13,Indian food,Yaowarat,2017/05/17,Grand Palace,Andrew,bought some souvenirs,happy
+e10654,2017/05/12,2017/05/18,"Bangkok, Thailand",2017/05/14,Chinese food,Yaowarat,2017/05/17,Grand Palace,Andrew,bought some souvenirs,happy
+e10655,2017/05/12,2017/05/18,"Bangkok, Thailand",2017/05/17,Italian food,Ratchawat Market,2017/05/17,Grand Palace,Andrew,bought some souvenirs,happy
+e10656,2017/05/12,2017/05/18,"Bangkok, Thailand",2017/05/18,Italian food,Yaowarat,2017/05/17,Grand Palace,Andrew,bought some souvenirs,happy
+e12156,2018/02/27,2018/03/12,"Shanghai, China",2018/02/28,Chinese food,Yuyuan Lu junction,,,,,
+e12157,2018/02/27,2018/03/12,"Shanghai, China",2018/03/01,Italian food,Wanhangdu Lu junction,,,,,
+e12158,2018/02/27,2018/03/12,"Shanghai, China",2018/03/03,Japanese food,Fangbang Xi Lu,,,,,
+e12159,2018/02/27,2018/03/12,"Shanghai, China",2018/03/04,Italian food,Wanhangdu Lu junction,,,,,
+e12160,2018/02/27,2018/03/12,"Shanghai, China",2018/03/05,street food,South Bund Fabric Market,,,,,
+e12161,2018/02/27,2018/03/12,"Shanghai, China",2018/03/08,local food,South Bund Fabric Market,,,,,
+e12162,2018/02/27,2018/03/12,"Shanghai, China",2018/03/09,local food,Fangbang Xi Lu,,,,,
+e12163,2018/02/27,2018/03/12,"Shanghai, China",2018/03/10,Japanese food,Fangbang Xi Lu,,,,,
+e12164,2018/02/27,2018/03/12,"Shanghai, China",2018/03/11,Indian food,Fangbang Xi Lu,,,,,
+e12165,2018/02/27,2018/03/12,"Shanghai, China",2018/03/12,local food,South Bund Fabric Market,,,,,
+e13630,2019/03/10,2019/03/24,"Shanghai, China",2019/03/12,Japanese food,Wanhangdu Lu junction,,,,,
+e13631,2019/03/10,2019/03/24,"Shanghai, China",2019/03/13,Chinese food,South Bund Fabric Market,,,,,
+e13632,2019/03/10,2019/03/24,"Shanghai, China",2019/03/15,Italian food,Fangbang Xi Lu,,,,,
+e13633,2019/03/10,2019/03/24,"Shanghai, China",2019/03/17,street food,Yuyuan Lu junction,,,,,
+e13634,2019/03/10,2019/03/24,"Shanghai, China",2019/03/19,Japanese food,South Bund Fabric Market,,,,,
+e13635,2019/03/10,2019/03/24,"Shanghai, China",2019/03/20,local food,Fangbang Xi Lu,,,,,
+e13636,2019/03/10,2019/03/24,"Shanghai, China",2019/03/21,Italian food,South Bund Fabric Market,,,,,
+e13637,2019/03/10,2019/03/24,"Shanghai, China",2019/03/22,street food,Wanhangdu Lu junction,,,,,
+e13638,2019/03/10,2019/03/24,"Shanghai, China",2019/03/23,Italian food,Fangbang Xi Lu,,,,,
+e13639,2019/03/10,2019/03/24,"Shanghai, China",2019/03/24,Italian food,Wanhangdu Lu junction,,,,,
+e15119,2020/02/07,2020/02/13,"New Delhi, India",2020/02/08,Indian food,Connaught Place,2020/02/12,Lodi Gardens,"Carter, Andrew, Emily",recorded some videos,happy
+e15120,2020/02/07,2020/02/13,"New Delhi, India",2020/02/09,local food,Moolchand,2020/02/12,Lodi Gardens,"Carter, Andrew, Emily",recorded some videos,happy
+e15121,2020/02/07,2020/02/13,"New Delhi, India",2020/02/11,Italian food,Chawri Bazar,2020/02/12,Lodi Gardens,"Carter, Andrew, Emily",recorded some videos,happy
+e15122,2020/02/07,2020/02/13,"New Delhi, India",2020/02/12,street food,Chawri Bazar,2020/02/12,Lodi Gardens,"Carter, Andrew, Emily",recorded some videos,happy
+e16603,2021/02/18,2021/02/22,"Rio, Brazil",2021/02/19,Chinese food,Bolinho de bacalhau,2021/02/23,Carnaval,"Emily, Carter, Kayden",took a group photo,impressed
+e16604,2021/02/18,2021/02/22,"Rio, Brazil",2021/02/20,Indian food,Tapioca,2021/02/23,Carnaval,"Emily, Carter, Kayden",took a group photo,impressed
+e16605,2021/02/18,2021/02/22,"Rio, Brazil",2021/02/21,Italian food,Tapioca,2021/02/23,Carnaval,"Emily, Carter, Kayden",took a group photo,impressed
+e16606,2021/02/18,2021/02/22,"Rio, Brazil",2021/02/22,local food,Bolinho de bacalhau,2021/02/23,Carnaval,"Emily, Carter, Kayden",took a group photo,impressed
+e18117,2022/01/02,2022/01/09,"Dubai, UAE",2022/01/03,Italian food,Falafel Alzaeem,2022/01/05,Dubai Aquarium & Underwater Zoo,"Olivia, Nevaeh, Hazel",took a group photo,special
+e18118,2022/01/02,2022/01/09,"Dubai, UAE",2022/01/04,Indian food,Falafel Alzaeem,2022/01/05,Dubai Aquarium & Underwater Zoo,"Olivia, Nevaeh, Hazel",took a group photo,special
+e18119,2022/01/02,2022/01/09,"Dubai, UAE",2022/01/06,Italian food,Falafel Alzaeem,2022/01/05,Dubai Aquarium & Underwater Zoo,"Olivia, Nevaeh, Hazel",took a group photo,special
+e18120,2022/01/02,2022/01/09,"Dubai, UAE",2022/01/07,Chinese food,Hor Al Anz Bakery,2022/01/05,Dubai Aquarium & Underwater Zoo,"Olivia, Nevaeh, Hazel",took a group photo,special
+e18121,2022/01/02,2022/01/09,"Dubai, UAE",2022/01/08,Italian food,Sind Punjab,2022/01/05,Dubai Aquarium & Underwater Zoo,"Olivia, Nevaeh, Hazel",took a group photo,special

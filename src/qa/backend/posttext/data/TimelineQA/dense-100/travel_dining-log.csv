@@ -1,0 +1,84 @@
+eid,start_date,end_date,city,dining_date,food_type,food_location,place_visit_date,place,people,action,emotion
+e7,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/13,Chinese food,High Street Philly,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e8,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/15,Chinese food,High Street Philly,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e9,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/16,street food,Lunch Street,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e10,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/17,Japanese food,High Street Philly,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e11,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/18,Japanese food,Wood Street Pizza,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e3384,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/02/25,Chinese food,Ratchawat Market,2011/03/01,National Museum & Wang Na Palace,Andrew,took a selfie,special
+e3385,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/02/26,Italian food,Yaowarat,2011/03/01,National Museum & Wang Na Palace,Andrew,took a selfie,special
+e3386,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/02/27,Japanese food,Yaowarat,2011/03/01,National Museum & Wang Na Palace,Andrew,took a selfie,special
+e3387,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/02/28,Indian food,Ratchawat Market,2011/03/01,National Museum & Wang Na Palace,Andrew,took a selfie,special
+e3388,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/03/01,Japanese food,Yaowarat,2011/03/01,National Museum & Wang Na Palace,Andrew,took a selfie,special
+e3389,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/03/02,Chinese food,Victory Monument,2011/03/01,National Museum & Wang Na Palace,Andrew,took a selfie,special
+e3390,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/03/03,Chinese food,Ratchawat Market,2011/03/01,National Museum & Wang Na Palace,Andrew,took a selfie,special
+e3391,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/03/04,Italian food,Ratchawat Market,2011/03/01,National Museum & Wang Na Palace,Andrew,took a selfie,special
+e3392,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/03/05,street food,Ratchawat Market,2011/03/01,National Museum & Wang Na Palace,Andrew,took a selfie,special
+e3393,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/03/06,street food,Victory Monument,2011/03/01,National Museum & Wang Na Palace,Andrew,took a selfie,special
+e6770,2012/03/07,2012/03/12,"Bangkok, Thailand",2012/03/08,Italian food,Victory Monument,2012/03/12,National Museum & Wang Na Palace,"Benjamin, Avery, Willow",took a selfie,impressed
+e6771,2012/03/07,2012/03/12,"Bangkok, Thailand",2012/03/09,Japanese food,Yaowarat,2012/03/12,National Museum & Wang Na Palace,"Benjamin, Avery, Willow",took a selfie,impressed
+e10179,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/05,street food,Gwangjang Market,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e10180,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/07,Japanese food,Gwangjang Market,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e10181,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/08,Indian food,Common Ground,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e10182,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/09,Japanese food,Gwangjang Market,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e10183,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/10,Chinese food,Common Ground,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e10184,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/11,Chinese food,Seoul Bamdokkaebi Night Market,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e10185,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/12,Indian food,Myeongdong Street Food Alley,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e10186,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/13,local food,Myeongdong Street Food Alley,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e10187,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/15,Italian food,Myeongdong Street Food Alley,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e10188,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/16,Chinese food,Common Ground,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e10189,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/17,local food,Myeongdong Street Food Alley,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e10190,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/18,Japanese food,Myeongdong Street Food Alley,2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e13499,2014/05/21,2014/05/24,"Los Angeles, US",2014/05/22,Italian food,Es Todo Vegan Street Food,2014/05/26,Universal Studios Hollywood,"Willow, Jackson, Avery",took a group photo,happy
+e13500,2014/05/21,2014/05/24,"Los Angeles, US",2014/05/23,Chinese food,Guatemalan Night Market,2014/05/26,Universal Studios Hollywood,"Willow, Jackson, Avery",took a group photo,happy
+e13501,2014/05/21,2014/05/24,"Los Angeles, US",2014/05/24,Indian food,Guatemalan Night Market,2014/05/26,Universal Studios Hollywood,"Willow, Jackson, Avery",took a group photo,happy
+e16897,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/16,Italian food,Pão de queijo,2015/01/20,Carnaval,"Andrew, Carter",bought some souvenirs,happy
+e16898,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/17,street food,Pão de queijo,2015/01/20,Carnaval,"Andrew, Carter",bought some souvenirs,happy
+e16899,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/18,Italian food,Bolinho de bacalhau,2015/01/20,Carnaval,"Andrew, Carter",bought some souvenirs,happy
+e16900,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/19,street food,Tapioca,2015/01/20,Carnaval,"Andrew, Carter",bought some souvenirs,happy
+e16901,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/20,Italian food,Bolinho de bacalhau,2015/01/20,Carnaval,"Andrew, Carter",bought some souvenirs,happy
+e16902,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/21,Italian food,Pão de queijo,2015/01/20,Carnaval,"Andrew, Carter",bought some souvenirs,happy
+e16903,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/22,street food,Pão de queijo,2015/01/20,Carnaval,"Andrew, Carter",bought some souvenirs,happy
+e16904,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/24,local food,Tapioca,2015/01/20,Carnaval,"Andrew, Carter",bought some souvenirs,happy
+e16905,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/25,Italian food,Tapioca,2015/01/20,Carnaval,"Andrew, Carter",bought some souvenirs,happy
+e16906,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/26,Indian food,Pão de queijo,2015/01/20,Carnaval,"Andrew, Carter",bought some souvenirs,happy
+e20249,2016/03/27,2016/04/02,"London, UK",2016/03/28,Chinese food,Broadway Market,2016/04/01,Hyde Park,Piper,bought some souvenirs,special
+e20250,2016/03/27,2016/04/02,"London, UK",2016/03/29,Japanese food,Bang Bang Oriental,2016/04/01,Hyde Park,Piper,bought some souvenirs,special
+e20251,2016/03/27,2016/04/02,"London, UK",2016/03/30,Japanese food,Brixton Village,2016/04/01,Hyde Park,Piper,bought some souvenirs,special
+e20252,2016/03/27,2016/04/02,"London, UK",2016/04/01,Indian food,Berwick Street Market,2016/04/01,Hyde Park,Piper,bought some souvenirs,special
+e20253,2016/03/27,2016/04/02,"London, UK",2016/04/02,local food,Bang Bang Oriental,2016/04/01,Hyde Park,Piper,bought some souvenirs,special
+e23613,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/11,street food,Love Crepe,2017/01/13,Sydney Harbour Bridge,"Andrew, Kayden",took a selfie,impressed
+e23614,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/12,local food,Bombay Street Kitchen,2017/01/13,Sydney Harbour Bridge,"Andrew, Kayden",took a selfie,impressed
+e23615,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/13,street food,Love Crepe,2017/01/13,Sydney Harbour Bridge,"Andrew, Kayden",took a selfie,impressed
+e23616,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/14,Italian food,Thievery Chicken & Charcoal,2017/01/13,Sydney Harbour Bridge,"Andrew, Kayden",took a selfie,impressed
+e23617,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/15,Japanese food,Thievery Chicken & Charcoal,2017/01/13,Sydney Harbour Bridge,"Andrew, Kayden",took a selfie,impressed
+e23618,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/16,local food,Bombay Street Kitchen,2017/01/13,Sydney Harbour Bridge,"Andrew, Kayden",took a selfie,impressed
+e23619,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/17,Japanese food,Bombay Street Kitchen,2017/01/13,Sydney Harbour Bridge,"Andrew, Kayden",took a selfie,impressed
+e23620,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/19,Indian food,Thievery Chicken & Charcoal,2017/01/13,Sydney Harbour Bridge,"Andrew, Kayden",took a selfie,impressed
+e23621,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/21,Japanese food,Bombay Street Kitchen,2017/01/13,Sydney Harbour Bridge,"Andrew, Kayden",took a selfie,impressed
+e27010,2018/03/20,2018/03/26,"Seoul, South Korea",2018/03/21,street food,Common Ground,2018/03/23,N Seoul Tower,Avery,took a selfie,special
+e27011,2018/03/20,2018/03/26,"Seoul, South Korea",2018/03/22,Italian food,Myeongdong Street Food Alley,2018/03/23,N Seoul Tower,Avery,took a selfie,special
+e27012,2018/03/20,2018/03/26,"Seoul, South Korea",2018/03/25,Indian food,Gwangjang Market,2018/03/23,N Seoul Tower,Avery,took a selfie,special
+e27013,2018/03/20,2018/03/26,"Seoul, South Korea",2018/03/26,Japanese food,Seoul Bamdokkaebi Night Market,2018/03/23,N Seoul Tower,Avery,took a selfie,special
+e30421,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/02/22,Chinese food,Yaowarat,2019/02/26,Wat Arun,"Lydia, Hazel",took a group photo,special
+e30422,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/02/23,Indian food,Ratchawat Market,2019/02/26,Wat Arun,"Lydia, Hazel",took a group photo,special
+e30423,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/02/25,Indian food,Ratchawat Market,2019/02/26,Wat Arun,"Lydia, Hazel",took a group photo,special
+e30424,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/02/26,Indian food,Victory Monument,2019/02/26,Wat Arun,"Lydia, Hazel",took a group photo,special
+e30425,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/02/27,local food,Ratchawat Market,2019/02/26,Wat Arun,"Lydia, Hazel",took a group photo,special
+e30426,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/02/28,street food,Yaowarat,2019/02/26,Wat Arun,"Lydia, Hazel",took a group photo,special
+e30427,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/03/01,street food,Ratchawat Market,2019/02/26,Wat Arun,"Lydia, Hazel",took a group photo,special
+e30428,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/03/02,Italian food,Yaowarat,2019/02/26,Wat Arun,"Lydia, Hazel",took a group photo,special
+e33790,2020/05/01,2020/05/12,"Paris, France",2020/05/02,Italian food,Man’Ouché,2020/05/06,Louvre Museum,Piper,recorded some videos,impressed
+e33791,2020/05/01,2020/05/12,"Paris, France",2020/05/03,Indian food,Man’Ouché,2020/05/06,Louvre Museum,Piper,recorded some videos,impressed
+e33792,2020/05/01,2020/05/12,"Paris, France",2020/05/04,Indian food,Le Food Market,2020/05/06,Louvre Museum,Piper,recorded some videos,impressed
+e33793,2020/05/01,2020/05/12,"Paris, France",2020/05/06,Chinese food,Man’Ouché,2020/05/06,Louvre Museum,Piper,recorded some videos,impressed
+e33794,2020/05/01,2020/05/12,"Paris, France",2020/05/08,Chinese food,Man’Ouché,2020/05/06,Louvre Museum,Piper,recorded some videos,impressed
+e33795,2020/05/01,2020/05/12,"Paris, France",2020/05/09,local food,Le Food Market,2020/05/06,Louvre Museum,Piper,recorded some videos,impressed
+e33796,2020/05/01,2020/05/12,"Paris, France",2020/05/11,Italian food,Le Food Market,2020/05/06,Louvre Museum,Piper,recorded some videos,impressed
+e37190,2021/01/11,2021/01/17,"Shanghai, China",2021/01/12,Italian food,Fangbang Xi Lu,,,,,
+e37191,2021/01/11,2021/01/17,"Shanghai, China",2021/01/13,Indian food,Yuyuan Lu junction,,,,,
+e37192,2021/01/11,2021/01/17,"Shanghai, China",2021/01/14,local food,South Bund Fabric Market,,,,,
+e37193,2021/01/11,2021/01/17,"Shanghai, China",2021/01/16,Japanese food,Fangbang Xi Lu,,,,,
+e37194,2021/01/11,2021/01/17,"Shanghai, China",2021/01/17,Chinese food,Fangbang Xi Lu,,,,,
+e40558,2022/05/24,2022/05/27,"New York, US",2022/05/25,Japanese food,The Halal Guys,2022/05/31,Empire State Building,"Claire, Piper",took a selfie,happy
+e40559,2022/05/24,2022/05/27,"New York, US",2022/05/26,Japanese food,Melt Bakery,2022/05/31,Empire State Building,"Claire, Piper",took a selfie,happy
+e40560,2022/05/24,2022/05/27,"New York, US",2022/05/27,Italian food,Nuts 4 Nuts,2022/05/31,Empire State Building,"Claire, Piper",took a selfie,happy
