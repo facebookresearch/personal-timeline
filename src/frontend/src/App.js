@@ -7,7 +7,6 @@ import { ProgressBar } from 'primereact/progressbar';
 import { TabView, TabPanel } from 'primereact/tabview';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
-import { Timeline } from 'primereact/timeline';
 import { addDays } from './timeline/builders'
 import { Tooltip } from 'primereact/tooltip';
 import { Toast } from 'primereact/toast';
@@ -42,7 +41,7 @@ function App() {
   // whether the query is running
   const [running, setRunning] = useState(false);
 
-  // aria + digital data tracks
+  // digital data tracks
   const [tracks, setTracks] = useState([]);
 
   // the list of geo locations
@@ -178,7 +177,7 @@ function App() {
   /**
    * Map an element (episode) to an event in the vertical timeline.
    * @param {String} track_name - name of the track
-   * @param {Object} element - the episode (digital / aria)
+   * @param {Object} element - the episode
    * @returns A timeline event
    */
   const element_to_event = (track_name, element) => {
@@ -214,24 +213,6 @@ function App() {
 
     event.data = data;
     return event;
-  }
-
-  const compute_offset = (tracks, start, end) => {
-    let time_zones = [0];
-
-    for (let tid = 0; tid < tracks.length; tid++) {
-      for (let eid = 0; eid < tracks[tid].elements.length; eid++) {
-        let element = tracks[tid].elements[eid];
-        if (element.start.getTime() >= start.getTime() && element.start.getTime() <= end.getTime()) {
-          if (element.lat && element.long) {
-            time_zones.push(Math.floor(element.lat / 15));
-          }
-        }
-      }
-    }
-    return time_zones.sort((a, b) =>
-      arr.reduce((acu, cur) => (cur === a ? (acu += 1) : cur)) -
-      arr.reduce((acu, cur) => (cur === b ? (acu += 1) : cur))).pop();
   }
 
   /**
@@ -423,22 +404,6 @@ function App() {
             </div>
           );
   };
-
-  /**
-   * For displaying the speech records.
-   * @param {String} content - the content to be displayed
-   * @param {boolean} visible - show the dialog if true
-   * @param {String} setVisible - setter of showDialog
-   */
-  const SpeechDialog = (props) => {
-    return (
-      <Dialog header="Details" visible={props.visible} style={{ width: '50vw' }} onHide={() => props.setVisible(false)}>
-          <pre className="m-0">
-          {props.content.replace("the following conversation: ", "the following conversation:\n\n")}
-          </pre>
-      </Dialog>
-    )
-  }
 
   /**
    * Displaying one episode in the timeline.
@@ -741,16 +706,6 @@ function App() {
           </p>
         </TabPanel>
 
-        {/* Result video clips (Not used for now) */}
-        {/* <TabPanel header="Video clip" style={{ maxWidth: '1000px' }}>
-          <Player
-            playsInline
-            // poster="/assets/poster.png"
-            src={(selectedIDs && selectedIDs.length > 0) ? `data/videos/movie_${selectedIDs[0]}.mp4` : video_url}
-          // can be a local mp4 from public/
-          />
-        </TabPanel> */}
-
         {/* Retrieval results (for supporting evidence) */}
         <TabPanel header="Retrieval Results" style={{ maxWidth: '800px' }}>
           {answer.sources && <div className='card overflow-auto' style={{ maxHeight: '700px' }}>
@@ -785,17 +740,6 @@ function App() {
           setSelectedDateRange(e.value);
         }} selectionMode="range" readOnlyInput />
       <label htmlFor="date_range">Date Range</label>
-
-      {/* Showing the start and end date of the selected date range */}
-      {/* {selectedDateRange && <Chip label={
-          selectedDateRange[1] !== null ?
-          `From ${selectedDateRange[0].toDateString()} to ${selectedDateRange[1].toDateString()}` :
-          `On ${selectedDateRange[0].toDateString()}`
-        }
-        removable onRemove={() => {
-          setSelectedDateRange(null);
-          setZoom(2);
-        }} />} */}
       </span>} 
       
       end={      <Dropdown value={selectedTrack} onChange={(e) => setSelectedTrack(e.value)} options={ Object.keys(icon_map).map((option) => {return {name: option}}) } optionLabel="name" 

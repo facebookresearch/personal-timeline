@@ -1,5 +1,5 @@
 const prod = {
-    API_URL: 'http://yuliangli.sb:8085'
+    API_URL: 'http://localhost:8085'
 };
 
 const dev = {

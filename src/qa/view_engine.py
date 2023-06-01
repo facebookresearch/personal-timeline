@@ -62,5 +62,5 @@ class ViewEngine:
 
 
 if __name__ == '__main__':
-    engine = ViewEngine("posttext/data/aria_pilot_dataset/user_0/")
-    print(engine.query("How many times did I play video games?"))
+    engine = ViewEngine("public/digital_data/")
+    print(engine.query("How many cities did I visit when I travel to Japan?"))
