@@ -54,14 +54,11 @@ FINAL ANSWER:"""
                                 k=k)
 
         # create the view engine
-        try:
-            view_config_path = os.path.join(path, 'config.ini')
-            if os.path.exists(view_config_path):
-                from .view_engine import ViewEngine
-                self.view_engine = ViewEngine(path)
-            else:
-                self.view_engine = None
-        except:
+        view_config_path = os.path.join(path, 'config.ini')
+        if os.path.exists(view_config_path):
+            from .view_engine import ViewEngine
+            self.view_engine = ViewEngine(path)
+        else:
             self.view_engine = None
 
 
@@ -114,4 +111,5 @@ if __name__ == '__main__':
     for query in ["Did I run often?", 
                   "How many harry potter books did I read?", 
                   "Which cities did I visited when I traveled to Japan?"]:
-        print(engine.query(query))
+        # print(engine.query(query, method='Retrieval-based'))
+        print(engine.query(query, method='View-based'))

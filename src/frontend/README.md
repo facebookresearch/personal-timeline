@@ -23,7 +23,12 @@ pip install -r requirements.txt
 
 ## Data preparation
 
-Data should be stored under `public/digital_data/`. Files under this directory are:
+Data should be stored under `public/digital_data/`. For testing, you can copy the sample data from the main directory by running:
+```
+cp -r ../../sample_data public/digital_data/
+```
+
+Files under this directory are:
 * `episodes.csv`: the csv table containing all episodes for rag-based QA
 * `books.json`, `exercise.json`, `photos.json`, `places.json`, `purchase.json`, `streaming.json`, `trips.json`: these are episodes in JSON format for visualization.
 

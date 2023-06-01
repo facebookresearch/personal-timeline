@@ -180,9 +180,9 @@ There are 3 options for the QA engine:
 * *View-based*: translates the input question to a (customized) SQL query over tabular views (e.g., books, exercise, etc.) of the personal timeline. This QA engine is good at answering aggregate queries (`how many books did I purchase?`) and min/max queries (`when was the last time I travel to Japan`).
 
 Example questions you may try:
-* ``Show me some photos of plants in my neighborhood''
-* ``Which cities did I visit when I traveled to Japan?''
-* ``How many books did I purchase in April?''
+* `Show me some photos of plants in my neighborhood`
+* `Which cities did I visit when I traveled to Japan?`
+* `How many books did I purchase in April?`
 
 
 
