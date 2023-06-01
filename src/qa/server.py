@@ -5,8 +5,8 @@ import os.path as osp
 from flask_cors import CORS
 
 from flask import Flask, redirect, url_for, request, render_template, send_from_directory
-from backend.qa_engine import QAEngine
-from backend.chatgpt_engine import ChatGPTEngine
+from qa_engine import QAEngine
+from chatgpt_engine import ChatGPTEngine
 
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)

@@ -5,6 +5,7 @@ WORKDIR /app
 RUN yarn add primereact primeicons video-react react-timelines @react-google-maps/api @uiw/react-heat-map react-syntax-highlighter @babel/runtime
 
 COPY src/frontend .
+COPY sample_data public/digital_data
 
 CMD ["yarn"]
 CMD ["yarn", "start"]

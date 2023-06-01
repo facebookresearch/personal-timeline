@@ -56,7 +56,7 @@ FINAL ANSWER:"""
         # create the view engine
         view_config_path = os.path.join(path, 'config.ini')
         if os.path.exists(view_config_path):
-            from .view_engine import ViewEngine
+            from view_engine import ViewEngine
             self.view_engine = ViewEngine(path)
         else:
             self.view_engine = None

@@ -6,7 +6,7 @@ from langchain import PromptTemplate
 
 from configparser import ConfigParser
 from langchain.cache import InMemoryCache
-from .posttext.src.posttext import PostText
+from posttext.src.posttext import PostText
 langchain.llm_cache = InMemoryCache()
 
 
