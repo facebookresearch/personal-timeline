@@ -1,6 +1,20 @@
-This file explains how to create LifeLog entries from several data sources.
+<!-- This file explains how to create LifeLog entries from several data sources. -->
 
-# Step 0: Create environment
+# Personal Digital Data Timeline
+
+## Table of Content
+
+- [Setup](#general-setup): how to set up for this repo
+- [Importers](#digital-data-importers): how to create LifeLog entries from several data sources.
+  - [Dowloading Digital Data](#downloading-your-personal-data)
+  - [Running the importers](#running-the-code)
+- [Sample Dataset](DATASET.md): a sampled set of anonymized data for testing
+- [Data Visualization](#visualization-of-the-personal-timeline): a ReactJS-based visualization frontend of the personal timeline
+- [Question Answering](#question-answer-over-the-personal-timeline): a LLM-based QA engine over the personal timeline
+
+## General Setup
+
+## Step 0: Create environment
 
 1. Install Docker Desktop from [this link](https://docs.docker.com/desktop/).
 
@@ -15,7 +29,8 @@ This file explains how to create LifeLog entries from several data sources.
 This will create a bunch of files/folders/symlinks needed for running the app.
 This will also create a new directory under your home folder `~/personal-data`, the directory where your personal data will reside.
 
-# Step 1: General Setup
+## Step 1: Setting up
+
 
 ## For Data Ingestion
 
@@ -50,8 +65,10 @@ OPENAI_API_KEY=<the API key goes here>
 ```
 
 
+## Digital Data Importers
 
-# Step 2: Downloading your personal data
+
+## Downloading your personal data
 
 We currently supports 9 data sources. Here is a summary table:
 
@@ -126,7 +143,7 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
 
 2. Move the data into `~/personal-data/spotify` folder.
 
-# Step 3: Running the code
+# Running the code
 Now that we have all the data and setting in place, we can either run individual steps or the end-to-end system.
 This will import your photo data to SQLite (this is what will go into the episodic database), build summaries
 and make data available for visualization and search.
@@ -137,7 +154,7 @@ Running the Ingestion container will add two types of file to `~/personal-data/a
  - Export your personal data into csv files such as `books.csv`, `exercise.csv`, etc.
 
 ### Option 1:
-To run the pipeline end-to-end (both frontend and backend), simply run 
+To run the pipeline end-to-end (with frontend and QA backend), simply run 
 ```
 docker-compose up -d --build
 ```
@@ -147,37 +164,46 @@ You can also run ingestion, visualization, and the QA engine separately.
 To start data ingestion, use  
 ```
 docker-compose up -d backend --build
-```  
-To start visualization
-```
-docker-compose up -d frontend --build
-```
-To start the QA engine
-```
-docker-compose up -d qa --build
 ```
 
-# Step 4: Check progress
+## Check progress
 Once the docker command is run, you can see running containers for backend and frontend in the docker for Mac UI.
 Copy the container Id for ingest and see logs by running the following command:  
 ```
 docker logs -f <container_id>
 ```
 
-# Step 5: Visualization and Question Answering
+<!-- # Step 5: Visualization and Question Answering -->
 
-Running the Frontend will start a ReactJS UI and a flask server of the QA system inside a docker container at `http://localhost:3000`.
+## Visualization of the personal timeline
+
+To start the visualization frontend:
+```
+docker-compose up -d frontend --build
+```
+
+Running the Frontend will start a ReactJS UI at `http://localhost:3000`. See [here](src/frontend/) for more details.
 
 We provide an anonymized digital data [dataset](sample_data/) for testing the UI and QA system, see [here](DATASET.md) for more details.
 
 ![Timeline Visualization](ui.png)
 
+
+## Question Answer over the personal timeline
+
+To start the QA engine, run:
+```
+docker-compose up -d qa --build
+```
+The QA engine will be running on a flask server inside a docker container at `http://localhost:8085`. See [here](src/qa) for more deatils.
+
 ![QA Engine](qa.png)
 
-There are 3 options for the QA engine:
+There are 3 options for the QA engine.
 * *ChatGPT*: uses OpenAI's gpt-3.5-turbo [API](https://platform.openai.com/docs/models/overview) without the personal timeline as context. It answers world knowledge question such as `what is the GDP of US in 2021` but not personal questions.
 * *Retrieval-based*: answers question by retrieving the top-k most relevant episodes from the personal timeline as the LLM's context. It can answer questions over the personal timeline such as `show me some plants in my neighborhood`.
 * *View-based*: translates the input question to a (customized) SQL query over tabular views (e.g., books, exercise, etc.) of the personal timeline. This QA engine is good at answering aggregate queries (`how many books did I purchase?`) and min/max queries (`when was the last time I travel to Japan`).
+
 
 Example questions you may try:
 * `Show me some photos of plants in my neighborhood`
