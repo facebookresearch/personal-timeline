@@ -191,11 +191,25 @@ We provide an anonymized digital data [dataset](sample_data/) for testing the UI
 
 ## Question Answer over the personal timeline
 
+The QA engine is based on PostText, a QA system for answering queries that require computing aggregates over personal data.
+
+PostText Reference ---  [https://arxiv.org/abs/2306.01061](https://arxiv.org/abs/2306.01061):
+```
+@article{tan2023posttext,
+      title={Reimagining Retrieval Augmented Language Models for Answering Queries},
+      author={Wang-Chiew Tan and Yuliang Li and Pedro Rodriguez and Richard James and Xi Victoria Lin and Alon Halevy and Scott Yih},
+      journal={arXiv preprint:2306.01061},
+      year={2023},
+}
+```
+
 To start the QA engine, run:
 ```
 docker-compose up -d qa --build
 ```
-The QA engine will be running on a flask server inside a docker container at `http://localhost:8085`. See [here](src/qa) for more deatils.
+The QA engine will be running on a flask server inside a docker container at `http://localhost:8085`. 
+
+See [here](src/qa) for more deatils.
 
 ![QA Engine](qa.png)
 
