@@ -14,9 +14,17 @@ const _importDigitalData = async (tracks, setTracks, setSelectedDateRange, toast
     let dates = [];
 
     for (let data_id = 0; data_id < data_sources.length; data_id++) {
-      let data = await (
-        await fetch('digital_data/' + data_sources[data_id].replace('.json', '.sampled.json'))
-      ).json();
+      let data = null;
+
+      try {
+        data = await (
+          await fetch('digital_data/' + data_sources[data_id])
+        ).json();
+      } catch (error) {
+        data = await (
+          await fetch('digital_data/' + data_sources[data_id].replace('.json', '.sampled.json'))
+        ).json();
+      }
       
       let track_name = data_sources[data_id].split('.')[0];
       let trackId = data_id + 5;
