@@ -222,7 +222,7 @@ function App() {
   useEffect(() => {
     let new_events = [];
     let new_geo = [];
-    let [start, end] = [startDay, addDays(start, 180)];
+    let [start, end] = [startDay, addDays(startDay, 180)];
     if (selectedDateRange && selectedDateRange.length == 2) {
       [start, end] = selectedDateRange;
       if (end === null) {
