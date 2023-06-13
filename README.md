@@ -232,10 +232,10 @@ school graduation to those that occur on a daily basis such as going for a run. 
 
 Please check out the TimelineQA github [repo](https://github.com/facebookresearch/TimelineQA) and the TimelineQA paper ---  [https://arxiv.org/abs/2306.01061](https://arxiv.org/abs/2306.01061):
 ```
-@article{tan2023posttext,
-      title={Reimagining Retrieval Augmented Language Models for Answering Queries},
-      author={Wang-Chiew Tan and Yuliang Li and Pedro Rodriguez and Richard James and Xi Victoria Lin and Alon Halevy and Scott Yih},
-      journal={arXiv preprint:2306.01061},
-      year={2023},
+@article{tan2023timelineqa,
+  title={TimelineQA: A Benchmark for Question Answering over Timelines},
+  author={Tan, Wang-Chiew and Dwivedi-Yu, Jane and Li, Yuliang and Mathias, Lambert and Saeidi, Marzieh and Yan, Jing Nathan and Halevy, Alon Y},
+  journal={arXiv preprint arXiv:2306.01069},
+  year={2023}
 }
 ```
