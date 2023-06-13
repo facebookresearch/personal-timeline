@@ -1,6 +1,6 @@
 <!-- This file explains how to create LifeLog entries from several data sources. -->
 
-# Personal Digital Data Timeline
+# TimelineBuilder
 
 ## Table of Content
 
@@ -224,8 +224,18 @@ Example questions you may try:
 * `Which cities did I visit when I traveled to Japan?`
 * `How many books did I purchase in April?`
 
+## TimelineQA: a benchmark for Question Answer over the personal timeline
 
+TimelineQA is a synthetic benchmark for accelerating progress on querying personal timelines. 
+TimelineQA generates lifelogs of imaginary people. The episodes in the lifelog range from major life episodes such as high
+school graduation to those that occur on a daily basis such as going for a run. We have evaluated SOTA models for atomic and multi-hop QA on the benchmark. 
 
-<!-- You can view the timeline via this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
-* Note: Accessing UI via `http://localhost:5000` does not render the timeline due to some CORS Policy restrictions. 
-Make sure you are using `127.0.0.1` as prescribed. -->
+Please check out the TimelineQA github [repo](https://github.com/facebookresearch/TimelineQA) and the TimelineQA paper ---  [https://arxiv.org/abs/2306.01061](https://arxiv.org/abs/2306.01061):
+```
+@article{tan2023posttext,
+      title={Reimagining Retrieval Augmented Language Models for Answering Queries},
+      author={Wang-Chiew Tan and Yuliang Li and Pedro Rodriguez and Richard James and Xi Victoria Lin and Alon Halevy and Scott Yih},
+      journal={arXiv preprint:2306.01061},
+      year={2023},
+}
+```
