@@ -1,0 +1,730 @@
+eid,date,people_string,location
+e16,2010/01/02,Leah,a boba shop
+e17,2010/01/05,Elena,a restaurant
+e21,2010/01/18,Eliana,a boba shop
+e25,2010/01/25,Wesley,a park
+e28,2010/02/02,Ariana,a restaurant
+e31,2010/02/06,Caleb,a restaurant
+e34,2010/02/20,Jade,a boba shop
+e35,2010/02/25,Lillian,a coffee Shop
+e44,2010/03/13,Jack,a coffee Shop
+e45,2010/03/15,Rylee,a restaurant
+e48,2010/03/20,Lillian,a boba shop
+e49,2010/03/25,Genesis,a park
+e50,2010/03/27,Hazel,a restaurant
+e51,2010/04/01,Anthony,a coffee Shop
+e55,2010/04/03,Charles,a boba shop
+e56,2010/04/08,Sophia,a park
+e64,2010/04/23,Brook,a restaurant
+e65,2010/04/28,Audrey,a coffee Shop
+e70,2010/05/03,Cameron,a park
+e72,2010/05/13,Isla,a coffee Shop
+e75,2010/05/18,Nolan,a boba shop
+e80,2010/05/24,Luca,a coffee Shop
+e83,2010/05/31,Caroline,a coffee Shop
+e86,2010/06/07,Lily,a restaurant
+e90,2010/06/15,Gabriella,a park
+e93,2010/06/18,Lily,a coffee Shop
+e102,2010/07/03,Daniel,a boba shop
+e103,2010/07/07,Leilani,a restaurant
+e106,2010/07/10,Mason,a restaurant
+e107,2010/07/14,Madison,a boba shop
+e110,2010/07/17,Henry,a restaurant
+e111,2010/07/19,Jaxon,a boba shop
+e114,2010/07/27,Layla,a restaurant
+e119,2010/08/01,Carson,a coffee Shop
+e123,2010/08/06,Naomi,a coffee Shop
+e124,2010/08/12,Lillian,a park
+e127,2010/08/18,Jayden,a coffee Shop
+e130,2010/08/21,Bella,a restaurant
+e131,2010/08/24,Audrey,a park
+e138,2010/09/08,Joseph,a restaurant
+e141,2010/09/11,Elijah,a park
+e142,2010/09/16,Carson,a restaurant
+e146,2010/09/17,Chloe,a park
+e147,2010/09/20,Sophia,a boba shop
+e150,2010/09/25,Nicholas,a coffee Shop
+e154,2010/10/01,Hazel,a coffee Shop
+e155,2010/10/07,Caleb,a restaurant
+e159,2010/10/13,Eliana,a coffee Shop
+e162,2010/10/15,Mike,a coffee Shop
+e166,2010/10/24,Lucy,a park
+e170,2010/10/31,Emery,a boba shop
+e171,2010/11/03,Kai,a coffee Shop
+e175,2010/11/08,Miles,a restaurant
+e178,2010/11/16,Marzieh,a coffee Shop
+e181,2010/11/23,Nolan,a park
+e184,2010/11/26,Connor,a park
+e185,2010/11/29,Alexander,a restaurant
+e187,2010/12/08,Emma,a boba shop
+e191,2010/12/10,Nolan,a restaurant
+e194,2010/12/19,Greyson,a park
+e195,2010/12/20,Elizabeth,a coffee Shop
+e197,2010/12/28,Grayson,a restaurant
+e3399,2011/01/07,Gianna,a park
+e3403,2011/01/08,Lillian,a park
+e3410,2011/01/24,Jose,a restaurant
+e3411,2011/01/28,Ariana,a restaurant
+e3414,2011/02/01,Charlotte,a boba shop
+e3417,2011/02/06,Landon,a boba shop
+e3418,2011/02/08,Jane,a boba shop
+e3422,2011/02/15,Jaxson,a park
+e3426,2011/02/25,Cooper,a restaurant
+e3431,2011/03/09,Owen,a restaurant
+e3435,2011/03/12,Greyson,a coffee Shop
+e3436,2011/03/18,Aurora,a restaurant
+e3443,2011/03/26,Alon,a coffee Shop
+e3444,2011/03/29,Gabriel,a restaurant
+e3447,2011/04/04,Savannah,a coffee Shop
+e3450,2011/04/11,Peyton,a boba shop
+e3454,2011/04/18,Jordan,a park
+e3457,2011/04/24,Brooklyn,a boba shop
+e3461,2011/04/30,Nicholas,a coffee Shop
+e3466,2011/05/08,Sarah,a restaurant
+e3467,2011/05/12,Grace,a coffee Shop
+e3471,2011/05/22,Isaiah,a coffee Shop
+e3472,2011/05/26,Ivy,a boba shop
+e3475,2011/05/31,Levi,a coffee Shop
+e3481,2011/06/16,Natalie,a coffee Shop
+e3486,2011/06/19,Anthony,a restaurant
+e3487,2011/06/22,Noah,a boba shop
+e3490,2011/06/27,Nolan,a restaurant
+e3491,2011/06/29,Jose,a park
+e3496,2011/07/05,Mia,a park
+e3504,2011/07/23,Angel,a park
+e3505,2011/07/29,Eliana,a restaurant
+e3511,2011/08/17,Parker,a park
+e3514,2011/08/22,Owen,a restaurant
+e3515,2011/08/26,Easton,a park
+e3522,2011/09/12,Wesley,a restaurant
+e3523,2011/09/14,Leilani,a boba shop
+e3526,2011/09/19,Jonathan,a park
+e3527,2011/09/22,Parker,a boba shop
+e3532,2011/09/28,Dylan,a boba shop
+e3536,2011/10/02,Nolan,a park
+e3537,2011/10/05,Sofia,a park
+e3542,2011/10/15,Cameron,a restaurant
+e3546,2011/10/24,Everly,a coffee Shop
+e3547,2011/10/28,Michael,a coffee Shop
+e3552,2011/11/05,Wesley,a coffee Shop
+e3557,2011/11/22,Evelyn,a restaurant
+e3561,2011/11/30,Lambert,a boba shop
+e3564,2011/12/04,Charlotte,a boba shop
+e3565,2011/12/06,Elizabeth,a boba shop
+e3569,2011/12/10,Serenity,a park
+e3570,2011/12/15,Maverick,a boba shop
+e3574,2011/12/21,Olivia,a boba shop
+e3577,2011/12/24,Natalie,a boba shop
+e6776,2012/01/03,Ethan,a park
+e6777,2012/01/06,Connor,a restaurant
+e6781,2012/01/14,Elias,a boba shop
+e6784,2012/01/20,Ezra,a park
+e6787,2012/01/28,Alon,a boba shop
+e6792,2012/02/08,Madeline,a restaurant
+e6795,2012/02/14,Lillian,a boba shop
+e6796,2012/02/16,Jayden,a restaurant
+e6800,2012/02/24,Benjamin,a boba shop
+e6803,2012/02/29,Nova,a boba shop
+e6807,2012/03/04,Jose,a park
+e6809,2012/03/11,Marzieh,a restaurant
+e6810,2012/03/15,Sebastian,a coffee Shop
+e6813,2012/03/24,Emma,a boba shop
+e6816,2012/03/30,Roman,a coffee Shop
+e6820,2012/04/05,Quinn,a park
+e6823,2012/04/14,Everleigh,a park
+e6826,2012/04/17,Isaiah,a coffee Shop
+e6827,2012/04/20,Skylar,a coffee Shop
+e6830,2012/04/25,Adam,a coffee Shop
+e6834,2012/05/01,Gabriel,a restaurant
+e6838,2012/05/11,Cameron,a coffee Shop
+e6840,2012/05/13,Mila,a park
+e6841,2012/05/16,Leonardo,a restaurant
+e6844,2012/05/23,Skylar,a park
+e6853,2012/06/12,Quinn,a coffee Shop
+e6854,2012/06/13,Camila,a restaurant
+e6857,2012/06/18,Jaxson,a boba shop
+e6858,2012/06/22,James,a boba shop
+e6861,2012/06/27,Owen,a park
+e6864,2012/07/06,Santiago ,a boba shop
+e6871,2012/07/15,Brook,a coffee Shop
+e6872,2012/07/23,Lily,a coffee Shop
+e6873,2012/07/27,Benjamin,a coffee Shop
+e6877,2012/08/02,Willow,a park
+e6881,2012/08/07,Peyton,a boba shop
+e6882,2012/08/10,Parker,a boba shop
+e6886,2012/08/13,Bella,a boba shop
+e6890,2012/08/19,Camila,a coffee Shop
+e6894,2012/08/28,Lydia,a boba shop
+e6895,2012/08/29,Wesley,a coffee Shop
+e6897,2012/09/02,Maya,a park
+e6905,2012/09/16,Brook,a park
+e6906,2012/09/19,Skylar,a coffee Shop
+e6910,2012/09/23,Serenity,a coffee Shop
+e6915,2012/10/05,Eli,a boba shop
+e6919,2012/10/09,Alon,a park
+e6920,2012/10/11,Savannah,a boba shop
+e6923,2012/10/15,Camila,a park
+e6926,2012/10/22,Lucy,a park
+e6927,2012/10/25,Zoey,a restaurant
+e6930,2012/11/01,Hailey,a park
+e6933,2012/11/10,Alexander,a coffee Shop
+e6937,2012/11/23,Nolan,a coffee Shop
+e6941,2012/12/01,Leah,a coffee Shop
+e6943,2012/12/02,Silas,a boba shop
+e6944,2012/12/05,Hannah,a restaurant
+e6947,2012/12/12,Josiah,a park
+e6950,2012/12/17,Elias,a boba shop
+e6951,2012/12/21,Jackson,a park
+e6955,2012/12/27,Ryan,a coffee Shop
+e10194,2013/01/01,Lydia,a restaurant
+e10200,2013/01/15,Ava,a coffee Shop
+e10203,2013/01/24,Connor,a restaurant
+e10204,2013/01/28,Landon,a park
+e10207,2013/02/02,Brooklyn,a coffee Shop
+e10212,2013/02/12,Nova,a boba shop
+e10219,2013/03/03,Dominic,a boba shop
+e10221,2013/03/05,Everett,a coffee Shop
+e10224,2013/03/14,Jack,a boba shop
+e10225,2013/03/15,Kinsley,a restaurant
+e10230,2013/03/28,Elijah,a restaurant
+e10231,2013/03/30,Jane,a park
+e10235,2013/04/08,Victoria,a restaurant
+e10242,2013/04/17,Maya,a boba shop
+e10243,2013/04/22,Mateo,a restaurant
+e10246,2013/04/27,Madelyn,a park
+e10248,2013/05/13,Quinn,a restaurant
+e10250,2013/05/16,Jameson,a park
+e10251,2013/05/17,Hazel,a coffee Shop
+e10256,2013/06/01,Mason,a boba shop
+e10259,2013/06/09,Isla,a boba shop
+e10261,2013/06/11,Roman,a park
+e10262,2013/06/16,Elizabeth,a park
+e10265,2013/06/22,Caleb,a coffee Shop
+e10269,2013/06/25,Marzieh,a park
+e10270,2013/07/01,Elijah,a park
+e10277,2013/07/22,Kennedy,a coffee Shop
+e10280,2013/07/27,Caroline,a boba shop
+e10283,2013/08/03,Luke,a park
+e10287,2013/08/07,Jackson,a coffee Shop
+e10293,2013/08/22,Quinn,a coffee Shop
+e10294,2013/08/23,Parker,a boba shop
+e10297,2013/08/29,Everleigh,a boba shop
+e10298,2013/08/30,Luke,a park
+e10302,2013/09/09,Christophe,a coffee Shop
+e10307,2013/09/20,Audrey,a coffee Shop
+e10312,2013/10/02,Eliana,a boba shop
+e10313,2013/10/05,Cora,a boba shop
+e10316,2013/10/19,Sarah,a restaurant
+e10333,2013/11/25,Evelyn,a restaurant
+e10338,2013/12/07,Luke,a park
+e10340,2013/12/12,Alon,a boba shop
+e10341,2013/12/15,Caleb,a coffee Shop
+e10344,2013/12/23,Cameron,a boba shop
+e10347,2013/12/26,Mike,a restaurant
+e13507,2014/01/03,Leilani,a boba shop
+e13508,2014/01/06,Sarah,a boba shop
+e13511,2014/01/14,Jaxon,a boba shop
+e13515,2014/01/20,Connor,a boba shop
+e13521,2014/01/31,Jackson,a park
+e13522,2014/02/01,Eliana,a boba shop
+e13527,2014/02/07,Nora,a boba shop
+e13528,2014/02/10,Santiago ,a park
+e13530,2014/02/18,Luca,a park
+e13535,2014/02/24,Jonathan,a boba shop
+e13539,2014/02/27,Alon,a park
+e13540,2014/03/03,Landon,a park
+e13548,2014/03/13,Everly,a coffee Shop
+e13549,2014/03/16,Natalia,a coffee Shop
+e13554,2014/03/25,Ellie,a coffee Shop
+e13561,2014/04/06,Jane,a park
+e13562,2014/04/11,Quinn,a coffee Shop
+e13563,2014/04/14,Mia,a boba shop
+e13567,2014/04/17,Gabriel,a coffee Shop
+e13571,2014/04/25,Victoria,a coffee Shop
+e13572,2014/04/29,Easton,a restaurant
+e13578,2014/05/13,Emma,a coffee Shop
+e13582,2014/05/14,Eliana,a restaurant
+e13586,2014/05/21,Mike,a park
+e13587,2014/05/26,Abigail,a park
+e13590,2014/06/03,Everleigh,a coffee Shop
+e13595,2014/06/08,Nova,a restaurant
+e13599,2014/06/17,Dominic,a park
+e13602,2014/06/19,Leilani,a boba shop
+e13603,2014/06/22,Jackson,a park
+e13606,2014/06/26,Mila,a park
+e13607,2014/06/30,Isla,a boba shop
+e13610,2014/07/04,Robert,a coffee Shop
+e13612,2014/07/10,Henry,a restaurant
+e13613,2014/07/13,Landon,a coffee Shop
+e13617,2014/07/18,Peyton,a restaurant
+e13618,2014/07/19,Richard,a restaurant
+e13622,2014/07/29,Jaxon,a restaurant
+e13626,2014/07/30,James,a restaurant
+e13627,2014/08/04,Levi,a restaurant
+e13629,2014/08/10,Lily,a boba shop
+e13631,2014/08/15,Lambert,a park
+e13636,2014/08/22,Hazel,a restaurant
+e13640,2014/09/01,Genesis,a restaurant
+e13644,2014/09/03,Leah,a coffee Shop
+e13645,2014/09/08,Elijah,a boba shop
+e13648,2014/09/11,Elena,a boba shop
+e13649,2014/09/14,Peyton,a coffee Shop
+e13652,2014/09/18,Josiah,a coffee Shop
+e13656,2014/09/24,Lambert,a restaurant
+e13660,2014/10/06,Wang-Chiew,a restaurant
+e13666,2014/10/10,Nicholas,a park
+e13670,2014/10/15,Ellie,a coffee Shop
+e13674,2014/10/24,Madison,a park
+e13679,2014/11/03,Madelyn,a park
+e13691,2014/11/22,Jeremiah,a restaurant
+e13695,2014/11/28,Lillian,a coffee Shop
+e13696,2014/11/30,Caleb,a boba shop
+e13700,2014/12/05,Oliver,a boba shop
+e13703,2014/12/14,Elizabeth,a park
+e13706,2014/12/17,Aaliyah,a boba shop
+e13707,2014/12/20,Benjamin,a park
+e16910,2015/01/02,Skylar,a restaurant
+e16911,2015/01/05,Jaxon,a restaurant
+e16914,2015/01/11,Jayden,a boba shop
+e16921,2015/02/02,Serenity,a coffee Shop
+e16924,2015/02/09,Charlotte,a restaurant
+e16931,2015/02/19,Samuel,a coffee Shop
+e16937,2015/03/06,Layla,a park
+e16941,2015/03/14,Ryan,a restaurant
+e16942,2015/03/15,Aiden,a restaurant
+e16946,2015/03/22,Madison,a coffee Shop
+e16949,2015/04/01,Isla,a restaurant
+e16956,2015/04/10,Aubrey,a boba shop
+e16957,2015/04/15,Joshua,a coffee Shop
+e16960,2015/04/22,Hazel,a park
+e16963,2015/04/23,Easton,a restaurant
+e16964,2015/04/26,Hannah,a restaurant
+e16968,2015/05/04,Thomas,a coffee Shop
+e16972,2015/05/07,Madeline,a coffee Shop
+e16973,2015/05/11,Xavier,a park
+e16980,2015/05/26,Layla,a boba shop
+e16984,2015/05/28,Ruby,a coffee Shop
+e16985,2015/06/02,Genesis,a coffee Shop
+e16988,2015/06/10,Everleigh,a park
+e16990,2015/06/15,Piper,a coffee Shop
+e16993,2015/07/01,Jameson,a coffee Shop
+e16996,2015/07/02,Jeremiah,a coffee Shop
+e17008,2015/08/02,Anna,a restaurant
+e17010,2015/08/07,Jane,a boba shop
+e17013,2015/08/18,Wyatt,a restaurant
+e17017,2015/08/23,Adeline,a boba shop
+e17020,2015/08/27,Ellie,a restaurant
+e17021,2015/08/30,Josiah,a park
+e17025,2015/09/03,Parker,a restaurant
+e17026,2015/09/06,Aaron,a park
+e17028,2015/09/10,Gianna,a restaurant
+e17033,2015/09/17,Sophia,a restaurant
+e17034,2015/09/22,Stella,a park
+e17038,2015/09/29,Parker,a boba shop
+e17042,2015/10/04,Grace,a coffee Shop
+e17046,2015/10/10,Natalie,a park
+e17047,2015/10/13,Hunter,a park
+e17050,2015/10/17,Aiden,a restaurant
+e17053,2015/10/25,Axel,a park
+e17058,2015/10/31,Elias,a boba shop
+e17059,2015/11/04,Austin,a boba shop
+e17062,2015/11/08,Delilah,a park
+e17065,2015/11/13,Wesley,a restaurant
+e17068,2015/11/19,Madelyn,a restaurant
+e17071,2015/11/26,Leah,a restaurant
+e17073,2015/12/03,Riley,a boba shop
+e17076,2015/12/13,Jaxon,a boba shop
+e17081,2015/12/18,Leonardo,a restaurant
+e20258,2016/01/05,Elias,a coffee Shop
+e20264,2016/01/21,Stella,a park
+e20267,2016/01/23,Wesley,a coffee Shop
+e20271,2016/02/03,Carson,a restaurant
+e20275,2016/02/13,Caleb,a park
+e20276,2016/02/15,Hunter,a coffee Shop
+e20280,2016/02/21,Roman,a park
+e20281,2016/02/25,Jayden,a park
+e20284,2016/02/27,Peyton,a coffee Shop
+e20291,2016/03/11,Elijah,a boba shop
+e20292,2016/03/14,Mila,a park
+e20295,2016/03/24,Hudson,a boba shop
+e20297,2016/03/25,Ezekiel,a restaurant
+e20298,2016/03/29,Evelyn,a park
+e20300,2016/04/07,Robert,a park
+e20304,2016/04/10,Ryan,a coffee Shop
+e20305,2016/04/11,Joshua,a park
+e20308,2016/04/15,Parker,a restaurant
+e20309,2016/04/19,Robert,a coffee Shop
+e20314,2016/04/25,Mike,a coffee Shop
+e20318,2016/05/06,Sarah,a boba shop
+e20322,2016/05/18,Josiah,a park
+e20324,2016/05/26,Addison,a boba shop
+e20327,2016/05/28,Eleanor,a park
+e20331,2016/06/07,Sarah,a coffee Shop
+e20337,2016/06/22,Josephine,a park
+e20344,2016/07/10,Aubrey,a park
+e20345,2016/07/13,Silas,a boba shop
+e20350,2016/07/17,Grayson,a restaurant
+e20351,2016/07/18,Emery,a park
+e20355,2016/07/24,Liam,a park
+e20356,2016/07/26,Grace,a coffee Shop
+e20361,2016/08/06,Elias,a restaurant
+e20365,2016/08/12,Cooper,a restaurant
+e20366,2016/08/15,Logan,a boba shop
+e20371,2016/08/28,Parker,a restaurant
+e20376,2016/09/14,Isla,a coffee Shop
+e20383,2016/09/23,Cooper,a coffee Shop
+e20390,2016/10/11,Christophe,a restaurant
+e20394,2016/10/17,Sophia,a restaurant
+e20400,2016/11/02,Elijah,a restaurant
+e20404,2016/11/06,Mia,a park
+e20408,2016/11/12,Hannah,a park
+e20409,2016/11/17,Wesley,a park
+e20413,2016/11/20,Jack,a coffee Shop
+e20416,2016/11/25,Luke,a boba shop
+e20417,2016/11/30,Logan,a park
+e20423,2016/12/15,Layla,a restaurant
+e20429,2016/12/31,Ethan,a restaurant
+e23627,2017/01/02,Autumn,a coffee Shop
+e23628,2017/01/04,Cameron,a restaurant
+e23631,2017/01/13,Chris,a park
+e23634,2017/01/21,Theodore,a restaurant
+e23637,2017/01/28,Jane,a boba shop
+e23642,2017/02/05,Camila,a park
+e23643,2017/02/11,Easton,a restaurant
+e23646,2017/02/14,Aaliyah,a boba shop
+e23647,2017/02/18,Luke,a coffee Shop
+e23652,2017/02/22,Michael,a boba shop
+e23657,2017/03/05,Leonardo,a coffee Shop
+e23661,2017/03/13,Isaiah,a park
+e23665,2017/03/25,Liam,a restaurant
+e23668,2017/03/29,Jayden,a park
+e23672,2017/04/03,Hannah,a coffee Shop
+e23673,2017/04/08,Ryan,a restaurant
+e23681,2017/04/20,Nicholas,a restaurant
+e23684,2017/04/25,Sarah,a park
+e23685,2017/04/29,Delilah,a park
+e23689,2017/05/01,Cameron,a coffee Shop
+e23693,2017/05/13,Madison,a coffee Shop
+e23696,2017/05/14,Easton,a restaurant
+e23697,2017/05/18,Evelyn,a park
+e23704,2017/05/29,Parker,a boba shop
+e23705,2017/06/01,Caroline,a boba shop
+e23710,2017/06/09,Henry,a restaurant
+e23713,2017/06/12,William,a park
+e23714,2017/06/14,Ezekiel,a restaurant
+e23723,2017/06/27,Maya,a restaurant
+e23724,2017/06/30,Austin,a boba shop
+e23729,2017/07/07,Alexander,a coffee Shop
+e23734,2017/07/09,Nicholas,a boba shop
+e23736,2017/07/18,Christian,a coffee Shop
+e23740,2017/07/25,Samuel,a coffee Shop
+e23741,2017/07/27,Leah,a coffee Shop
+e23745,2017/08/01,Zoe,a coffee Shop
+e23746,2017/08/04,Easton,a coffee Shop
+e23751,2017/08/06,Leo,a coffee Shop
+e23754,2017/08/18,Owen,a restaurant
+e23759,2017/08/26,Elena,a park
+e23764,2017/09/05,Logan,a coffee Shop
+e23772,2017/09/22,David,a restaurant
+e23775,2017/09/26,Elias,a restaurant
+e23780,2017/10/07,Quinn,a park
+e23786,2017/10/15,Luna,a boba shop
+e23787,2017/10/19,Owen,a coffee Shop
+e23795,2017/10/29,Robert,a boba shop
+e23796,2017/11/03,Elena,a restaurant
+e23800,2017/11/18,Avery,a restaurant
+e23803,2017/11/23,James,a coffee Shop
+e23808,2017/11/26,Jade,a park
+e23809,2017/11/30,Audrey,a park
+e23815,2017/12/09,Ryan,a boba shop
+e23819,2017/12/12,Jose,a coffee Shop
+e23824,2017/12/18,Hazel,a park
+e23827,2017/12/25,Roman,a park
+e23828,2017/12/28,Madelyn,a restaurant
+e27022,2018/01/10,Axel,a park
+e27027,2018/01/21,Mia,a coffee Shop
+e27031,2018/01/26,Isla,a boba shop
+e27035,2018/02/04,Sebastian,a restaurant
+e27041,2018/02/15,Emilia,a park
+e27045,2018/02/21,Piper,a restaurant
+e27046,2018/02/23,Grace,a park
+e27051,2018/03/01,Violet,a restaurant
+e27056,2018/03/06,Madeline,a boba shop
+e27063,2018/04/01,Serenity,a coffee Shop
+e27065,2018/04/08,Brooklyn,a boba shop
+e27069,2018/04/13,Wesley,a coffee Shop
+e27074,2018/04/18,Josephine,a park
+e27079,2018/04/28,Ian,a park
+e27082,2018/05/01,Kinsley,a restaurant
+e27083,2018/05/03,Matthew,a restaurant
+e27087,2018/05/17,Roman,a coffee Shop
+e27089,2018/05/21,Leonardo,a coffee Shop
+e27096,2018/06/07,Kinsley,a park
+e27100,2018/06/14,Valentina,a park
+e27102,2018/06/18,Robert,a park
+e27106,2018/06/28,James,a coffee Shop
+e27112,2018/07/11,Joseph,a boba shop
+e27113,2018/07/14,Anthony,a boba shop
+e27117,2018/07/22,Oliver,a boba shop
+e27119,2018/07/25,David,a park
+e27123,2018/07/30,Cora,a park
+e27124,2018/08/02,Sadie,a restaurant
+e27129,2018/08/07,Delilah,a restaurant
+e27130,2018/08/12,Easton,a restaurant
+e27134,2018/08/15,Camila,a park
+e27135,2018/08/17,Luna,a boba shop
+e27138,2018/08/26,Parker,a restaurant
+e27141,2018/09/01,Emma,a park
+e27145,2018/09/05,Greyson,a boba shop
+e27146,2018/09/06,Ariana,a coffee Shop
+e27151,2018/09/11,Wang-Chiew,a restaurant
+e27152,2018/09/14,Peyton,a restaurant
+e27154,2018/09/21,Adeline,a coffee Shop
+e27158,2018/09/25,Isaiah,a restaurant
+e27159,2018/09/28,Audrey,a restaurant
+e27163,2018/10/01,Jace,a restaurant
+e27168,2018/10/11,Leo,a restaurant
+e27172,2018/10/18,Brooklyn,a boba shop
+e27177,2018/10/24,Joshua,a coffee Shop
+e27178,2018/10/25,Kai,a restaurant
+e27180,2018/10/31,Eva,a boba shop
+e27184,2018/11/07,Emma,a restaurant
+e27185,2018/11/10,Ezekiel,a boba shop
+e27189,2018/11/15,Silas,a boba shop
+e27192,2018/11/29,Oliver,a park
+e27195,2018/12/07,Axel,a boba shop
+e27199,2018/12/13,Mike,a park
+e27203,2018/12/17,Mila,a park
+e27204,2018/12/22,Naomi,a restaurant
+e30438,2019/01/14,Lincoln,a boba shop
+e30445,2019/01/28,Claire,a coffee Shop
+e30448,2019/01/30,Easton,a park
+e30449,2019/02/02,Ariana,a coffee Shop
+e30458,2019/02/18,Anna,a park
+e30460,2019/02/22,Charles,a restaurant
+e30462,2019/02/26,Cooper,a boba shop
+e30464,2019/03/06,Aiden,a coffee Shop
+e30465,2019/03/11,Ellie,a restaurant
+e30470,2019/03/24,Ellie,a restaurant
+e30474,2019/03/28,Hazel,a park
+e30475,2019/03/29,Adam,a boba shop
+e30478,2019/04/02,Naomi,a boba shop
+e30480,2019/04/09,Lambert,a boba shop
+e30481,2019/04/13,Jayden,a boba shop
+e30485,2019/04/18,Anna,a restaurant
+e30486,2019/04/19,Maverick,a boba shop
+e30491,2019/04/29,Zoey,a boba shop
+e30497,2019/05/13,Thomas,a restaurant
+e30500,2019/05/15,Zoey,a coffee Shop
+e30501,2019/05/20,Anthony,a park
+e30508,2019/05/30,Cameron,a boba shop
+e30509,2019/06/03,Matthew,a park
+e30513,2019/06/10,Joseph,a park
+e30517,2019/06/13,Christophe,a restaurant
+e30519,2019/06/19,Zoey,a boba shop
+e30526,2019/07/02,Grayson,a coffee Shop
+e30527,2019/07/06,Ariana,a restaurant
+e30531,2019/07/14,Hazel,a boba shop
+e30533,2019/07/17,Colton,a boba shop
+e30534,2019/07/22,Parker,a coffee Shop
+e30538,2019/07/31,Brooklyn,a park
+e30539,2019/08/04,Alon,a park
+e30541,2019/08/08,Lily,a coffee Shop
+e30542,2019/08/10,Thomas,a park
+e30554,2019/08/29,Anthony,a restaurant
+e30555,2019/09/02,Austin,a restaurant
+e30563,2019/09/15,Athena,a coffee Shop
+e30565,2019/09/19,Jacob,a park
+e30568,2019/09/25,Violet,a park
+e30571,2019/10/07,Valentina,a restaurant
+e30575,2019/10/08,Josiah,a restaurant
+e30579,2019/10/20,Mateo,a park
+e30584,2019/10/27,Zoe,a park
+e30591,2019/11/05,James,a coffee Shop
+e30592,2019/11/09,Ruby,a park
+e30595,2019/11/15,Isla,a park
+e30600,2019/11/20,Jack,a restaurant
+e30601,2019/11/24,Noah,a park
+e30609,2019/12/12,Jonathan,a restaurant
+e30610,2019/12/16,Joseph,a park
+e30615,2019/12/22,Chris,a coffee Shop
+e30620,2019/12/25,Mila,a park
+e30621,2019/12/28,Elizabeth,a park
+e33802,2020/01/02,Wesley,a coffee Shop
+e33803,2020/01/05,David,a coffee Shop
+e33812,2020/01/23,Wang-Chiew,a coffee Shop
+e33813,2020/01/26,Ivy,a boba shop
+e33817,2020/01/29,Skylar,a boba shop
+e33818,2020/02/01,Ezra,a boba shop
+e33823,2020/02/05,Jose,a boba shop
+e33824,2020/02/10,Mike,a park
+e33828,2020/02/13,Ian,a restaurant
+e33829,2020/02/18,Leo,a restaurant
+e33836,2020/02/27,Madison,a restaurant
+e33837,2020/03/02,Madeline,a restaurant
+e33841,2020/03/06,Zoey,a park
+e33842,2020/03/10,Ella,a restaurant
+e33845,2020/03/12,Santiago ,a boba shop
+e33846,2020/03/15,Lillian,a boba shop
+e33849,2020/03/22,Genesis,a restaurant
+e33852,2020/03/27,Claire,a park
+e33853,2020/03/28,Carson,a boba shop
+e33855,2020/04/01,James,a restaurant
+e33856,2020/04/04,Lincoln,a park
+e33860,2020/04/13,Dominic,a restaurant
+e33867,2020/04/25,Santiago ,a coffee Shop
+e33871,2020/05/03,Autumn,a boba shop
+e33874,2020/05/06,Ryan,a boba shop
+e33878,2020/05/18,Jack,a park
+e33883,2020/05/28,Nora,a restaurant
+e33884,2020/06/02,Kinsley,a coffee Shop
+e33888,2020/06/05,Everett,a coffee Shop
+e33889,2020/06/07,Christophe,a coffee Shop
+e33892,2020/06/16,Roman,a coffee Shop
+e33895,2020/06/17,Sadie,a coffee Shop
+e33899,2020/06/24,Aria,a coffee Shop
+e33900,2020/06/27,David,a coffee Shop
+e33904,2020/07/02,Richard,a coffee Shop
+e33908,2020/07/09,Amelia,a coffee Shop
+e33911,2020/07/17,Sophia,a boba shop
+e33915,2020/07/27,Claire,a park
+e33921,2020/08/11,Elizabeth,a restaurant
+e33925,2020/08/17,Hunter,a coffee Shop
+e33929,2020/08/20,Anna,a boba shop
+e33930,2020/08/24,Eva,a restaurant
+e33939,2020/09/08,Rylee,a boba shop
+e33943,2020/09/11,Charles,a park
+e33948,2020/09/18,Cameron,a boba shop
+e33949,2020/09/22,Grayson,a restaurant
+e33952,2020/09/25,Grayson,a restaurant
+e33953,2020/09/26,Bella,a coffee Shop
+e33968,2020/10/27,Audrey,a restaurant
+e33971,2020/10/28,William,a boba shop
+e33973,2020/11/06,Ian,a coffee Shop
+e33977,2020/11/13,Santiago ,a park
+e33978,2020/11/16,Jade,a restaurant
+e33981,2020/11/20,Quinn,a boba shop
+e33982,2020/11/23,Silas,a restaurant
+e33987,2020/11/26,Theodore,a restaurant
+e33988,2020/11/30,Ivy,a coffee Shop
+e33992,2020/12/03,Claire,a restaurant
+e33993,2020/12/08,Ava,a coffee Shop
+e33997,2020/12/12,Joshua,a coffee Shop
+e34002,2020/12/24,Landon,a coffee Shop
+e34006,2020/12/31,Elena,a restaurant
+e37205,2021/01/03,Nora,a boba shop
+e37216,2021/02/01,Julian,a coffee Shop
+e37220,2021/02/05,Ruby,a boba shop
+e37221,2021/02/09,Gabriel,a restaurant
+e37223,2021/02/18,Jose,a restaurant
+e37226,2021/03/01,Isla,a park
+e37229,2021/03/07,Athena,a park
+e37230,2021/03/11,Ellie,a restaurant
+e37239,2021/03/22,Mia,a boba shop
+e37245,2021/03/29,Harper,a boba shop
+e37249,2021/04/08,Hunter,a restaurant
+e37252,2021/04/14,Samuel,a restaurant
+e37255,2021/04/21,Wyatt,a coffee Shop
+e37260,2021/04/27,Gabriel,a coffee Shop
+e37264,2021/05/06,Zoey,a coffee Shop
+e37272,2021/05/14,Lydia,a boba shop
+e37274,2021/05/22,Violet,a restaurant
+e37275,2021/05/24,Kennedy,a boba shop
+e37280,2021/05/28,Roman,a restaurant
+e37286,2021/06/04,Cora,a boba shop
+e37293,2021/06/24,Adrian,a park
+e37294,2021/06/28,Layla,a coffee Shop
+e37297,2021/07/03,Christophe,a boba shop
+e37309,2021/07/28,Sophie,a boba shop
+e37312,2021/08/03,Isaac,a boba shop
+e37315,2021/08/10,Adam,a restaurant
+e37317,2021/08/14,Henry,a restaurant
+e37318,2021/08/16,Aria,a park
+e37321,2021/08/22,Liam,a boba shop
+e37322,2021/08/26,Daniel,a coffee Shop
+e37324,2021/08/28,Camila,a park
+e37325,2021/08/31,Isla,a restaurant
+e37330,2021/09/08,Serenity,a park
+e37338,2021/09/20,Aaliyah,a park
+e37342,2021/09/29,Jose,a restaurant
+e37344,2021/10/05,Sarah,a park
+e37348,2021/10/09,Camila,a boba shop
+e37349,2021/10/14,Nathan,a coffee Shop
+e37352,2021/10/19,Willow,a restaurant
+e37357,2021/10/27,Stella,a coffee Shop
+e37361,2021/10/29,Ellie,a boba shop
+e37362,2021/11/01,Penelope,a coffee Shop
+e37366,2021/11/07,Natalia,a boba shop
+e37369,2021/11/18,Emery,a restaurant
+e37373,2021/11/20,Victoria,a park
+e37374,2021/11/25,Lillian,a boba shop
+e37378,2021/12/01,Ava,a park
+e37379,2021/12/05,Matthew,a restaurant
+e37380,2021/12/07,Thomas,a restaurant
+e37383,2021/12/11,Leonardo,a boba shop
+e37384,2021/12/16,Aaron,a park
+e37387,2021/12/17,Rylee,a boba shop
+e37388,2021/12/23,Amelia,a restaurant
+e40569,2022/01/01,Valentina,a restaurant
+e40570,2022/01/05,Genesis,a boba shop
+e40573,2022/01/10,Theodore,a park
+e40574,2022/01/14,Grayson,a restaurant
+e40576,2022/01/17,Maverick,a restaurant
+e40577,2022/01/20,Leonardo,a park
+e40582,2022/01/24,Parker,a coffee Shop
+e40583,2022/01/25,Ariana,a park
+e40588,2022/01/31,Christian,a coffee Shop
+e40592,2022/02/07,Mila,a coffee Shop
+e40593,2022/02/09,Aiden,a park
+e40597,2022/02/13,Leilani,a park
+e40598,2022/02/17,Amelia,a restaurant
+e40602,2022/02/25,Leah,a park
+e40605,2022/02/27,Axel,a park
+e40612,2022/03/20,Jacob,a restaurant
+e40613,2022/03/24,Easton,a boba shop
+e40615,2022/03/26,Jordan,a boba shop
+e40616,2022/03/29,Ezekiel,a boba shop
+e40620,2022/04/04,Abigail,a park
+e40621,2022/04/08,David,a park
+e40625,2022/04/10,Michael,a boba shop
+e40628,2022/04/17,Cora,a boba shop
+e40632,2022/04/23,Noah,a boba shop
+e40637,2022/04/30,John,a restaurant
+e40638,2022/05/05,Jeremiah,a boba shop
+e40641,2022/05/11,Aubrey,a park
+e40644,2022/05/14,Valentina,a boba shop
+e40645,2022/05/20,Jameson,a park
+e40652,2022/06/04,Amelia,a coffee Shop
+e40653,2022/06/08,Hailey,a coffee Shop
+e40658,2022/06/13,Adam,a restaurant
+e40659,2022/06/16,Hannah,a boba shop
+e40665,2022/06/27,Madison,a park
+e40666,2022/06/30,Mila,a coffee Shop
+e40669,2022/07/02,Ariana,a restaurant
+e40673,2022/07/11,Owen,a coffee Shop
+e40680,2022/07/23,Owen,a restaurant
+e40685,2022/08/04,Alon,a boba shop
+e40690,2022/08/06,Leah,a park
+e40691,2022/08/09,Lucas,a coffee Shop
+e40700,2022/08/29,Nathan,a coffee Shop
+e40701,2022/08/30,Richard,a park
+e40707,2022/09/06,Sofia,a park
+e40712,2022/09/10,Emilia,a park
+e40714,2022/09/18,Ezra,a coffee Shop
+e40715,2022/09/21,Adrian,a restaurant
+e40720,2022/10/05,Emily,a park
+e40723,2022/10/10,Mila,a park
+e40724,2022/10/11,Eleanor,a park
+e40728,2022/10/15,Wang-Chiew,a restaurant
+e40732,2022/10/22,Everett,a park
+e40733,2022/10/28,Addison,a coffee Shop
+e40741,2022/11/05,Penelope,a park
+e40744,2022/11/20,Aiden,a boba shop
+e40745,2022/11/24,Ryan,a boba shop
+e40750,2022/11/29,Jayden,a boba shop
+e40756,2022/12/08,Caleb,a boba shop
+e40761,2022/12/10,Logan,a boba shop
+e40762,2022/12/16,Rylee,a coffee Shop
+e40767,2022/12/18,Aaron,a boba shop
+e40771,2022/12/26,Elijah,a restaurant
+e40774,2022/12/31,Avery,a boba shop

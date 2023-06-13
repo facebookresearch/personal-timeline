@@ -1,6 +1,20 @@
-This file explains how to create LifeLog entries from several data sources.
+<!-- This file explains how to create LifeLog entries from several data sources. -->
 
-# Step 0: Create environment
+# Personal Digital Data Timeline
+
+## Table of Content
+
+- [Setup](#general-setup): how to set up for this repo
+- [Importers](#digital-data-importers): how to create LifeLog entries from several data sources.
+  - [Dowloading Digital Data](#downloading-your-personal-data)
+  - [Running the importers](#running-the-code)
+- [Sample Dataset](DATASET.md): a sampled set of anonymized data for testing
+- [Data Visualization](#visualization-of-the-personal-timeline): a ReactJS-based visualization frontend of the personal timeline
+- [Question Answering](#question-answer-over-the-personal-timeline): a LLM-based QA engine over the personal timeline
+
+## General Setup
+
+## Step 0: Create environment
 
 1. Install Docker Desktop from [this link](https://docs.docker.com/desktop/).
 
@@ -15,39 +29,12 @@ This file explains how to create LifeLog entries from several data sources.
 This will create a bunch of files/folders/symlinks needed for running the app.
 This will also create a new directory under your home folder `~/personal-data`, the directory where your personal data will reside.
 
-# Step 1: General Setup
-## For Data Ingestion
-1. Register a Hugging Face account and request a Huggingface access token: [Link](https://huggingface.co/docs/hub/security-tokens)
-    Add the following line to the `env/ingest.env.list` file:
-    ```
-   HF_TOKEN=<the token goes here>
-    ```
-2. Fill in the user information in `src/common/user_info.json`, such as (keeping the previous ``address`` for backward compatibility)
-```
-{
-    "name": "Hilbert",
-    "address": "Menlo Park, California, United States",
-    "addresses": [
-        {
-            "name": "Work",
-            "address": "Menlo Park, California, United States",
-            "radius": 0.1
-        },
-        {
-            "name": "Home",
-            "address": "Menlo Park, California, United States",
-            "radius": 0.1
-        },
-        {
-            "name": "My neighborhood",
-            "address": "Menlo Park, California, United States",
-            "radius": 1
-        }
+## Step 1: Setting up
 
-    ]
-}
-```
-3. Ingestion configs are controlled via parameters in `conf/ingest.conf` file. The configurations
+
+## For Data Ingestion
+
+Ingestion configs are controlled via parameters in `conf/ingest.conf` file. The configurations
 are defaulted for optimized processing and don't need to be changed. 
 You can adjust values for these parameters to run importer with a different configuration.
 
@@ -68,8 +55,20 @@ SPOTIFY_TOKEN=<the token goes here>
 SPOTIFY_SECRET=<the secret goes here>
 ```
 
+## For Question-Answering
 
-# Step 2: Downloading your personal data
+Setup an OpenAI API following these [instructions](https://openai.com/api/).
+
+Copy the following lines to `env/frontend.env.list`:
+```
+OPENAI_API_KEY=<the API key goes here>
+```
+
+
+## Digital Data Importers
+
+
+## Downloading your personal data
 
 We currently supports 9 data sources. Here is a summary table:
 
@@ -144,44 +143,89 @@ They say it can take up to 30 days, but it took about 2 days. They'll email you 
 
 2. Move the data into `~/personal-data/spotify` folder.
 
-# Step 3: Running the code
+# Running the code
 Now that we have all the data and setting in place, we can either run individual steps or the end-to-end system.
 This will import your photo data to SQLite (this is what will go into the episodic database), build summaries
 and make data available for visualization and search.
 
 
 Running the Ingestion container will add two types of file to `~/personal-data/app_data` folder
- - Import your data to an SQLite format file named `raw_data.db`
- - Generate 3 pickled indices: `activity_index.pkl`, `daily_index.pkl`, and `trip_index.pkl`. 
-    (See the `LLEntrySummary` class in `src/objects/LLEntry_obj.py` the object class definitions.)
+ - Import your data to an SQLite DB named `raw_data.db`
+ - Export your personal data into csv files such as `books.csv`, `exercise.csv`, etc.
 
 ### Option 1:
-To run the pipeline end-to end(both frontend and backend), simply run 
+To run the pipeline end-to-end (with frontend and QA backend), simply run 
 ```
 docker-compose up -d --build
 ```
 
 ### Option 2:
-You can also run ingestion and visualization separately.
+You can also run ingestion, visualization, and the QA engine separately.
 To start data ingestion, use  
 ```
 docker-compose up -d backend --build
-```  
-To start visualization
-```
-docker-compose up -d frontend --build
 ```
 
-# Step 4: Check progress
+## Check progress
 Once the docker command is run, you can see running containers for backend and frontend in the docker for Mac UI.
 Copy the container Id for ingest and see logs by running the following command:  
 ```
 docker logs -f <container_id>
 ```
 
-# Step 5: Visualization
+<!-- # Step 5: Visualization and Question Answering -->
 
-Running the Frontend will start a flask server inside a docker container at `http://127.0.0.1:5000`. 
-You can view the timeline via this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
+## Visualization of the personal timeline
+
+To start the visualization frontend:
+```
+docker-compose up -d frontend --build
+```
+
+Running the Frontend will start a ReactJS UI at `http://localhost:3000`. See [here](src/frontend/) for more details.
+
+We provide an anonymized digital data [dataset](sample_data/) for testing the UI and QA system, see [here](DATASET.md) for more details.
+
+![Timeline Visualization](ui.png)
+
+
+## Question Answer over the personal timeline
+
+The QA engine is based on PostText, a QA system for answering queries that require computing aggregates over personal data.
+
+PostText Reference ---  [https://arxiv.org/abs/2306.01061](https://arxiv.org/abs/2306.01061):
+```
+@article{tan2023posttext,
+      title={Reimagining Retrieval Augmented Language Models for Answering Queries},
+      author={Wang-Chiew Tan and Yuliang Li and Pedro Rodriguez and Richard James and Xi Victoria Lin and Alon Halevy and Scott Yih},
+      journal={arXiv preprint:2306.01061},
+      year={2023},
+}
+```
+
+To start the QA engine, run:
+```
+docker-compose up -d qa --build
+```
+The QA engine will be running on a flask server inside a docker container at `http://localhost:8085`. 
+
+See [here](src/qa) for more deatils.
+
+![QA Engine](qa.png)
+
+There are 3 options for the QA engine.
+* *ChatGPT*: uses OpenAI's gpt-3.5-turbo [API](https://platform.openai.com/docs/models/overview) without the personal timeline as context. It answers world knowledge question such as `what is the GDP of US in 2021` but not personal questions.
+* *Retrieval-based*: answers question by retrieving the top-k most relevant episodes from the personal timeline as the LLM's context. It can answer questions over the personal timeline such as `show me some plants in my neighborhood`.
+* *View-based*: translates the input question to a (customized) SQL query over tabular views (e.g., books, exercise, etc.) of the personal timeline. This QA engine is good at answering aggregate queries (`how many books did I purchase?`) and min/max queries (`when was the last time I travel to Japan`).
+
+
+Example questions you may try:
+* `Show me some photos of plants in my neighborhood`
+* `Which cities did I visit when I traveled to Japan?`
+* `How many books did I purchase in April?`
+
+
+
+<!-- You can view the timeline via this link. Credit of the UI goes to [TimelineJS](https://timeline.knightlab.com/)!
 * Note: Accessing UI via `http://localhost:5000` does not render the timeline due to some CORS Policy restrictions. 
-Make sure you are using `127.0.0.1` as prescribed.
+Make sure you are using `127.0.0.1` as prescribed. -->
