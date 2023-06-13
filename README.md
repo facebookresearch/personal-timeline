@@ -11,6 +11,7 @@
 - [Sample Dataset](DATASET.md): a sampled set of anonymized data for testing
 - [Data Visualization](#visualization-of-the-personal-timeline): a ReactJS-based visualization frontend of the personal timeline
 - [Question Answering](#question-answer-over-the-personal-timeline): a LLM-based QA engine over the personal timeline
+- [TimelineQA](#timelineqa-a-benchmark-for-question-answer-over-the-personal-timeline): a synthetic benchmark for evaluating personal timeline QA systems
 
 ## General Setup
 
