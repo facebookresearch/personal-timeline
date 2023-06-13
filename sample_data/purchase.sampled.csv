@@ -1,0 +1,96 @@
+,Unnamed: 0,time,purchase_id,productName,productPrice,productQuantity,id
+0,0,2019-03-26T16:29:16,114-9774413-4401831,"Dr. Earth 713 Organic 9 Fruit Tree Fertilizer, 12-Pound",22.53,1,purchase_0
+1,1,2019-03-26T16:28:27,114-9230659-7782623,"Miracle-Gro Citrus, Avocado, & Mango Food, 20 lb.",15.4,1,purchase_1
+2,2,2019-03-25T17:19:27,114-6266024-3403414,"63"" Garden Leaf Rake 38""-63""Adjustable Garden Rake,25 tines, Metal Rake for Quick Clean Up of Lawn and Yard",24.99,1,purchase_2
+3,3,2019-03-23T03:42:11,113-3165313-4592212,"Secret Antiperspirant Clinical Strength Deodorant for Women, Clear Gel, Completely Clean, 2.6 oz",11.97,1,purchase_3
+4,4,2019-03-13T20:42:12,111-1445891-6088269,Amazon Basics Ultra Facial Tissue with Lotion18 Cube Boxes - 75 Tissues per Box -1350 Tissues Total (Previously Solimo),28.18,1,purchase_4
+5,5,2019-03-13T00:23:01,111-5442007-9815416,ejet Compatible Toner Cartridge Replacement for Brother TN450 TN420 TN-450 TN-420 for HL-2270DW HL-2280DW HL-2230 HL-2240 7360N 7860DW 7065DN Intellif,37.17,1,purchase_5
+6,6,2019-03-12T16:59:59,111-1361770-3082640,"Hanes Men's Pocket T-Shirt Pack, Cotton Crewneck Pocket Tees 6-Pack, Moisture-Wicking Cotton T-Shirt Assorted 6-Pack",21.98,1,purchase_6
+7,7,2019-03-12T16:59:59,111-1361770-3082640,"Neutrogena Ultra Sheer Dry-Touch Water Resistant and Non-Greasy Sunscreen Lotion with Broad Spectrum SPF 70, 3 Fl Oz (Pack of 1)",8.97,1,purchase_7
+8,8,2019-03-10T04:27:17,111-9876254-1557852,100% Natural Boar Bristle Body Brush with Contoured Wooden Handle by TOUCH ME,8.99,1,purchase_8
+9,9,2019-03-10T04:27:17,111-9876254-1557852,"Amazon Brand - Solimo 70% Ethyl Rubbing Alcohol First Aid Antiseptic, 16 Fluid Ounces",5.52,1,purchase_9
+10,10,2019-03-10T04:27:17,111-9876254-1557852,"Deseret Deals Boy Scout Neckerchief Slide - Metal Kerchief Woggle, for Cub Scouts and Varsity Scouts (2 Pack)",19.99,1,purchase_10
+11,11,2019-03-10T04:27:17,111-9876254-1557852,Hiking Pants for Men Convertible Zip Off Boy Scout Quick Dry Lightweight Cargo Travel Safari Pants (ZB02 Army Green 34),35.99,1,purchase_11
+12,12,2019-03-10T04:27:17,111-9876254-1557852,"Microfiber Spray Mop for Floor Cleaning, Dry Wet Wood Floor Mop with 3 pcs Washable Pads, Handle Flat Mop with Sprayer for Kitchen Wood Floor Hardwood",22.97,1,purchase_12
+13,13,2019-03-10T04:27:17,111-9876254-1557852,"Airbee Plastic Spray Bottles 2 Pack 16 Oz for Cleaning Solutions, Planting, Pet, Bleach Spray, Vinegar, Professional Empty Spraying Bottle, Mist Water",8.96,1,purchase_13
+14,14,2019-04-11T03:41:12,111-7390689-1327435,21 Lessons for the 21st Century,11.79,1,purchase_14
+15,15,2019-04-11T03:41:12,111-7390689-1327435,"Nudge: Improving Decisions About Health, Wealth, and Happiness",12.49,1,purchase_15
+16,16,2019-04-11T03:41:12,111-7390689-1327435,How to Be an Antiracist,16.44,1,purchase_16
+17,17,2019-04-11T03:41:12,111-7390689-1327435,"Predictably Irrational, Revised and Expanded Edition: The Hidden Forces That Shape Our Decisions",11.94,1,purchase_17
+18,18,2019-04-11T03:41:12,111-7390689-1327435,"Thinking, Fast and Slow",11.29,1,purchase_18
+19,19,2019-04-11T03:41:12,111-7390689-1327435,The Ministry for the Future: A Novel,15.39,1,purchase_19
+20,20,2019-04-10T02:22:56,111-4069319-6845005,"Oral-B Complete Glide Dental Floss Picks Plus Scope Outlast, Long Lasting Mint, 75 Dental Floss Picks, Pack of 6",23.76,1,purchase_20
+21,21,2019-04-05T20:59:13,111-8082401-8049829,The Bitcoin Standard: The Decentralized Alternative to Central Banking,13.89,1,purchase_21
+22,22,2019-03-10T20:32:00,111-9918738-6957832,UpNUpCo Artistic Beautiful Anti Fatigue Kitchen Floor Mat - Unique Floor Mats - Pain Relief Padded Kitchen Mats - Floor Mats For In Front Of Sink - Me,19.99,1,purchase_22
+23,23,2019-03-03T17:40:07,111-1457767-4937034,Fiskars 46 Inch Steel D-handle Digging Shovel,29.97,1,purchase_23
+24,24,2019-04-28T22:57:54,112-4949847-4065019,"AP World History: Modern Premium, 2022-2023: 5 Practice Tests + Comprehensive Review + Online Practice (Barron's Test Prep)",14.99,1,purchase_24
+25,25,2019-04-20T04:53:01,114-4078688-0181025,"[3-Pack] European Travel Plug Adapter, VINTAR International Power Adaptor with 2 USB Ports,2 American Outlets- 4 in 1 European Plug Adapter for France",22.45,1,purchase_25
+26,26,2019-04-18T22:28:47,112-1562029-2161042,Meta Quest 2 - Advanced All-In-One Virtual Reality Headset - 128 GB,299.0,2,purchase_26
+27,27,2019-04-18T02:11:57,112-4032527-4614633,Artizen 30ml Oils - Lavender Essential Oil - 1 Fluid Ounce,6.99,1,purchase_27
+28,28,2019-04-18T02:08:21,112-5214073-0001042,"Shea Butter Yellow Smooth | All Natural, 100% Pure- Unrefined | Daily Skin Moisturizer For Face & Body | Softens Tough Skin | Moisturizes Dry Skin | A",5.47,1,purchase_28
+29,29,2019-04-18T02:03:55,112-5211954-9884251,"Alternative Imagination 100% Pure Beeswax Bar (1 Ounce), Made in USA",4.25,2,purchase_29
+30,30,2019-04-16T18:53:52,112-8690982-3805866,Go Gently: Actionable Steps to Nurture Yourself and the Planet,22.99,1,purchase_30
+31,31,2019-03-30T18:03:45,112-4149919-9418639,Joico HydraSplash Hydrating Gelée Masque | Replenish Hydration | Add Shine | For Fine / Medium / Dry Hair,24.5,1,purchase_31
+32,32,2019-03-30T18:03:45,112-4149919-9418639,"Secret Antiperspirant Clinical Strength Deodorant for Women, Clear Gel, Completely Clean, 2.6 oz",11.97,1,purchase_32
+33,33,2019-03-30T18:03:45,112-4149919-9418639,Joico HydraSplash Hydrating Conditioner for fine hair 8.5 fl oz,16.58,1,purchase_33
+34,34,2019-03-30T18:03:45,112-4149919-9418639,Joico HydraSplash Hydrating Shampoo for fine hair 33.8 fl oz,38.5,1,purchase_34
+35,35,2019-03-30T18:03:45,112-5709364-2407456,"Joico Power Spray Fast-Dry Finishing Spray, 9.0 Ounce, New Look",20.5,1,purchase_35
+36,36,2019-03-30T18:03:45,112-4149919-9418639,"Joico HydraSplash Replenishing Leave-In | Boost Shine | Reduce Frizz | For Fine/ Medium / Dry Hair, 3.38 Fl Oz (Pack of 1)",24.5,1,purchase_36
+37,37,2019-03-27T23:21:18,112-9856985-9905029,Claritin 24 Hour Reditabs - 60 ct,38.94,1,purchase_38
+38,38,2019-03-08T03:42:32,111-3592109-1029866,SOTO WindMaster w/ Micro Regulator and 4Flex (One Size),64.95,1,purchase_40
+39,39,2019-03-05T04:45:16,111-4543930-8659442,"Portable Electric Space Heater 1500W/750W, Ceramic Room Heater with Tip-Over and Overheat Protection, Heat up 200 Square Feet in Seconds, Safe and Qui",26.95,1,purchase_41
+40,40,2019-04-09T17:45:52,113-1313306-9587439,Value Sensitive Design: Shaping Technology with Moral Imagination (The MIT Press),40.0,1,purchase_42
+41,41,2019-03-30T17:59:04,113-1730640-2547451,"Anti Fog Spray for Glasses | 600 Pumps, 6 month Supply | Prevents Fog on Windshield, Lenses, Goggles, PPE & VR Headsets | Safe on Anti-Reflective Lens",8.99,1,purchase_43
+42,42,2019-03-30T05:26:19,113-3289397-6029011,WD-40 Multi-Use Product Handy Can 3 oz (Pack of 2),9.5,1,purchase_44
+43,43,2019-03-24T22:53:23,113-6374827-6976213,Organic Cowboy Boneless Chicken Thighs,10.97,1,purchase_45
+44,44,2019-03-24T22:53:23,113-6374827-6976213,Organic Yellow Onion,1.46,1,purchase_46
+45,45,2019-03-24T22:53:23,113-6374827-6976213,Bag Refund,0.0,1,purchase_47
+46,46,2019-03-24T22:53:23,113-6374827-6976213,Espresso,15.94,1,purchase_48
+47,47,2019-03-24T22:53:23,113-6374827-6976213,Donation Bag,0.05,1,purchase_49
+48,48,2019-03-24T22:53:23,113-6374827-6976213,Blueberry Greek Yogurt,1.19,3,purchase_50
+49,49,2019-03-24T22:53:23,113-6374827-6976213,Organic Ginger Root,1.52,1,purchase_51
+50,50,2019-03-24T22:53:23,113-6374827-6976213,Organic Milk,2.99,1,purchase_52
+51,51,2019-03-24T22:53:23,113-6374827-6976213,Green Onion,0.89,1,purchase_53
+52,52,2019-03-24T22:53:23,113-6374827-6976213,Blueberry Yoghurt,2.29,2,purchase_54
+53,53,2019-03-24T22:53:23,113-6374827-6976213,Boneless Skinless Chicken Thighs,9.79,1,purchase_55
+54,54,2019-03-23T00:10:31,113-7531419-6094616,Organic Plain Low Fat Yogurt,3.41,1,purchase_56
+55,55,2019-03-23T00:10:31,113-7531419-6094616,Jewel Sweet Potato,1.58,1,purchase_57
+56,56,2019-03-23T00:10:31,113-7531419-6094616,Blueberry Yoghurt,2.29,2,purchase_58
+57,57,2019-03-23T00:10:31,113-7531419-6094616,Vidalia Onion,0.7,1,purchase_59
+58,58,2019-03-23T00:10:31,113-7531419-6094616,Organic Spinach Ricotta Ravioli,6.49,1,purchase_60
+59,59,2019-03-23T00:10:31,113-7531419-6094616,Butternut Squash,0.89,2,purchase_61
+60,60,2019-03-23T00:10:31,113-7531419-6094616,Whole Trade Banana,1.39,1,purchase_62
+61,61,2019-03-23T00:10:31,113-7531419-6094616,Organic Milk,4.49,1,purchase_63
+62,62,2019-03-23T00:10:31,113-7531419-6094616,Organic Strawberries,4.99,1,purchase_64
+63,63,2019-03-23T00:10:31,113-7531419-6094616,Wild Blueberry Overnight Oats,3.49,1,purchase_65
+64,64,2019-03-23T00:10:31,113-7531419-6094616,Organic Brown Large Grade A Eggs,3.99,1,purchase_66
+65,65,2019-03-23T00:10:31,113-7531419-6094616,Organic Bourbon Whiskey Boneless Chicken Thighs,8.74,1,purchase_67
+66,66,2019-03-23T00:10:31,113-7531419-6094616,Supreme Pizza,4.99,2,purchase_68
+67,67,2019-03-23T00:10:31,113-7531419-6094616,Smoked Thick Cut Atlantic Salmon,6.99,1,purchase_69
+68,68,2019-03-23T00:10:31,113-7531419-6094616,Bacon Cheddar Beef Burger,7.99,2,purchase_70
+69,69,2019-03-23T00:10:31,113-7531419-6094616,Cherries,10.2,1,purchase_71
+70,70,2019-03-23T00:10:31,113-7531419-6094616,Honey Almond Crunch,3.99,1,purchase_72
+71,71,2019-03-23T00:10:31,113-7531419-6094616,Paleo Pancake & Waffle Mix,5.99,1,purchase_73
+72,72,2019-03-23T00:10:31,113-7531419-6094616,Orange Cauliflower,3.49,1,purchase_74
+73,73,2019-03-23T00:10:31,113-7531419-6094616,Organic Berry Blend,3.99,2,purchase_75
+74,74,2019-03-23T00:10:31,113-7531419-6094616,Whipped Unsalted Butter,3.69,1,purchase_76
+75,75,2019-03-23T00:10:31,113-7531419-6094616,Pinot Grigio Friuli,9.99,1,purchase_77
+76,76,2019-03-23T00:10:31,113-7531419-6094616,Organic Boston Butter Lettuce,1.99,1,purchase_78
+77,77,2019-03-23T00:10:31,113-7531419-6094616,Zucchini Squash,0.5,1,purchase_79
+78,78,2019-03-23T00:10:31,113-7531419-6094616,Medium Hass Avocado,1.49,9,purchase_80
+79,79,2019-03-23T00:10:31,113-7531419-6094616,Organic Low-Fat Cottage Cheese,3.99,1,purchase_81
+80,80,2019-03-23T00:10:31,113-7531419-6094616,Herring in Cream Sauce,5.99,1,purchase_82
+81,81,2019-03-23T00:10:31,113-7531419-6094616,Organic Baby Gold Beets Bunch,1.99,1,purchase_83
+82,82,2019-03-23T00:10:31,113-7531419-6094616,Russet Potato,2.34,1,purchase_84
+83,83,2019-03-23T00:10:31,113-7531419-6094616,Peach Yoghurt,2.29,2,purchase_85
+84,84,2019-03-23T00:10:31,113-7531419-6094616,Organic Mango Chunks,2.79,2,purchase_86
+85,85,2019-03-23T00:10:31,113-7531419-6094616,Sauvignon Blanc,11.99,1,purchase_87
+86,86,2019-03-23T00:10:31,113-7531419-6094616,Organic Brussels Sprouts,3.99,1,purchase_88
+87,87,2019-03-23T00:10:31,113-7531419-6094616,Sliced Genoa Salami,5.79,1,purchase_89
+88,88,2019-03-23T00:10:31,113-7531419-6094616,Organic Cowboy Boneless Chicken Thighs,6.99,2,purchase_90
+89,89,2019-03-21T19:50:31,113-1917712-3086608,"Amazon Basics 30% Recycled Multipurpose Copy Printer Paper - 8.5 x 11 Inches, 3 Ream Case (1500 Sheets)",19.99,1,purchase_91
+90,90,2019-03-18T05:34:06,113-9805914-6727453,Pudolla Men's Cotton Yoga Sweatpants Athletic Lounge Pants Open Bottom Casual Jersey Pants for Men with Pockets (Olive Medium),28.89,1,purchase_92
+91,91,2019-03-13T19:10:03,113-2797013-8844240,"TERRO T300B Liquid Ant Killer, 12 Bait Stations",9.68,2,purchase_93
+92,92,2019-03-12T01:19:50,113-2188680-2881009,"BYD CARE KN95 Respirator, 50 Pieces, Breathable & Comfortable Foldable Safety Mask with Ear Loop for Tight Fit, GB2626",26.99,2,purchase_94
+93,93,2019-03-06T01:22:33,113-8577782-4677020,"Kate Aspen 9 oz. Stemless Wine Glass (Set of 12)| Kitchen Drinking Glass or DIY Party Favor, Clear, One Size, (30009NA-x12)",26.14,1,purchase_95
+94,94,2019-03-04T20:28:21,113-4689134-9648225,"iHealth COVID-19 Antigen Rapid Test, 2 Tests per Pack,FDA EUA Authorized OTC at-Home Self Test, Results in 15 Minutes with Non-invasive Nasal Swab, Ea",17.98,1,purchase_96

@@ -1,0 +1,2893 @@
+eid,date,mealtype,foodtype,people_string
+e81,2010/01/03,dinner,chinese food,
+e83,2010/01/05,breakfast,cereals,Emily
+e86,2010/01/08,lunch,indian food,
+e88,2010/01/09,breakfast,cereals,"Hazel, Rylee, Piper, Nora, Avery, Eva, Nevaeh, Claire, Lydia, Olivia, Layla, Kinsley"
+e89,2010/01/09,lunch,sushi,
+e90,2010/01/09,dinner,chinese food,"Kayden, Carter"
+e93,2010/01/10,dinner,pasta,
+e104,2010/01/21,breakfast,pancakes,
+e105,2010/01/21,lunch,chinese food,
+e109,2010/01/22,lunch,tacos,
+e110,2010/01/22,dinner,chinese food,"Emily, Carter"
+e112,2010/01/23,lunch,steak,"Kayden, Andrew, Emily, Carter"
+e115,2010/01/25,breakfast,oatmeal,"Olivia, Piper, Avery, Nevaeh, Claire, Lydia, Nora, Piper, Rylee, Eva, Layla, Kinsley"
+e116,2010/01/25,dinner,indian food,
+e118,2010/01/26,dinner,chinese food,
+e120,2010/01/27,breakfast,pancakes,"Kayden, Carter"
+e124,2010/01/30,lunch,tacos,"Layla, Piper, Lydia, Eva, Claire, Rylee"
+e125,2010/01/31,dinner,a burger,
+e128,2010/02/06,breakfast,"eggs, sausages, and bread","Kayden, Emily"
+e131,2010/02/07,breakfast,cereals,
+e134,2010/02/09,breakfast,oatmeal,
+e137,2010/02/11,lunch,tacos,"Emily, Carter, Andrew"
+e141,2010/02/15,dinner,sandwich,"Piper, Lydia, Claire, Layla, Nora, Kinsley, Avery, Eva, Piper, Nevaeh, Hazel, Rylee"
+e144,2010/02/19,dinner,sushi,
+e146,2010/02/21,lunch,fish and chips,
+e147,2010/02/21,dinner,sushi,"Rylee, Hazel, Piper, Nora, Layla"
+e150,2010/02/22,lunch,a burger,"Emily, Kayden, Carter, Andrew"
+e151,2010/02/23,lunch,steak,
+e156,2010/02/26,dinner,indian food,
+e159,2010/02/27,breakfast,pancakes,"Carter, Andrew, Emily, Kayden"
+e160,2010/02/28,breakfast,pancakes,
+e162,2010/03/01,lunch,chinese food,"Avery, Piper, Layla, Lydia, Eva"
+e163,2010/03/01,dinner,fish and chips,
+e165,2010/03/02,dinner,tacos,
+e168,2010/03/04,dinner,steak,"Emily, Kayden, Carter, Andrew"
+e170,2010/03/06,breakfast,cereals,
+e171,2010/03/06,lunch,fish and chips,
+e174,2010/03/07,dinner,steak,
+e175,2010/03/08,lunch,chinese food,
+e177,2010/03/10,dinner,chinese food,
+e180,2010/03/14,dinner,sushi,
+e182,2010/03/16,lunch,sandwich,"Carter, Andrew, Emily"
+e183,2010/03/16,dinner,indian food,
+e186,2010/03/18,lunch,fish and chips,"Emily, Carter, Andrew, Kayden"
+e187,2010/03/18,dinner,chinese food,
+e189,2010/03/22,dinner,chinese food,
+e193,2010/03/24,lunch,sushi,Lydia
+e194,2010/03/25,lunch,fish and chips,
+e196,2010/03/26,lunch,sushi,"Andrew, Kayden"
+e197,2010/03/26,dinner,a burger,
+e201,2010/03/29,lunch,sandwich,"Avery, Jackson, Willow, Benjamin"
+e205,2010/04/01,lunch,sushi,
+e206,2010/04/04,lunch,steak,"Avery, Benjamin"
+e208,2010/04/07,lunch,a burger,"Jackson, Benjamin, Willow"
+e211,2010/04/11,breakfast,peanut-butter-jam,
+e213,2010/04/13,breakfast,peanut-butter-jam,
+e214,2010/04/13,lunch,pasta,
+e217,2010/04/14,breakfast,cereals,
+e219,2010/04/16,lunch,fish and chips,
+e220,2010/04/17,dinner,tacos,"Nevaeh, Olivia, Layla"
+e223,2010/04/19,lunch,steak,"Benjamin, Willow, Jackson, Avery"
+e224,2010/04/20,lunch,sushi,
+e225,2010/04/21,dinner,tacos,
+e226,2010/04/22,breakfast,toast and cheese,
+e228,2010/04/23,dinner,a burger,
+e229,2010/04/24,lunch,pasta,
+e237,2010/05/02,dinner,indian food,
+e242,2010/05/05,lunch,fish and chips,
+e243,2010/05/05,dinner,sandwich,"Emily, Andrew, Kayden, Carter"
+e245,2010/05/06,breakfast,cereals,
+e247,2010/05/08,breakfast,oatmeal,
+e250,2010/05/11,lunch,pasta,
+e251,2010/05/13,breakfast,peanut-butter-jam,
+e252,2010/05/13,dinner,a burger,
+e256,2010/05/15,dinner,pasta,
+e260,2010/05/18,lunch,tacos,
+e263,2010/05/20,lunch,sandwich,"Carter, Kayden, Emily"
+e266,2010/05/21,dinner,tacos,
+e270,2010/05/24,lunch,a burger,
+e271,2010/05/24,dinner,indian food,
+e276,2010/05/28,dinner,sandwich,"Andrew, Kayden"
+e277,2010/05/29,lunch,indian food,"Andrew, Emily"
+e284,2010/06/03,dinner,pasta,"Carter, Emily, Andrew"
+e285,2010/06/05,breakfast,"eggs, sausages, and bread",
+e287,2010/06/06,dinner,chinese food,
+e288,2010/06/07,lunch,fish and chips,
+e290,2010/06/09,lunch,sushi,
+e291,2010/06/09,dinner,fish and chips,
+e295,2010/06/13,breakfast,peanut-butter-jam,
+e298,2010/06/15,breakfast,pancakes,
+e299,2010/06/15,dinner,tacos,
+e302,2010/06/16,breakfast,"eggs, sausages, and bread",
+e304,2010/06/17,lunch,pasta,
+e308,2010/06/19,dinner,steak,
+e312,2010/06/22,breakfast,cereals,
+e315,2010/06/25,breakfast,cereals,
+e317,2010/06/26,dinner,chinese food,"Emily, Andrew, Carter"
+e318,2010/06/27,lunch,indian food,"Kayden, Andrew, Emily"
+e322,2010/07/03,dinner,a burger,
+e324,2010/07/04,breakfast,cereals,"Carter, Emily, Andrew, Kayden"
+e325,2010/07/04,lunch,fish and chips,
+e326,2010/07/04,dinner,indian food,
+e329,2010/07/05,breakfast,"eggs, sausages, and bread","Andrew, Carter, Kayden, Emily"
+e331,2010/07/06,dinner,a burger,"Benjamin, Avery, Jackson"
+e333,2010/07/08,breakfast,toast and cheese,
+e334,2010/07/08,dinner,fish and chips,"Kayden, Andrew"
+e338,2010/07/11,breakfast,oatmeal,
+e339,2010/07/11,dinner,fish and chips,
+e342,2010/07/12,breakfast,cereals,"Andrew, Carter, Emily"
+e346,2010/07/14,lunch,pasta,
+e347,2010/07/14,dinner,fish and chips,
+e349,2010/07/16,breakfast,pancakes,
+e352,2010/07/18,lunch,chinese food,"Avery, Piper, Kinsley, Rylee, Claire, Lydia, Eva, Nora, Hazel, Olivia"
+e353,2010/07/18,dinner,indian food,
+e357,2010/07/21,breakfast,oatmeal,"Kinsley, Lydia, Avery"
+e361,2010/07/23,lunch,a burger,
+e365,2010/07/25,dinner,sushi,"Andrew, Kayden"
+e368,2010/07/27,lunch,sandwich,
+e370,2010/07/28,lunch,steak,"Hazel, Nevaeh, Nora, Olivia, Piper, Claire, Rylee, Avery"
+e372,2010/07/29,lunch,indian food,"Carter, Emily, Andrew, Kayden"
+e373,2010/07/31,dinner,fish and chips,"Andrew, Emily, Carter, Kayden"
+e374,2010/08/02,lunch,indian food,"Benjamin, Jackson, Avery, Willow"
+e375,2010/08/05,breakfast,pancakes,"Kayden, Andrew, Emily"
+e376,2010/08/05,lunch,sandwich,"Emily, Kayden"
+e379,2010/08/07,lunch,a burger,
+e381,2010/08/08,breakfast,pancakes,
+e385,2010/08/10,dinner,a burger,"Avery, Willow"
+e386,2010/08/11,dinner,chinese food,
+e391,2010/08/13,breakfast,"eggs, sausages, and bread","Andrew, Kayden, Carter"
+e392,2010/08/13,dinner,a burger,"Piper, Nevaeh, Avery, Lydia, Kinsley, Layla, Rylee"
+e397,2010/08/16,lunch,tacos,
+e400,2010/08/18,dinner,sandwich,
+e403,2010/08/20,dinner,chinese food,
+e405,2010/08/21,lunch,sushi,"Benjamin, Jackson, Willow, Avery"
+e406,2010/08/22,breakfast,peanut-butter-jam,
+e409,2010/08/23,dinner,fish and chips,
+e417,2010/08/28,lunch,a burger,"Eva, Kinsley, Layla, Nevaeh, Claire, Hazel, Olivia, Avery, Piper"
+e422,2010/09/01,lunch,a burger,"Kayden, Andrew, Emily, Carter"
+e423,2010/09/01,dinner,fish and chips,
+e426,2010/09/02,lunch,tacos,
+e427,2010/09/02,dinner,chinese food,"Andrew, Kayden, Emily, Carter"
+e428,2010/09/03,breakfast,toast and cheese,
+e430,2010/09/04,dinner,indian food,"Emily, Andrew, Carter, Kayden"
+e440,2010/09/11,breakfast,peanut-butter-jam,
+e442,2010/09/12,dinner,chinese food,
+e444,2010/09/13,breakfast,toast and cheese,
+e446,2010/09/15,lunch,tacos,"Emily, Kayden, Andrew, Carter"
+e448,2010/09/17,dinner,tacos,"Kinsley, Hazel, Eva, Piper"
+e451,2010/09/18,breakfast,"eggs, sausages, and bread",Jackson
+e452,2010/09/18,lunch,sandwich,
+e454,2010/09/19,breakfast,cereals,"Willow, Benjamin, Jackson"
+e456,2010/09/20,lunch,chinese food,Nevaeh
+e458,2010/09/23,lunch,sandwich,"Eva, Lydia, Nevaeh, Hazel, Piper, Rylee, Layla, Kinsley, Piper"
+e462,2010/09/26,lunch,sandwich,"Emily, Andrew"
+e465,2010/09/27,dinner,sandwich,
+e468,2010/09/28,breakfast,oatmeal,"Avery, Benjamin, Willow"
+e469,2010/09/28,lunch,fish and chips,"Emily, Andrew, Carter"
+e471,2010/09/29,breakfast,"eggs, sausages, and bread",
+e472,2010/09/30,breakfast,toast and cheese,Carter
+e473,2010/09/30,dinner,sandwich,
+e475,2010/10/01,breakfast,oatmeal,Jackson
+e476,2010/10/02,dinner,indian food,
+e478,2010/10/04,lunch,tacos,
+e481,2010/10/05,lunch,steak,
+e482,2010/10/05,dinner,sushi,
+e485,2010/10/11,lunch,steak,
+e486,2010/10/12,lunch,tacos,"Emily, Kayden"
+e489,2010/10/15,lunch,steak,
+e492,2010/10/16,dinner,fish and chips,
+e496,2010/10/18,lunch,indian food,
+e500,2010/10/21,lunch,steak,"Emily, Carter"
+e501,2010/10/22,lunch,sushi,
+e502,2010/10/22,dinner,steak,"Kayden, Emily, Carter, Andrew"
+e506,2010/10/24,breakfast,toast and cheese,
+e507,2010/10/24,lunch,pasta,
+e509,2010/10/26,dinner,sandwich,
+e510,2010/10/27,dinner,pasta,
+e512,2010/10/30,lunch,pasta,
+e516,2010/11/01,lunch,a burger,
+e517,2010/11/01,dinner,fish and chips,
+e520,2010/11/03,dinner,a burger,
+e521,2010/11/06,lunch,sushi,
+e522,2010/11/06,dinner,tacos,
+e527,2010/11/12,lunch,chinese food,
+e529,2010/11/13,dinner,a burger,"Emily, Andrew, Carter"
+e531,2010/11/14,lunch,steak,
+e532,2010/11/14,dinner,pasta,
+e535,2010/11/17,lunch,chinese food,
+e538,2010/11/22,lunch,sandwich,"Kayden, Andrew, Carter"
+e542,2010/11/26,lunch,fish and chips,
+e543,2010/11/26,dinner,fish and chips,
+e546,2010/11/30,lunch,steak,Jackson
+e550,2010/12/04,lunch,chinese food,"Piper, Lydia, Nevaeh, Hazel, Claire, Eva, Kinsley, Piper, Layla"
+e554,2010/12/05,breakfast,cereals,
+e556,2010/12/06,dinner,sushi,"Olivia, Nora, Eva, Layla, Lydia, Piper, Avery, Kinsley, Hazel, Rylee, Piper, Claire, Nevaeh"
+e559,2010/12/10,lunch,pasta,"Kayden, Carter, Andrew, Emily"
+e560,2010/12/10,dinner,sushi,
+e566,2010/12/14,breakfast,oatmeal,"Emily, Kayden"
+e567,2010/12/14,lunch,sushi,
+e568,2010/12/14,dinner,steak,
+e569,2010/12/16,breakfast,oatmeal,"Kayden, Carter"
+e579,2010/12/23,breakfast,pancakes,
+e583,2010/12/26,breakfast,"eggs, sausages, and bread",
+e585,2010/12/28,dinner,steak,"Willow, Benjamin"
+e688,2011/01/02,breakfast,oatmeal,Kayden
+e690,2011/01/03,breakfast,oatmeal,
+e691,2011/01/03,lunch,chinese food,
+e692,2011/01/04,dinner,chinese food,
+e694,2011/01/06,dinner,pasta,
+e698,2011/01/07,lunch,pasta,"Carter, Emily, Kayden"
+e701,2011/01/09,breakfast,cereals,"Avery, Benjamin"
+e702,2011/01/09,lunch,indian food,
+e703,2011/01/10,lunch,tacos,"Carter, Andrew, Emily, Kayden"
+e705,2011/01/11,lunch,chinese food,"Andrew, Kayden"
+e716,2011/01/20,lunch,fish and chips,"Kayden, Emily"
+e719,2011/01/22,breakfast,toast and cheese,
+e720,2011/01/23,breakfast,cereals,
+e722,2011/01/24,lunch,steak,
+e723,2011/01/25,breakfast,toast and cheese,"Jackson, Avery, Willow"
+e726,2011/01/27,breakfast,oatmeal,
+e727,2011/01/27,lunch,chinese food,
+e730,2011/01/28,lunch,steak,
+e732,2011/01/29,lunch,tacos,
+e734,2011/01/31,breakfast,pancakes,
+e735,2011/01/31,dinner,tacos,"Benjamin, Willow, Avery, Jackson"
+e736,2011/02/01,dinner,chinese food,"Carter, Emily, Kayden, Andrew"
+e745,2011/02/06,dinner,tacos,
+e750,2011/02/09,lunch,pasta,"Piper, Hazel, Layla, Rylee, Kinsley, Eva, Piper, Avery, Claire, Olivia"
+e752,2011/02/10,lunch,steak,
+e753,2011/02/11,breakfast,toast and cheese,"Emily, Carter"
+e759,2011/02/13,breakfast,peanut-butter-jam,"Kinsley, Lydia, Rylee, Piper, Nevaeh, Nora, Piper, Hazel, Layla, Olivia, Avery"
+e760,2011/02/13,dinner,chinese food,
+e762,2011/02/16,dinner,indian food,
+e764,2011/02/17,lunch,a burger,
+e766,2011/02/19,dinner,tacos,"Willow, Avery, Benjamin"
+e767,2011/02/20,lunch,indian food,
+e769,2011/02/21,breakfast,peanut-butter-jam,Willow
+e776,2011/02/25,breakfast,"eggs, sausages, and bread","Carter, Andrew"
+e778,2011/02/26,dinner,chinese food,Benjamin
+e780,2011/02/27,dinner,steak,
+e784,2011/03/03,breakfast,cereals,
+e787,2011/03/05,breakfast,toast and cheese,
+e788,2011/03/06,breakfast,"eggs, sausages, and bread",
+e792,2011/03/08,lunch,pasta,Emily
+e793,2011/03/08,dinner,sandwich,
+e794,2011/03/10,dinner,pasta,"Andrew, Kayden"
+e796,2011/03/11,lunch,a burger,
+e802,2011/03/18,dinner,pasta,
+e803,2011/03/19,breakfast,toast and cheese,
+e804,2011/03/19,lunch,steak,
+e805,2011/03/19,dinner,pasta,
+e809,2011/03/20,lunch,chinese food,
+e812,2011/03/22,breakfast,toast and cheese,
+e813,2011/03/22,lunch,chinese food,"Olivia, Hazel, Rylee, Lydia, Claire"
+e814,2011/03/22,dinner,pasta,"Piper, Avery, Olivia, Hazel"
+e820,2011/03/29,lunch,steak,
+e822,2011/03/30,breakfast,cereals,
+e823,2011/03/30,dinner,chinese food,"Claire, Layla, Hazel, Kinsley, Nevaeh, Avery"
+e826,2011/03/31,breakfast,pancakes,
+e829,2011/04/02,breakfast,peanut-butter-jam,
+e830,2011/04/02,lunch,sushi,
+e832,2011/04/04,dinner,pasta,"Piper, Piper, Nevaeh, Nora, Eva, Layla, Olivia"
+e836,2011/04/06,breakfast,oatmeal,
+e837,2011/04/06,dinner,pasta,
+e842,2011/04/09,lunch,fish and chips,
+e844,2011/04/10,lunch,pasta,"Benjamin, Avery, Willow, Jackson"
+e846,2011/04/11,lunch,chinese food,"Emily, Andrew, Carter, Kayden"
+e849,2011/04/12,dinner,fish and chips,"Andrew, Emily, Carter, Kayden"
+e851,2011/04/13,lunch,tacos,"Piper, Avery, Claire, Lydia, Hazel, Nora"
+e852,2011/04/13,dinner,tacos,"Jackson, Benjamin, Willow"
+e857,2011/04/15,breakfast,toast and cheese,
+e858,2011/04/16,breakfast,cereals,
+e859,2011/04/16,dinner,indian food,"Jackson, Benjamin, Willow, Avery"
+e863,2011/04/18,dinner,sushi,
+e865,2011/04/20,breakfast,oatmeal,Willow
+e874,2011/04/28,lunch,tacos,"Emily, Kayden"
+e875,2011/04/29,dinner,fish and chips,"Benjamin, Avery"
+e878,2011/04/30,lunch,sandwich,"Andrew, Kayden"
+e879,2011/04/30,dinner,steak,"Kayden, Andrew, Emily, Carter"
+e883,2011/05/02,breakfast,peanut-butter-jam,"Andrew, Carter"
+e884,2011/05/02,dinner,pasta,Willow
+e889,2011/05/04,dinner,indian food,"Carter, Kayden, Emily, Andrew"
+e892,2011/05/07,lunch,steak,"Piper, Nora, Rylee, Layla, Avery, Kinsley, Nevaeh, Eva, Piper, Hazel"
+e893,2011/05/10,lunch,a burger,"Kayden, Andrew, Emily"
+e896,2011/05/12,lunch,steak,"Layla, Piper, Olivia"
+e898,2011/05/14,lunch,a burger,
+e899,2011/05/16,lunch,fish and chips,
+e900,2011/05/16,dinner,steak,"Andrew, Carter, Emily, Kayden"
+e902,2011/05/17,breakfast,peanut-butter-jam,
+e903,2011/05/18,breakfast,peanut-butter-jam,
+e904,2011/05/18,dinner,tacos,
+e905,2011/05/19,dinner,indian food,"Carter, Andrew"
+e906,2011/05/20,breakfast,toast and cheese,"Andrew, Emily"
+e911,2011/05/25,breakfast,peanut-butter-jam,Jackson
+e915,2011/05/27,breakfast,peanut-butter-jam,
+e920,2011/06/02,dinner,sandwich,Carter
+e922,2011/06/03,lunch,sandwich,
+e924,2011/06/05,breakfast,toast and cheese,Emily
+e925,2011/06/05,lunch,indian food,
+e928,2011/06/06,lunch,fish and chips,
+e931,2011/06/07,dinner,a burger,"Kayden, Emily, Carter"
+e935,2011/06/09,lunch,steak,"Benjamin, Avery, Willow"
+e936,2011/06/09,dinner,chinese food,
+e938,2011/06/10,lunch,fish and chips,
+e942,2011/06/14,dinner,sushi,"Jackson, Avery"
+e946,2011/06/15,dinner,steak,
+e960,2011/06/23,dinner,steak,
+e961,2011/06/24,lunch,pasta,
+e962,2011/06/24,dinner,pasta,"Willow, Avery"
+e963,2011/06/25,dinner,indian food,"Emily, Carter"
+e970,2011/06/30,breakfast,toast and cheese,
+e972,2011/07/02,lunch,steak,
+e973,2011/07/02,dinner,tacos,"Avery, Jackson, Benjamin, Willow"
+e975,2011/07/03,dinner,steak,Emily
+e977,2011/07/05,dinner,sandwich,
+e979,2011/07/07,breakfast,peanut-butter-jam,
+e980,2011/07/07,dinner,a burger,
+e984,2011/07/09,breakfast,cereals,
+e987,2011/07/10,breakfast,pancakes,Emily
+e988,2011/07/10,dinner,sushi,"Emily, Kayden, Carter"
+e989,2011/07/11,lunch,steak,
+e991,2011/07/12,lunch,a burger,
+e992,2011/07/12,dinner,a burger,
+e996,2011/07/16,dinner,sandwich,Carter
+e1001,2011/07/21,lunch,a burger,
+e1004,2011/07/22,dinner,steak,
+e1006,2011/07/23,lunch,a burger,
+e1007,2011/07/23,dinner,chinese food,"Avery, Jackson, Benjamin"
+e1008,2011/07/25,breakfast,"eggs, sausages, and bread",
+e1010,2011/07/26,lunch,indian food,"Jackson, Avery"
+e1012,2011/07/29,breakfast,cereals,
+e1017,2011/08/01,breakfast,oatmeal,Rylee
+e1019,2011/08/02,lunch,tacos,"Emily, Andrew, Kayden, Carter"
+e1020,2011/08/03,breakfast,oatmeal,"Carter, Kayden, Andrew, Emily"
+e1022,2011/08/04,lunch,sandwich,
+e1023,2011/08/04,dinner,a burger,
+e1026,2011/08/06,breakfast,toast and cheese,
+e1031,2011/08/10,breakfast,peanut-butter-jam,
+e1033,2011/08/12,lunch,steak,
+e1034,2011/08/13,dinner,tacos,Emily
+e1036,2011/08/14,breakfast,toast and cheese,"Kayden, Andrew, Carter, Emily"
+e1038,2011/08/15,lunch,indian food,"Andrew, Emily, Kayden"
+e1040,2011/08/16,dinner,sushi,
+e1041,2011/08/17,breakfast,pancakes,"Andrew, Carter, Emily"
+e1042,2011/08/18,dinner,chinese food,"Andrew, Carter, Kayden"
+e1045,2011/08/20,breakfast,"eggs, sausages, and bread","Kayden, Andrew, Emily, Carter"
+e1046,2011/08/20,lunch,chinese food,
+e1048,2011/08/22,breakfast,toast and cheese,
+e1050,2011/08/23,breakfast,oatmeal,
+e1053,2011/08/25,dinner,fish and chips,Claire
+e1054,2011/08/26,breakfast,toast and cheese,
+e1055,2011/08/26,lunch,a burger,
+e1058,2011/08/27,lunch,chinese food,
+e1060,2011/08/28,dinner,indian food,
+e1062,2011/08/30,dinner,chinese food,
+e1063,2011/08/31,dinner,steak,
+e1065,2011/09/01,dinner,sandwich,
+e1072,2011/09/08,lunch,sushi,"Claire, Hazel, Eva, Piper, Rylee, Piper, Lydia, Kinsley, Layla, Nevaeh, Olivia, Nora, Avery"
+e1073,2011/09/08,dinner,pasta,"Jackson, Benjamin"
+e1077,2011/09/10,breakfast,cereals,"Willow, Avery"
+e1081,2011/09/13,breakfast,peanut-butter-jam,
+e1082,2011/09/13,lunch,a burger,"Hazel, Nevaeh, Lydia, Nora, Eva, Claire, Layla, Rylee, Piper, Kinsley, Olivia, Avery"
+e1088,2011/09/17,breakfast,toast and cheese,
+e1089,2011/09/18,breakfast,peanut-butter-jam,
+e1090,2011/09/18,dinner,tacos,Andrew
+e1097,2011/09/22,breakfast,cereals,"Carter, Kayden"
+e1099,2011/09/23,lunch,chinese food,
+e1101,2011/09/24,breakfast,toast and cheese,
+e1102,2011/09/24,dinner,indian food,
+e1103,2011/09/25,breakfast,toast and cheese,
+e1106,2011/09/26,breakfast,"eggs, sausages, and bread",
+e1109,2011/09/28,breakfast,oatmeal,
+e1113,2011/10/01,breakfast,peanut-butter-jam,"Andrew, Emily, Kayden"
+e1114,2011/10/01,dinner,tacos,
+e1120,2011/10/04,breakfast,peanut-butter-jam,
+e1122,2011/10/06,lunch,sushi,
+e1124,2011/10/10,breakfast,pancakes,
+e1125,2011/10/10,lunch,a burger,
+e1127,2011/10/11,lunch,indian food,
+e1129,2011/10/12,breakfast,toast and cheese,
+e1130,2011/10/12,dinner,chinese food,Layla
+e1134,2011/10/15,dinner,a burger,"Kayden, Emily, Andrew, Carter"
+e1135,2011/10/16,breakfast,toast and cheese,
+e1136,2011/10/17,lunch,sushi,"Piper, Layla, Nevaeh, Olivia, Eva, Nora"
+e1144,2011/10/21,breakfast,toast and cheese,
+e1149,2011/10/24,breakfast,oatmeal,
+e1150,2011/10/24,dinner,pasta,
+e1165,2011/11/11,breakfast,toast and cheese,
+e1168,2011/11/14,lunch,tacos,
+e1169,2011/11/14,dinner,sandwich,
+e1174,2011/11/18,dinner,indian food,
+e1176,2011/11/22,breakfast,"eggs, sausages, and bread",
+e1177,2011/11/22,lunch,chinese food,
+e1178,2011/11/22,dinner,sushi,
+e1179,2011/11/24,lunch,sushi,
+e1181,2011/11/25,lunch,fish and chips,"Avery, Willow"
+e1183,2011/11/28,breakfast,oatmeal,
+e1184,2011/11/29,dinner,tacos,
+e1188,2011/12/01,dinner,a burger,
+e1192,2011/12/04,breakfast,cereals,
+e1193,2011/12/04,dinner,sandwich,"Andrew, Emily, Kayden, Carter"
+e1195,2011/12/05,dinner,sandwich,
+e1197,2011/12/06,lunch,chinese food,
+e1208,2011/12/14,breakfast,toast and cheese,
+e1209,2011/12/14,dinner,tacos,
+e1212,2011/12/18,dinner,indian food,"Emily, Kayden, Carter, Andrew"
+e1217,2011/12/22,dinner,chinese food,
+e1222,2011/12/25,dinner,sushi,
+e1225,2011/12/29,breakfast,toast and cheese,"Emily, Kayden"
+e1229,2011/12/31,breakfast,"eggs, sausages, and bread",
+e1318,2012/01/05,dinner,sushi,
+e1319,2012/01/06,breakfast,oatmeal,
+e1320,2012/01/06,lunch,sandwich,
+e1321,2012/01/08,lunch,tacos,
+e1324,2012/01/11,breakfast,toast and cheese,
+e1325,2012/01/12,breakfast,cereals,
+e1327,2012/01/14,dinner,sandwich,
+e1329,2012/01/15,lunch,sushi,
+e1330,2012/01/16,lunch,chinese food,
+e1331,2012/01/17,dinner,sandwich,Rylee
+e1332,2012/01/19,dinner,sandwich,
+e1334,2012/01/23,dinner,sushi,
+e1339,2012/01/26,lunch,indian food,
+e1340,2012/01/27,breakfast,oatmeal,
+e1342,2012/01/28,lunch,steak,"Lydia, Nora, Piper, Rylee, Kinsley, Hazel, Layla"
+e1343,2012/01/31,breakfast,oatmeal,
+e1346,2012/02/02,dinner,tacos,"Avery, Benjamin, Willow, Jackson"
+e1352,2012/02/07,lunch,fish and chips,Emily
+e1355,2012/02/09,lunch,indian food,
+e1357,2012/02/10,breakfast,peanut-butter-jam,"Layla, Rylee, Lydia"
+e1358,2012/02/10,lunch,fish and chips,
+e1361,2012/02/12,breakfast,oatmeal,"Benjamin, Avery, Willow, Jackson"
+e1363,2012/02/13,lunch,indian food,
+e1368,2012/02/16,breakfast,"eggs, sausages, and bread",
+e1369,2012/02/16,dinner,sandwich,Emily
+e1371,2012/02/17,breakfast,oatmeal,"Benjamin, Avery"
+e1372,2012/02/17,dinner,steak,
+e1374,2012/02/18,lunch,sushi,"Benjamin, Avery"
+e1375,2012/02/21,lunch,pasta,
+e1376,2012/02/21,dinner,pasta,Nora
+e1377,2012/02/23,lunch,tacos,
+e1380,2012/02/26,lunch,a burger,Carter
+e1383,2012/03/03,lunch,indian food,
+e1386,2012/03/05,lunch,sandwich,
+e1387,2012/03/05,dinner,pasta,"Claire, Nevaeh, Piper, Hazel, Lydia, Rylee, Kinsley, Avery, Olivia, Nora, Layla"
+e1389,2012/03/06,dinner,sandwich,"Piper, Olivia, Eva, Rylee, Nora, Layla, Nevaeh, Hazel, Claire"
+e1391,2012/03/07,lunch,sushi,
+e1394,2012/03/09,lunch,sushi,
+e1395,2012/03/10,dinner,chinese food,
+e1397,2012/03/12,breakfast,peanut-butter-jam,"Olivia, Rylee, Piper"
+e1398,2012/03/12,lunch,steak,
+e1400,2012/03/13,lunch,a burger,Eva
+e1406,2012/03/17,breakfast,"eggs, sausages, and bread",
+e1409,2012/03/19,dinner,a burger,
+e1414,2012/03/22,dinner,chinese food,
+e1417,2012/03/23,lunch,sushi,
+e1418,2012/03/24,dinner,indian food,
+e1420,2012/03/26,dinner,chinese food,
+e1422,2012/03/28,lunch,sandwich,Emily
+e1423,2012/03/29,lunch,tacos,"Andrew, Emily"
+e1424,2012/03/29,dinner,chinese food,
+e1425,2012/03/30,breakfast,"eggs, sausages, and bread",
+e1428,2012/04/03,dinner,indian food,"Andrew, Kayden, Carter, Emily"
+e1430,2012/04/04,lunch,fish and chips,"Kayden, Carter, Andrew"
+e1431,2012/04/07,lunch,steak,"Andrew, Kayden, Emily, Carter"
+e1432,2012/04/08,dinner,indian food,
+e1433,2012/04/09,breakfast,pancakes,"Benjamin, Willow, Jackson, Avery"
+e1437,2012/04/10,lunch,chinese food,Emily
+e1439,2012/04/11,lunch,indian food,
+e1443,2012/04/13,dinner,sushi,
+e1445,2012/04/14,lunch,sushi,
+e1450,2012/04/19,lunch,fish and chips,
+e1451,2012/04/19,dinner,steak,"Piper, Olivia, Kinsley, Nora, Lydia, Avery, Hazel, Rylee"
+e1453,2012/04/20,dinner,indian food,
+e1454,2012/04/21,breakfast,cereals,
+e1455,2012/04/21,dinner,a burger,
+e1456,2012/04/22,dinner,sushi,
+e1459,2012/04/24,lunch,fish and chips,
+e1460,2012/04/24,dinner,sandwich,Kayden
+e1467,2012/04/28,breakfast,toast and cheese,
+e1469,2012/04/29,dinner,a burger,
+e1471,2012/05/01,breakfast,pancakes,
+e1473,2012/05/04,breakfast,oatmeal,
+e1474,2012/05/04,lunch,chinese food,Benjamin
+e1475,2012/05/04,dinner,sushi,"Andrew, Carter, Emily"
+e1478,2012/05/06,breakfast,toast and cheese,"Avery, Jackson"
+e1482,2012/05/08,lunch,pasta,"Olivia, Hazel, Piper, Claire, Kinsley, Lydia, Nora, Piper, Layla, Rylee, Nevaeh, Eva, Avery"
+e1483,2012/05/09,breakfast,pancakes,
+e1486,2012/05/13,breakfast,pancakes,"Jackson, Willow, Avery"
+e1487,2012/05/13,dinner,tacos,"Hazel, Piper"
+e1488,2012/05/14,lunch,chinese food,
+e1489,2012/05/14,dinner,sandwich,
+e1490,2012/05/15,lunch,fish and chips,
+e1495,2012/05/18,lunch,sandwich,
+e1496,2012/05/18,dinner,indian food,
+e1497,2012/05/19,lunch,a burger,
+e1498,2012/05/19,dinner,indian food,"Rylee, Avery, Nevaeh"
+e1505,2012/05/24,breakfast,"eggs, sausages, and bread","Rylee, Kinsley, Layla, Avery, Lydia, Eva"
+e1508,2012/05/26,dinner,chinese food,
+e1515,2012/05/29,breakfast,pancakes,
+e1516,2012/05/30,breakfast,peanut-butter-jam,
+e1520,2012/06/02,breakfast,toast and cheese,
+e1521,2012/06/03,breakfast,pancakes,"Avery, Jackson, Benjamin"
+e1525,2012/06/05,lunch,tacos,"Olivia, Lydia, Kinsley, Nora, Nevaeh"
+e1526,2012/06/06,breakfast,"eggs, sausages, and bread",Willow
+e1527,2012/06/06,lunch,a burger,
+e1528,2012/06/07,breakfast,oatmeal,
+e1531,2012/06/09,lunch,tacos,"Olivia, Eva, Claire"
+e1532,2012/06/09,dinner,steak,
+e1534,2012/06/10,dinner,sandwich,
+e1543,2012/06/16,lunch,fish and chips,
+e1546,2012/06/19,breakfast,peanut-butter-jam,Kayden
+e1550,2012/06/21,dinner,fish and chips,"Kayden, Andrew"
+e1552,2012/06/22,dinner,a burger,"Kayden, Andrew, Emily"
+e1562,2012/06/28,lunch,sushi,
+e1565,2012/06/30,lunch,steak,"Benjamin, Willow, Avery, Jackson"
+e1568,2012/07/01,lunch,fish and chips,
+e1571,2012/07/02,dinner,sandwich,"Hazel, Rylee, Avery"
+e1574,2012/07/04,lunch,sandwich,
+e1577,2012/07/07,breakfast,toast and cheese,
+e1578,2012/07/08,dinner,steak,Benjamin
+e1579,2012/07/09,lunch,indian food,"Eva, Kinsley, Lydia, Nevaeh"
+e1580,2012/07/09,dinner,steak,"Kayden, Andrew, Emily, Carter"
+e1582,2012/07/10,breakfast,toast and cheese,
+e1588,2012/07/14,dinner,indian food,
+e1591,2012/07/16,breakfast,oatmeal,
+e1593,2012/07/18,lunch,fish and chips,
+e1594,2012/07/20,dinner,a burger,
+e1595,2012/07/22,breakfast,"eggs, sausages, and bread",Emily
+e1599,2012/07/25,breakfast,pancakes,"Kayden, Andrew, Emily"
+e1603,2012/07/27,breakfast,"eggs, sausages, and bread",
+e1605,2012/07/28,breakfast,cereals,
+e1609,2012/07/31,dinner,fish and chips,
+e1611,2012/08/02,lunch,indian food,
+e1615,2012/08/05,lunch,fish and chips,
+e1621,2012/08/09,breakfast,pancakes,"Jackson, Willow, Avery"
+e1623,2012/08/10,lunch,steak,
+e1629,2012/08/14,lunch,indian food,
+e1630,2012/08/14,dinner,indian food,
+e1633,2012/08/15,breakfast,oatmeal,"Eva, Rylee, Piper, Hazel, Piper, Nora, Olivia, Kinsley"
+e1634,2012/08/15,dinner,steak,"Claire, Piper, Eva, Rylee, Lydia, Olivia, Nevaeh, Hazel, Piper, Kinsley, Nora, Avery"
+e1639,2012/08/19,dinner,pasta,"Jackson, Avery"
+e1642,2012/08/21,lunch,chinese food,
+e1644,2012/08/23,breakfast,"eggs, sausages, and bread",
+e1645,2012/08/23,dinner,sushi,"Avery, Nevaeh, Claire, Lydia, Nora, Piper, Eva, Kinsley, Rylee, Layla, Olivia, Piper"
+e1648,2012/08/25,lunch,tacos,
+e1652,2012/08/28,lunch,chinese food,
+e1655,2012/08/31,dinner,sandwich,
+e1656,2012/09/01,dinner,indian food,"Claire, Rylee, Piper, Eva, Hazel, Lydia"
+e1660,2012/09/04,breakfast,toast and cheese,"Carter, Kayden, Andrew, Emily"
+e1661,2012/09/04,dinner,sushi,
+e1662,2012/09/06,breakfast,pancakes,"Claire, Lydia, Nevaeh, Piper, Kinsley, Avery, Piper"
+e1665,2012/09/08,breakfast,oatmeal,"Avery, Willow"
+e1667,2012/09/09,dinner,indian food,
+e1668,2012/09/10,dinner,pasta,
+e1672,2012/09/11,dinner,tacos,
+e1674,2012/09/12,dinner,fish and chips,
+e1676,2012/09/13,breakfast,toast and cheese,
+e1683,2012/09/19,dinner,sushi,
+e1684,2012/09/20,breakfast,pancakes,"Piper, Claire, Olivia, Nevaeh, Rylee, Hazel, Piper, Eva"
+e1685,2012/09/20,dinner,steak,"Jackson, Benjamin"
+e1689,2012/09/23,breakfast,oatmeal,"Andrew, Carter, Kayden"
+e1691,2012/09/24,dinner,sushi,
+e1693,2012/09/25,lunch,fish and chips,"Nora, Hazel, Piper, Layla, Eva, Nevaeh, Rylee, Lydia"
+e1694,2012/09/25,dinner,a burger,
+e1699,2012/09/27,dinner,chinese food,Nevaeh
+e1701,2012/09/28,lunch,sandwich,"Kinsley, Claire, Piper, Eva, Olivia, Piper"
+e1702,2012/09/28,dinner,indian food,
+e1705,2012/09/29,breakfast,oatmeal,
+e1706,2012/09/29,dinner,sandwich,
+e1709,2012/09/30,breakfast,oatmeal,"Benjamin, Avery, Jackson"
+e1710,2012/09/30,lunch,sushi,
+e1716,2012/10/03,lunch,pasta,
+e1720,2012/10/04,lunch,tacos,
+e1724,2012/10/07,lunch,tacos,Andrew
+e1727,2012/10/08,breakfast,"eggs, sausages, and bread",Emily
+e1730,2012/10/09,dinner,steak,"Benjamin, Jackson"
+e1735,2012/10/11,dinner,tacos,
+e1741,2012/10/13,dinner,a burger,
+e1744,2012/10/16,lunch,indian food,
+e1747,2012/10/18,dinner,pasta,Kayden
+e1750,2012/10/19,dinner,pasta,
+e1753,2012/10/25,breakfast,peanut-butter-jam,
+e1756,2012/10/27,breakfast,"eggs, sausages, and bread","Olivia, Piper, Rylee"
+e1758,2012/10/28,breakfast,"eggs, sausages, and bread",Avery
+e1759,2012/10/29,dinner,sandwich,
+e1761,2012/10/30,breakfast,peanut-butter-jam,
+e1762,2012/10/30,lunch,pasta,
+e1764,2012/10/31,breakfast,pancakes,
+e1765,2012/11/01,dinner,pasta,
+e1768,2012/11/02,breakfast,"eggs, sausages, and bread",
+e1770,2012/11/04,lunch,sandwich,"Benjamin, Jackson, Willow"
+e1773,2012/11/05,dinner,sushi,
+e1777,2012/11/07,breakfast,peanut-butter-jam,
+e1778,2012/11/07,lunch,indian food,
+e1781,2012/11/08,lunch,pasta,
+e1782,2012/11/09,breakfast,peanut-butter-jam,
+e1783,2012/11/10,dinner,sushi,"Piper, Nora, Rylee, Layla, Claire, Avery, Nevaeh, Hazel, Piper, Lydia, Kinsley"
+e1785,2012/11/12,breakfast,cereals,"Kayden, Andrew, Carter"
+e1789,2012/11/14,breakfast,pancakes,
+e1792,2012/11/15,dinner,tacos,
+e1793,2012/11/16,breakfast,oatmeal,"Claire, Hazel, Lydia"
+e1796,2012/11/17,breakfast,peanut-butter-jam,
+e1797,2012/11/17,dinner,indian food,
+e1799,2012/11/22,lunch,pasta,"Kinsley, Olivia, Nora, Piper"
+e1802,2012/11/24,breakfast,toast and cheese,Avery
+e1803,2012/11/24,dinner,tacos,
+e1806,2012/11/26,lunch,fish and chips,
+e1808,2012/11/27,breakfast,toast and cheese,"Willow, Jackson, Avery, Benjamin"
+e1809,2012/11/28,lunch,sandwich,"Kayden, Emily"
+e1812,2012/11/29,lunch,a burger,
+e1816,2012/12/01,dinner,tacos,"Willow, Jackson"
+e1819,2012/12/05,breakfast,cereals,
+e1820,2012/12/06,lunch,sushi,"Benjamin, Willow, Avery"
+e1821,2012/12/06,dinner,pasta,
+e1824,2012/12/09,breakfast,pancakes,
+e1828,2012/12/11,dinner,tacos,Andrew
+e1832,2012/12/13,breakfast,toast and cheese,
+e1833,2012/12/14,dinner,pasta,
+e1835,2012/12/15,breakfast,oatmeal,Claire
+e1836,2012/12/15,lunch,steak,
+e1837,2012/12/15,dinner,tacos,
+e1840,2012/12/16,lunch,tacos,"Emily, Andrew, Kayden, Carter"
+e1844,2012/12/18,breakfast,pancakes,"Kayden, Emily, Andrew"
+e1852,2012/12/24,dinner,indian food,Andrew
+e1854,2012/12/26,lunch,fish and chips,Avery
+e1855,2012/12/27,breakfast,toast and cheese,Willow
+e1859,2012/12/29,dinner,indian food,
+e1862,2012/12/30,breakfast,peanut-butter-jam,Benjamin
+e1865,2012/12/31,breakfast,toast and cheese,
+e1866,2012/12/31,dinner,tacos,Emily
+e1951,2013/01/01,lunch,sushi,
+e1955,2013/01/03,dinner,indian food,
+e1957,2013/01/05,dinner,tacos,"Kayden, Carter, Andrew, Emily"
+e1962,2013/01/09,lunch,steak,
+e1967,2013/01/11,lunch,indian food,
+e1970,2013/01/12,dinner,pasta,"Kayden, Andrew, Emily"
+e1976,2013/01/14,dinner,chinese food,"Piper, Rylee, Olivia"
+e1979,2013/01/15,breakfast,"eggs, sausages, and bread",
+e1980,2013/01/15,lunch,a burger,"Emily, Kayden, Carter"
+e1983,2013/01/17,lunch,pasta,
+e1985,2013/01/18,breakfast,oatmeal,"Andrew, Emily, Kayden"
+e1986,2013/01/19,lunch,steak,"Claire, Eva, Piper, Lydia, Layla, Kinsley, Hazel, Avery, Nevaeh"
+e1987,2013/01/22,dinner,steak,
+e1990,2013/01/25,lunch,sandwich,
+e1992,2013/01/28,breakfast,pancakes,
+e1994,2013/01/30,dinner,fish and chips,
+e1999,2013/02/01,dinner,sandwich,"Andrew, Kayden"
+e2000,2013/02/02,lunch,fish and chips,
+e2001,2013/02/02,dinner,pasta,"Eva, Avery, Olivia"
+e2002,2013/02/03,lunch,sandwich,"Jackson, Benjamin"
+e2004,2013/02/05,lunch,pasta,
+e2007,2013/02/08,dinner,pasta,"Benjamin, Jackson, Avery"
+e2008,2013/02/09,lunch,steak,
+e2010,2013/02/14,dinner,chinese food,
+e2012,2013/02/17,lunch,a burger,"Piper, Kinsley"
+e2015,2013/02/19,breakfast,pancakes,Avery
+e2016,2013/02/19,dinner,chinese food,"Carter, Andrew"
+e2024,2013/02/26,dinner,pasta,
+e2026,2013/02/27,breakfast,pancakes,"Claire, Eva, Olivia, Piper, Hazel, Lydia, Rylee, Kinsley"
+e2028,2013/02/28,breakfast,pancakes,
+e2032,2013/03/03,lunch,steak,
+e2036,2013/03/07,breakfast,"eggs, sausages, and bread",
+e2037,2013/03/08,dinner,chinese food,
+e2038,2013/03/09,breakfast,pancakes,
+e2039,2013/03/09,dinner,a burger,
+e2047,2013/03/14,dinner,fish and chips,"Willow, Benjamin, Avery, Jackson"
+e2049,2013/03/15,breakfast,cereals,"Carter, Emily, Kayden"
+e2050,2013/03/15,dinner,sushi,
+e2052,2013/03/16,dinner,sandwich,
+e2055,2013/03/18,dinner,sandwich,"Piper, Claire, Hazel, Nora, Kinsley, Eva, Rylee, Olivia, Lydia, Layla, Nevaeh, Avery, Piper"
+e2059,2013/03/20,lunch,sushi,
+e2060,2013/03/20,dinner,sushi,
+e2061,2013/03/21,lunch,fish and chips,"Emily, Kayden"
+e2063,2013/03/22,breakfast,cereals,"Olivia, Piper, Claire, Lydia, Eva, Hazel"
+e2064,2013/03/22,dinner,pasta,
+e2070,2013/03/25,lunch,chinese food,"Carter, Kayden"
+e2074,2013/03/26,breakfast,peanut-butter-jam,
+e2075,2013/03/26,lunch,a burger,
+e2078,2013/03/28,dinner,indian food,"Jackson, Willow, Avery"
+e2079,2013/03/29,dinner,chinese food,"Carter, Kayden, Emily"
+e2088,2013/04/04,dinner,sushi,
+e2091,2013/04/05,dinner,indian food,
+e2092,2013/04/06,breakfast,cereals,
+e2093,2013/04/07,breakfast,peanut-butter-jam,
+e2094,2013/04/07,dinner,a burger,"Layla, Piper, Nevaeh"
+e2095,2013/04/08,dinner,pasta,"Olivia, Layla, Eva, Avery"
+e2098,2013/04/10,breakfast,peanut-butter-jam,
+e2099,2013/04/10,lunch,pasta,
+e2102,2013/04/12,dinner,indian food,"Piper, Piper, Kinsley, Hazel, Olivia, Lydia, Rylee, Claire"
+e2105,2013/04/14,lunch,tacos,"Jackson, Benjamin, Avery"
+e2106,2013/04/14,dinner,fish and chips,
+e2107,2013/04/15,dinner,pasta,"Andrew, Kayden, Emily, Carter"
+e2111,2013/04/19,lunch,indian food,"Hazel, Claire, Piper, Avery, Eva, Piper, Layla, Olivia, Kinsley, Rylee"
+e2114,2013/04/20,breakfast,"eggs, sausages, and bread",
+e2115,2013/04/20,lunch,chinese food,Carter
+e2116,2013/04/20,dinner,fish and chips,
+e2123,2013/04/23,breakfast,cereals,
+e2124,2013/04/24,breakfast,"eggs, sausages, and bread",
+e2129,2013/04/29,lunch,chinese food,"Andrew, Kayden, Emily, Carter"
+e2131,2013/04/30,breakfast,pancakes,"Layla, Lydia, Nora, Kinsley"
+e2133,2013/05/01,lunch,indian food,
+e2135,2013/05/02,breakfast,toast and cheese,
+e2136,2013/05/02,dinner,indian food,
+e2139,2013/05/06,lunch,pasta,"Olivia, Piper, Nevaeh, Claire, Rylee, Hazel"
+e2141,2013/05/07,breakfast,"eggs, sausages, and bread","Hazel, Rylee, Avery, Layla, Kinsley, Nevaeh, Piper, Nora"
+e2142,2013/05/07,lunch,chinese food,"Jackson, Avery, Benjamin"
+e2143,2013/05/07,dinner,indian food,
+e2145,2013/05/09,lunch,tacos,"Carter, Kayden, Andrew"
+e2147,2013/05/10,breakfast,toast and cheese,
+e2149,2013/05/11,breakfast,toast and cheese,Emily
+e2152,2013/05/12,breakfast,pancakes,
+e2158,2013/05/17,lunch,pasta,
+e2161,2013/05/20,breakfast,"eggs, sausages, and bread","Carter, Kayden, Andrew"
+e2164,2013/05/22,breakfast,peanut-butter-jam,"Kayden, Andrew"
+e2168,2013/05/25,breakfast,pancakes,"Carter, Emily"
+e2169,2013/05/25,dinner,pasta,
+e2173,2013/05/28,breakfast,peanut-butter-jam,
+e2174,2013/05/29,lunch,pasta,"Olivia, Nora, Kinsley, Piper, Rylee, Layla, Claire, Hazel, Nevaeh, Piper, Eva, Lydia"
+e2175,2013/05/30,breakfast,cereals,
+e2178,2013/06/01,dinner,indian food,
+e2181,2013/06/03,breakfast,peanut-butter-jam,
+e2182,2013/06/03,lunch,a burger,"Claire, Piper"
+e2183,2013/06/05,breakfast,"eggs, sausages, and bread",
+e2186,2013/06/06,dinner,chinese food,Eva
+e2191,2013/06/08,breakfast,oatmeal,
+e2193,2013/06/09,lunch,pasta,
+e2197,2013/06/10,breakfast,"eggs, sausages, and bread","Andrew, Emily, Kayden, Carter"
+e2198,2013/06/10,dinner,sandwich,"Andrew, Carter"
+e2203,2013/06/12,breakfast,toast and cheese,
+e2206,2013/06/14,dinner,tacos,
+e2209,2013/06/15,breakfast,toast and cheese,
+e2211,2013/06/16,breakfast,"eggs, sausages, and bread",
+e2212,2013/06/16,lunch,steak,
+e2213,2013/06/16,dinner,sushi,
+e2216,2013/06/17,lunch,sushi,
+e2219,2013/06/18,dinner,fish and chips,
+e2224,2013/06/20,dinner,chinese food,"Emily, Kayden, Carter, Andrew"
+e2229,2013/06/24,lunch,tacos,"Avery, Benjamin"
+e2237,2013/06/30,dinner,sushi,
+e2239,2013/07/01,breakfast,toast and cheese,
+e2242,2013/07/02,breakfast,cereals,"Avery, Olivia, Piper, Rylee"
+e2243,2013/07/02,lunch,pasta,
+e2246,2013/07/03,breakfast,cereals,
+e2247,2013/07/03,dinner,tacos,"Emily, Kayden"
+e2251,2013/07/05,breakfast,cereals,
+e2259,2013/07/14,lunch,indian food,
+e2260,2013/07/15,dinner,fish and chips,
+e2267,2013/07/19,breakfast,oatmeal,
+e2270,2013/07/24,lunch,steak,
+e2271,2013/07/24,dinner,sandwich,
+e2278,2013/07/31,lunch,a burger,Benjamin
+e2281,2013/08/01,breakfast,peanut-butter-jam,
+e2282,2013/08/01,lunch,pasta,
+e2283,2013/08/01,dinner,steak,
+e2284,2013/08/02,dinner,tacos,
+e2287,2013/08/03,dinner,steak,
+e2289,2013/08/05,lunch,chinese food,
+e2290,2013/08/05,dinner,chinese food,"Hazel, Piper, Nevaeh"
+e2292,2013/08/07,lunch,fish and chips,
+e2295,2013/08/08,dinner,sushi,
+e2302,2013/08/12,dinner,steak,
+e2308,2013/08/16,breakfast,pancakes,
+e2310,2013/08/17,dinner,indian food,Kayden
+e2313,2013/08/20,dinner,tacos,"Piper, Claire, Layla, Olivia, Hazel, Rylee, Kinsley, Nora, Lydia, Avery"
+e2315,2013/08/22,breakfast,pancakes,"Andrew, Kayden"
+e2316,2013/08/22,lunch,fish and chips,
+e2317,2013/08/24,dinner,sandwich,
+e2326,2013/08/30,lunch,pasta,
+e2331,2013/09/01,breakfast,toast and cheese,"Kinsley, Nora, Rylee, Layla, Hazel, Olivia, Eva, Avery, Nevaeh, Claire, Lydia"
+e2333,2013/09/03,dinner,indian food,
+e2337,2013/09/09,dinner,indian food,
+e2338,2013/09/10,dinner,fish and chips,
+e2340,2013/09/11,breakfast,"eggs, sausages, and bread",
+e2342,2013/09/12,lunch,pasta,
+e2344,2013/09/13,breakfast,pancakes,
+e2345,2013/09/13,dinner,tacos,
+e2347,2013/09/14,breakfast,peanut-butter-jam,
+e2350,2013/09/15,dinner,steak,"Carter, Andrew, Kayden, Emily"
+e2354,2013/09/19,breakfast,toast and cheese,
+e2356,2013/09/20,dinner,chinese food,
+e2358,2013/09/21,lunch,sushi,Avery
+e2359,2013/09/22,lunch,sandwich,Emily
+e2363,2013/09/24,dinner,pasta,
+e2366,2013/09/25,breakfast,peanut-butter-jam,"Emily, Kayden, Andrew"
+e2367,2013/09/25,dinner,fish and chips,
+e2370,2013/09/27,lunch,pasta,"Carter, Emily"
+e2376,2013/09/29,breakfast,pancakes,"Eva, Nevaeh, Olivia, Hazel, Piper, Kinsley, Nora, Avery, Claire, Lydia, Piper, Rylee"
+e2380,2013/10/01,lunch,a burger,"Lydia, Rylee, Hazel, Piper, Piper, Nora, Claire, Eva, Layla, Avery, Nevaeh, Olivia, Kinsley"
+e2383,2013/10/02,lunch,sushi,
+e2385,2013/10/03,lunch,pasta,
+e2389,2013/10/06,dinner,a burger,
+e2391,2013/10/08,lunch,pasta,
+e2393,2013/10/09,dinner,pasta,
+e2395,2013/10/12,breakfast,oatmeal,"Layla, Nora, Rylee, Piper, Kinsley, Eva, Lydia, Avery, Hazel, Olivia"
+e2398,2013/10/13,dinner,indian food,
+e2399,2013/10/14,dinner,indian food,
+e2402,2013/10/16,breakfast,peanut-butter-jam,
+e2406,2013/10/17,dinner,pasta,
+e2411,2013/10/20,breakfast,"eggs, sausages, and bread",
+e2414,2013/10/22,dinner,sushi,Eva
+e2417,2013/10/25,lunch,steak,
+e2421,2013/10/27,lunch,indian food,
+e2425,2013/10/29,lunch,fish and chips,
+e2426,2013/10/30,breakfast,"eggs, sausages, and bread",
+e2429,2013/11/01,lunch,pasta,
+e2431,2013/11/02,breakfast,peanut-butter-jam,
+e2432,2013/11/03,lunch,sushi,
+e2433,2013/11/05,dinner,chinese food,
+e2435,2013/11/06,breakfast,pancakes,
+e2436,2013/11/06,lunch,steak,
+e2437,2013/11/06,dinner,steak,Emily
+e2443,2013/11/15,dinner,tacos,
+e2447,2013/11/17,dinner,fish and chips,"Willow, Jackson, Benjamin"
+e2452,2013/11/21,lunch,steak,
+e2454,2013/11/23,lunch,tacos,Kayden
+e2455,2013/11/23,dinner,fish and chips,
+e2465,2013/11/30,lunch,steak,
+e2469,2013/12/03,dinner,sushi,
+e2470,2013/12/05,dinner,indian food,
+e2473,2013/12/07,lunch,steak,
+e2475,2013/12/08,breakfast,oatmeal,
+e2477,2013/12/09,lunch,sandwich,
+e2478,2013/12/10,breakfast,toast and cheese,
+e2479,2013/12/10,dinner,indian food,
+e2486,2013/12/15,lunch,indian food,
+e2490,2013/12/19,breakfast,"eggs, sausages, and bread",
+e2491,2013/12/19,lunch,sushi,
+e2495,2013/12/22,lunch,tacos,"Avery, Willow, Benjamin"
+e2497,2013/12/23,breakfast,toast and cheese,"Carter, Andrew, Kayden, Emily"
+e2498,2013/12/23,dinner,pasta,
+e2500,2013/12/27,dinner,fish and chips,
+e2504,2013/12/30,lunch,sandwich,
+e2592,2014/01/01,lunch,chinese food,"Carter, Kayden, Andrew"
+e2593,2014/01/01,dinner,pasta,
+e2594,2014/01/02,breakfast,"eggs, sausages, and bread",
+e2595,2014/01/02,lunch,chinese food,
+e2596,2014/01/03,lunch,steak,
+e2597,2014/01/03,dinner,pasta,
+e2605,2014/01/07,breakfast,toast and cheese,
+e2609,2014/01/09,lunch,sandwich,"Emily, Kayden, Andrew, Carter"
+e2613,2014/01/13,lunch,sushi,"Andrew, Emily, Carter"
+e2616,2014/01/15,dinner,indian food,"Carter, Emily"
+e2619,2014/01/16,dinner,fish and chips,
+e2621,2014/01/18,dinner,steak,"Andrew, Emily, Carter"
+e2623,2014/01/19,lunch,sushi,"Andrew, Emily, Carter"
+e2624,2014/01/19,dinner,indian food,"Olivia, Lydia, Avery, Piper, Piper, Nora, Eva, Layla, Rylee, Kinsley, Hazel, Nevaeh"
+e2626,2014/01/21,dinner,sushi,"Layla, Lydia, Eva, Olivia, Avery, Piper"
+e2628,2014/01/23,lunch,fish and chips,Andrew
+e2631,2014/01/25,breakfast,oatmeal,"Claire, Nora, Piper, Eva, Rylee, Piper, Lydia, Olivia, Hazel, Kinsley, Avery, Layla"
+e2633,2014/01/29,lunch,a burger,
+e2634,2014/01/29,dinner,sandwich,"Jackson, Avery"
+e2638,2014/02/03,lunch,tacos,"Kinsley, Eva, Piper, Olivia, Claire, Lydia"
+e2642,2014/02/04,breakfast,pancakes,"Benjamin, Avery, Jackson, Willow"
+e2644,2014/02/06,breakfast,"eggs, sausages, and bread",Willow
+e2645,2014/02/06,dinner,fish and chips,"Nevaeh, Kinsley, Piper, Hazel, Eva, Lydia, Claire, Piper, Avery, Layla, Rylee, Nora"
+e2651,2014/02/09,dinner,sushi,
+e2654,2014/02/12,dinner,fish and chips,"Eva, Piper, Nora, Layla, Nevaeh, Rylee, Lydia, Hazel"
+e2656,2014/02/14,breakfast,pancakes,Piper
+e2658,2014/02/15,lunch,fish and chips,
+e2662,2014/02/18,breakfast,"eggs, sausages, and bread",
+e2663,2014/02/18,lunch,sushi,
+e2665,2014/02/20,breakfast,oatmeal,
+e2667,2014/02/21,breakfast,cereals,Carter
+e2668,2014/02/24,lunch,indian food,
+e2669,2014/02/25,breakfast,"eggs, sausages, and bread","Kayden, Andrew, Carter"
+e2670,2014/02/25,dinner,fish and chips,"Kayden, Carter, Andrew, Emily"
+e2674,2014/02/27,dinner,sushi,"Rylee, Kinsley, Piper, Lydia, Piper, Layla, Nevaeh, Claire, Hazel, Olivia, Nora, Eva, Avery"
+e2681,2014/03/05,breakfast,oatmeal,"Emily, Carter"
+e2682,2014/03/06,lunch,fish and chips,
+e2684,2014/03/07,lunch,fish and chips,
+e2685,2014/03/09,breakfast,oatmeal,
+e2692,2014/03/14,breakfast,toast and cheese,
+e2693,2014/03/14,dinner,pasta,
+e2695,2014/03/15,lunch,sandwich,
+e2699,2014/03/16,dinner,sandwich,"Emily, Kayden"
+e2703,2014/03/18,lunch,pasta,
+e2706,2014/03/20,breakfast,"eggs, sausages, and bread",
+e2708,2014/03/21,lunch,chinese food,"Andrew, Carter, Emily, Kayden"
+e2709,2014/03/21,dinner,tacos,"Andrew, Emily"
+e2712,2014/03/22,breakfast,toast and cheese,
+e2715,2014/03/24,breakfast,toast and cheese,"Piper, Nevaeh, Layla, Nora, Eva, Claire, Avery, Olivia"
+e2718,2014/03/25,lunch,steak,"Emily, Carter"
+e2719,2014/03/26,dinner,indian food,
+e2724,2014/03/28,breakfast,peanut-butter-jam,
+e2728,2014/03/30,breakfast,"eggs, sausages, and bread","Kayden, Andrew, Emily"
+e2731,2014/03/31,breakfast,toast and cheese,
+e2734,2014/04/01,dinner,fish and chips,
+e2735,2014/04/02,breakfast,toast and cheese,"Emily, Kayden"
+e2736,2014/04/02,lunch,sandwich,"Carter, Andrew, Kayden, Emily"
+e2739,2014/04/04,lunch,indian food,
+e2741,2014/04/05,breakfast,cereals,"Kinsley, Nora"
+e2742,2014/04/06,lunch,tacos,
+e2743,2014/04/06,dinner,pasta,
+e2751,2014/04/10,dinner,tacos,
+e2753,2014/04/11,lunch,chinese food,
+e2759,2014/04/14,dinner,sandwich,Carter
+e2764,2014/04/17,dinner,chinese food,
+e2765,2014/04/18,dinner,fish and chips,
+e2768,2014/04/19,dinner,sandwich,"Piper, Olivia, Hazel"
+e2773,2014/04/21,dinner,pasta,"Carter, Kayden, Andrew, Emily"
+e2775,2014/04/22,breakfast,cereals,
+e2776,2014/04/23,breakfast,oatmeal,"Kinsley, Avery, Piper"
+e2777,2014/04/23,lunch,pasta,
+e2779,2014/04/25,dinner,sandwich,
+e2782,2014/04/26,dinner,pasta,
+e2783,2014/04/27,breakfast,oatmeal,"Carter, Andrew"
+e2784,2014/04/29,lunch,sushi,"Willow, Avery"
+e2786,2014/04/30,lunch,sandwich,
+e2791,2014/05/03,dinner,pasta,"Benjamin, Willow, Avery"
+e2793,2014/05/04,lunch,a burger,
+e2799,2014/05/08,breakfast,cereals,
+e2800,2014/05/09,lunch,sandwich,"Claire, Nevaeh, Lydia, Eva, Piper, Nora"
+e2802,2014/05/10,lunch,sushi,
+e2806,2014/05/11,breakfast,peanut-butter-jam,
+e2808,2014/05/12,lunch,pasta,
+e2809,2014/05/13,breakfast,"eggs, sausages, and bread","Piper, Nevaeh, Eva, Hazel, Avery, Olivia, Kinsley, Lydia"
+e2811,2014/05/15,lunch,sandwich,"Emily, Carter"
+e2815,2014/05/17,breakfast,toast and cheese,
+e2817,2014/05/19,dinner,steak,Benjamin
+e2818,2014/05/20,breakfast,"eggs, sausages, and bread",
+e2819,2014/05/21,lunch,tacos,"Layla, Lydia, Nora, Claire, Piper, Nevaeh, Piper, Avery"
+e2821,2014/05/22,breakfast,toast and cheese,"Carter, Kayden, Andrew, Emily"
+e2823,2014/05/23,breakfast,toast and cheese,
+e2824,2014/05/23,lunch,pasta,
+e2827,2014/05/25,lunch,indian food,
+e2828,2014/05/25,dinner,sandwich,
+e2830,2014/05/26,breakfast,cereals,
+e2831,2014/05/26,lunch,fish and chips,
+e2832,2014/05/26,dinner,a burger,"Hazel, Eva"
+e2834,2014/05/27,lunch,a burger,
+e2835,2014/05/29,lunch,pasta,"Carter, Andrew, Emily"
+e2838,2014/05/30,lunch,steak,
+e2841,2014/06/01,lunch,steak,
+e2844,2014/06/02,lunch,sandwich,
+e2845,2014/06/02,dinner,fish and chips,"Andrew, Kayden, Emily"
+e2851,2014/06/07,lunch,sandwich,
+e2853,2014/06/08,dinner,sandwich,"Willow, Benjamin, Jackson, Avery"
+e2855,2014/06/09,lunch,sandwich,
+e2857,2014/06/10,breakfast,"eggs, sausages, and bread",
+e2858,2014/06/11,dinner,pasta,"Kayden, Andrew, Carter"
+e2859,2014/06/12,dinner,sushi,
+e2863,2014/06/16,lunch,a burger,"Emily, Carter"
+e2867,2014/06/18,lunch,fish and chips,
+e2868,2014/06/20,breakfast,cereals,"Andrew, Kayden, Carter"
+e2869,2014/06/20,lunch,steak,
+e2871,2014/06/23,dinner,a burger,"Avery, Willow, Benjamin, Jackson"
+e2872,2014/06/24,breakfast,cereals,
+e2874,2014/06/26,lunch,indian food,
+e2875,2014/06/26,dinner,tacos,"Olivia, Piper, Eva, Kinsley, Hazel, Rylee, Nora, Layla, Avery, Nevaeh, Claire, Lydia, Piper"
+e2879,2014/06/28,dinner,steak,
+e2881,2014/06/30,dinner,chinese food,Kayden
+e2883,2014/07/02,lunch,indian food,
+e2888,2014/07/04,breakfast,oatmeal,"Emily, Carter"
+e2890,2014/07/08,lunch,steak,
+e2896,2014/07/12,breakfast,"eggs, sausages, and bread",
+e2898,2014/07/14,lunch,chinese food,
+e2900,2014/07/15,dinner,sushi,
+e2902,2014/07/17,lunch,a burger,
+e2904,2014/07/18,dinner,sushi,
+e2905,2014/07/19,lunch,tacos,
+e2906,2014/07/22,breakfast,peanut-butter-jam,"Piper, Olivia, Claire, Rylee, Kinsley, Eva, Layla, Avery, Lydia, Nevaeh, Piper, Hazel, Nora"
+e2909,2014/07/23,breakfast,"eggs, sausages, and bread",
+e2911,2014/07/24,breakfast,"eggs, sausages, and bread","Carter, Andrew, Emily"
+e2912,2014/07/24,dinner,fish and chips,
+e2915,2014/07/30,dinner,fish and chips,"Carter, Andrew"
+e2919,2014/08/01,lunch,indian food,
+e2920,2014/08/02,breakfast,toast and cheese,
+e2921,2014/08/02,lunch,steak,
+e2922,2014/08/02,dinner,steak,
+e2923,2014/08/03,breakfast,oatmeal,
+e2930,2014/08/12,breakfast,pancakes,
+e2932,2014/08/13,lunch,fish and chips,
+e2935,2014/08/14,dinner,fish and chips,"Kayden, Carter, Andrew"
+e2937,2014/08/15,lunch,chinese food,
+e2939,2014/08/16,lunch,steak,
+e2943,2014/08/19,breakfast,toast and cheese,
+e2945,2014/08/20,dinner,pasta,
+e2948,2014/08/21,breakfast,peanut-butter-jam,
+e2949,2014/08/22,breakfast,peanut-butter-jam,"Layla, Nevaeh, Lydia"
+e2952,2014/08/23,dinner,sushi,"Andrew, Carter"
+e2956,2014/08/26,dinner,sandwich,
+e2958,2014/08/27,breakfast,toast and cheese,
+e2959,2014/08/27,lunch,steak,"Jackson, Benjamin"
+e2962,2014/08/28,lunch,steak,
+e2966,2014/08/31,lunch,tacos,
+e2972,2014/09/03,lunch,steak,"Avery, Olivia, Layla, Rylee, Lydia, Nevaeh, Hazel, Piper, Piper, Claire, Eva, Nora, Kinsley"
+e2974,2014/09/05,dinner,tacos,
+e2975,2014/09/06,breakfast,"eggs, sausages, and bread",
+e2978,2014/09/08,lunch,chinese food,"Willow, Avery, Benjamin"
+e2981,2014/09/09,dinner,steak,
+e2982,2014/09/10,dinner,sandwich,"Avery, Benjamin"
+e2985,2014/09/11,breakfast,oatmeal,
+e2986,2014/09/13,breakfast,oatmeal,"Layla, Piper, Lydia, Nevaeh"
+e2987,2014/09/13,dinner,tacos,
+e2991,2014/09/15,lunch,steak,
+e3000,2014/09/20,breakfast,"eggs, sausages, and bread",
+e3004,2014/09/22,dinner,indian food,"Emily, Kayden, Carter, Andrew"
+e3006,2014/09/23,lunch,indian food,"Andrew, Carter"
+e3008,2014/09/24,lunch,a burger,"Claire, Layla, Piper, Avery"
+e3011,2014/09/26,dinner,fish and chips,
+e3015,2014/09/29,dinner,tacos,
+e3018,2014/10/02,breakfast,peanut-butter-jam,
+e3021,2014/10/05,dinner,tacos,Layla
+e3023,2014/10/06,lunch,sandwich,
+e3025,2014/10/07,dinner,pasta,
+e3026,2014/10/09,breakfast,cereals,
+e3028,2014/10/13,lunch,pasta,"Avery, Benjamin, Jackson"
+e3030,2014/10/14,dinner,pasta,Avery
+e3032,2014/10/17,dinner,tacos,Carter
+e3045,2014/10/27,dinner,sandwich,
+e3048,2014/10/28,breakfast,oatmeal,
+e3049,2014/10/28,dinner,steak,
+e3051,2014/10/29,dinner,fish and chips,
+e3054,2014/10/31,dinner,fish and chips,
+e3055,2014/11/01,breakfast,peanut-butter-jam,
+e3056,2014/11/02,breakfast,peanut-butter-jam,
+e3057,2014/11/02,lunch,a burger,"Nora, Claire, Piper, Layla"
+e3062,2014/11/06,lunch,fish and chips,
+e3063,2014/11/07,breakfast,"eggs, sausages, and bread",
+e3070,2014/11/12,lunch,indian food,
+e3072,2014/11/14,breakfast,peanut-butter-jam,
+e3074,2014/11/15,breakfast,peanut-butter-jam,
+e3075,2014/11/15,lunch,chinese food,
+e3078,2014/11/16,lunch,fish and chips,
+e3082,2014/11/19,breakfast,"eggs, sausages, and bread",
+e3083,2014/11/19,dinner,tacos,
+e3087,2014/11/22,breakfast,"eggs, sausages, and bread",
+e3097,2014/11/27,breakfast,"eggs, sausages, and bread",
+e3098,2014/11/27,dinner,pasta,
+e3099,2014/11/28,dinner,pasta,
+e3104,2014/12/01,lunch,tacos,
+e3109,2014/12/07,dinner,steak,
+e3112,2014/12/10,breakfast,oatmeal,
+e3113,2014/12/10,lunch,sushi,
+e3116,2014/12/11,dinner,chinese food,
+e3117,2014/12/12,breakfast,"eggs, sausages, and bread",
+e3119,2014/12/13,lunch,tacos,"Jackson, Willow"
+e3122,2014/12/15,breakfast,cereals,"Nora, Eva, Layla, Piper, Rylee"
+e3123,2014/12/15,dinner,a burger,
+e3125,2014/12/16,lunch,chinese food,"Piper, Olivia, Lydia, Eva"
+e3127,2014/12/17,lunch,indian food,
+e3129,2014/12/18,breakfast,cereals,
+e3131,2014/12/19,breakfast,peanut-butter-jam,"Emily, Kayden, Andrew, Carter"
+e3132,2014/12/19,dinner,indian food,
+e3137,2014/12/21,breakfast,toast and cheese,"Andrew, Carter"
+e3140,2014/12/23,lunch,tacos,
+e3143,2014/12/25,lunch,steak,"Carter, Kayden, Emily"
+e3145,2014/12/26,lunch,steak,
+e3146,2014/12/27,lunch,sushi,
+e3148,2014/12/30,lunch,a burger,"Andrew, Emily"
+e3149,2014/12/30,dinner,fish and chips,"Jackson, Willow, Avery"
+e3150,2014/12/31,lunch,a burger,
+e3235,2015/01/01,breakfast,peanut-butter-jam,"Kayden, Carter, Andrew, Emily"
+e3236,2015/01/02,lunch,fish and chips,"Andrew, Emily, Kayden"
+e3237,2015/01/02,dinner,indian food,"Hazel, Nora"
+e3241,2015/01/05,lunch,steak,"Eva, Nevaeh, Lydia, Olivia"
+e3242,2015/01/06,lunch,indian food,
+e3245,2015/01/07,lunch,tacos,
+e3247,2015/01/08,dinner,a burger,
+e3248,2015/01/10,breakfast,oatmeal,
+e3249,2015/01/10,lunch,steak,"Willow, Jackson"
+e3250,2015/01/11,dinner,a burger,"Carter, Andrew, Kayden, Emily"
+e3252,2015/01/12,dinner,sushi,"Benjamin, Jackson"
+e3260,2015/01/18,breakfast,oatmeal,
+e3268,2015/01/25,lunch,pasta,Olivia
+e3269,2015/01/26,breakfast,toast and cheese,
+e3271,2015/01/28,lunch,a burger,"Andrew, Carter, Kayden"
+e3273,2015/01/29,breakfast,toast and cheese,Carter
+e3277,2015/01/31,dinner,steak,
+e3279,2015/02/01,lunch,indian food,"Kayden, Carter"
+e3281,2015/02/02,breakfast,oatmeal,"Kayden, Carter, Emily, Andrew"
+e3282,2015/02/02,lunch,chinese food,
+e3285,2015/02/03,lunch,indian food,"Carter, Emily, Kayden"
+e3286,2015/02/03,dinner,a burger,
+e3288,2015/02/04,breakfast,toast and cheese,"Nora, Claire, Avery"
+e3290,2015/02/05,breakfast,"eggs, sausages, and bread",
+e3293,2015/02/07,breakfast,oatmeal,
+e3294,2015/02/07,lunch,chinese food,
+e3295,2015/02/08,breakfast,peanut-butter-jam,"Emily, Kayden"
+e3299,2015/02/11,lunch,tacos,
+e3301,2015/02/12,dinner,indian food,
+e3303,2015/02/13,dinner,fish and chips,
+e3305,2015/02/14,breakfast,cereals,Jackson
+e3306,2015/02/14,lunch,indian food,
+e3308,2015/02/15,lunch,a burger,"Hazel, Eva, Lydia, Kinsley, Avery, Layla, Rylee, Piper, Nevaeh, Piper, Nora, Olivia, Claire"
+e3312,2015/02/18,breakfast,cereals,"Andrew, Carter"
+e3313,2015/02/18,lunch,a burger,
+e3314,2015/02/20,dinner,pasta,
+e3315,2015/02/22,breakfast,toast and cheese,
+e3320,2015/02/27,dinner,pasta,"Avery, Willow, Jackson, Benjamin"
+e3323,2015/02/28,lunch,chinese food,
+e3325,2015/03/01,lunch,a burger,"Benjamin, Jackson, Avery, Willow"
+e3327,2015/03/02,lunch,chinese food,
+e3328,2015/03/03,breakfast,oatmeal,"Lydia, Rylee"
+e3329,2015/03/03,dinner,sushi,
+e3331,2015/03/05,breakfast,peanut-butter-jam,
+e3332,2015/03/05,dinner,tacos,
+e3335,2015/03/08,dinner,pasta,"Hazel, Lydia, Olivia, Piper, Avery, Nevaeh, Layla, Piper, Kinsley, Claire"
+e3339,2015/03/09,dinner,sandwich,
+e3340,2015/03/10,lunch,steak,
+e3343,2015/03/12,breakfast,peanut-butter-jam,Jackson
+e3349,2015/03/17,breakfast,peanut-butter-jam,"Avery, Nora, Piper, Lydia"
+e3350,2015/03/17,lunch,indian food,Nora
+e3351,2015/03/18,dinner,sandwich,
+e3354,2015/03/20,lunch,fish and chips,
+e3358,2015/03/22,dinner,chinese food,
+e3360,2015/03/23,dinner,fish and chips,"Emily, Kayden, Andrew, Carter"
+e3363,2015/03/26,dinner,a burger,
+e3364,2015/03/27,breakfast,toast and cheese,
+e3367,2015/03/28,lunch,sandwich,Carter
+e3370,2015/03/30,lunch,fish and chips,
+e3375,2015/04/03,lunch,sandwich,Jackson
+e3378,2015/04/05,lunch,indian food,"Carter, Kayden, Andrew"
+e3379,2015/04/05,dinner,sandwich,"Benjamin, Willow, Avery, Jackson"
+e3380,2015/04/06,breakfast,peanut-butter-jam,"Benjamin, Jackson, Avery, Willow"
+e3382,2015/04/08,breakfast,cereals,
+e3385,2015/04/09,lunch,pasta,
+e3387,2015/04/10,dinner,pasta,
+e3393,2015/04/13,lunch,chinese food,
+e3394,2015/04/13,dinner,chinese food,"Piper, Lydia, Eva, Nevaeh, Nora, Layla, Rylee, Claire, Hazel, Piper, Olivia, Avery"
+e3395,2015/04/15,breakfast,peanut-butter-jam,
+e3396,2015/04/15,dinner,chinese food,"Kinsley, Avery, Eva, Claire, Piper, Rylee, Layla, Nevaeh, Olivia, Lydia, Piper, Hazel"
+e3398,2015/04/17,lunch,a burger,Willow
+e3400,2015/04/18,lunch,indian food,"Andrew, Emily, Kayden, Carter"
+e3403,2015/04/22,dinner,sandwich,
+e3404,2015/04/23,lunch,chinese food,"Hazel, Nora, Piper, Eva, Olivia, Lydia, Claire, Nevaeh, Piper, Kinsley, Layla"
+e3410,2015/04/27,lunch,sandwich,
+e3411,2015/04/28,breakfast,pancakes,
+e3413,2015/04/29,dinner,fish and chips,
+e3415,2015/05/01,lunch,a burger,"Emily, Andrew, Kayden, Carter"
+e3416,2015/05/02,breakfast,pancakes,"Piper, Lydia, Avery, Layla, Eva, Hazel, Olivia"
+e3418,2015/05/04,dinner,sushi,"Kayden, Emily, Carter, Andrew"
+e3421,2015/05/05,breakfast,"eggs, sausages, and bread","Emily, Carter, Kayden"
+e3423,2015/05/07,breakfast,peanut-butter-jam,
+e3424,2015/05/07,dinner,sandwich,
+e3426,2015/05/08,lunch,steak,"Kayden, Carter, Andrew"
+e3427,2015/05/08,dinner,sandwich,
+e3433,2015/05/14,dinner,tacos,
+e3436,2015/05/17,lunch,steak,"Avery, Benjamin, Jackson, Willow"
+e3438,2015/05/18,dinner,pasta,Kayden
+e3446,2015/05/24,breakfast,peanut-butter-jam,
+e3447,2015/05/26,breakfast,"eggs, sausages, and bread",
+e3450,2015/05/27,breakfast,cereals,
+e3451,2015/05/27,lunch,sandwich,Avery
+e3455,2015/05/30,lunch,a burger,"Layla, Eva, Nevaeh, Lydia, Rylee, Avery"
+e3456,2015/05/31,lunch,steak,"Kayden, Emily, Andrew, Carter"
+e3457,2015/06/01,lunch,a burger,"Claire, Rylee, Eva, Nora, Piper, Avery"
+e3460,2015/06/04,dinner,sushi,
+e3462,2015/06/05,lunch,fish and chips,
+e3465,2015/06/07,lunch,pasta,"Carter, Andrew, Kayden, Emily"
+e3468,2015/06/09,breakfast,oatmeal,"Emily, Kayden, Carter"
+e3469,2015/06/10,dinner,chinese food,
+e3471,2015/06/11,dinner,sushi,
+e3474,2015/06/12,lunch,tacos,
+e3476,2015/06/13,breakfast,peanut-butter-jam,
+e3479,2015/06/16,breakfast,oatmeal,
+e3481,2015/06/18,breakfast,oatmeal,
+e3482,2015/06/18,dinner,sandwich,
+e3485,2015/06/22,breakfast,oatmeal,"Hazel, Rylee, Avery, Nevaeh, Nora"
+e3487,2015/06/23,dinner,indian food,"Kayden, Andrew, Carter"
+e3491,2015/06/25,breakfast,oatmeal,"Claire, Eva"
+e3492,2015/06/25,lunch,pasta,
+e3495,2015/06/28,lunch,sushi,"Benjamin, Jackson, Avery, Willow"
+e3496,2015/06/28,dinner,tacos,"Rylee, Olivia"
+e3498,2015/06/30,dinner,a burger,"Layla, Piper, Avery, Claire, Hazel, Piper"
+e3501,2015/07/02,breakfast,"eggs, sausages, and bread",
+e3504,2015/07/03,lunch,chinese food,
+e3505,2015/07/04,breakfast,oatmeal,
+e3506,2015/07/05,breakfast,peanut-butter-jam,Kayden
+e3507,2015/07/05,lunch,tacos,"Nora, Claire, Piper, Eva, Lydia, Avery, Layla"
+e3510,2015/07/08,breakfast,peanut-butter-jam,
+e3511,2015/07/08,lunch,a burger,
+e3513,2015/07/09,lunch,chinese food,"Benjamin, Avery"
+e3516,2015/07/12,dinner,a burger,
+e3518,2015/07/13,lunch,indian food,
+e3521,2015/07/14,lunch,pasta,
+e3522,2015/07/15,dinner,pasta,"Emily, Carter"
+e3523,2015/07/16,breakfast,oatmeal,
+e3524,2015/07/16,lunch,sandwich,"Andrew, Kayden"
+e3526,2015/07/17,lunch,tacos,"Emily, Andrew, Carter"
+e3531,2015/07/20,lunch,tacos,
+e3532,2015/07/22,lunch,sushi,"Kayden, Emily"
+e3534,2015/07/23,breakfast,"eggs, sausages, and bread",
+e3536,2015/07/25,breakfast,"eggs, sausages, and bread","Claire, Piper, Nora, Eva"
+e3537,2015/07/25,dinner,pasta,
+e3542,2015/07/29,lunch,a burger,
+e3545,2015/07/30,lunch,chinese food,
+e3546,2015/07/31,breakfast,pancakes,
+e3548,2015/08/01,breakfast,pancakes,"Kayden, Emily, Andrew"
+e3551,2015/08/03,breakfast,toast and cheese,"Willow, Benjamin, Jackson, Avery"
+e3552,2015/08/04,breakfast,oatmeal,
+e3553,2015/08/05,lunch,a burger,"Benjamin, Jackson, Avery"
+e3555,2015/08/06,lunch,sushi,Emily
+e3557,2015/08/08,lunch,sandwich,
+e3558,2015/08/10,breakfast,pancakes,
+e3560,2015/08/11,breakfast,toast and cheese,"Claire, Piper, Kinsley, Layla"
+e3561,2015/08/12,dinner,fish and chips,
+e3562,2015/08/13,dinner,steak,"Emily, Kayden"
+e3565,2015/08/15,dinner,chinese food,"Willow, Benjamin"
+e3573,2015/08/18,breakfast,cereals,
+e3575,2015/08/19,dinner,a burger,
+e3576,2015/08/20,dinner,tacos,
+e3579,2015/08/21,breakfast,oatmeal,
+e3580,2015/08/21,lunch,pasta,
+e3586,2015/08/24,breakfast,peanut-butter-jam,"Layla, Nora, Lydia, Avery, Olivia, Piper"
+e3587,2015/08/24,lunch,sandwich,
+e3589,2015/08/26,dinner,tacos,
+e3592,2015/08/27,breakfast,cereals,
+e3596,2015/09/01,lunch,steak,
+e3598,2015/09/02,lunch,tacos,"Carter, Emily"
+e3601,2015/09/04,breakfast,toast and cheese,
+e3602,2015/09/04,dinner,pasta,
+e3604,2015/09/06,breakfast,"eggs, sausages, and bread",Kayden
+e3605,2015/09/08,dinner,indian food,
+e3607,2015/09/09,breakfast,"eggs, sausages, and bread",
+e3608,2015/09/09,dinner,sandwich,"Rylee, Olivia"
+e3610,2015/09/10,breakfast,cereals,
+e3612,2015/09/12,breakfast,cereals,
+e3614,2015/09/14,breakfast,oatmeal,"Emily, Kayden, Carter, Andrew"
+e3616,2015/09/17,dinner,chinese food,
+e3617,2015/09/18,lunch,chinese food,"Layla, Rylee, Eva, Lydia, Claire, Piper, Piper, Nora"
+e3618,2015/09/19,breakfast,toast and cheese,"Carter, Andrew, Emily"
+e3619,2015/09/19,dinner,sushi,
+e3624,2015/09/21,breakfast,oatmeal,
+e3626,2015/09/23,lunch,sandwich,
+e3629,2015/09/24,lunch,tacos,
+e3636,2015/09/29,breakfast,"eggs, sausages, and bread",
+e3639,2015/09/30,lunch,sushi,"Emily, Andrew, Kayden"
+e3642,2015/10/02,lunch,indian food,"Olivia, Hazel, Nora, Layla"
+e3645,2015/10/06,lunch,chinese food,
+e3648,2015/10/07,breakfast,peanut-butter-jam,
+e3649,2015/10/07,lunch,sandwich,"Piper, Layla, Avery, Eva"
+e3652,2015/10/10,lunch,a burger,
+e3656,2015/10/15,breakfast,oatmeal,
+e3657,2015/10/15,lunch,tacos,
+e3660,2015/10/16,lunch,pasta,"Avery, Willow, Jackson"
+e3661,2015/10/16,dinner,chinese food,"Andrew, Kayden, Emily, Carter"
+e3663,2015/10/17,breakfast,toast and cheese,
+e3664,2015/10/17,lunch,a burger,"Avery, Jackson"
+e3667,2015/10/18,dinner,steak,
+e3670,2015/10/20,lunch,sushi,
+e3673,2015/10/24,breakfast,"eggs, sausages, and bread",
+e3682,2015/10/30,dinner,sushi,
+e3684,2015/11/01,breakfast,"eggs, sausages, and bread",
+e3685,2015/11/01,lunch,sandwich,
+e3687,2015/11/03,breakfast,cereals,"Kayden, Andrew, Emily"
+e3688,2015/11/03,dinner,pasta,"Willow, Jackson, Benjamin"
+e3693,2015/11/06,dinner,fish and chips,
+e3696,2015/11/07,dinner,indian food,
+e3698,2015/11/08,lunch,indian food,
+e3704,2015/11/11,breakfast,cereals,
+e3708,2015/11/14,dinner,pasta,
+e3709,2015/11/15,lunch,steak,"Eva, Rylee, Layla, Hazel"
+e3711,2015/11/16,lunch,indian food,
+e3714,2015/11/18,breakfast,pancakes,"Andrew, Kayden, Emily"
+e3715,2015/11/19,lunch,fish and chips,"Andrew, Emily, Kayden"
+e3716,2015/11/20,lunch,chinese food,Claire
+e3717,2015/11/20,dinner,chinese food,
+e3719,2015/11/21,breakfast,peanut-butter-jam,
+e3723,2015/11/24,lunch,sandwich,"Emily, Kayden, Carter"
+e3724,2015/11/24,dinner,tacos,Kayden
+e3730,2015/11/28,lunch,steak,Willow
+e3733,2015/11/29,breakfast,oatmeal,
+e3735,2015/12/01,breakfast,"eggs, sausages, and bread","Rylee, Claire, Nora, Lydia, Nevaeh, Hazel, Layla, Kinsley, Eva, Olivia, Avery"
+e3738,2015/12/02,breakfast,pancakes,"Claire, Layla"
+e3739,2015/12/02,lunch,a burger,
+e3741,2015/12/03,dinner,chinese food,Nevaeh
+e3744,2015/12/04,breakfast,oatmeal,
+e3745,2015/12/04,dinner,pasta,
+e3746,2015/12/05,breakfast,cereals,"Benjamin, Willow"
+e3747,2015/12/05,lunch,a burger,
+e3752,2015/12/07,lunch,tacos,Andrew
+e3755,2015/12/08,breakfast,oatmeal,
+e3757,2015/12/09,lunch,pasta,Rylee
+e3759,2015/12/10,breakfast,toast and cheese,
+e3761,2015/12/11,lunch,indian food,Nevaeh
+e3762,2015/12/11,dinner,fish and chips,
+e3764,2015/12/12,lunch,fish and chips,
+e3766,2015/12/14,lunch,fish and chips,
+e3767,2015/12/15,breakfast,"eggs, sausages, and bread",
+e3768,2015/12/15,lunch,a burger,"Avery, Willow"
+e3770,2015/12/16,breakfast,cereals,"Jackson, Willow"
+e3772,2015/12/18,lunch,sandwich,
+e3775,2015/12/19,lunch,fish and chips,
+e3776,2015/12/20,dinner,indian food,"Andrew, Emily, Kayden, Carter"
+e3781,2015/12/23,dinner,a burger,
+e3783,2015/12/24,breakfast,toast and cheese,Carter
+e3788,2015/12/26,breakfast,"eggs, sausages, and bread","Kayden, Emily, Andrew, Carter"
+e3789,2015/12/26,dinner,chinese food,
+e3791,2015/12/27,breakfast,toast and cheese,"Avery, Jackson, Willow, Benjamin"
+e3792,2015/12/27,lunch,fish and chips,
+e3793,2015/12/27,dinner,chinese food,Avery
+e3794,2015/12/28,lunch,sandwich,
+e3799,2015/12/30,dinner,a burger,
+e3803,2015/12/31,breakfast,peanut-butter-jam,
+e3908,2016/01/01,lunch,sushi,
+e3910,2016/01/05,lunch,steak,"Andrew, Kayden, Carter"
+e3915,2016/01/07,dinner,indian food,"Andrew, Carter"
+e3919,2016/01/09,breakfast,cereals,
+e3921,2016/01/10,lunch,sushi,"Piper, Kinsley, Lydia, Eva, Claire, Rylee, Hazel, Avery, Piper, Layla, Nevaeh, Nora, Olivia"
+e3926,2016/01/12,dinner,a burger,
+e3927,2016/01/13,lunch,tacos,"Emily, Carter, Andrew, Kayden"
+e3929,2016/01/14,breakfast,cereals,"Claire, Layla, Hazel, Avery, Lydia, Rylee, Piper, Olivia"
+e3930,2016/01/14,lunch,sushi,
+e3931,2016/01/14,dinner,a burger,"Benjamin, Willow, Jackson"
+e3932,2016/01/15,dinner,sandwich,"Kinsley, Olivia, Nevaeh, Eva, Layla, Lydia, Rylee, Claire, Hazel, Avery"
+e3934,2016/01/16,lunch,pasta,
+e3939,2016/01/18,breakfast,pancakes,
+e3944,2016/01/23,dinner,a burger,"Hazel, Eva, Layla"
+e3946,2016/01/25,breakfast,oatmeal,Kayden
+e3949,2016/01/26,breakfast,toast and cheese,
+e3950,2016/01/28,dinner,tacos,
+e3955,2016/01/30,breakfast,"eggs, sausages, and bread","Willow, Jackson"
+e3956,2016/01/30,lunch,chinese food,"Lydia, Layla, Claire, Rylee, Nora"
+e3962,2016/02/02,lunch,steak,"Carter, Emily, Kayden"
+e3963,2016/02/02,dinner,steak,"Piper, Piper, Eva, Claire, Avery"
+e3965,2016/02/03,breakfast,oatmeal,"Carter, Kayden, Andrew, Emily"
+e3969,2016/02/04,breakfast,pancakes,
+e3970,2016/02/04,dinner,sushi,Hazel
+e3974,2016/02/07,dinner,fish and chips,
+e3977,2016/02/11,breakfast,cereals,"Benjamin, Jackson, Avery, Willow"
+e3978,2016/02/12,dinner,sandwich,
+e3979,2016/02/13,lunch,steak,"Willow, Avery, Jackson"
+e3981,2016/02/16,lunch,fish and chips,
+e3982,2016/02/17,lunch,sushi,"Kayden, Carter, Emily"
+e3986,2016/02/19,breakfast,peanut-butter-jam,
+e3987,2016/02/20,dinner,sandwich,
+e3991,2016/02/23,breakfast,cereals,
+e3992,2016/02/23,lunch,tacos,"Nora, Lydia, Piper, Eva, Claire, Nevaeh, Hazel, Kinsley, Olivia, Piper"
+e3996,2016/02/26,dinner,tacos,
+e4000,2016/02/28,breakfast,oatmeal,Emily
+e4003,2016/03/01,dinner,sushi,
+e4004,2016/03/02,dinner,sushi,"Carter, Andrew, Kayden"
+e4006,2016/03/03,breakfast,pancakes,
+e4009,2016/03/05,lunch,indian food,"Kayden, Carter, Emily"
+e4012,2016/03/06,lunch,sushi,"Emily, Carter, Andrew, Kayden"
+e4013,2016/03/07,breakfast,"eggs, sausages, and bread","Piper, Hazel, Nevaeh, Nora, Kinsley, Olivia, Claire, Eva, Avery, Lydia, Piper"
+e4014,2016/03/07,lunch,sandwich,
+e4017,2016/03/08,breakfast,peanut-butter-jam,"Benjamin, Willow, Avery, Jackson"
+e4018,2016/03/08,lunch,pasta,
+e4020,2016/03/11,dinner,sandwich,"Kayden, Andrew, Carter"
+e4021,2016/03/13,dinner,sushi,Jackson
+e4022,2016/03/14,lunch,tacos,"Willow, Jackson"
+e4023,2016/03/15,dinner,tacos,"Lydia, Nora, Nevaeh, Rylee, Piper, Kinsley, Avery, Olivia, Layla, Piper, Eva, Claire"
+e4026,2016/03/16,lunch,pasta,"Kinsley, Eva, Lydia, Claire, Piper, Nora, Layla, Hazel"
+e4027,2016/03/16,dinner,a burger,Carter
+e4033,2016/03/20,breakfast,"eggs, sausages, and bread",
+e4034,2016/03/21,lunch,sushi,
+e4036,2016/03/22,dinner,a burger,
+e4039,2016/03/23,lunch,sandwich,
+e4043,2016/03/24,breakfast,peanut-butter-jam,"Andrew, Kayden, Emily"
+e4044,2016/03/25,dinner,steak,
+e4052,2016/03/30,lunch,tacos,"Lydia, Kinsley, Layla, Hazel, Rylee, Olivia, Nevaeh, Eva, Avery, Nora"
+e4053,2016/03/30,dinner,pasta,Andrew
+e4056,2016/03/31,dinner,steak,
+e4058,2016/04/01,breakfast,cereals,"Kayden, Emily, Carter"
+e4065,2016/04/06,breakfast,pancakes,
+e4068,2016/04/09,breakfast,"eggs, sausages, and bread","Nevaeh, Nora, Layla, Hazel, Kinsley, Eva, Lydia, Piper, Avery, Olivia"
+e4069,2016/04/09,dinner,indian food,
+e4072,2016/04/12,breakfast,pancakes,"Eva, Olivia, Nevaeh, Lydia, Kinsley, Piper, Claire, Rylee"
+e4073,2016/04/12,dinner,sushi,
+e4076,2016/04/15,breakfast,toast and cheese,"Piper, Olivia"
+e4077,2016/04/16,dinner,fish and chips,
+e4079,2016/04/17,lunch,a burger,"Avery, Willow, Benjamin, Jackson"
+e4081,2016/04/18,lunch,a burger,"Jackson, Benjamin"
+e4087,2016/04/23,breakfast,peanut-butter-jam,
+e4088,2016/04/23,dinner,steak,
+e4092,2016/04/26,dinner,sushi,
+e4095,2016/04/28,breakfast,peanut-butter-jam,"Kayden, Andrew, Emily, Carter"
+e4097,2016/04/29,lunch,chinese food,"Rylee, Piper, Lydia, Layla, Piper, Olivia, Claire, Avery, Nevaeh, Eva, Kinsley"
+e4104,2016/05/06,breakfast,pancakes,
+e4107,2016/05/08,lunch,indian food,"Claire, Kinsley, Lydia, Piper, Rylee, Avery, Nevaeh, Nora, Layla, Eva, Piper, Hazel"
+e4110,2016/05/10,breakfast,pancakes,
+e4114,2016/05/13,dinner,indian food,
+e4116,2016/05/14,dinner,sandwich,"Avery, Olivia, Layla, Eva, Claire"
+e4119,2016/05/16,dinner,sandwich,
+e4120,2016/05/18,breakfast,peanut-butter-jam,"Avery, Benjamin, Jackson"
+e4123,2016/05/19,dinner,indian food,"Andrew, Carter, Emily"
+e4125,2016/05/20,lunch,steak,
+e4129,2016/05/22,dinner,steak,Kayden
+e4131,2016/05/24,breakfast,peanut-butter-jam,
+e4133,2016/05/26,dinner,steak,
+e4134,2016/05/27,breakfast,cereals,
+e4135,2016/05/27,dinner,fish and chips,
+e4137,2016/05/29,dinner,indian food,Kayden
+e4140,2016/05/31,lunch,fish and chips,"Andrew, Carter, Kayden, Emily"
+e4141,2016/06/01,lunch,chinese food,
+e4147,2016/06/05,lunch,steak,
+e4148,2016/06/06,breakfast,pancakes,"Layla, Avery, Olivia"
+e4149,2016/06/06,dinner,sandwich,Emily
+e4153,2016/06/08,dinner,tacos,
+e4160,2016/06/14,breakfast,pancakes,
+e4163,2016/06/17,lunch,sushi,"Carter, Emily"
+e4164,2016/06/17,dinner,pasta,
+e4165,2016/06/18,lunch,pasta,
+e4166,2016/06/18,dinner,a burger,"Andrew, Kayden"
+e4167,2016/06/24,breakfast,pancakes,"Carter, Andrew, Kayden, Emily"
+e4169,2016/06/25,dinner,indian food,
+e4170,2016/06/26,dinner,a burger,"Hazel, Nevaeh, Piper, Layla"
+e4174,2016/06/29,lunch,steak,
+e4176,2016/07/01,dinner,fish and chips,
+e4177,2016/07/02,dinner,fish and chips,"Jackson, Benjamin"
+e4179,2016/07/03,breakfast,toast and cheese,
+e4180,2016/07/04,dinner,steak,"Lydia, Layla, Avery, Nora, Olivia, Piper, Claire, Hazel"
+e4185,2016/07/08,dinner,sushi,
+e4190,2016/07/12,dinner,sushi,
+e4192,2016/07/14,breakfast,peanut-butter-jam,
+e4194,2016/07/16,dinner,indian food,"Andrew, Kayden"
+e4196,2016/07/18,lunch,tacos,
+e4199,2016/07/19,breakfast,"eggs, sausages, and bread",
+e4201,2016/07/20,lunch,tacos,"Andrew, Carter, Kayden"
+e4204,2016/07/23,lunch,pasta,"Andrew, Kayden, Carter"
+e4205,2016/07/23,dinner,chinese food,
+e4210,2016/07/26,breakfast,pancakes,
+e4211,2016/07/26,lunch,tacos,"Carter, Kayden"
+e4212,2016/07/26,dinner,fish and chips,"Layla, Olivia, Kinsley, Lydia, Rylee"
+e4213,2016/07/27,lunch,a burger,
+e4215,2016/07/28,lunch,sandwich,
+e4216,2016/07/29,breakfast,cereals,
+e4217,2016/07/29,lunch,pasta,
+e4221,2016/07/30,breakfast,pancakes,
+e4222,2016/07/30,lunch,a burger,Emily
+e4223,2016/07/30,dinner,tacos,"Emily, Carter, Andrew, Kayden"
+e4224,2016/07/31,dinner,tacos,"Willow, Avery, Jackson, Benjamin"
+e4226,2016/08/01,breakfast,toast and cheese,"Hazel, Rylee, Piper, Kinsley, Nevaeh, Nora, Olivia, Layla, Lydia"
+e4227,2016/08/01,dinner,sushi,
+e4228,2016/08/02,lunch,fish and chips,"Andrew, Carter, Kayden"
+e4230,2016/08/03,lunch,indian food,
+e4232,2016/08/04,lunch,steak,
+e4234,2016/08/05,lunch,chinese food,"Carter, Andrew, Kayden, Emily"
+e4239,2016/08/10,dinner,sushi,
+e4241,2016/08/12,lunch,chinese food,
+e4244,2016/08/13,breakfast,oatmeal,"Andrew, Emily"
+e4246,2016/08/15,breakfast,pancakes,
+e4247,2016/08/15,dinner,pasta,"Kayden, Carter"
+e4249,2016/08/16,dinner,tacos,
+e4251,2016/08/17,breakfast,peanut-butter-jam,
+e4252,2016/08/17,lunch,pasta,
+e4257,2016/08/24,breakfast,cereals,
+e4261,2016/08/26,lunch,sandwich,Carter
+e4263,2016/08/27,lunch,sandwich,"Emily, Kayden, Carter, Andrew"
+e4265,2016/08/29,breakfast,pancakes,
+e4270,2016/09/04,breakfast,toast and cheese,
+e4271,2016/09/04,lunch,indian food,Emily
+e4272,2016/09/04,dinner,pasta,
+e4273,2016/09/05,breakfast,"eggs, sausages, and bread",
+e4274,2016/09/05,dinner,indian food,
+e4275,2016/09/07,lunch,sushi,"Emily, Andrew, Carter, Kayden"
+e4279,2016/09/10,dinner,pasta,"Olivia, Nevaeh, Lydia, Piper, Claire, Avery"
+e4283,2016/09/13,breakfast,oatmeal,Andrew
+e4286,2016/09/15,dinner,sandwich,
+e4287,2016/09/16,dinner,steak,Avery
+e4291,2016/09/18,dinner,chinese food,
+e4294,2016/09/20,breakfast,toast and cheese,
+e4295,2016/09/20,lunch,pasta,"Andrew, Emily, Carter, Kayden"
+e4301,2016/09/22,breakfast,oatmeal,
+e4303,2016/09/23,lunch,tacos,"Kayden, Emily, Carter"
+e4306,2016/09/25,dinner,steak,"Kayden, Emily, Andrew"
+e4309,2016/09/26,dinner,a burger,
+e4311,2016/09/28,dinner,fish and chips,Kayden
+e4313,2016/09/29,lunch,pasta,
+e4321,2016/10/03,lunch,sushi,Jackson
+e4323,2016/10/05,breakfast,pancakes,
+e4324,2016/10/05,dinner,pasta,"Carter, Emily, Kayden, Andrew"
+e4325,2016/10/06,breakfast,toast and cheese,
+e4327,2016/10/07,lunch,a burger,
+e4328,2016/10/08,lunch,indian food,"Emily, Kayden, Andrew"
+e4329,2016/10/08,dinner,sushi,
+e4333,2016/10/11,lunch,indian food,
+e4334,2016/10/11,dinner,steak,
+e4337,2016/10/13,lunch,sushi,
+e4338,2016/10/13,dinner,pasta,
+e4347,2016/10/21,lunch,pasta,
+e4353,2016/10/25,dinner,chinese food,"Kayden, Emily, Carter"
+e4354,2016/10/26,breakfast,cereals,"Piper, Piper, Nora, Avery, Rylee, Lydia"
+e4357,2016/10/29,dinner,sandwich,Kayden
+e4358,2016/10/30,lunch,sushi,Kayden
+e4360,2016/11/01,breakfast,oatmeal,
+e4361,2016/11/01,dinner,indian food,"Hazel, Piper, Olivia, Layla, Nora, Kinsley, Piper, Rylee, Lydia, Nevaeh"
+e4362,2016/11/02,lunch,pasta,
+e4365,2016/11/05,breakfast,"eggs, sausages, and bread",
+e4366,2016/11/05,dinner,steak,"Jackson, Benjamin, Avery"
+e4368,2016/11/06,lunch,pasta,"Emily, Kayden, Carter, Andrew"
+e4370,2016/11/07,lunch,chinese food,
+e4371,2016/11/10,breakfast,pancakes,"Kayden, Carter, Andrew, Emily"
+e4372,2016/11/10,lunch,sandwich,
+e4376,2016/11/12,breakfast,cereals,"Andrew, Kayden, Emily"
+e4377,2016/11/12,lunch,sushi,
+e4379,2016/11/14,dinner,fish and chips,
+e4381,2016/11/16,dinner,indian food,
+e4382,2016/11/18,breakfast,peanut-butter-jam,
+e4385,2016/11/21,breakfast,oatmeal,"Lydia, Hazel, Olivia, Nevaeh, Claire, Piper"
+e4390,2016/11/23,dinner,tacos,
+e4397,2016/11/26,lunch,tacos,"Avery, Jackson, Benjamin, Willow"
+e4400,2016/11/27,breakfast,oatmeal,"Jackson, Willow, Benjamin"
+e4404,2016/11/30,lunch,steak,
+e4405,2016/11/30,dinner,tacos,"Emily, Carter"
+e4407,2016/12/02,lunch,a burger,Emily
+e4409,2016/12/03,dinner,fish and chips,
+e4411,2016/12/05,lunch,sushi,
+e4413,2016/12/06,breakfast,cereals,
+e4418,2016/12/11,breakfast,cereals,"Hazel, Nevaeh, Claire, Piper, Eva, Rylee, Kinsley, Piper"
+e4419,2016/12/11,dinner,pasta,
+e4421,2016/12/12,breakfast,toast and cheese,
+e4422,2016/12/12,lunch,sushi,Eva
+e4423,2016/12/13,lunch,a burger,
+e4425,2016/12/14,lunch,fish and chips,"Kayden, Andrew, Carter, Emily"
+e4427,2016/12/15,breakfast,cereals,
+e4430,2016/12/16,dinner,fish and chips,
+e4431,2016/12/17,dinner,indian food,
+e4433,2016/12/19,breakfast,cereals,Andrew
+e4435,2016/12/21,breakfast,cereals,"Nora, Nevaeh, Kinsley, Rylee, Eva, Avery, Claire, Piper, Layla, Lydia"
+e4439,2016/12/25,breakfast,cereals,"Kayden, Andrew, Carter"
+e4442,2016/12/28,lunch,sushi,"Andrew, Carter"
+e4444,2016/12/29,breakfast,toast and cheese,
+e4445,2016/12/29,lunch,tacos,"Emily, Andrew, Carter, Kayden"
+e4446,2016/12/29,dinner,chinese food,Carter
+e4448,2016/12/31,breakfast,pancakes,"Emily, Kayden, Carter"
+e4539,2017/01/03,dinner,sandwich,"Carter, Emily, Andrew"
+e4541,2017/01/05,lunch,sushi,"Avery, Benjamin"
+e4542,2017/01/05,dinner,pasta,
+e4546,2017/01/08,breakfast,pancakes,"Carter, Emily, Kayden, Andrew"
+e4550,2017/01/10,breakfast,pancakes,
+e4552,2017/01/11,lunch,indian food,Andrew
+e4554,2017/01/12,dinner,chinese food,
+e4557,2017/01/13,breakfast,toast and cheese,Kayden
+e4558,2017/01/13,dinner,sandwich,
+e4561,2017/01/14,breakfast,peanut-butter-jam,
+e4562,2017/01/16,lunch,a burger,
+e4564,2017/01/17,dinner,tacos,"Piper, Hazel, Eva, Olivia, Claire"
+e4567,2017/01/20,lunch,chinese food,
+e4568,2017/01/21,breakfast,toast and cheese,
+e4569,2017/01/22,lunch,fish and chips,"Hazel, Rylee, Piper, Kinsley, Nevaeh, Claire, Avery, Piper, Lydia, Layla, Eva"
+e4570,2017/01/23,lunch,tacos,
+e4571,2017/01/23,dinner,a burger,
+e4574,2017/01/24,breakfast,cereals,
+e4575,2017/01/24,dinner,a burger,
+e4576,2017/01/25,dinner,a burger,
+e4577,2017/01/26,lunch,pasta,"Carter, Kayden, Emily"
+e4578,2017/01/26,dinner,sushi,
+e4580,2017/01/27,lunch,tacos,
+e4581,2017/01/28,dinner,a burger,
+e4583,2017/01/31,lunch,sushi,
+e4585,2017/02/02,dinner,steak,
+e4588,2017/02/03,breakfast,toast and cheese,
+e4589,2017/02/03,lunch,fish and chips,
+e4591,2017/02/04,lunch,pasta,"Avery, Benjamin, Willow"
+e4597,2017/02/08,dinner,sandwich,
+e4600,2017/02/09,breakfast,peanut-butter-jam,
+e4606,2017/02/13,lunch,fish and chips,"Carter, Kayden, Emily, Andrew"
+e4611,2017/02/16,lunch,indian food,
+e4613,2017/02/18,breakfast,"eggs, sausages, and bread",
+e4615,2017/02/19,breakfast,toast and cheese,
+e4617,2017/02/21,lunch,tacos,"Andrew, Kayden, Carter, Emily"
+e4619,2017/02/24,breakfast,pancakes,
+e4620,2017/02/25,lunch,chinese food,"Carter, Andrew"
+e4622,2017/02/26,breakfast,cereals,"Lydia, Piper, Hazel, Olivia, Nora, Eva, Claire, Layla"
+e4623,2017/02/27,breakfast,oatmeal,Andrew
+e4624,2017/02/27,dinner,pasta,
+e4626,2017/02/28,breakfast,cereals,
+e4629,2017/03/02,lunch,fish and chips,
+e4630,2017/03/02,dinner,indian food,
+e4631,2017/03/03,breakfast,toast and cheese,
+e4632,2017/03/03,dinner,indian food,
+e4637,2017/03/08,lunch,chinese food,
+e4639,2017/03/09,breakfast,"eggs, sausages, and bread",
+e4641,2017/03/10,breakfast,peanut-butter-jam,Andrew
+e4642,2017/03/11,lunch,fish and chips,"Eva, Nora, Rylee, Hazel"
+e4643,2017/03/12,breakfast,pancakes,
+e4644,2017/03/12,lunch,sandwich,"Kayden, Carter, Andrew, Emily"
+e4645,2017/03/13,breakfast,cereals,
+e4655,2017/03/22,lunch,steak,
+e4658,2017/03/24,lunch,a burger,
+e4659,2017/03/24,dinner,a burger,
+e4663,2017/03/27,dinner,sushi,
+e4665,2017/03/29,breakfast,oatmeal,"Avery, Claire, Kinsley"
+e4668,2017/03/30,dinner,pasta,
+e4671,2017/04/01,lunch,fish and chips,
+e4680,2017/04/06,dinner,tacos,"Carter, Kayden"
+e4681,2017/04/08,dinner,chinese food,
+e4686,2017/04/12,lunch,a burger,
+e4690,2017/04/18,lunch,fish and chips,
+e4691,2017/04/18,dinner,sushi,"Emily, Carter, Andrew, Kayden"
+e4695,2017/04/19,lunch,indian food,"Nora, Claire, Kinsley, Avery, Nevaeh, Piper, Lydia, Layla, Hazel, Rylee, Piper, Olivia"
+e4697,2017/04/22,breakfast,toast and cheese,
+e4699,2017/04/23,lunch,chinese food,Andrew
+e4702,2017/04/24,breakfast,"eggs, sausages, and bread",
+e4703,2017/04/25,breakfast,oatmeal,
+e4710,2017/04/28,dinner,fish and chips,
+e4712,2017/04/29,lunch,a burger,Rylee
+e4713,2017/04/29,dinner,pasta,
+e4721,2017/05/03,breakfast,oatmeal,
+e4723,2017/05/04,lunch,sandwich,
+e4724,2017/05/04,dinner,tacos,"Emily, Kayden, Carter, Andrew"
+e4726,2017/05/07,lunch,a burger,
+e4727,2017/05/07,dinner,pasta,
+e4729,2017/05/08,dinner,sushi,"Lydia, Avery, Layla, Claire, Rylee, Hazel, Olivia, Eva, Kinsley, Nevaeh"
+e4734,2017/05/12,dinner,sandwich,"Andrew, Carter, Kayden, Emily"
+e4735,2017/05/13,breakfast,cereals,
+e4736,2017/05/13,lunch,fish and chips,
+e4737,2017/05/15,lunch,indian food,
+e4741,2017/05/19,breakfast,oatmeal,
+e4742,2017/05/21,breakfast,peanut-butter-jam,Carter
+e4743,2017/05/21,lunch,sandwich,
+e4744,2017/05/21,dinner,chinese food,
+e4753,2017/05/30,breakfast,peanut-butter-jam,
+e4754,2017/05/30,lunch,steak,"Benjamin, Avery, Jackson"
+e4756,2017/05/31,dinner,indian food,"Kayden, Andrew, Emily, Carter"
+e4759,2017/06/01,breakfast,oatmeal,"Carter, Andrew, Emily"
+e4760,2017/06/01,lunch,indian food,"Eva, Nora, Kinsley, Piper, Olivia"
+e4762,2017/06/02,breakfast,toast and cheese,
+e4763,2017/06/02,dinner,fish and chips,
+e4773,2017/06/09,breakfast,cereals,Jackson
+e4781,2017/06/15,lunch,a burger,"Kayden, Andrew, Carter, Emily"
+e4783,2017/06/16,breakfast,peanut-butter-jam,
+e4784,2017/06/16,lunch,indian food,Emily
+e4787,2017/06/18,dinner,sushi,Emily
+e4793,2017/06/24,dinner,indian food,Emily
+e4797,2017/06/26,breakfast,cereals,"Emily, Carter, Kayden, Andrew"
+e4798,2017/06/26,dinner,pasta,
+e4804,2017/06/30,dinner,pasta,
+e4805,2017/07/02,lunch,a burger,
+e4806,2017/07/05,dinner,steak,
+e4809,2017/07/06,breakfast,oatmeal,"Carter, Andrew"
+e4810,2017/07/06,lunch,fish and chips,
+e4811,2017/07/06,dinner,pasta,
+e4813,2017/07/07,lunch,chinese food,"Eva, Piper, Lydia, Kinsley, Claire, Olivia, Piper, Layla"
+e4814,2017/07/07,dinner,pasta,
+e4820,2017/07/12,breakfast,cereals,
+e4823,2017/07/16,dinner,pasta,
+e4828,2017/07/18,dinner,fish and chips,
+e4832,2017/07/24,dinner,fish and chips,"Emily, Andrew, Carter, Kayden"
+e4834,2017/07/25,dinner,sandwich,
+e4835,2017/07/27,dinner,tacos,
+e4837,2017/07/29,lunch,indian food,
+e4838,2017/07/29,dinner,chinese food,"Rylee, Nora, Claire, Eva, Olivia"
+e4840,2017/07/30,breakfast,peanut-butter-jam,"Kayden, Emily"
+e4841,2017/07/30,lunch,sandwich,"Kayden, Emily, Andrew"
+e4842,2017/07/30,dinner,fish and chips,
+e4843,2017/07/31,dinner,a burger,"Emily, Kayden"
+e4846,2017/08/01,dinner,pasta,
+e4848,2017/08/03,breakfast,toast and cheese,"Kayden, Emily"
+e4857,2017/08/10,breakfast,pancakes,
+e4858,2017/08/11,breakfast,peanut-butter-jam,
+e4860,2017/08/12,lunch,steak,Carter
+e4861,2017/08/12,dinner,tacos,"Andrew, Kayden"
+e4862,2017/08/13,dinner,steak,
+e4863,2017/08/14,dinner,indian food,"Olivia, Hazel, Piper, Nora, Lydia, Avery, Kinsley, Rylee, Eva, Claire, Piper"
+e4864,2017/08/15,dinner,a burger,"Rylee, Hazel, Piper, Lydia, Olivia, Piper, Eva, Layla"
+e4865,2017/08/16,dinner,tacos,
+e4866,2017/08/17,breakfast,"eggs, sausages, and bread","Jackson, Willow"
+e4868,2017/08/18,lunch,sushi,"Claire, Piper"
+e4870,2017/08/20,dinner,a burger,
+e4872,2017/08/21,breakfast,peanut-butter-jam,
+e4875,2017/08/23,dinner,indian food,
+e4877,2017/08/24,lunch,steak,
+e4878,2017/08/24,dinner,chinese food,
+e4884,2017/08/26,dinner,sushi,
+e4887,2017/08/29,breakfast,toast and cheese,"Emily, Carter"
+e4891,2017/08/31,breakfast,pancakes,
+e4892,2017/09/02,breakfast,pancakes,"Nevaeh, Layla, Hazel, Avery, Rylee, Kinsley"
+e4896,2017/09/04,lunch,indian food,"Piper, Piper, Olivia, Claire, Avery, Hazel, Nora, Kinsley, Nevaeh, Rylee, Layla, Eva"
+e4903,2017/09/09,breakfast,oatmeal,"Emily, Kayden, Carter"
+e4904,2017/09/09,dinner,sandwich,"Kayden, Carter"
+e4913,2017/09/15,breakfast,toast and cheese,
+e4915,2017/09/16,breakfast,toast and cheese,
+e4916,2017/09/17,breakfast,"eggs, sausages, and bread",
+e4918,2017/09/18,lunch,indian food,
+e4920,2017/09/19,lunch,steak,
+e4921,2017/09/21,breakfast,cereals,
+e4922,2017/09/21,dinner,steak,
+e4930,2017/09/28,breakfast,peanut-butter-jam,"Andrew, Kayden, Carter, Emily"
+e4931,2017/09/28,lunch,sushi,
+e4932,2017/09/29,breakfast,cereals,
+e4933,2017/09/29,dinner,tacos,"Nora, Lydia, Rylee, Hazel, Nevaeh, Piper, Olivia, Piper, Eva, Layla, Avery, Kinsley, Claire"
+e4935,2017/09/30,lunch,sandwich,
+e4938,2017/10/04,breakfast,peanut-butter-jam,
+e4944,2017/10/09,lunch,fish and chips,
+e4947,2017/10/13,lunch,sushi,"Avery, Jackson, Benjamin, Willow"
+e4949,2017/10/14,breakfast,toast and cheese,
+e4952,2017/10/16,lunch,indian food,
+e4953,2017/10/16,dinner,steak,Carter
+e4954,2017/10/17,breakfast,oatmeal,
+e4957,2017/10/19,breakfast,pancakes,"Emily, Carter, Andrew"
+e4960,2017/10/21,breakfast,pancakes,
+e4961,2017/10/22,breakfast,"eggs, sausages, and bread",
+e4963,2017/10/23,breakfast,toast and cheese,"Emily, Andrew, Carter, Kayden"
+e4964,2017/10/23,lunch,sandwich,"Carter, Andrew"
+e4966,2017/10/25,dinner,chinese food,
+e4968,2017/10/26,dinner,sushi,"Andrew, Emily, Kayden"
+e4970,2017/10/28,breakfast,cereals,
+e4971,2017/10/28,lunch,fish and chips,
+e4975,2017/10/30,lunch,steak,
+e4976,2017/10/30,dinner,sandwich,
+e4980,2017/11/02,breakfast,oatmeal,
+e4982,2017/11/03,lunch,sushi,
+e4985,2017/11/04,breakfast,cereals,
+e4988,2017/11/05,lunch,fish and chips,Carter
+e4992,2017/11/07,dinner,sushi,
+e4996,2017/11/09,dinner,chinese food,
+e4999,2017/11/10,dinner,tacos,"Olivia, Kinsley, Layla, Nora"
+e5004,2017/11/13,lunch,tacos,"Andrew, Kayden, Emily, Carter"
+e5007,2017/11/14,breakfast,cereals,
+e5008,2017/11/14,lunch,tacos,"Avery, Jackson, Willow, Benjamin"
+e5010,2017/11/15,breakfast,pancakes,"Hazel, Kinsley, Piper, Olivia, Eva, Lydia, Nora, Nevaeh, Avery, Rylee, Layla"
+e5013,2017/11/16,lunch,a burger,
+e5014,2017/11/16,dinner,pasta,
+e5017,2017/11/18,breakfast,peanut-butter-jam,
+e5018,2017/11/19,lunch,tacos,"Carter, Andrew"
+e5024,2017/11/21,lunch,sushi,"Benjamin, Avery, Jackson, Willow"
+e5027,2017/11/22,lunch,indian food,
+e5028,2017/11/23,breakfast,cereals,
+e5031,2017/11/24,lunch,chinese food,"Emily, Carter, Kayden, Andrew"
+e5033,2017/11/25,dinner,indian food,
+e5036,2017/11/27,dinner,chinese food,
+e5038,2017/11/30,lunch,a burger,
+e5043,2017/12/04,lunch,fish and chips,"Andrew, Kayden, Carter"
+e5048,2017/12/06,dinner,a burger,"Emily, Carter, Andrew"
+e5049,2017/12/07,lunch,indian food,
+e5050,2017/12/08,lunch,a burger,
+e5052,2017/12/10,breakfast,peanut-butter-jam,
+e5053,2017/12/10,lunch,steak,
+e5054,2017/12/11,lunch,steak,
+e5055,2017/12/11,dinner,chinese food,
+e5058,2017/12/12,lunch,fish and chips,
+e5059,2017/12/12,dinner,steak,
+e5061,2017/12/13,lunch,a burger,
+e5065,2017/12/17,breakfast,peanut-butter-jam,"Carter, Kayden, Andrew"
+e5070,2017/12/19,lunch,fish and chips,"Willow, Benjamin, Jackson"
+e5073,2017/12/22,lunch,steak,"Willow, Jackson, Avery"
+e5074,2017/12/22,dinner,tacos,"Carter, Kayden"
+e5076,2017/12/23,breakfast,oatmeal,
+e5079,2017/12/24,lunch,fish and chips,
+e5080,2017/12/24,dinner,steak,
+e5083,2017/12/27,lunch,indian food,
+e5084,2017/12/27,dinner,sushi,"Andrew, Carter, Emily, Kayden"
+e5087,2017/12/28,breakfast,cereals,
+e5089,2017/12/29,dinner,a burger,"Layla, Nora, Kinsley, Lydia, Avery, Piper"
+e5196,2018/01/01,breakfast,toast and cheese,
+e5197,2018/01/02,dinner,a burger,
+e5200,2018/01/04,lunch,tacos,
+e5202,2018/01/05,breakfast,oatmeal,
+e5205,2018/01/07,breakfast,cereals,
+e5208,2018/01/09,dinner,sandwich,"Kayden, Andrew"
+e5209,2018/01/10,breakfast,peanut-butter-jam,Layla
+e5210,2018/01/10,lunch,pasta,Emily
+e5211,2018/01/10,dinner,indian food,
+e5222,2018/01/19,breakfast,oatmeal,Andrew
+e5223,2018/01/19,lunch,fish and chips,
+e5224,2018/01/19,dinner,sushi,
+e5228,2018/01/21,dinner,a burger,"Emily, Kayden, Carter, Andrew"
+e5229,2018/01/22,breakfast,pancakes,"Hazel, Avery, Nevaeh, Lydia, Rylee, Layla, Piper, Olivia, Eva, Nora"
+e5232,2018/01/23,breakfast,oatmeal,"Kayden, Carter, Andrew"
+e5233,2018/01/23,dinner,fish and chips,"Andrew, Emily, Kayden, Carter"
+e5235,2018/01/26,dinner,tacos,Willow
+e5239,2018/01/31,breakfast,"eggs, sausages, and bread","Kayden, Emily, Carter"
+e5240,2018/01/31,lunch,a burger,
+e5241,2018/02/01,breakfast,pancakes,
+e5242,2018/02/01,lunch,a burger,
+e5245,2018/02/03,lunch,sandwich,
+e5246,2018/02/03,dinner,tacos,
+e5248,2018/02/05,lunch,sushi,
+e5249,2018/02/05,dinner,indian food,
+e5251,2018/02/06,lunch,pasta,"Kayden, Carter, Andrew, Emily"
+e5253,2018/02/07,lunch,pasta,
+e5254,2018/02/07,dinner,chinese food,
+e5256,2018/02/08,dinner,pasta,
+e5257,2018/02/09,lunch,chinese food,
+e5259,2018/02/12,breakfast,toast and cheese,"Emily, Carter, Andrew"
+e5260,2018/02/12,dinner,pasta,
+e5266,2018/02/18,breakfast,peanut-butter-jam,
+e5270,2018/02/21,breakfast,cereals,
+e5273,2018/02/24,lunch,indian food,"Avery, Hazel, Kinsley, Rylee, Piper, Piper, Nora, Olivia, Eva"
+e5275,2018/02/25,breakfast,"eggs, sausages, and bread",
+e5282,2018/03/01,breakfast,peanut-butter-jam,
+e5284,2018/03/02,dinner,chinese food,Benjamin
+e5288,2018/03/05,lunch,sushi,
+e5293,2018/03/09,dinner,steak,
+e5294,2018/03/10,lunch,pasta,
+e5295,2018/03/12,dinner,tacos,
+e5296,2018/03/13,lunch,a burger,
+e5298,2018/03/14,dinner,a burger,
+e5300,2018/03/15,lunch,steak,
+e5305,2018/03/17,breakfast,oatmeal,
+e5306,2018/03/18,lunch,indian food,
+e5307,2018/03/18,dinner,fish and chips,
+e5309,2018/03/20,lunch,pasta,
+e5314,2018/03/23,dinner,steak,"Andrew, Carter, Emily"
+e5323,2018/03/30,dinner,indian food,"Avery, Nora, Nevaeh, Olivia, Eva, Piper, Lydia, Piper, Kinsley, Hazel, Rylee"
+e5324,2018/03/31,breakfast,oatmeal,"Kayden, Emily, Carter"
+e5325,2018/04/01,dinner,steak,
+e5327,2018/04/02,breakfast,toast and cheese,
+e5328,2018/04/02,dinner,fish and chips,
+e5332,2018/04/08,dinner,tacos,
+e5335,2018/04/10,lunch,sushi,
+e5339,2018/04/12,breakfast,toast and cheese,
+e5347,2018/04/15,lunch,a burger,"Andrew, Emily"
+e5350,2018/04/17,dinner,sandwich,"Emily, Andrew, Kayden, Carter"
+e5354,2018/04/19,dinner,sandwich,
+e5355,2018/04/20,dinner,sushi,"Kayden, Emily, Andrew, Carter"
+e5359,2018/04/25,breakfast,oatmeal,
+e5360,2018/04/25,lunch,sushi,
+e5361,2018/04/25,dinner,a burger,"Nora, Eva, Olivia, Nevaeh, Kinsley, Hazel, Lydia, Claire, Piper, Avery, Piper, Rylee, Layla"
+e5362,2018/04/26,breakfast,cereals,
+e5364,2018/04/27,dinner,fish and chips,
+e5366,2018/04/28,dinner,fish and chips,
+e5367,2018/04/29,breakfast,pancakes,
+e5372,2018/05/01,lunch,sushi,
+e5381,2018/05/06,breakfast,toast and cheese,
+e5383,2018/05/07,dinner,sandwich,
+e5384,2018/05/08,breakfast,toast and cheese,
+e5385,2018/05/09,breakfast,oatmeal,"Jackson, Willow"
+e5387,2018/05/12,breakfast,cereals,"Andrew, Emily, Carter, Kayden"
+e5388,2018/05/12,dinner,steak,
+e5390,2018/05/13,breakfast,peanut-butter-jam,
+e5392,2018/05/14,lunch,sushi,
+e5395,2018/05/15,breakfast,peanut-butter-jam,
+e5397,2018/05/17,breakfast,pancakes,"Emily, Andrew, Kayden, Carter"
+e5402,2018/05/22,dinner,indian food,
+e5404,2018/05/23,lunch,fish and chips,
+e5407,2018/05/24,breakfast,peanut-butter-jam,"Andrew, Kayden"
+e5408,2018/05/24,lunch,a burger,
+e5409,2018/05/25,dinner,pasta,
+e5419,2018/05/31,breakfast,oatmeal,
+e5421,2018/06/01,breakfast,toast and cheese,"Emily, Andrew"
+e5423,2018/06/02,lunch,tacos,"Lydia, Nora, Piper, Nevaeh, Rylee, Avery, Eva"
+e5425,2018/06/03,breakfast,peanut-butter-jam,
+e5426,2018/06/03,lunch,indian food,
+e5428,2018/06/04,lunch,sandwich,"Avery, Benjamin, Jackson, Willow"
+e5430,2018/06/05,breakfast,"eggs, sausages, and bread","Willow, Avery, Jackson, Benjamin"
+e5432,2018/06/06,breakfast,pancakes,
+e5435,2018/06/13,breakfast,peanut-butter-jam,"Claire, Nevaeh, Kinsley, Lydia, Olivia, Piper, Nora, Piper, Hazel, Avery"
+e5436,2018/06/13,lunch,sandwich,
+e5437,2018/06/14,lunch,indian food,
+e5438,2018/06/15,lunch,chinese food,"Hazel, Olivia, Piper, Avery, Lydia, Rylee, Piper, Eva, Kinsley, Layla, Claire, Nora, Nevaeh"
+e5441,2018/06/17,breakfast,toast and cheese,"Kayden, Emily"
+e5443,2018/06/18,breakfast,cereals,"Avery, Willow"
+e5445,2018/06/19,breakfast,toast and cheese,
+e5446,2018/06/20,dinner,pasta,"Benjamin, Willow, Avery, Jackson"
+e5448,2018/06/23,breakfast,cereals,"Nora, Olivia, Kinsley, Claire, Layla, Piper"
+e5450,2018/06/25,dinner,chinese food,
+e5456,2018/06/29,dinner,sandwich,"Layla, Hazel, Olivia, Lydia, Nevaeh, Piper, Eva, Kinsley, Piper, Avery, Rylee, Claire, Nora"
+e5457,2018/07/01,dinner,a burger,
+e5460,2018/07/04,lunch,sushi,
+e5463,2018/07/06,breakfast,toast and cheese,
+e5467,2018/07/07,lunch,tacos,"Andrew, Carter"
+e5471,2018/07/09,lunch,tacos,
+e5477,2018/07/13,lunch,fish and chips,
+e5478,2018/07/13,dinner,steak,"Claire, Kinsley, Nevaeh, Piper, Eva"
+e5479,2018/07/14,dinner,chinese food,
+e5483,2018/07/17,breakfast,cereals,Kayden
+e5485,2018/07/19,breakfast,"eggs, sausages, and bread",
+e5486,2018/07/20,dinner,indian food,
+e5489,2018/07/23,breakfast,cereals,"Layla, Olivia, Claire, Lydia, Nora, Eva, Rylee, Avery, Piper, Hazel"
+e5492,2018/07/24,breakfast,toast and cheese,
+e5496,2018/07/28,dinner,a burger,
+e5498,2018/07/29,breakfast,peanut-butter-jam,"Rylee, Olivia, Piper"
+e5500,2018/07/30,breakfast,peanut-butter-jam,
+e5501,2018/07/30,dinner,steak,
+e5503,2018/08/01,breakfast,pancakes,Jackson
+e5505,2018/08/04,dinner,sandwich,
+e5507,2018/08/05,dinner,sandwich,"Willow, Avery"
+e5512,2018/08/08,dinner,a burger,
+e5515,2018/08/12,lunch,pasta,
+e5516,2018/08/12,dinner,a burger,"Emily, Carter"
+e5518,2018/08/13,dinner,fish and chips,
+e5520,2018/08/16,breakfast,"eggs, sausages, and bread",
+e5523,2018/08/17,lunch,pasta,
+e5526,2018/08/20,dinner,sushi,"Avery, Jackson, Willow"
+e5529,2018/08/25,breakfast,"eggs, sausages, and bread",
+e5530,2018/08/25,lunch,fish and chips,"Eva, Piper, Claire, Nora, Avery, Piper, Lydia, Layla"
+e5532,2018/08/28,breakfast,cereals,"Emily, Carter"
+e5535,2018/08/29,breakfast,oatmeal,
+e5536,2018/08/30,lunch,indian food,
+e5537,2018/08/30,dinner,sandwich,
+e5539,2018/09/01,dinner,fish and chips,
+e5542,2018/09/03,breakfast,"eggs, sausages, and bread",
+e5545,2018/09/04,dinner,a burger,Avery
+e5550,2018/09/10,dinner,fish and chips,"Carter, Emily, Andrew, Kayden"
+e5553,2018/09/12,dinner,fish and chips,"Andrew, Kayden, Emily"
+e5554,2018/09/13,breakfast,cereals,
+e5558,2018/09/14,breakfast,pancakes,"Andrew, Carter, Emily"
+e5559,2018/09/14,lunch,indian food,
+e5562,2018/09/16,lunch,indian food,
+e5564,2018/09/18,dinner,indian food,
+e5566,2018/09/20,breakfast,oatmeal,"Piper, Nora, Rylee, Hazel, Nevaeh, Lydia, Avery, Olivia"
+e5572,2018/09/25,lunch,chinese food,
+e5577,2018/09/27,breakfast,peanut-butter-jam,Andrew
+e5578,2018/09/27,lunch,steak,
+e5580,2018/09/28,lunch,sushi,
+e5581,2018/09/28,dinner,pasta,
+e5583,2018/10/01,dinner,sushi,
+e5586,2018/10/02,dinner,pasta,
+e5590,2018/10/04,breakfast,pancakes,Andrew
+e5591,2018/10/04,dinner,fish and chips,
+e5593,2018/10/07,lunch,chinese food,
+e5596,2018/10/09,lunch,tacos,
+e5599,2018/10/12,dinner,steak,"Claire, Hazel, Olivia, Piper, Layla, Nora, Avery, Piper, Lydia, Kinsley, Rylee"
+e5603,2018/10/14,lunch,indian food,"Emily, Carter"
+e5604,2018/10/15,lunch,pasta,
+e5605,2018/10/16,dinner,sushi,
+e5609,2018/10/20,breakfast,pancakes,
+e5613,2018/10/21,breakfast,"eggs, sausages, and bread",
+e5616,2018/10/24,breakfast,oatmeal,
+e5618,2018/10/25,dinner,pasta,"Emily, Andrew"
+e5620,2018/10/26,breakfast,"eggs, sausages, and bread",
+e5622,2018/10/27,lunch,steak,
+e5623,2018/10/27,dinner,fish and chips,Andrew
+e5624,2018/10/29,dinner,a burger,Benjamin
+e5625,2018/10/30,breakfast,cereals,
+e5626,2018/10/30,dinner,chinese food,
+e5629,2018/11/04,breakfast,oatmeal,
+e5632,2018/11/06,breakfast,"eggs, sausages, and bread",
+e5636,2018/11/08,lunch,sushi,
+e5639,2018/11/11,breakfast,"eggs, sausages, and bread",
+e5640,2018/11/11,dinner,sushi,
+e5643,2018/11/12,dinner,chinese food,
+e5645,2018/11/13,lunch,steak,"Andrew, Emily, Carter, Kayden"
+e5649,2018/11/16,breakfast,toast and cheese,
+e5650,2018/11/16,dinner,sandwich,
+e5651,2018/11/17,dinner,tacos,Kayden
+e5653,2018/11/18,breakfast,peanut-butter-jam,
+e5654,2018/11/18,lunch,a burger,
+e5656,2018/11/19,dinner,chinese food,"Willow, Benjamin, Avery, Jackson"
+e5659,2018/11/21,breakfast,peanut-butter-jam,"Kayden, Carter, Andrew, Emily"
+e5662,2018/11/23,lunch,a burger,"Eva, Hazel, Lydia, Kinsley, Nora, Rylee, Olivia"
+e5669,2018/11/28,breakfast,peanut-butter-jam,
+e5673,2018/12/02,breakfast,pancakes,
+e5674,2018/12/02,dinner,a burger,
+e5676,2018/12/03,dinner,chinese food,"Carter, Andrew, Emily, Kayden"
+e5681,2018/12/04,breakfast,peanut-butter-jam,
+e5683,2018/12/05,dinner,steak,
+e5684,2018/12/06,breakfast,toast and cheese,
+e5685,2018/12/06,dinner,a burger,
+e5689,2018/12/09,breakfast,"eggs, sausages, and bread",
+e5690,2018/12/12,breakfast,oatmeal,
+e5691,2018/12/12,lunch,pasta,"Piper, Layla, Hazel, Eva, Kinsley, Olivia, Avery, Rylee"
+e5692,2018/12/12,dinner,fish and chips,"Benjamin, Willow, Avery, Jackson"
+e5694,2018/12/13,dinner,indian food,"Piper, Claire, Piper, Nora"
+e5695,2018/12/14,breakfast,pancakes,
+e5699,2018/12/15,breakfast,cereals,
+e5704,2018/12/18,breakfast,toast and cheese,
+e5705,2018/12/18,lunch,fish and chips,"Jackson, Benjamin, Avery, Willow"
+e5707,2018/12/19,lunch,pasta,"Olivia, Eva, Hazel, Nevaeh, Avery"
+e5710,2018/12/21,dinner,steak,
+e5712,2018/12/23,dinner,sushi,
+e5715,2018/12/25,breakfast,toast and cheese,
+e5720,2018/12/28,dinner,indian food,"Avery, Willow, Jackson"
+e5723,2018/12/30,dinner,chinese food,
+e5821,2019/01/02,dinner,indian food,
+e5831,2019/01/10,breakfast,oatmeal,"Hazel, Claire, Eva, Piper, Avery, Lydia, Rylee"
+e5832,2019/01/10,lunch,a burger,
+e5836,2019/01/13,breakfast,pancakes,
+e5837,2019/01/13,dinner,chinese food,"Rylee, Hazel, Avery, Piper, Claire, Nevaeh, Kinsley, Layla, Olivia, Piper, Lydia"
+e5840,2019/01/14,breakfast,peanut-butter-jam,
+e5841,2019/01/14,dinner,chinese food,
+e5843,2019/01/15,breakfast,toast and cheese,"Kayden, Carter, Emily, Andrew"
+e5846,2019/01/18,breakfast,"eggs, sausages, and bread",
+e5847,2019/01/18,lunch,fish and chips,"Jackson, Willow, Benjamin, Avery"
+e5849,2019/01/19,breakfast,toast and cheese,
+e5852,2019/01/20,lunch,a burger,
+e5855,2019/01/21,dinner,sushi,"Eva, Hazel, Piper, Avery, Nora, Nevaeh, Claire, Piper"
+e5865,2019/01/25,dinner,sushi,"Nora, Hazel, Kinsley, Nevaeh, Piper, Rylee, Claire, Piper, Avery, Layla, Olivia"
+e5866,2019/01/26,lunch,tacos,
+e5872,2019/01/31,lunch,a burger,"Andrew, Carter"
+e5879,2019/02/03,dinner,sushi,
+e5884,2019/02/06,breakfast,cereals,
+e5885,2019/02/06,dinner,indian food,"Avery, Piper, Nora, Eva, Rylee, Lydia, Olivia, Layla, Piper"
+e5886,2019/02/07,breakfast,pancakes,
+e5887,2019/02/08,breakfast,"eggs, sausages, and bread",
+e5890,2019/02/10,breakfast,toast and cheese,"Willow, Avery"
+e5895,2019/02/13,lunch,steak,
+e5898,2019/02/14,breakfast,cereals,
+e5899,2019/02/14,lunch,a burger,
+e5901,2019/02/15,breakfast,"eggs, sausages, and bread",
+e5906,2019/02/18,breakfast,peanut-butter-jam,
+e5909,2019/02/20,breakfast,pancakes,Avery
+e5912,2019/02/23,lunch,steak,"Rylee, Layla"
+e5914,2019/02/25,lunch,sushi,"Andrew, Kayden"
+e5915,2019/02/25,dinner,sandwich,
+e5917,2019/02/26,dinner,indian food,
+e5919,2019/02/28,breakfast,oatmeal,
+e5920,2019/02/28,lunch,pasta,"Nevaeh, Lydia, Eva, Hazel, Kinsley, Layla, Piper, Rylee, Piper, Nora, Olivia, Claire, Avery"
+e5921,2019/02/28,dinner,sushi,"Carter, Andrew"
+e5922,2019/03/01,breakfast,toast and cheese,
+e5923,2019/03/01,dinner,a burger,"Jackson, Avery, Benjamin, Willow"
+e5925,2019/03/02,dinner,indian food,"Claire, Lydia, Eva, Nora, Rylee"
+e5929,2019/03/04,breakfast,toast and cheese,
+e5930,2019/03/04,lunch,fish and chips,
+e5931,2019/03/04,dinner,sandwich,"Carter, Andrew, Kayden, Emily"
+e5935,2019/03/09,breakfast,oatmeal,
+e5936,2019/03/09,dinner,a burger,"Andrew, Kayden, Carter"
+e5938,2019/03/10,breakfast,pancakes,
+e5943,2019/03/13,lunch,sandwich,
+e5945,2019/03/17,lunch,pasta,"Carter, Emily"
+e5948,2019/03/19,breakfast,toast and cheese,
+e5949,2019/03/19,lunch,steak,
+e5950,2019/03/20,lunch,fish and chips,"Jackson, Willow, Avery"
+e5952,2019/03/23,dinner,a burger,"Rylee, Piper, Eva, Olivia, Layla, Claire, Kinsley, Hazel, Avery, Piper, Nevaeh, Lydia, Nora"
+e5955,2019/03/24,lunch,pasta,
+e5959,2019/03/26,breakfast,"eggs, sausages, and bread",
+e5960,2019/03/27,dinner,fish and chips,"Andrew, Kayden, Emily"
+e5962,2019/03/28,breakfast,"eggs, sausages, and bread",
+e5965,2019/04/01,lunch,sushi,
+e5966,2019/04/01,dinner,indian food,
+e5967,2019/04/02,breakfast,"eggs, sausages, and bread","Andrew, Carter"
+e5972,2019/04/03,breakfast,peanut-butter-jam,
+e5974,2019/04/05,lunch,steak,Nevaeh
+e5977,2019/04/06,lunch,sandwich,Benjamin
+e5981,2019/04/10,lunch,chinese food,
+e5982,2019/04/12,dinner,chinese food,
+e5983,2019/04/13,breakfast,peanut-butter-jam,
+e5984,2019/04/13,lunch,fish and chips,"Olivia, Avery, Kinsley, Nevaeh, Layla, Claire, Lydia, Nora, Hazel, Eva"
+e5986,2019/04/15,breakfast,pancakes,
+e5987,2019/04/15,dinner,indian food,
+e5988,2019/04/16,breakfast,toast and cheese,
+e5999,2019/04/22,lunch,steak,
+e6000,2019/04/22,dinner,tacos,"Claire, Nora, Kinsley, Nevaeh, Piper, Rylee, Piper, Eva, Layla, Lydia, Avery, Hazel"
+e6006,2019/04/26,breakfast,toast and cheese,"Eva, Kinsley, Olivia, Lydia, Claire, Piper, Piper, Rylee, Nevaeh, Layla, Nora, Hazel, Avery"
+e6007,2019/04/26,lunch,sandwich,"Piper, Piper, Olivia, Lydia, Nevaeh"
+e6008,2019/04/26,dinner,indian food,"Lydia, Layla, Olivia, Hazel, Rylee, Piper, Nevaeh"
+e6010,2019/04/27,dinner,sushi,"Jackson, Willow, Benjamin"
+e6017,2019/05/01,breakfast,pancakes,
+e6018,2019/05/01,dinner,tacos,"Emily, Andrew"
+e6019,2019/05/02,breakfast,"eggs, sausages, and bread",
+e6021,2019/05/03,breakfast,peanut-butter-jam,Kayden
+e6022,2019/05/04,dinner,sandwich,
+e6025,2019/05/06,breakfast,peanut-butter-jam,Jackson
+e6027,2019/05/07,dinner,sandwich,"Eva, Claire, Lydia, Rylee, Nevaeh, Hazel, Nora, Piper, Layla, Olivia, Avery, Piper, Kinsley"
+e6028,2019/05/08,lunch,a burger,
+e6029,2019/05/08,dinner,tacos,
+e6032,2019/05/10,dinner,indian food,Emily
+e6033,2019/05/11,breakfast,toast and cheese,"Kayden, Andrew, Emily"
+e6037,2019/05/13,breakfast,cereals,"Benjamin, Willow, Jackson"
+e6039,2019/05/15,dinner,steak,"Hazel, Olivia, Piper, Rylee, Nora, Lydia, Eva, Claire, Avery, Nevaeh, Layla, Kinsley"
+e6043,2019/05/18,breakfast,cereals,
+e6044,2019/05/18,lunch,a burger,
+e6046,2019/05/19,breakfast,pancakes,
+e6047,2019/05/19,dinner,fish and chips,
+e6049,2019/05/21,lunch,sushi,"Claire, Rylee, Eva, Nora, Nevaeh, Layla, Lydia"
+e6050,2019/05/21,dinner,sandwich,Kayden
+e6051,2019/05/23,breakfast,oatmeal,"Emily, Kayden, Carter"
+e6056,2019/05/27,breakfast,cereals,"Lydia, Claire, Olivia, Piper, Eva, Nora, Hazel, Avery, Piper, Rylee, Kinsley, Nevaeh, Layla"
+e6059,2019/05/28,breakfast,cereals,
+e6060,2019/05/29,breakfast,oatmeal,
+e6065,2019/06/02,lunch,steak,
+e6068,2019/06/03,breakfast,cereals,
+e6069,2019/06/04,lunch,pasta,
+e6072,2019/06/05,dinner,sushi,
+e6073,2019/06/07,lunch,pasta,
+e6074,2019/06/08,breakfast,cereals,Willow
+e6075,2019/06/08,dinner,steak,
+e6076,2019/06/09,breakfast,oatmeal,"Kayden, Carter, Andrew"
+e6077,2019/06/09,dinner,chinese food,"Emily, Andrew"
+e6082,2019/06/12,breakfast,"eggs, sausages, and bread",Benjamin
+e6085,2019/06/14,breakfast,peanut-butter-jam,
+e6086,2019/06/14,dinner,fish and chips,Kayden
+e6088,2019/06/15,breakfast,toast and cheese,
+e6090,2019/06/16,dinner,steak,
+e6098,2019/06/21,lunch,indian food,"Emily, Andrew, Carter, Kayden"
+e6106,2019/06/27,lunch,fish and chips,
+e6108,2019/07/01,dinner,fish and chips,
+e6109,2019/07/02,breakfast,cereals,Kayden
+e6113,2019/07/05,breakfast,cereals,"Avery, Benjamin, Willow"
+e6115,2019/07/06,dinner,indian food,
+e6117,2019/07/08,breakfast,"eggs, sausages, and bread",
+e6118,2019/07/08,lunch,sushi,"Andrew, Carter"
+e6119,2019/07/09,breakfast,toast and cheese,
+e6122,2019/07/12,breakfast,pancakes,
+e6127,2019/07/15,dinner,fish and chips,
+e6131,2019/07/17,dinner,steak,
+e6133,2019/07/18,breakfast,toast and cheese,"Carter, Kayden, Emily"
+e6134,2019/07/18,lunch,tacos,"Carter, Andrew, Emily, Kayden"
+e6135,2019/07/18,dinner,tacos,"Hazel, Avery, Olivia, Rylee, Nevaeh, Piper, Eva, Piper, Nora, Layla, Lydia, Kinsley, Claire"
+e6137,2019/07/19,breakfast,peanut-butter-jam,Kayden
+e6138,2019/07/19,dinner,fish and chips,"Nevaeh, Hazel, Nora, Avery, Layla, Olivia, Rylee, Kinsley, Piper, Lydia, Piper, Eva"
+e6144,2019/07/22,lunch,steak,
+e6145,2019/07/22,dinner,pasta,
+e6146,2019/07/23,dinner,steak,"Kayden, Andrew, Emily"
+e6148,2019/07/24,dinner,indian food,
+e6149,2019/07/25,lunch,chinese food,
+e6152,2019/07/26,breakfast,pancakes,"Carter, Andrew, Emily, Kayden"
+e6156,2019/07/29,lunch,fish and chips,"Kayden, Andrew"
+e6159,2019/07/31,dinner,tacos,"Avery, Jackson, Benjamin"
+e6161,2019/08/01,breakfast,cereals,"Nora, Rylee, Piper, Claire"
+e6162,2019/08/01,lunch,chinese food,
+e6164,2019/08/02,breakfast,oatmeal,
+e6168,2019/08/04,breakfast,peanut-butter-jam,Emily
+e6169,2019/08/04,lunch,steak,
+e6172,2019/08/07,breakfast,"eggs, sausages, and bread",
+e6173,2019/08/07,dinner,indian food,
+e6175,2019/08/10,dinner,steak,"Eva, Lydia"
+e6177,2019/08/11,breakfast,cereals,
+e6179,2019/08/14,lunch,a burger,Avery
+e6182,2019/08/16,lunch,tacos,
+e6186,2019/08/18,dinner,tacos,
+e6189,2019/08/20,dinner,sandwich,
+e6192,2019/08/24,breakfast,toast and cheese,"Andrew, Kayden, Emily"
+e6193,2019/08/24,lunch,pasta,
+e6196,2019/08/25,dinner,pasta,
+e6198,2019/08/26,breakfast,peanut-butter-jam,Carter
+e6199,2019/08/27,lunch,a burger,"Carter, Emily"
+e6201,2019/08/30,lunch,fish and chips,
+e6202,2019/08/30,dinner,indian food,
+e6203,2019/09/01,lunch,tacos,"Jackson, Willow"
+e6206,2019/09/02,breakfast,peanut-butter-jam,
+e6208,2019/09/04,dinner,steak,
+e6211,2019/09/05,breakfast,cereals,
+e6215,2019/09/07,breakfast,toast and cheese,
+e6216,2019/09/07,dinner,indian food,Claire
+e6217,2019/09/08,dinner,sandwich,
+e6221,2019/09/10,dinner,chinese food,"Andrew, Kayden, Emily, Carter"
+e6225,2019/09/12,dinner,fish and chips,
+e6226,2019/09/13,dinner,steak,"Jackson, Avery, Willow, Benjamin"
+e6230,2019/09/15,dinner,steak,"Claire, Nevaeh, Kinsley, Layla, Avery"
+e6233,2019/09/16,breakfast,peanut-butter-jam,Avery
+e6236,2019/09/18,lunch,tacos,
+e6242,2019/09/24,breakfast,"eggs, sausages, and bread",
+e6245,2019/09/26,breakfast,"eggs, sausages, and bread",
+e6246,2019/09/26,lunch,sushi,
+e6247,2019/09/26,dinner,a burger,
+e6248,2019/09/29,dinner,a burger,"Kinsley, Piper, Claire, Piper, Rylee, Nevaeh"
+e6250,2019/09/30,lunch,chinese food,"Jackson, Benjamin"
+e6252,2019/10/01,lunch,sushi,
+e6255,2019/10/03,dinner,tacos,"Carter, Emily, Andrew"
+e6257,2019/10/05,breakfast,peanut-butter-jam,"Nora, Claire, Lydia, Layla"
+e6258,2019/10/06,lunch,fish and chips,
+e6259,2019/10/07,lunch,sandwich,
+e6261,2019/10/08,dinner,indian food,
+e6262,2019/10/09,lunch,pasta,
+e6264,2019/10/10,lunch,tacos,"Andrew, Kayden, Carter, Emily"
+e6266,2019/10/11,lunch,a burger,"Kayden, Emily"
+e6270,2019/10/12,breakfast,"eggs, sausages, and bread",Andrew
+e6271,2019/10/12,lunch,sushi,
+e6274,2019/10/14,breakfast,toast and cheese,
+e6277,2019/10/15,dinner,steak,
+e6279,2019/10/16,lunch,a burger,
+e6280,2019/10/16,dinner,sushi,
+e6282,2019/10/17,dinner,sandwich,"Lydia, Nora, Rylee"
+e6283,2019/10/18,dinner,a burger,
+e6286,2019/10/19,lunch,chinese food,"Andrew, Kayden"
+e6288,2019/10/20,lunch,fish and chips,
+e6289,2019/10/20,dinner,tacos,
+e6297,2019/10/27,dinner,indian food,"Benjamin, Willow, Jackson, Avery"
+e6298,2019/10/28,dinner,chinese food,"Willow, Avery, Jackson, Benjamin"
+e6301,2019/10/30,breakfast,pancakes,
+e6302,2019/10/31,lunch,sushi,
+e6304,2019/11/02,breakfast,toast and cheese,
+e6305,2019/11/02,dinner,tacos,
+e6307,2019/11/03,breakfast,toast and cheese,"Emily, Andrew, Kayden, Carter"
+e6309,2019/11/04,dinner,fish and chips,
+e6310,2019/11/05,breakfast,oatmeal,
+e6312,2019/11/06,breakfast,cereals,
+e6313,2019/11/06,dinner,tacos,
+e6314,2019/11/07,breakfast,"eggs, sausages, and bread",
+e6316,2019/11/08,lunch,sandwich,"Andrew, Emily, Kayden, Carter"
+e6318,2019/11/09,lunch,chinese food,
+e6323,2019/11/12,breakfast,peanut-butter-jam,
+e6329,2019/11/15,lunch,a burger,Emily
+e6330,2019/11/15,dinner,a burger,
+e6331,2019/11/16,breakfast,toast and cheese,
+e6332,2019/11/17,lunch,a burger,"Emily, Carter, Andrew"
+e6334,2019/11/18,breakfast,peanut-butter-jam,
+e6337,2019/11/20,breakfast,"eggs, sausages, and bread",
+e6338,2019/11/21,breakfast,"eggs, sausages, and bread","Benjamin, Avery, Jackson, Willow"
+e6341,2019/11/22,breakfast,pancakes,
+e6344,2019/11/23,breakfast,cereals,
+e6348,2019/11/24,lunch,indian food,
+e6350,2019/11/25,dinner,a burger,
+e6354,2019/11/27,dinner,a burger,
+e6357,2019/11/29,breakfast,"eggs, sausages, and bread","Piper, Layla, Avery, Nora, Eva, Nevaeh, Claire, Lydia, Olivia, Kinsley, Hazel, Piper"
+e6361,2019/12/01,breakfast,pancakes,"Willow, Benjamin, Jackson, Avery"
+e6362,2019/12/02,lunch,fish and chips,"Carter, Emily, Andrew"
+e6363,2019/12/02,dinner,a burger,
+e6370,2019/12/09,breakfast,cereals,"Kayden, Emily"
+e6372,2019/12/10,breakfast,peanut-butter-jam,"Piper, Hazel"
+e6377,2019/12/13,lunch,steak,"Olivia, Piper, Rylee, Kinsley, Piper, Lydia, Claire, Nevaeh, Eva, Layla, Hazel"
+e6381,2019/12/14,breakfast,peanut-butter-jam,Avery
+e6386,2019/12/18,breakfast,toast and cheese,
+e6388,2019/12/19,lunch,fish and chips,
+e6390,2019/12/20,breakfast,"eggs, sausages, and bread","Andrew, Kayden"
+e6391,2019/12/20,lunch,pasta,
+e6394,2019/12/22,lunch,chinese food,"Benjamin, Willow, Avery"
+e6395,2019/12/22,dinner,pasta,
+e6400,2019/12/26,breakfast,oatmeal,
+e6402,2019/12/29,breakfast,cereals,
+e6403,2019/12/29,dinner,pasta,
+e6502,2020/01/03,lunch,pasta,
+e6504,2020/01/05,dinner,sandwich,
+e6511,2020/01/09,lunch,indian food,
+e6513,2020/01/10,breakfast,peanut-butter-jam,
+e6515,2020/01/16,lunch,fish and chips,
+e6520,2020/01/18,breakfast,pancakes,"Eva, Kinsley, Hazel, Olivia, Claire"
+e6521,2020/01/19,dinner,sandwich,"Piper, Eva, Nevaeh, Claire, Avery"
+e6524,2020/01/22,dinner,sandwich,"Willow, Avery"
+e6526,2020/01/23,breakfast,oatmeal,
+e6527,2020/01/24,lunch,indian food,
+e6529,2020/01/25,dinner,sandwich,
+e6530,2020/01/26,lunch,sushi,"Willow, Avery"
+e6531,2020/01/26,dinner,chinese food,
+e6534,2020/01/29,lunch,pasta,
+e6538,2020/01/30,breakfast,peanut-butter-jam,
+e6541,2020/01/31,lunch,sushi,"Emily, Kayden, Andrew"
+e6544,2020/02/03,dinner,sandwich,
+e6546,2020/02/04,dinner,fish and chips,"Carter, Andrew, Kayden, Emily"
+e6547,2020/02/05,dinner,indian food,
+e6548,2020/02/08,breakfast,"eggs, sausages, and bread",
+e6549,2020/02/09,lunch,steak,
+e6550,2020/02/10,lunch,sushi,
+e6552,2020/02/12,breakfast,toast and cheese,
+e6553,2020/02/13,dinner,a burger,"Emily, Carter, Andrew"
+e6556,2020/02/15,breakfast,pancakes,
+e6559,2020/02/17,breakfast,toast and cheese,
+e6560,2020/02/17,dinner,tacos,"Kayden, Andrew, Emily"
+e6563,2020/02/18,breakfast,peanut-butter-jam,
+e6567,2020/02/19,dinner,tacos,
+e6572,2020/02/22,lunch,fish and chips,"Olivia, Layla, Eva, Lydia, Piper, Avery, Hazel, Nevaeh, Nora, Rylee, Piper"
+e6575,2020/02/23,breakfast,toast and cheese,"Avery, Benjamin, Willow, Jackson"
+e6577,2020/02/24,breakfast,oatmeal,
+e6578,2020/02/24,lunch,indian food,Carter
+e6579,2020/02/25,lunch,fish and chips,
+e6581,2020/02/27,breakfast,toast and cheese,"Kayden, Carter, Emily, Andrew"
+e6585,2020/02/28,dinner,a burger,
+e6586,2020/02/29,breakfast,toast and cheese,"Piper, Hazel, Rylee, Olivia, Nora, Claire, Layla, Avery, Eva, Kinsley, Nevaeh, Lydia"
+e6591,2020/03/02,breakfast,oatmeal,
+e6592,2020/03/02,dinner,chinese food,
+e6596,2020/03/08,breakfast,"eggs, sausages, and bread",
+e6599,2020/03/10,breakfast,cereals,"Avery, Benjamin"
+e6604,2020/03/15,lunch,fish and chips,
+e6608,2020/03/19,breakfast,peanut-butter-jam,
+e6614,2020/03/24,dinner,pasta,
+e6615,2020/03/25,breakfast,cereals,
+e6616,2020/03/26,lunch,tacos,
+e6622,2020/03/29,breakfast,oatmeal,"Kayden, Emily, Carter, Andrew"
+e6624,2020/03/30,breakfast,peanut-butter-jam,
+e6627,2020/03/31,breakfast,oatmeal,
+e6628,2020/04/02,dinner,tacos,Kayden
+e6631,2020/04/03,lunch,steak,Kayden
+e6632,2020/04/04,breakfast,cereals,"Emily, Carter, Kayden, Andrew"
+e6633,2020/04/04,lunch,tacos,Emily
+e6636,2020/04/06,dinner,sushi,
+e6639,2020/04/07,breakfast,toast and cheese,
+e6642,2020/04/08,breakfast,cereals,
+e6643,2020/04/09,lunch,a burger,"Avery, Claire"
+e6645,2020/04/11,dinner,pasta,
+e6651,2020/04/15,dinner,sandwich,
+e6652,2020/04/17,breakfast,oatmeal,"Carter, Emily, Kayden"
+e6654,2020/04/19,lunch,chinese food,"Olivia, Hazel, Kinsley"
+e6656,2020/04/20,dinner,sandwich,
+e6658,2020/04/21,dinner,indian food,
+e6659,2020/04/22,lunch,a burger,
+e6660,2020/04/23,dinner,chinese food,"Carter, Andrew, Kayden"
+e6662,2020/04/24,breakfast,pancakes,
+e6665,2020/04/25,dinner,indian food,Carter
+e6667,2020/04/26,lunch,sandwich,"Lydia, Piper"
+e6668,2020/04/26,dinner,a burger,
+e6672,2020/04/28,breakfast,"eggs, sausages, and bread",Benjamin
+e6673,2020/04/28,dinner,a burger,
+e6676,2020/04/30,dinner,tacos,"Benjamin, Willow, Avery, Jackson"
+e6677,2020/05/01,breakfast,"eggs, sausages, and bread","Layla, Nevaeh, Avery, Kinsley, Rylee, Piper, Eva, Nora"
+e6678,2020/05/01,dinner,indian food,
+e6679,2020/05/03,dinner,a burger,
+e6681,2020/05/04,lunch,steak,
+e6683,2020/05/06,lunch,chinese food,
+e6684,2020/05/06,dinner,fish and chips,"Jackson, Avery, Willow, Benjamin"
+e6685,2020/05/07,lunch,pasta,"Carter, Kayden, Andrew, Emily"
+e6687,2020/05/08,lunch,sandwich,
+e6690,2020/05/09,breakfast,cereals,"Andrew, Carter, Kayden"
+e6691,2020/05/09,dinner,indian food,"Claire, Hazel, Olivia, Avery, Layla, Lydia, Piper, Rylee, Eva, Piper, Kinsley, Nora"
+e6693,2020/05/12,dinner,sushi,
+e6695,2020/05/15,breakfast,"eggs, sausages, and bread",
+e6697,2020/05/16,breakfast,pancakes,Andrew
+e6702,2020/05/18,dinner,sandwich,
+e6705,2020/05/20,breakfast,peanut-butter-jam,
+e6706,2020/05/20,dinner,pasta,"Willow, Jackson, Benjamin, Avery"
+e6707,2020/05/21,lunch,a burger,
+e6709,2020/05/22,dinner,fish and chips,
+e6711,2020/05/24,dinner,tacos,"Kayden, Andrew, Emily, Carter"
+e6716,2020/05/28,lunch,chinese food,"Carter, Kayden"
+e6717,2020/05/28,dinner,sushi,"Olivia, Piper, Hazel, Kinsley, Layla, Claire, Nevaeh, Eva, Nora, Lydia, Avery"
+e6718,2020/05/30,lunch,chinese food,
+e6724,2020/06/01,dinner,sushi,
+e6726,2020/06/02,breakfast,cereals,
+e6727,2020/06/02,lunch,indian food,
+e6730,2020/06/04,breakfast,"eggs, sausages, and bread","Emily, Carter, Kayden, Andrew"
+e6731,2020/06/04,lunch,chinese food,"Andrew, Carter, Emily"
+e6734,2020/06/07,lunch,tacos,
+e6736,2020/06/08,lunch,pasta,
+e6739,2020/06/09,lunch,sandwich,Andrew
+e6742,2020/06/10,dinner,steak,
+e6743,2020/06/11,lunch,tacos,
+e6747,2020/06/14,breakfast,cereals,
+e6749,2020/06/15,lunch,a burger,
+e6750,2020/06/15,dinner,tacos,"Kinsley, Nora"
+e6752,2020/06/16,breakfast,cereals,"Jackson, Avery"
+e6758,2020/06/20,breakfast,toast and cheese,"Carter, Andrew"
+e6759,2020/06/21,lunch,tacos,
+e6761,2020/06/23,lunch,chinese food,
+e6762,2020/06/24,breakfast,pancakes,
+e6763,2020/06/24,lunch,steak,
+e6766,2020/06/26,lunch,sandwich,"Andrew, Emily, Carter, Kayden"
+e6767,2020/06/26,dinner,steak,
+e6770,2020/06/27,dinner,pasta,"Andrew, Emily"
+e6773,2020/06/30,lunch,indian food,
+e6774,2020/06/30,dinner,indian food,"Carter, Kayden"
+e6776,2020/07/01,breakfast,toast and cheese,
+e6777,2020/07/01,dinner,pasta,"Kayden, Carter, Emily, Andrew"
+e6779,2020/07/02,dinner,pasta,"Jackson, Benjamin, Avery"
+e6782,2020/07/04,lunch,sushi,
+e6783,2020/07/05,breakfast,pancakes,Lydia
+e6786,2020/07/06,lunch,steak,
+e6788,2020/07/07,lunch,a burger,"Kayden, Andrew, Carter, Emily"
+e6791,2020/07/08,lunch,chinese food,
+e6797,2020/07/15,lunch,indian food,"Piper, Lydia"
+e6798,2020/07/16,lunch,sandwich,"Avery, Rylee, Layla, Piper, Kinsley, Nevaeh, Hazel, Lydia, Eva, Claire, Olivia, Piper, Nora"
+e6799,2020/07/18,breakfast,"eggs, sausages, and bread","Eva, Rylee, Olivia, Claire, Nora, Nevaeh, Hazel, Layla, Piper, Piper, Kinsley, Avery, Lydia"
+e6800,2020/07/18,lunch,pasta,"Carter, Kayden, Andrew"
+e6801,2020/07/18,dinner,tacos,
+e6802,2020/07/19,dinner,sushi,"Kayden, Carter, Emily, Andrew"
+e6804,2020/07/23,lunch,chinese food,
+e6805,2020/07/24,breakfast,cereals,
+e6808,2020/07/28,breakfast,peanut-butter-jam,
+e6809,2020/07/28,dinner,sandwich,
+e6815,2020/07/31,dinner,indian food,
+e6816,2020/08/01,dinner,a burger,
+e6822,2020/08/06,breakfast,cereals,"Emily, Andrew, Kayden, Carter"
+e6823,2020/08/06,lunch,indian food,"Avery, Jackson, Willow"
+e6825,2020/08/07,lunch,tacos,"Eva, Nevaeh, Piper, Piper, Olivia, Nora"
+e6826,2020/08/07,dinner,tacos,
+e6831,2020/08/11,dinner,a burger,
+e6833,2020/08/15,breakfast,toast and cheese,
+e6836,2020/08/17,lunch,a burger,
+e6837,2020/08/17,dinner,sandwich,
+e6839,2020/08/20,dinner,indian food,
+e6842,2020/08/22,lunch,chinese food,"Nevaeh, Lydia, Hazel, Kinsley, Claire, Avery, Eva, Olivia, Piper, Layla"
+e6843,2020/08/22,dinner,sushi,Emily
+e6844,2020/08/24,dinner,tacos,
+e6845,2020/08/25,breakfast,pancakes,
+e6846,2020/08/25,lunch,sandwich,Andrew
+e6847,2020/08/26,dinner,a burger,"Emily, Kayden"
+e6850,2020/08/28,dinner,chinese food,
+e6852,2020/08/30,dinner,chinese food,Andrew
+e6855,2020/08/31,lunch,tacos,"Avery, Benjamin"
+e6856,2020/09/01,dinner,a burger,
+e6858,2020/09/02,lunch,chinese food,
+e6861,2020/09/04,dinner,sandwich,
+e6862,2020/09/05,breakfast,peanut-butter-jam,
+e6863,2020/09/05,dinner,pasta,Kayden
+e6864,2020/09/07,dinner,sandwich,
+e6867,2020/09/08,breakfast,pancakes,Andrew
+e6868,2020/09/08,lunch,pasta,
+e6869,2020/09/08,dinner,indian food,
+e6871,2020/09/10,dinner,sushi,
+e6876,2020/09/13,breakfast,peanut-butter-jam,
+e6877,2020/09/13,dinner,sandwich,"Hazel, Piper, Avery, Eva, Piper, Olivia, Rylee, Claire, Kinsley, Nevaeh"
+e6878,2020/09/14,dinner,chinese food,
+e6879,2020/09/15,breakfast,oatmeal,
+e6880,2020/09/15,dinner,sandwich,
+e6882,2020/09/16,lunch,steak,"Rylee, Layla, Eva, Claire, Avery, Olivia, Piper, Piper, Kinsley, Nevaeh, Nora, Hazel, Lydia"
+e6883,2020/09/16,dinner,pasta,"Nevaeh, Eva, Avery, Piper, Claire, Nora"
+e6884,2020/09/17,lunch,sushi,
+e6888,2020/09/19,dinner,pasta,
+e6894,2020/09/24,lunch,tacos,
+e6896,2020/09/25,lunch,indian food,
+e6898,2020/09/27,breakfast,peanut-butter-jam,
+e6900,2020/09/28,dinner,pasta,
+e6903,2020/09/30,dinner,pasta,"Hazel, Lydia, Piper, Nevaeh, Layla, Eva, Avery, Claire, Nora, Kinsley, Olivia, Rylee, Piper"
+e6904,2020/10/01,breakfast,toast and cheese,"Emily, Carter"
+e6906,2020/10/03,dinner,tacos,
+e6910,2020/10/07,lunch,chinese food,
+e6913,2020/10/08,dinner,sandwich,
+e6917,2020/10/11,dinner,fish and chips,Carter
+e6921,2020/10/13,dinner,a burger,"Olivia, Claire, Rylee, Nevaeh"
+e6924,2020/10/15,lunch,chinese food,Emily
+e6927,2020/10/18,breakfast,toast and cheese,
+e6928,2020/10/19,breakfast,peanut-butter-jam,
+e6929,2020/10/20,lunch,pasta,Avery
+e6933,2020/10/22,dinner,fish and chips,
+e6944,2020/10/27,dinner,pasta,Emily
+e6947,2020/10/28,breakfast,oatmeal,
+e6948,2020/10/29,breakfast,"eggs, sausages, and bread","Hazel, Olivia, Lydia"
+e6949,2020/10/29,lunch,steak,
+e6950,2020/10/29,dinner,fish and chips,
+e6951,2020/10/30,breakfast,"eggs, sausages, and bread",Kayden
+e6953,2020/10/31,breakfast,"eggs, sausages, and bread",Benjamin
+e6954,2020/10/31,lunch,sushi,"Willow, Jackson, Avery"
+e6957,2020/11/02,dinner,indian food,
+e6960,2020/11/04,breakfast,pancakes,
+e6961,2020/11/04,lunch,tacos,"Layla, Hazel, Nora, Avery"
+e6965,2020/11/07,lunch,steak,
+e6966,2020/11/07,dinner,tacos,
+e6968,2020/11/08,breakfast,pancakes,
+e6970,2020/11/09,lunch,tacos,"Nora, Nevaeh, Piper, Layla, Piper, Kinsley, Lydia"
+e6973,2020/11/11,lunch,sandwich,"Lydia, Hazel, Olivia, Eva, Nora, Rylee, Piper, Kinsley, Avery, Layla, Nevaeh"
+e6974,2020/11/12,dinner,chinese food,
+e6980,2020/11/15,dinner,chinese food,Andrew
+e6982,2020/11/17,lunch,a burger,
+e6983,2020/11/17,dinner,fish and chips,
+e6985,2020/11/18,lunch,chinese food,"Andrew, Carter, Emily, Kayden"
+e6991,2020/11/24,breakfast,toast and cheese,
+e6993,2020/11/25,lunch,a burger,
+e7000,2020/11/30,breakfast,toast and cheese,"Willow, Avery"
+e7002,2020/12/03,dinner,indian food,
+e7004,2020/12/05,dinner,fish and chips,"Jackson, Benjamin, Willow, Avery"
+e7006,2020/12/07,breakfast,pancakes,
+e7007,2020/12/07,lunch,sushi,"Claire, Hazel, Olivia, Nevaeh, Avery, Lydia, Nora, Piper"
+e7008,2020/12/08,lunch,chinese food,
+e7010,2020/12/10,breakfast,toast and cheese,
+e7011,2020/12/10,lunch,chinese food,"Piper, Avery, Claire, Kinsley, Eva, Nora, Layla, Nevaeh, Hazel, Piper, Lydia, Olivia"
+e7012,2020/12/10,dinner,a burger,
+e7015,2020/12/11,lunch,sushi,
+e7016,2020/12/11,dinner,sushi,"Benjamin, Jackson, Avery, Willow"
+e7018,2020/12/12,lunch,chinese food,"Hazel, Eva, Rylee, Lydia, Piper, Nora, Avery, Claire, Layla, Kinsley, Nevaeh, Piper"
+e7020,2020/12/14,breakfast,"eggs, sausages, and bread",
+e7023,2020/12/16,breakfast,cereals,"Piper, Eva, Hazel, Nora, Lydia, Kinsley, Claire"
+e7024,2020/12/16,dinner,tacos,"Andrew, Kayden, Carter"
+e7027,2020/12/17,breakfast,toast and cheese,
+e7028,2020/12/18,dinner,chinese food,
+e7029,2020/12/20,breakfast,oatmeal,Carter
+e7030,2020/12/20,dinner,a burger,"Willow, Jackson, Avery"
+e7033,2020/12/23,lunch,pasta,Benjamin
+e7034,2020/12/23,dinner,tacos,
+e7037,2020/12/26,dinner,tacos,"Kayden, Andrew"
+e7041,2020/12/27,dinner,steak,"Avery, Eva, Olivia, Kinsley"
+e7043,2020/12/30,breakfast,"eggs, sausages, and bread",Emily
+e7044,2020/12/30,lunch,pasta,"Eva, Claire, Hazel, Nevaeh, Avery, Rylee, Kinsley, Lydia, Piper, Nora, Layla, Piper"
+e7047,2020/12/31,dinner,fish and chips,"Avery, Nevaeh, Piper, Claire, Lydia, Piper, Hazel, Olivia, Nora, Eva, Rylee, Layla"
+e7141,2021/01/01,lunch,pasta,"Nevaeh, Kinsley, Avery, Eva, Rylee, Layla, Claire"
+e7144,2021/01/03,breakfast,toast and cheese,
+e7145,2021/01/03,dinner,a burger,
+e7150,2021/01/08,breakfast,cereals,
+e7151,2021/01/08,dinner,sandwich,
+e7154,2021/01/10,lunch,a burger,
+e7155,2021/01/10,dinner,pasta,
+e7157,2021/01/11,breakfast,toast and cheese,
+e7159,2021/01/13,dinner,sushi,"Carter, Kayden, Andrew"
+e7162,2021/01/15,lunch,steak,
+e7165,2021/01/16,breakfast,toast and cheese,
+e7170,2021/01/19,breakfast,pancakes,"Willow, Benjamin"
+e7172,2021/01/20,dinner,indian food,"Benjamin, Avery, Willow, Jackson"
+e7173,2021/01/22,dinner,sushi,
+e7174,2021/01/23,dinner,pasta,
+e7175,2021/01/24,breakfast,pancakes,
+e7178,2021/01/26,dinner,steak,"Kayden, Carter"
+e7179,2021/01/27,lunch,steak,"Carter, Kayden, Emily"
+e7181,2021/01/28,breakfast,peanut-butter-jam,
+e7183,2021/01/29,breakfast,toast and cheese,Emily
+e7184,2021/01/29,lunch,sushi,"Andrew, Carter"
+e7192,2021/02/02,breakfast,peanut-butter-jam,Jackson
+e7199,2021/02/05,dinner,a burger,
+e7200,2021/02/06,dinner,steak,"Andrew, Kayden, Emily"
+e7201,2021/02/07,dinner,sandwich,"Andrew, Kayden, Carter"
+e7202,2021/02/08,breakfast,toast and cheese,"Jackson, Avery, Willow, Benjamin"
+e7204,2021/02/09,breakfast,oatmeal,
+e7205,2021/02/09,lunch,sushi,Emily
+e7209,2021/02/11,breakfast,peanut-butter-jam,Andrew
+e7212,2021/02/14,dinner,a burger,
+e7216,2021/02/16,lunch,pasta,
+e7218,2021/02/18,lunch,indian food,
+e7219,2021/02/18,dinner,sandwich,
+e7223,2021/02/22,lunch,pasta,
+e7224,2021/02/23,breakfast,peanut-butter-jam,
+e7228,2021/02/25,lunch,sushi,
+e7230,2021/02/26,dinner,chinese food,
+e7234,2021/02/28,lunch,tacos,
+e7235,2021/03/01,breakfast,peanut-butter-jam,
+e7238,2021/03/04,lunch,tacos,"Nora, Rylee, Nevaeh, Layla, Eva"
+e7239,2021/03/05,lunch,sandwich,
+e7241,2021/03/06,breakfast,cereals,
+e7242,2021/03/07,breakfast,cereals,
+e7244,2021/03/08,dinner,pasta,
+e7246,2021/03/09,dinner,tacos,"Avery, Benjamin, Willow"
+e7248,2021/03/10,breakfast,cereals,"Emily, Carter"
+e7249,2021/03/10,dinner,sandwich,
+e7252,2021/03/11,breakfast,oatmeal,
+e7253,2021/03/11,lunch,chinese food,"Avery, Claire"
+e7254,2021/03/13,breakfast,oatmeal,"Kayden, Emily"
+e7258,2021/03/15,breakfast,toast and cheese,"Andrew, Carter, Kayden"
+e7260,2021/03/16,breakfast,oatmeal,"Hazel, Eva, Layla, Lydia, Claire, Kinsley"
+e7263,2021/03/17,lunch,sandwich,
+e7264,2021/03/17,dinner,indian food,
+e7266,2021/03/18,breakfast,pancakes,
+e7270,2021/03/19,breakfast,peanut-butter-jam,
+e7271,2021/03/19,dinner,pasta,
+e7278,2021/03/26,lunch,fish and chips,
+e7281,2021/03/27,lunch,a burger,
+e7283,2021/03/28,lunch,sandwich,
+e7286,2021/03/30,dinner,indian food,
+e7288,2021/03/31,dinner,steak,
+e7290,2021/04/02,lunch,fish and chips,Andrew
+e7292,2021/04/03,breakfast,"eggs, sausages, and bread",
+e7293,2021/04/03,dinner,chinese food,
+e7296,2021/04/04,lunch,pasta,
+e7299,2021/04/07,lunch,sushi,
+e7301,2021/04/08,dinner,chinese food,
+e7304,2021/04/11,lunch,indian food,
+e7306,2021/04/12,dinner,sandwich,
+e7307,2021/04/13,lunch,tacos,Emily
+e7308,2021/04/14,breakfast,peanut-butter-jam,
+e7309,2021/04/14,lunch,chinese food,
+e7313,2021/04/18,dinner,a burger,
+e7316,2021/04/20,breakfast,"eggs, sausages, and bread","Jackson, Benjamin, Avery, Willow"
+e7319,2021/04/21,lunch,sandwich,Emily
+e7320,2021/04/22,breakfast,cereals,
+e7323,2021/04/25,breakfast,pancakes,
+e7327,2021/04/26,breakfast,peanut-butter-jam,
+e7328,2021/04/26,lunch,a burger,
+e7333,2021/04/30,breakfast,cereals,"Emily, Carter, Kayden"
+e7337,2021/05/02,dinner,tacos,"Olivia, Piper, Kinsley, Avery, Nora, Piper, Claire"
+e7339,2021/05/04,dinner,fish and chips,"Carter, Kayden, Andrew, Emily"
+e7341,2021/05/05,lunch,a burger,
+e7344,2021/05/06,lunch,sandwich,"Andrew, Emily"
+e7349,2021/05/10,lunch,tacos,Carter
+e7353,2021/05/12,lunch,sushi,
+e7354,2021/05/13,dinner,steak,
+e7357,2021/05/14,dinner,pasta,
+e7359,2021/05/15,breakfast,"eggs, sausages, and bread",
+e7360,2021/05/15,lunch,steak,
+e7361,2021/05/18,dinner,steak,
+e7364,2021/05/19,breakfast,pancakes,
+e7369,2021/05/24,lunch,sandwich,
+e7373,2021/05/25,lunch,a burger,"Andrew, Kayden, Emily, Carter"
+e7376,2021/05/26,dinner,a burger,
+e7380,2021/06/02,lunch,tacos,"Andrew, Kayden, Emily"
+e7386,2021/06/07,breakfast,toast and cheese,
+e7387,2021/06/07,lunch,sushi,"Andrew, Emily"
+e7389,2021/06/09,lunch,tacos,
+e7390,2021/06/10,breakfast,pancakes,Willow
+e7391,2021/06/10,dinner,chinese food,
+e7396,2021/06/15,lunch,sushi,
+e7398,2021/06/16,lunch,tacos,"Willow, Benjamin"
+e7402,2021/06/18,lunch,fish and chips,
+e7403,2021/06/20,lunch,chinese food,
+e7406,2021/06/23,breakfast,oatmeal,"Andrew, Emily"
+e7410,2021/06/25,breakfast,cereals,"Willow, Avery"
+e7411,2021/06/25,lunch,tacos,
+e7420,2021/07/01,breakfast,"eggs, sausages, and bread",
+e7422,2021/07/02,breakfast,oatmeal,
+e7423,2021/07/02,dinner,a burger,Andrew
+e7425,2021/07/03,lunch,steak,"Andrew, Carter, Kayden, Emily"
+e7426,2021/07/03,dinner,tacos,
+e7428,2021/07/04,lunch,tacos,"Emily, Carter, Andrew"
+e7432,2021/07/06,lunch,indian food,Carter
+e7435,2021/07/07,dinner,chinese food,Piper
+e7438,2021/07/10,lunch,tacos,"Kayden, Emily, Andrew, Carter"
+e7441,2021/07/11,lunch,steak,"Emily, Carter, Kayden"
+e7448,2021/07/17,dinner,chinese food,
+e7450,2021/07/18,dinner,sushi,
+e7452,2021/07/20,lunch,sandwich,
+e7455,2021/07/21,lunch,sandwich,"Emily, Andrew, Carter"
+e7456,2021/07/22,lunch,sushi,
+e7457,2021/07/23,dinner,tacos,
+e7458,2021/07/24,lunch,pasta,
+e7459,2021/07/24,dinner,pasta,
+e7460,2021/07/25,breakfast,"eggs, sausages, and bread",
+e7463,2021/07/26,lunch,steak,
+e7464,2021/07/26,dinner,tacos,"Emily, Carter, Andrew, Kayden"
+e7465,2021/07/27,lunch,steak,"Willow, Jackson, Benjamin, Avery"
+e7468,2021/07/28,dinner,sushi,
+e7470,2021/07/31,lunch,chinese food,"Andrew, Emily"
+e7471,2021/07/31,dinner,fish and chips,
+e7474,2021/08/01,breakfast,cereals,"Carter, Kayden, Emily"
+e7476,2021/08/02,breakfast,oatmeal,"Carter, Kayden, Andrew"
+e7477,2021/08/02,dinner,chinese food,"Nevaeh, Lydia, Eva, Hazel, Piper, Rylee"
+e7479,2021/08/03,lunch,fish and chips,
+e7483,2021/08/07,breakfast,oatmeal,
+e7484,2021/08/07,dinner,steak,Emily
+e7487,2021/08/08,lunch,indian food,"Kayden, Andrew"
+e7490,2021/08/11,breakfast,oatmeal,"Andrew, Carter, Emily, Kayden"
+e7491,2021/08/12,breakfast,toast and cheese,
+e7494,2021/08/13,breakfast,cereals,"Kayden, Andrew, Carter, Emily"
+e7497,2021/08/15,dinner,indian food,
+e7499,2021/08/16,dinner,indian food,
+e7509,2021/08/26,dinner,indian food,
+e7512,2021/08/28,breakfast,oatmeal,Emily
+e7513,2021/08/28,lunch,indian food,
+e7514,2021/08/29,dinner,indian food,"Emily, Carter, Kayden"
+e7516,2021/08/30,lunch,tacos,
+e7517,2021/08/31,lunch,tacos,
+e7519,2021/09/01,lunch,sandwich,
+e7524,2021/09/04,lunch,sandwich,"Carter, Emily, Andrew, Kayden"
+e7529,2021/09/07,breakfast,peanut-butter-jam,
+e7531,2021/09/09,breakfast,pancakes,Kayden
+e7533,2021/09/10,breakfast,peanut-butter-jam,Willow
+e7534,2021/09/11,dinner,indian food,
+e7537,2021/09/12,breakfast,"eggs, sausages, and bread",
+e7538,2021/09/12,dinner,chinese food,
+e7540,2021/09/13,lunch,a burger,
+e7542,2021/09/14,breakfast,peanut-butter-jam,
+e7545,2021/09/16,breakfast,pancakes,"Lydia, Piper, Eva, Olivia, Hazel, Piper, Nevaeh"
+e7548,2021/09/18,lunch,steak,"Benjamin, Jackson, Avery"
+e7550,2021/09/19,lunch,sushi,
+e7552,2021/09/20,breakfast,peanut-butter-jam,
+e7553,2021/09/21,breakfast,"eggs, sausages, and bread","Carter, Emily, Kayden"
+e7554,2021/09/21,lunch,a burger,"Willow, Benjamin, Jackson"
+e7556,2021/09/23,breakfast,oatmeal,
+e7557,2021/09/23,lunch,chinese food,
+e7559,2021/09/24,lunch,steak,Avery
+e7560,2021/09/24,dinner,chinese food,Jackson
+e7562,2021/09/25,lunch,sushi,
+e7563,2021/09/26,breakfast,toast and cheese,
+e7568,2021/09/29,dinner,a burger,
+e7572,2021/10/01,breakfast,toast and cheese,
+e7573,2021/10/02,dinner,fish and chips,
+e7574,2021/10/03,lunch,fish and chips,
+e7575,2021/10/04,breakfast,peanut-butter-jam,
+e7578,2021/10/05,breakfast,pancakes,
+e7579,2021/10/05,lunch,sushi,"Emily, Kayden"
+e7580,2021/10/05,dinner,sushi,
+e7581,2021/10/06,breakfast,peanut-butter-jam,
+e7584,2021/10/07,dinner,tacos,"Carter, Emily, Andrew"
+e7587,2021/10/12,breakfast,oatmeal,"Eva, Rylee"
+e7588,2021/10/12,dinner,fish and chips,
+e7591,2021/10/13,breakfast,pancakes,Andrew
+e7592,2021/10/14,lunch,fish and chips,"Kayden, Emily"
+e7594,2021/10/17,lunch,a burger,"Emily, Kayden, Carter"
+e7595,2021/10/18,breakfast,cereals,
+e7596,2021/10/18,lunch,fish and chips,
+e7597,2021/10/18,dinner,fish and chips,
+e7598,2021/10/21,lunch,fish and chips,"Kayden, Carter"
+e7601,2021/10/23,lunch,tacos,
+e7603,2021/10/24,lunch,sushi,
+e7604,2021/10/24,dinner,sandwich,
+e7608,2021/10/26,breakfast,peanut-butter-jam,
+e7609,2021/10/26,lunch,sandwich,
+e7611,2021/10/27,breakfast,pancakes,
+e7612,2021/10/28,breakfast,peanut-butter-jam,"Carter, Emily"
+e7613,2021/10/28,dinner,chinese food,"Andrew, Emily"
+e7616,2021/10/30,dinner,indian food,
+e7619,2021/10/31,dinner,chinese food,
+e7624,2021/11/03,dinner,pasta,
+e7625,2021/11/04,breakfast,oatmeal,"Andrew, Emily"
+e7628,2021/11/05,breakfast,peanut-butter-jam,"Jackson, Benjamin, Avery"
+e7630,2021/11/06,breakfast,peanut-butter-jam,
+e7632,2021/11/07,lunch,a burger,
+e7633,2021/11/07,dinner,sushi,
+e7637,2021/11/09,breakfast,peanut-butter-jam,
+e7639,2021/11/10,lunch,tacos,"Kayden, Carter, Emily, Andrew"
+e7640,2021/11/11,dinner,sushi,"Andrew, Emily, Carter"
+e7643,2021/11/13,dinner,chinese food,
+e7644,2021/11/14,lunch,fish and chips,
+e7645,2021/11/14,dinner,indian food,
+e7649,2021/11/17,breakfast,pancakes,
+e7651,2021/11/18,lunch,sandwich,
+e7652,2021/11/18,dinner,sushi,
+e7660,2021/11/26,lunch,sandwich,
+e7662,2021/11/27,breakfast,toast and cheese,
+e7663,2021/11/27,lunch,sushi,Benjamin
+e7664,2021/11/29,lunch,fish and chips,
+e7665,2021/11/29,dinner,sandwich,
+e7667,2021/12/02,lunch,a burger,"Carter, Kayden, Emily, Andrew"
+e7668,2021/12/02,dinner,a burger,"Avery, Benjamin, Jackson, Willow"
+e7670,2021/12/03,lunch,sushi,
+e7673,2021/12/05,lunch,pasta,
+e7674,2021/12/05,dinner,chinese food,"Jackson, Willow, Benjamin"
+e7676,2021/12/06,lunch,tacos,
+e7678,2021/12/07,breakfast,cereals,"Lydia, Olivia, Layla, Hazel, Claire, Piper, Piper, Kinsley, Eva, Avery, Rylee, Nora, Nevaeh"
+e7682,2021/12/12,dinner,chinese food,
+e7687,2021/12/15,breakfast,oatmeal,
+e7689,2021/12/16,breakfast,"eggs, sausages, and bread",
+e7691,2021/12/17,breakfast,toast and cheese,
+e7696,2021/12/21,dinner,indian food,
+e7697,2021/12/22,breakfast,toast and cheese,"Andrew, Emily, Carter"
+e7698,2021/12/22,lunch,sandwich,
+e7701,2021/12/23,breakfast,peanut-butter-jam,
+e7702,2021/12/24,dinner,steak,
+e7706,2021/12/28,breakfast,cereals,"Andrew, Emily"
+e7708,2021/12/29,breakfast,oatmeal,
+e7709,2021/12/29,dinner,steak,"Kinsley, Rylee, Piper, Avery, Lydia, Nevaeh, Piper, Hazel, Olivia, Layla"
+e7797,2022/01/04,dinner,steak,"Emily, Carter"
+e7798,2022/01/05,breakfast,toast and cheese,
+e7799,2022/01/05,lunch,fish and chips,"Benjamin, Avery"
+e7800,2022/01/06,breakfast,cereals,
+e7802,2022/01/07,dinner,sushi,Olivia
+e7804,2022/01/08,lunch,fish and chips,
+e7808,2022/01/10,breakfast,pancakes,
+e7809,2022/01/10,lunch,a burger,"Avery, Nevaeh, Eva, Rylee, Kinsley, Nora, Olivia, Piper, Lydia, Piper"
+e7810,2022/01/10,dinner,sandwich,
+e7812,2022/01/12,dinner,sandwich,"Hazel, Layla, Avery"
+e7816,2022/01/16,breakfast,peanut-butter-jam,
+e7818,2022/01/18,breakfast,"eggs, sausages, and bread",
+e7819,2022/01/18,dinner,a burger,
+e7824,2022/01/20,breakfast,cereals,Emily
+e7826,2022/01/21,lunch,steak,"Carter, Emily, Andrew, Kayden"
+e7827,2022/01/22,dinner,fish and chips,"Kayden, Andrew"
+e7835,2022/01/29,lunch,indian food,
+e7837,2022/01/31,breakfast,pancakes,
+e7844,2022/02/03,breakfast,cereals,Nora
+e7845,2022/02/03,lunch,chinese food,Willow
+e7847,2022/02/06,lunch,a burger,
+e7848,2022/02/09,breakfast,oatmeal,
+e7853,2022/02/13,breakfast,"eggs, sausages, and bread","Andrew, Carter"
+e7855,2022/02/14,dinner,tacos,
+e7857,2022/02/15,lunch,pasta,Avery
+e7860,2022/02/17,breakfast,cereals,"Avery, Benjamin, Willow, Jackson"
+e7861,2022/02/18,breakfast,cereals,
+e7864,2022/02/19,lunch,tacos,
+e7865,2022/02/20,breakfast,pancakes,
+e7869,2022/02/24,breakfast,"eggs, sausages, and bread","Andrew, Emily"
+e7872,2022/02/27,dinner,pasta,"Benjamin, Willow, Avery, Jackson"
+e7874,2022/02/28,lunch,fish and chips,
+e7879,2022/03/03,lunch,sushi,"Jackson, Willow"
+e7885,2022/03/08,lunch,steak,
+e7889,2022/03/12,dinner,fish and chips,"Claire, Hazel, Piper, Nevaeh"
+e7892,2022/03/14,breakfast,"eggs, sausages, and bread","Nevaeh, Hazel, Olivia"
+e7894,2022/03/15,lunch,sandwich,
+e7896,2022/03/16,breakfast,cereals,
+e7897,2022/03/16,dinner,indian food,
+e7904,2022/03/20,breakfast,cereals,
+e7907,2022/03/23,dinner,pasta,"Kayden, Emily, Carter"
+e7909,2022/03/25,breakfast,cereals,
+e7911,2022/03/27,dinner,sandwich,"Piper, Lydia, Layla, Olivia, Claire, Rylee"
+e7913,2022/03/29,lunch,indian food,"Jackson, Willow, Benjamin, Avery"
+e7915,2022/03/31,breakfast,peanut-butter-jam,
+e7918,2022/04/04,dinner,a burger,
+e7921,2022/04/05,dinner,fish and chips,
+e7923,2022/04/06,lunch,indian food,"Avery, Jackson, Willow"
+e7924,2022/04/07,dinner,indian food,"Olivia, Hazel, Kinsley, Eva, Layla, Nora, Claire, Piper"
+e7926,2022/04/08,dinner,chinese food,
+e7928,2022/04/11,breakfast,oatmeal,"Benjamin, Jackson, Willow, Avery"
+e7929,2022/04/11,dinner,fish and chips,Avery
+e7932,2022/04/12,lunch,tacos,
+e7936,2022/04/15,breakfast,cereals,"Emily, Carter, Andrew"
+e7937,2022/04/15,dinner,indian food,"Kayden, Andrew, Carter, Emily"
+e7941,2022/04/17,breakfast,peanut-butter-jam,
+e7942,2022/04/17,lunch,pasta,"Carter, Emily, Kayden, Andrew"
+e7944,2022/04/18,dinner,sushi,
+e7945,2022/04/19,lunch,pasta,
+e7946,2022/04/19,dinner,chinese food,
+e7957,2022/05/01,lunch,sandwich,
+e7959,2022/05/03,lunch,steak,Carter
+e7960,2022/05/03,dinner,fish and chips,"Carter, Emily, Andrew, Kayden"
+e7961,2022/05/05,dinner,steak,"Kinsley, Claire, Lydia, Hazel, Olivia"
+e7962,2022/05/06,lunch,chinese food,"Kayden, Carter"
+e7964,2022/05/07,breakfast,pancakes,
+e7965,2022/05/07,dinner,fish and chips,
+e7966,2022/05/08,breakfast,"eggs, sausages, and bread","Kayden, Emily"
+e7967,2022/05/08,dinner,tacos,
+e7971,2022/05/10,lunch,chinese food,"Carter, Kayden, Andrew"
+e7972,2022/05/10,dinner,tacos,
+e7976,2022/05/11,lunch,chinese food,
+e7977,2022/05/11,dinner,pasta,
+e7979,2022/05/13,dinner,pasta,
+e7985,2022/05/16,lunch,sandwich,"Emily, Kayden"
+e7988,2022/05/17,breakfast,oatmeal,
+e7990,2022/05/19,breakfast,"eggs, sausages, and bread",
+e7992,2022/05/21,breakfast,"eggs, sausages, and bread",
+e7995,2022/05/22,breakfast,oatmeal,
+e7996,2022/05/23,dinner,pasta,"Emily, Andrew, Kayden"
+e8000,2022/05/26,breakfast,cereals,
+e8001,2022/05/28,dinner,a burger,"Kayden, Andrew, Carter"
+e8002,2022/05/29,breakfast,toast and cheese,
+e8005,2022/05/30,lunch,fish and chips,
+e8007,2022/05/31,breakfast,toast and cheese,
+e8008,2022/05/31,dinner,chinese food,
+e8010,2022/06/02,breakfast,toast and cheese,
+e8015,2022/06/05,breakfast,"eggs, sausages, and bread","Carter, Kayden, Emily"
+e8016,2022/06/05,dinner,fish and chips,"Eva, Piper, Nevaeh, Piper, Kinsley, Layla, Olivia, Nora, Lydia, Avery"
+e8018,2022/06/06,lunch,fish and chips,Kayden
+e8022,2022/06/10,breakfast,pancakes,
+e8024,2022/06/11,breakfast,cereals,"Piper, Nevaeh, Piper, Lydia, Layla, Olivia, Rylee, Nora, Eva, Claire"
+e8025,2022/06/12,breakfast,cereals,Eva
+e8026,2022/06/13,dinner,pasta,"Avery, Willow"
+e8028,2022/06/14,lunch,fish and chips,Piper
+e8030,2022/06/16,lunch,sandwich,"Emily, Andrew"
+e8035,2022/06/25,lunch,sandwich,"Claire, Eva, Layla, Kinsley, Avery, Rylee, Piper, Piper, Hazel"
+e8036,2022/06/26,breakfast,cereals,
+e8037,2022/06/26,lunch,indian food,"Emily, Kayden, Andrew"
+e8038,2022/06/26,dinner,a burger,
+e8040,2022/06/27,breakfast,peanut-butter-jam,"Kinsley, Nevaeh, Eva, Hazel, Olivia, Claire, Avery, Piper, Rylee, Nora, Piper, Lydia"
+e8042,2022/06/29,breakfast,toast and cheese,
+e8043,2022/06/30,breakfast,peanut-butter-jam,
+e8045,2022/07/01,breakfast,peanut-butter-jam,"Carter, Andrew, Emily, Kayden"
+e8046,2022/07/01,dinner,pasta,Andrew
+e8052,2022/07/05,lunch,tacos,
+e8055,2022/07/06,breakfast,"eggs, sausages, and bread",
+e8061,2022/07/09,dinner,fish and chips,
+e8063,2022/07/10,breakfast,toast and cheese,
+e8064,2022/07/11,breakfast,"eggs, sausages, and bread",
+e8071,2022/07/17,dinner,fish and chips,
+e8072,2022/07/19,dinner,fish and chips,
+e8078,2022/07/24,lunch,tacos,Avery
+e8082,2022/07/26,dinner,sushi,"Andrew, Kayden, Emily"
+e8085,2022/07/28,dinner,a burger,"Andrew, Kayden, Carter, Emily"
+e8086,2022/07/29,breakfast,peanut-butter-jam,Benjamin
+e8089,2022/08/02,lunch,sushi,
+e8091,2022/08/04,dinner,a burger,"Avery, Jackson, Benjamin, Willow"
+e8094,2022/08/06,breakfast,pancakes,
+e8095,2022/08/06,lunch,sushi,Emily
+e8096,2022/08/06,dinner,a burger,"Andrew, Carter"
+e8097,2022/08/08,breakfast,"eggs, sausages, and bread",Andrew
+e8098,2022/08/08,dinner,chinese food,
+e8102,2022/08/10,lunch,indian food,"Jackson, Willow, Benjamin, Avery"
+e8103,2022/08/11,lunch,sushi,"Carter, Andrew, Emily, Kayden"
+e8109,2022/08/15,dinner,a burger,
+e8110,2022/08/18,dinner,steak,"Layla, Eva, Olivia, Rylee, Claire, Nevaeh, Kinsley, Nora, Lydia, Hazel, Avery"
+e8111,2022/08/19,breakfast,"eggs, sausages, and bread",
+e8112,2022/08/19,lunch,a burger,"Claire, Nevaeh, Hazel, Avery, Eva, Kinsley, Piper, Olivia, Piper"
+e8114,2022/08/21,dinner,steak,
+e8117,2022/08/25,lunch,tacos,
+e8120,2022/08/27,lunch,chinese food,"Rylee, Avery, Lydia, Piper, Claire, Layla, Nevaeh, Piper, Olivia, Hazel, Kinsley, Nora, Eva"
+e8121,2022/08/27,dinner,a burger,"Benjamin, Avery"
+e8128,2022/08/30,breakfast,pancakes,
+e8129,2022/08/30,dinner,chinese food,
+e8131,2022/08/31,breakfast,pancakes,"Benjamin, Avery, Jackson, Willow"
+e8132,2022/09/01,breakfast,peanut-butter-jam,
+e8133,2022/09/01,lunch,a burger,"Carter, Kayden"
+e8135,2022/09/02,lunch,tacos,
+e8138,2022/09/03,lunch,chinese food,"Emily, Andrew"
+e8142,2022/09/06,lunch,sandwich,"Piper, Kinsley, Piper, Olivia"
+e8143,2022/09/06,dinner,indian food,Emily
+e8144,2022/09/07,breakfast,"eggs, sausages, and bread",
+e8146,2022/09/08,lunch,steak,"Jackson, Avery"
+e8147,2022/09/09,dinner,indian food,Emily
+e8150,2022/09/10,breakfast,cereals,
+e8152,2022/09/11,lunch,sandwich,"Avery, Eva, Nevaeh, Nora, Hazel, Claire, Piper, Piper, Olivia, Kinsley, Rylee"
+e8158,2022/09/14,lunch,pasta,
+e8160,2022/09/15,lunch,a burger,"Nora, Eva, Avery, Hazel, Rylee, Piper, Layla, Piper"
+e8163,2022/09/19,breakfast,toast and cheese,
+e8165,2022/09/20,lunch,steak,
+e8167,2022/09/21,dinner,chinese food,"Emily, Kayden, Andrew"
+e8172,2022/09/23,lunch,tacos,
+e8174,2022/09/24,dinner,sushi,
+e8176,2022/09/25,breakfast,cereals,
+e8177,2022/09/26,breakfast,toast and cheese,
+e8178,2022/09/26,lunch,fish and chips,"Carter, Emily"
+e8180,2022/09/27,breakfast,oatmeal,
+e8183,2022/09/29,breakfast,oatmeal,
+e8184,2022/09/30,lunch,pasta,
+e8185,2022/09/30,dinner,steak,
+e8186,2022/10/01,lunch,a burger,
+e8188,2022/10/02,lunch,tacos,
+e8191,2022/10/05,dinner,pasta,"Andrew, Emily, Kayden"
+e8201,2022/10/10,breakfast,"eggs, sausages, and bread",
+e8204,2022/10/12,lunch,indian food,"Andrew, Kayden"
+e8205,2022/10/12,dinner,sandwich,
+e8207,2022/10/13,dinner,a burger,
+e8208,2022/10/14,lunch,a burger,"Layla, Eva, Lydia, Nora, Kinsley, Piper, Avery"
+e8209,2022/10/15,breakfast,peanut-butter-jam,
+e8210,2022/10/15,dinner,tacos,
+e8213,2022/10/19,breakfast,cereals,
+e8214,2022/10/19,lunch,chinese food,
+e8217,2022/10/20,dinner,tacos,
+e8219,2022/10/21,lunch,chinese food,
+e8223,2022/10/24,dinner,fish and chips,
+e8225,2022/10/26,dinner,a burger,
+e8228,2022/10/28,breakfast,peanut-butter-jam,"Kayden, Emily, Carter"
+e8232,2022/10/30,lunch,steak,
+e8233,2022/10/30,dinner,chinese food,
+e8237,2022/11/02,breakfast,oatmeal,"Benjamin, Avery, Willow"
+e8238,2022/11/03,lunch,chinese food,
+e8240,2022/11/04,breakfast,cereals,"Andrew, Emily, Carter"
+e8241,2022/11/05,breakfast,oatmeal,"Hazel, Nevaeh, Layla, Nora"
+e8242,2022/11/05,lunch,fish and chips,Layla
+e8244,2022/11/06,breakfast,"eggs, sausages, and bread","Nevaeh, Hazel, Lydia, Kinsley, Piper, Layla, Avery, Nora"
+e8245,2022/11/06,lunch,a burger,
+e8246,2022/11/06,dinner,tacos,
+e8249,2022/11/07,dinner,fish and chips,
+e8252,2022/11/10,lunch,sushi,"Jackson, Avery, Benjamin, Willow"
+e8253,2022/11/10,dinner,steak,"Andrew, Carter, Emily"
+e8254,2022/11/11,dinner,indian food,"Benjamin, Willow, Jackson, Avery"
+e8262,2022/11/16,dinner,indian food,"Carter, Andrew, Kayden, Emily"
+e8264,2022/11/17,lunch,fish and chips,Carter
+e8267,2022/11/18,breakfast,pancakes,
+e8268,2022/11/18,lunch,indian food,
+e8270,2022/11/19,breakfast,"eggs, sausages, and bread",
+e8274,2022/11/21,breakfast,toast and cheese,
+e8277,2022/11/22,lunch,steak,
+e8280,2022/11/23,breakfast,peanut-butter-jam,"Carter, Kayden, Emily, Andrew"
+e8281,2022/11/24,breakfast,cereals,
+e8282,2022/11/25,lunch,fish and chips,Carter
+e8284,2022/11/26,dinner,fish and chips,"Andrew, Emily, Carter, Kayden"
+e8285,2022/11/28,dinner,chinese food,"Nora, Lydia, Avery, Nevaeh, Piper, Rylee"
+e8288,2022/11/30,lunch,chinese food,
+e8289,2022/12/01,dinner,a burger,"Piper, Nevaeh, Piper, Eva, Kinsley, Avery, Nora, Lydia, Olivia, Hazel, Layla"
+e8294,2022/12/08,dinner,pasta,"Benjamin, Willow"
+e8296,2022/12/09,lunch,steak,
+e8297,2022/12/10,lunch,sushi,Layla
+e8299,2022/12/12,lunch,chinese food,Emily
+e8302,2022/12/14,dinner,pasta,
+e8304,2022/12/15,lunch,sushi,"Piper, Lydia, Avery, Claire, Nora"
+e8305,2022/12/16,breakfast,"eggs, sausages, and bread","Andrew, Kayden, Carter, Emily"
+e8306,2022/12/16,dinner,steak,
+e8307,2022/12/17,dinner,pasta,
+e8309,2022/12/19,breakfast,"eggs, sausages, and bread","Benjamin, Avery, Jackson"
+e8314,2022/12/23,lunch,pasta,
+e8315,2022/12/23,dinner,pasta,"Jackson, Willow, Benjamin, Avery"
+e8317,2022/12/26,dinner,steak,
+e8319,2022/12/27,dinner,indian food,
+e8321,2022/12/29,breakfast,peanut-butter-jam,
+e8322,2022/12/29,dinner,fish and chips,

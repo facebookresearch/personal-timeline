@@ -1,0 +1,113 @@
+eid,start_date,end_date,city,dining_date,food_type,food_location,place_visit_date,place,people,action,emotion
+e7,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/13,Chinese food,High Street Philly,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e8,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/15,Chinese food,High Street Philly,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e9,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/16,street food,Lunch Street,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e10,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/17,Japanese food,High Street Philly,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e11,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/18,Japanese food,Wood Street Pizza,2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e599,2011/05/08,2011/05/22,"London, UK",2011/05/09,Chinese food,Broadway Market,2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e600,2011/05/08,2011/05/22,"London, UK",2011/05/10,Japanese food,Berwick Street Market,2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e601,2011/05/08,2011/05/22,"London, UK",2011/05/11,Italian food,Berwick Street Market,2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e602,2011/05/08,2011/05/22,"London, UK",2011/05/12,Italian food,Broadway Market,2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e603,2011/05/08,2011/05/22,"London, UK",2011/05/14,Italian food,Broadway Market,2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e604,2011/05/08,2011/05/22,"London, UK",2011/05/15,Indian food,Berwick Street Market,2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e605,2011/05/08,2011/05/22,"London, UK",2011/05/17,Indian food,Bang Bang Oriental,2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e606,2011/05/08,2011/05/22,"London, UK",2011/05/18,Chinese food,Bang Bang Oriental,2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e607,2011/05/08,2011/05/22,"London, UK",2011/05/19,street food,Buck Street Market,2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e608,2011/05/08,2011/05/22,"London, UK",2011/05/20,Chinese food,Broadway Market,2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e609,2011/05/08,2011/05/22,"London, UK",2011/05/22,Italian food,Broadway Market,2011/05/13,Hyde Park,"Benjamin, Avery",took a selfie,special
+e1237,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/04,local food,Yaowarat,2012/03/07,Wat Suthat,Andrew,took a group photo,happy
+e1238,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/06,Indian food,Victory Monument,2012/03/07,Wat Suthat,Andrew,took a group photo,happy
+e1239,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/07,Italian food,Yaowarat,2012/03/07,Wat Suthat,Andrew,took a group photo,happy
+e1240,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/08,Indian food,Victory Monument,2012/03/07,Wat Suthat,Andrew,took a group photo,happy
+e1241,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/09,Italian food,Yaowarat,2012/03/07,Wat Suthat,Andrew,took a group photo,happy
+e1242,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/10,street food,Yaowarat,2012/03/07,Wat Suthat,Andrew,took a group photo,happy
+e1243,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/11,local food,Yaowarat,2012/03/07,Wat Suthat,Andrew,took a group photo,happy
+e1244,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/13,Chinese food,Ratchawat Market,2012/03/07,Wat Suthat,Andrew,took a group photo,happy
+e1245,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/15,Chinese food,Ratchawat Market,2012/03/07,Wat Suthat,Andrew,took a group photo,happy
+e1246,2012/03/02,2012/03/17,"Bangkok, Thailand",2012/03/17,Japanese food,Ratchawat Market,2012/03/07,Wat Suthat,Andrew,took a group photo,happy
+e1873,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/07,street food,Wokworks City Hall Food Cart,2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e1874,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/08,Japanese food,South Street Diner,2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e1875,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/09,Chinese food,Wood Street Pizza,2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e1876,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/11,Chinese food,High Street Philly,2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e1877,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/12,Japanese food,Lunch Street,2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e1878,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/13,street food,Wood Street Pizza,2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e1879,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/14,Italian food,Wokworks City Hall Food Cart,2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e1880,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/15,street food,South Street Diner,2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e1881,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/17,Indian food,South Street Diner,2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e1882,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/18,Chinese food,Wood Street Pizza,2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e1883,2013/02/06,2013/02/19,"Philadelphia, US",2013/02/19,Chinese food,Lunch Street,2013/02/11,Independence Hall,"Emily, Carter",took a group photo,happy
+e2510,2014/01/23,2014/01/29,"Sydney, Australia",2014/01/24,Chinese food,Thievery Chicken & Charcoal,2014/01/26,Sydney Harbour Bridge,"Emily, Carter, Andrew",took a selfie,happy
+e2511,2014/01/23,2014/01/29,"Sydney, Australia",2014/01/25,Chinese food,Bombay Street Kitchen,2014/01/26,Sydney Harbour Bridge,"Emily, Carter, Andrew",took a selfie,happy
+e2512,2014/01/23,2014/01/29,"Sydney, Australia",2014/01/26,Italian food,Love Crepe,2014/01/26,Sydney Harbour Bridge,"Emily, Carter, Andrew",took a selfie,happy
+e2513,2014/01/23,2014/01/29,"Sydney, Australia",2014/01/27,Chinese food,Thievery Chicken & Charcoal,2014/01/26,Sydney Harbour Bridge,"Emily, Carter, Andrew",took a selfie,happy
+e2514,2014/01/23,2014/01/29,"Sydney, Australia",2014/01/28,Japanese food,Bombay Street Kitchen,2014/01/26,Sydney Harbour Bridge,"Emily, Carter, Andrew",took a selfie,happy
+e3152,2015/03/03,2015/03/15,"Shanghai, China",2015/03/04,Japanese food,South Bund Fabric Market,,,,,
+e3153,2015/03/03,2015/03/15,"Shanghai, China",2015/03/05,Chinese food,Fangbang Xi Lu,,,,,
+e3154,2015/03/03,2015/03/15,"Shanghai, China",2015/03/06,Japanese food,South Bund Fabric Market,,,,,
+e3155,2015/03/03,2015/03/15,"Shanghai, China",2015/03/07,Indian food,Yuyuan Lu junction,,,,,
+e3156,2015/03/03,2015/03/15,"Shanghai, China",2015/03/08,Indian food,Fangbang Xi Lu,,,,,
+e3157,2015/03/03,2015/03/15,"Shanghai, China",2015/03/09,Chinese food,South Bund Fabric Market,,,,,
+e3158,2015/03/03,2015/03/15,"Shanghai, China",2015/03/10,Indian food,Wanhangdu Lu junction,,,,,
+e3159,2015/03/03,2015/03/15,"Shanghai, China",2015/03/11,local food,Wanhangdu Lu junction,,,,,
+e3160,2015/03/03,2015/03/15,"Shanghai, China",2015/03/12,Italian food,South Bund Fabric Market,,,,,
+e3161,2015/03/03,2015/03/15,"Shanghai, China",2015/03/13,Chinese food,Wanhangdu Lu junction,,,,,
+e3162,2015/03/03,2015/03/15,"Shanghai, China",2015/03/14,Chinese food,Yuyuan Lu junction,,,,,
+e3163,2015/03/03,2015/03/15,"Shanghai, China",2015/03/15,Italian food,Yuyuan Lu junction,,,,,
+e3811,2016/05/07,2016/05/20,"London, UK",2016/05/08,Indian food,Broadway Market,2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e3812,2016/05/07,2016/05/20,"London, UK",2016/05/09,Chinese food,Brixton Village,2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e3813,2016/05/07,2016/05/20,"London, UK",2016/05/10,Indian food,Berwick Street Market,2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e3814,2016/05/07,2016/05/20,"London, UK",2016/05/11,local food,Broadway Market,2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e3815,2016/05/07,2016/05/20,"London, UK",2016/05/12,Italian food,Broadway Market,2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e3816,2016/05/07,2016/05/20,"London, UK",2016/05/14,Italian food,Broadway Market,2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e3817,2016/05/07,2016/05/20,"London, UK",2016/05/15,Indian food,Brixton Village,2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e3818,2016/05/07,2016/05/20,"London, UK",2016/05/16,Indian food,Bang Bang Oriental,2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e3819,2016/05/07,2016/05/20,"London, UK",2016/05/17,local food,Brixton Village,2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e3820,2016/05/07,2016/05/20,"London, UK",2016/05/18,Japanese food,Buck Street Market,2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e3821,2016/05/07,2016/05/20,"London, UK",2016/05/20,Indian food,Brixton Village,2016/05/12,Tower of London,Andrew,bought some souvenirs,special
+e4455,2017/03/05,2017/03/16,"Paris, France",2017/03/06,street food,Panificio Bonci,2017/03/10,Notre Dame Cathedral,"Andrew, Emily",bought some souvenirs,impressed
+e4456,2017/03/05,2017/03/16,"Paris, France",2017/03/07,local food,Panificio Bonci,2017/03/10,Notre Dame Cathedral,"Andrew, Emily",bought some souvenirs,impressed
+e4457,2017/03/05,2017/03/16,"Paris, France",2017/03/10,street food,Man’Ouché,2017/03/10,Notre Dame Cathedral,"Andrew, Emily",bought some souvenirs,impressed
+e4458,2017/03/05,2017/03/16,"Paris, France",2017/03/11,Japanese food,Man’Ouché,2017/03/10,Notre Dame Cathedral,"Andrew, Emily",bought some souvenirs,impressed
+e4459,2017/03/05,2017/03/16,"Paris, France",2017/03/12,local food,Man’Ouché,2017/03/10,Notre Dame Cathedral,"Andrew, Emily",bought some souvenirs,impressed
+e4460,2017/03/05,2017/03/16,"Paris, France",2017/03/13,Chinese food,Man’Ouché,2017/03/10,Notre Dame Cathedral,"Andrew, Emily",bought some souvenirs,impressed
+e4461,2017/03/05,2017/03/16,"Paris, France",2017/03/14,street food,Man’Ouché,2017/03/10,Notre Dame Cathedral,"Andrew, Emily",bought some souvenirs,impressed
+e4462,2017/03/05,2017/03/16,"Paris, France",2017/03/15,Japanese food,Man’Ouché,2017/03/10,Notre Dame Cathedral,"Andrew, Emily",bought some souvenirs,impressed
+e4463,2017/03/05,2017/03/16,"Paris, France",2017/03/16,street food,Breizh Cafe,2017/03/10,Notre Dame Cathedral,"Andrew, Emily",bought some souvenirs,impressed
+e5101,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/10,Indian food,Ratchawat Market,2018/02/14,Wat Arun,"Kayden, Carter, Emily",bought some souvenirs,happy
+e5102,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/12,Japanese food,Victory Monument,2018/02/14,Wat Arun,"Kayden, Carter, Emily",bought some souvenirs,happy
+e5103,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/13,Italian food,Ratchawat Market,2018/02/14,Wat Arun,"Kayden, Carter, Emily",bought some souvenirs,happy
+e5104,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/14,Italian food,Yaowarat,2018/02/14,Wat Arun,"Kayden, Carter, Emily",bought some souvenirs,happy
+e5105,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/17,Chinese food,Ratchawat Market,2018/02/14,Wat Arun,"Kayden, Carter, Emily",bought some souvenirs,happy
+e5106,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/18,local food,Yaowarat,2018/02/14,Wat Arun,"Kayden, Carter, Emily",bought some souvenirs,happy
+e5107,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/19,street food,Victory Monument,2018/02/14,Wat Arun,"Kayden, Carter, Emily",bought some souvenirs,happy
+e5108,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/20,Italian food,Yaowarat,2018/02/14,Wat Arun,"Kayden, Carter, Emily",bought some souvenirs,happy
+e5109,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/21,Chinese food,Yaowarat,2018/02/14,Wat Arun,"Kayden, Carter, Emily",bought some souvenirs,happy
+e5110,2018/02/09,2018/02/22,"Bangkok, Thailand",2018/02/22,local food,Victory Monument,2018/02/14,Wat Arun,"Kayden, Carter, Emily",bought some souvenirs,happy
+e5730,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/20,Chinese food,Tapioca,2019/03/24,Cristo Redentor,"Eva, Olivia",took a group photo,impressed
+e5731,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/21,Italian food,Pão de queijo,2019/03/24,Cristo Redentor,"Eva, Olivia",took a group photo,impressed
+e5732,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/22,local food,Tapioca,2019/03/24,Cristo Redentor,"Eva, Olivia",took a group photo,impressed
+e5733,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/23,local food,Tapioca,2019/03/24,Cristo Redentor,"Eva, Olivia",took a group photo,impressed
+e5734,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/25,Italian food,Tapioca,2019/03/24,Cristo Redentor,"Eva, Olivia",took a group photo,impressed
+e5735,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/26,street food,Tapioca,2019/03/24,Cristo Redentor,"Eva, Olivia",took a group photo,impressed
+e5736,2019/03/19,2019/03/27,"Rio, Brazil",2019/03/27,Chinese food,Bolinho de bacalhau,2019/03/24,Cristo Redentor,"Eva, Olivia",took a group photo,impressed
+e6413,2020/05/02,2020/05/12,"Miami, US",2020/05/03,local food,El Zambo Street Food,2020/05/06,Art Deco Historic District,"Emily, Andrew",took a group photo,happy
+e6414,2020/05/02,2020/05/12,"Miami, US",2020/05/04,local food,El Zambo Street Food,2020/05/06,Art Deco Historic District,"Emily, Andrew",took a group photo,happy
+e6415,2020/05/02,2020/05/12,"Miami, US",2020/05/06,Japanese food,El Zambo Street Food,2020/05/06,Art Deco Historic District,"Emily, Andrew",took a group photo,happy
+e6416,2020/05/02,2020/05/12,"Miami, US",2020/05/07,Japanese food,El Zambo Street Food,2020/05/06,Art Deco Historic District,"Emily, Andrew",took a group photo,happy
+e6417,2020/05/02,2020/05/12,"Miami, US",2020/05/08,Indian food,Miami Street Food Court,2020/05/06,Art Deco Historic District,"Emily, Andrew",took a group photo,happy
+e6418,2020/05/02,2020/05/12,"Miami, US",2020/05/09,Italian food,El Zambo Street Food,2020/05/06,Art Deco Historic District,"Emily, Andrew",took a group photo,happy
+e6419,2020/05/02,2020/05/12,"Miami, US",2020/05/10,street food,Miami Street Food Court,2020/05/06,Art Deco Historic District,"Emily, Andrew",took a group photo,happy
+e6420,2020/05/02,2020/05/12,"Miami, US",2020/05/11,Chinese food,Miami Street Food Court,2020/05/06,Art Deco Historic District,"Emily, Andrew",took a group photo,happy
+e7052,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/09,Indian food,Falafel Alzaeem,2021/02/10,Burj Khalifa,"Emily, Carter",bought some souvenirs,impressed
+e7053,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/10,Italian food,Falafel Alzaeem,2021/02/10,Burj Khalifa,"Emily, Carter",bought some souvenirs,impressed
+e7054,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/11,Japanese food,Falafel Alzaeem,2021/02/10,Burj Khalifa,"Emily, Carter",bought some souvenirs,impressed
+e7055,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/12,local food,Sind Punjab,2021/02/10,Burj Khalifa,"Emily, Carter",bought some souvenirs,impressed
+e7056,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/13,Italian food,Falafel Alzaeem,2021/02/10,Burj Khalifa,"Emily, Carter",bought some souvenirs,impressed
+e7057,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/14,Japanese food,Sind Punjab,2021/02/10,Burj Khalifa,"Emily, Carter",bought some souvenirs,impressed
+e7058,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/15,Indian food,Falafel Alzaeem,2021/02/10,Burj Khalifa,"Emily, Carter",bought some souvenirs,impressed
+e7059,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/17,Japanese food,Hor Al Anz Bakery,2021/02/10,Burj Khalifa,"Emily, Carter",bought some souvenirs,impressed
+e7060,2021/02/07,2021/02/19,"Dubai, UAE",2021/02/18,street food,Falafel Alzaeem,2021/02/10,Burj Khalifa,"Emily, Carter",bought some souvenirs,impressed
+e7711,2022/02/22,2022/02/28,"Shanghai, China",2022/02/23,local food,Yuyuan Lu junction,,,,,
+e7712,2022/02/22,2022/02/28,"Shanghai, China",2022/02/24,Chinese food,Fangbang Xi Lu,,,,,
+e7713,2022/02/22,2022/02/28,"Shanghai, China",2022/02/26,local food,Fangbang Xi Lu,,,,,
+e7714,2022/02/22,2022/02/28,"Shanghai, China",2022/02/28,Chinese food,Yuyuan Lu junction,,,,,

@@ -1,0 +1,53 @@
+{
+  "name": "research_ui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/runtime": "^7.21.0",
+    "@react-google-maps/api": "^2.18.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@uiw/react-heat-map": "^2.0.5",
+    "@uiw/react-tooltip": "^4.21.23",
+    "primeflex": "^3.3.0",
+    "primeicons": "^6.0.1",
+    "primereact": "^9.2.1",
+    "react": "^18.2.0",
+    "react-activity-calendar": "^1.7.0",
+    "react-calendar-heatmap": "^1.9.0",
+    "react-dom": "^18.2.0",
+    "react-github-calendar": "^3.4.0",
+    "react-life-timeline": "^1.0.11",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "5.0.1",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-timelines": "^2.6.1",
+    "react-tooltip": "^5.8.2",
+    "redux": "^4.2.1",
+    "serve": "^14.2.0",
+    "video-react": "^0.16.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": []
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
