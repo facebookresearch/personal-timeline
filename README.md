@@ -240,3 +240,11 @@ Please check out the TimelineQA github [repo](https://github.com/facebookresearc
   year={2023}
 }
 ```
+
+## License
+
+The codebase is licensed under the [Apache 2.0 license](LICENSE).
+
+## Contributing
+
+See [contributing](CONTRIBUTING.md) and the [code of conduct](CODE_OF_CONDUCT.md).
