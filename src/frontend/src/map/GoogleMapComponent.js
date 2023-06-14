@@ -1,3 +1,8 @@
+// Copyright (c) Meta Platforms, Inc. and affiliates.
+// All rights reserved.
+
+// This source code is licensed under the license found in the
+// LICENSE file in the root directory of this source tree.
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 import PlaceInfo from "./PlaceInfo";
