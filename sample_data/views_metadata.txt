@@ -1,0 +1,123 @@
+#This file contains meta data about views. 
+#name: The name of the view, 
+#description: a text description of what the view contains, 
+#schema: the schema, 
+#example queries: examples of questions that may be posed against this view
+#additional_context: additional special instructions to pass to codex
+#foreign key: optionally foreign keys if available, 
+#<attribute_name>: and a description of each attribute. 
+
+name: books
+description: records the books I read and when. It also records the url to the image of each book.
+schema: (book_name,img_url,id,data,time)
+example queries: Did I read Leonardo Da Vinci before? How many books did I read in April 2020? What books did I read in May 2021? When did I read A Thousand Brains?
+additional_context: 
+foreign key: -
+id: TEXT // key
+date: DATETYPE // date the book was read
+time: DATETYPE // time the book was read
+book_name: TEXT // the title of the book
+img_url: TEXT // url to the image of the book read
+
+name: exercise 
+description: records start and end time, the duration of each exercise activity, the distance covered, calories burnt, whether the activity took place outdoor and the temperature
+schema: (textDescription,duration,distance,calories,outdoor,temperature,id,start_date,start_time,end_date,end_time)
+example queries: How many miles did I run in June 2020? How long did I exercise last month?  How many calories did I burn last year?  What was the average temperature during my exercises last week? How many times did I exercise more than 1 hour in the past week? 
+additional_context: The temperature column describes the temperature in "X degF". E.g., 50 degF. The textDescription column describes "run" or "jog" as "running".
+foreign key: -
+id: TEXT // key
+start_date: DATETYPE // the start date of the exercise event
+start_time: DATETYPE // the start time of the exercise event
+end_date: DATETYPE // the end date of the exercise event
+end_time: DATETYPE // the end time of the exercise event
+textDescription: TEXT // the type of exercise e.g., running, weight lifting
+duration: REAL // length of exercise in minutes (should be end_time-start_time) e.g., 51 minutes
+distance: REAL// distance covered during runs. e.g., 5.95 miles
+calories: REAL // the calories burnt during exercise
+outdoor: INTEGER // 0 or 1 value. 0 means false, 1 means true
+temperature: TEXT // the temperature recorded during exercise. E.g., 50 degF
+
+
+name: photos
+description: records the photos taken at a location and time. It also contains a description of the photo and the address, image url if available. 
+schema: (textDescription,address,lat,long,details,img_url,id,start_date,start_time,end_date,end_time)
+example queries: Show me all my photos taken in Paris, France. Find all my pictures with Wendy. When was my last photo with Peter?
+additional_context: the details contains a description of all the objects in the photo and tags. 
+foreign key: - 
+id: TEXT // key
+textDescription: TEXT // a description of the photo
+address: TEXT // address where the photo was taken
+lat: FLOAT // latitude of the location where the photo was taken
+long: FLOAT // longtitude of the location where the photo was taken
+details: TEXT // lists the objects, tags, places in the photo
+img_url: TEXT // link to the image
+start_date: DATETYPE // date the photo was taken
+start_time: DATETYPE // time the photo was taken
+end_date: DATETYPE // date the photo was taken
+end_time: DATETYPE // time the photo was taken
+
+name: places
+description: records all the places I have been to. It records the begin and end time of the trip, the name of the place/destination and the addresses of the starting and destination location, including the latitude, longtitude coordinates 
+schema: (textDescription,start_address,start_lat,start_long,end_address,end_lat,end_long,id,start_date,start_time,end_date,end_time)
+example queries: When did I last visit Sonoma County? How long was the drive from my hotel in Bali to Badung? How many places did I visit while I was in Singapore? 
+additional_context: The start_address and end_address columns contain information about the street name, county, region, country, and zip code.
+foreign key: -
+start_date: DATETYPE // begin date of travel
+end_date: DATETYPE // end date of travel
+start_time: DATETYPE // begin time of the travel to another place
+end_time: DATETYPE // end time of the travel to another place
+textDescription: TEXT // source where information is extracted from
+start_address: TEXT // the name of the place where the travel begins 
+start_lat: REAL // latitude of the place where the travel beings
+start_long: REAL // longitude of the place where the travel begins
+end_address: TEXT // the name of the destination where the travel ends
+end_lat: REAL // latitude of the destination where the travel ends
+end_long: REAL // longitude of the destination where the travel ends
+
+name: purchase
+description: records the purchases I made 
+schema: (purchase_id,productName,productPrice,productQuantity,id,date,time)
+example queries: When did I last purchase my printer toner? How much did I spend in May 2022? When was the last two times I purchase toothpaste?
+additional_context:  
+foreign key: -
+id: TEXT // key
+purchase_id: TEXT // id of the purchase 
+date: DATETYPE // the date of the purchase
+time: DATETYPE // the time of the purchase
+purchase_id: TEXT // the purchase identifier number. Primary key
+productName: TEXT // the name of the product that was purchased
+productPrice: REAL // the price of the products
+productQuantity: REAL // the amount charged
+
+name: streaming
+description: records the music and podcasts I streamed
+schema: (artist,track,playtimeMs,spotify_link,id,start_date,start_time,end_date,end_time)
+example queries: Which artist did I listen most to in July 2022? How often did I listen to podcasts in 2022? Who is the top artist that I listened to?
+additional_context: the artist column contains the word "Podcast" if it is a podcast. Otherwise, it is likely music.
+foreign key: -
+id: TEXT // key 
+start_date: DATETYPE // date the streaming began
+start_time: DATETYPE // time the streaming began
+end_date: DATETYPE // date the streaming ended
+end_time: DATETYPE // time the streaming ended
+artist: TEXT // name of the artist/musician/speaker of the music or podcast that was streamed
+track: TEXT // the title of the track streamed
+playtimeMs: INTEGER // the amount of time streamed in milliseconds
+spotify_link: TEXT // link to spotify track if available
+
+name: trips
+description: records the trips I made
+schema: (textDescription,country,states_provinces,cities_towns,places,id,start_date,start_time,end_date,end_time)
+example queries: When did I visit Portland State University? How many times did I visit Israel in 2021? How long was I in Seattle in my January 2014 trip?
+additional_context:  
+foreign key: -
+id: TEXT // key
+start_date: DATETYPE // date the trip started
+start_time: DATETYPE // time the trip started
+end_date: DATETYPE // date the trip ended
+end_time: DATETYPE // time the trip ended
+textDescription: TEXT // description of the destination I visited
+country: TEXT // the country of the place I visited
+states_provinces: TEXT // the state/province of the place I visited
+cities_towns: TEXT // the city/town of the place I visited
+places: TEXT // the places I visited

@@ -1,0 +1,202 @@
+#This file contains meta data about views. 
+#name: The name of the view, 
+#description: a text description of what the view contains, 
+#schema: the schema, 
+#example queries: examples of questions that may be posed against this view 
+#additional_context: additional special instructions to pass to codex
+#foreign key: optionally foreign keys if available, 
+#<attribute_name>: and a description of each attribute. 
+
+name: annual_medical_care_log
+description: different types of medical appointments for myself, my children/kids, or my parents, and when. E.g., I brought my kids for their vision checkup on Jan 03, 2021. 
+schema: (eid,date,for_whom,type_of_care)
+example queries: When was my last vision checkup? How many dental appointments did my kids have in 2020? When did my parents go for their medical checkup in 2021?
+additional_context: The for_whom column describes checkups for myself as "personal_medical_checkup".
+foreign key: -
+eid: TEXT  // primary key 
+date: DATETYPE // the day of the appointment. 
+for_whom: TEXT // who the medical appointment is for (parents, children, or self) TEXT
+type_of_care: TEXT // the type of medical appointment (dental, vision, physical)
+
+name: daily_chat_log
+description: records talks/chats with people on some date and time. E.g., I spent 24 minutes talking to Emily and Bob on the morning of August 6, 2017.
+schema: (eid,date,timeofday,howlong,friends)
+example queries: When was the last time I chat with Rachel in the morning? How long did I chat with my friends yesterday? Who did I talk to on 12 May, 2018? 
+additional_context: 
+foreign key: -
+eid: TEXT // primary key
+date: DATETYPE // the day the chat/talk took place
+timeofday: TEXT // when the chat/talk took place during the day (morning, afternoon, or evening)
+howlong: INTEGER // the length/duration of the chat/talk in minutes
+friends: TEXT // the list of people whom I talked to
+
+name: daily_exercise_log
+description: records of different types of exercises done (running/jogging, swimming, walking etc.) and the corresponding heart rate. E.g., I went swimming on Jun 20, 2019 and my average heart rate was 145BPM.
+schema: (eid,date,exercise,heart_rate)
+example queries: how many times did I run or bike last month? Which month did I exercise the most?  Which year did I exercise the most?
+additional_context: 
+foreign key: -
+eid: TEXT // primary key
+date: DATETYPE // the day of exercise
+exercise: TEXT // type of exercise (swimming, running/jogging, yoga, walking, etc.)
+heart_rate: INTEGER // the average heart rate in BPM during exercise
+
+name: daily_meal_log
+description: records of meals eaten, types of food, friends or people involved, and on which day or date. E.g., I had oatmeal for breakfast on April 7, 2011 with John and Carter.
+schema: (eid,date,mealtype,foodtype,people_string)
+example queries: How many times did I have cereals for breakfast in April 2020? What did I last eat with Jane for lunch? 
+additional_context: 
+foreign key: -
+eid: TEXT // primary key
+date: DATETYPE // the day of the meal
+mealtype: TEXT // type of meal (breakfast, lunch, dinner, snack)
+foodtype: TEXT // type of food (chinese, pasta, tacos etc.)
+people_string: TEXT // list of people or friends 
+
+name: daily_read_log
+description: what is read (e.g., books, news, social media) and for how long
+schema: (eid,date,readtype,howlong). E.g., I spent 30 mins reading news on 22 June 2018.
+example queries: how much time did I spend on social media or the news last month? How many books did I read in 2020? 
+additional_context:
+foreign key: -
+eid: TEXT // primary key
+date: DATETYPE // date the reading activity took place
+readtype: TEXT // source of reading material (books, news, magazine, social media) 
+howlong: INTEGER // the length/duration of the reading activity
+
+name: daily_watchtv_log
+description: what is watched on tv (e.g., movie, tv series, documentary, or news), on which day or date and for how long. E.g., I watched a movie for 2 hrs on 18 June 2019.
+schema: (eid,date,watchtype,howlong)
+example queries: When was the last time I watch a movie or news? How long did I spend watching tv in 2020
+additional_context:
+foreign key: -
+eid: TEXT // primary key
+date: DATETYPE // the day where this event, watching tv, occurred
+watchtype: TEXT // what is watched on tv (movie, tv series, news)
+howlong: INTEGER // the length/duration spent watching tv
+
+name: marriages_log
+description: records the date of marriage, name of spouse or partner, and where the marriage took place. E.g., I married John on May 2, 2010 in Marin County, California.
+schema: (eid,married_date,partner_name,location)
+example queries: when was my first marriage and where? How many times did I get married?
+additional_context:
+foreign key: -
+eid: TEXT // primary key
+married_date: DATETYPE // the date of marriage
+partner_name: TEXT // name of partner or spouse
+location: TEXT // the location where the marriage took place
+
+name: monthly_pet_care_log
+description: date that the pet (e.g., dog or cat) was taking for grooming or medical checkups. E.g., Roki was groomed and had his nails trimmed on 2 Jan 2022.
+schema: (eid,date,pet_care_type)
+example queries: When did I last take Rocky to a bath? How many times did Rocky groom and got his nails trimmed in 2021?  Did Rocky go for a medical checkup last year?
+additional_context:
+foreign key: -
+eid: TEXT // primary key
+date: DATETYPE // the day of the pet care or grooming
+pet_care_type: TEXT // grooming (bath, grooming, nail trim)
+
+name: moves_log
+description: when a move or relocation was made and the destination location. E.g., I moved to Madison, Wisconsin for college on 20 August, 2018.
+schema: (id,date,type_of_move,destination)
+example queries: when did I move to college? 
+additional_context:
+foreign key: -
+eid: TEXT // primary key
+date: DATETYPE // the day of of the move
+type_of_move: TEXT // the type of move or reason for moving (move due to job, college, graduate school)
+destination: TEXT // the place moved to
+
+name: travel_log
+description: record of where I traveled, the travel destination, with whom, and the start and end dates of travel. E.g., I went to San Francisco from September 7, 2019 to September 17, 2019 with John and Carter.
+schema: (eid,start_date,end_date,city,people)
+example queries: When did I visit Tokyo in 2021? Who did I go London with in 2021? How long was I in Taipei, Taiwan in 2021?
+additional_context:
+foreign key: -
+eid: TEXT // primary key
+start_date: DATETYPE // the first day of travel for this record
+end_date: DATETYPE // the last day of travel for this record
+city: TEXT // the destination or city traveled to
+people: TEXT // the people or friends traveling with you
+
+name: travel_dining_log
+description: records of dining events or meals during travel at the city, the food, the place where the meal took place, the date of the dining event, the people or friends at the dining event, and the emotion associated. E.g., I went to San Francisco from September 7, 2019 to September 17, 2019 and had pasta at Pier 39.
+schema: (eid,start_date,end_date,city,dining_date,food_type,food_location,place_visit_date,place,people,action,emotion)
+example queries: what did I last eat in Philadelphia? Where was the location of the restaurant I dined in the last day of London?
+additional_context:
+foreign key: (eid,start_date,end_date,city) is a foreign key in travel_log
+eid: TEXT // primary key
+start_date: DATETYPE // the first day of travel for this record
+end_date: DATETYPE // the last day of travel for this record
+city: TEXT // the destination or city traveled to
+dining_date: DATETYPE // the date this dining event took place
+food_type: TEXT // type of food (Chinese, Italian, Indian, Japanese, etc.)
+food_location: TEXT // name of restaurant or street name where the meal took place
+place_visit_date: DATETYPE // date that place was visited during the same trip
+place: TEXT // a place visited during the same trip
+people: TEXT // list of people or friends who were at the same trip
+action: TEXT // an activity done during at the place that was visited (took a group photo, or a selfie, bought souvenirs)
+emotion: TEXT // feelings associated with the action taken (happy, impressed)
+
+name: travel_places_visited_log
+description: the start and end date of the travel, the city visited (e.g., London, Sydney) and with whom and the things done. E.g., I went to San Francisco from September 7, 2019 to September 17, 2019 and visited Union Square with John and Carter on September 8, 2019. We took some pictures and were happy.
+schema: (eid,start_date,end_date,city,place_visit_date,place,people,action,emotion)
+example queries: How many places did I visit when I was in Tokyo in 2021? Did I go to the Museum of Arts when I last visited Philadelphia? 
+additional_context:
+foreign key: (eid,start_date,end_date,city) is a foreign key in travel_log
+eid: TEXT // primary key
+start_date: DATETYPE // the first day of travel for this record
+end_date: DATETYPE // the last day of travel for this record
+city: TEXT // the destination or city traveled to
+place_visit_date: DATETYPE // date that place was visited during the same trip
+place: TEXT // a place visited during the same trip
+people: TEXT // list of people or friends who were at the same trip
+action: TEXT // an activity done during at the place that was visited (took a group photo, or a selfie, bought souvenirs)
+emotion: TEXT // feelings associated with the action taken (happy, impressed)
+
+name: weekly_bakeorcook_log
+description: records the type of dishes or cuisines I make (e.g., dessert, pie, jam, cookies), where it was made and with whom and the day it was made. E.g., I baked chocolate cake at my place with Amy and Brandy on February 6, 2019.
+schema: (eid,date,cuisine,location,people)
+example queries: When did I last bake a pie? What dishes did I cook the most often in 2021?  Who made a chocolate cake with me in April 2022?  How many times did I make bread in 2022? 
+additional_context:
+foreign key: -
+eid: TEXT // primary key
+date: DATETYPE // the day the baking or cooking took place
+cuisine: TEXT // the type of dish made (chocolate chip, cake, steak, chinese stir fry)
+location: TEXT // the place where was the dish made. Usually it is "my place"
+people: TEXT // the list of people or friends' names
+
+name: weekly_dating_log
+description: records of dating events, including the name of the date and the location where the dating took place. E.g., I dated Jimmy on May 3, 2018 at Filoli Gardens.
+schema: (eid,date,people_string,location)
+example queries: where did I spend time with Avery in 2022? 
+additional_context:
+foreign key: -
+eid: TEXT // primary key
+date: DATETYPE // the day when the dating event happened
+people_string: TEXT // the people in the dating event
+location: TEXT // the location of the dating event
+
+name: weekly_grocery_log
+description: records of the fruits, drinks, and toiletries shopped and bought during a certain day, and the people involved in the same grocery shopping trip. E.g., I bought strawberries and bananas, milk, and toothpaste from the supermarket with Jimmy and Carter.
+schema: (eid,date,fruits,drinks,toiletries,people_string)
+example queries: How many trips did I make to the supermarket in April 2021?  When did I last buy toothpaste? How many times did I buy fruits in May 2020?
+additional_context:
+foreign key: -
+eid: TEXT // primary key
+date: DATETYPE // the day the groceries were purchased
+fruits: TEXT // fruits (apples, peaches, guava, bananas, etc.)
+drinks: TEXT // drinks (mango juice, soda, milk, water, etc.)
+toiletries: TEXT // toiletries (toothpaste, facial/body/mouth wash, facial/body/hand lotion etc.)
+people_string: TEXT // the people or friends who were also there for this shopping event
+
+name: weekly_hobby_log
+description: records which hobbies were carried out during a certain day and the people involved. What did I do? What did I do on a certain day and with whom? E.g., I meditated with John on January 15, 2017.
+schema: (eid,date,hobbies,people_string)
+example queries: How many times did I meditate in 2021? How many times did I work out in May 2021?
+additional_context:
+foreign key: -
+eid: TEXT // primary key
+date: DATETYPE // the day the hobby was done
+hobbies: TEXT // an activity that is carried out regularly (meditation, yoga, jogging, working out)
+people_string: TEXT // the people or friends who were together for this hobby

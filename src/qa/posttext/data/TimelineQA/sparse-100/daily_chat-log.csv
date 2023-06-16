@@ -1,0 +1,1477 @@
+eid,date,timeofday,howlong,friends
+e82,2010/01/04,late in the evening,11,"Piper, Olivia, Lydia, Piper"
+e85,2010/01/07,late in the evening,23,"Piper, Claire, Hazel, Kinsley"
+e94,2010/01/11,late in the evening,37,"Nevaeh, Piper, Olivia, Eva"
+e96,2010/01/12,in the morning,47,Nora
+e97,2010/01/14,in the late afternoon,23,"Nora, Lydia, Piper"
+e100,2010/01/16,late in the evening,50,"Olivia, Kinsley, Hazel, Nora"
+e106,2010/01/21,in the late afternoon,11,"Nevaeh, Piper, Olivia"
+e117,2010/01/25,in the late afternoon,40,"Piper, Olivia"
+e121,2010/01/28,in the early afternoon,21,"Lydia, Piper, Hazel, Nevaeh"
+e127,2010/02/05,in the early evening,18,Rylee
+e129,2010/02/06,in the early evening,18,"Lydia, Piper"
+e132,2010/02/07,during lunch hours,35,"Nora, Nevaeh, Lydia"
+e139,2010/02/13,during lunch hours,47,"Claire, Olivia"
+e140,2010/02/14,in the early afternoon,50,"Eva, Nora"
+e142,2010/02/16,in the early afternoon,43,"Olivia, Piper, Claire"
+e148,2010/02/21,during lunch hours,11,"Piper, Layla, Piper"
+e152,2010/02/23,in the early afternoon,54,"Claire, Nora, Avery"
+e153,2010/02/24,in the early afternoon,51,"Rylee, Layla, Claire"
+e154,2010/02/25,in the early evening,45,"Piper, Eva, Claire, Avery"
+e157,2010/02/26,during lunch hours,25,Hazel
+e164,2010/03/01,late in the evening,34,"Kinsley, Claire, Eva"
+e169,2010/03/04,late in the evening,20,"Claire, Eva, Avery"
+e176,2010/03/09,in the morning,55,"Olivia, Lydia, Avery"
+e178,2010/03/12,during lunch hours,25,Hazel
+e181,2010/03/14,in the early afternoon,21,"Olivia, Nevaeh, Layla, Avery"
+e185,2010/03/17,in the morning,11,"Nevaeh, Eva"
+e190,2010/03/22,in the morning,34,"Hazel, Avery, Piper"
+e191,2010/03/23,in the early afternoon,13,Layla
+e198,2010/03/26,in the late afternoon,27,Piper
+e199,2010/03/27,in the late afternoon,7,"Rylee, Olivia, Claire, Avery"
+e202,2010/03/29,in the early evening,45,Piper
+e203,2010/03/30,during lunch hours,15,"Piper, Rylee"
+e215,2010/04/13,in the late afternoon,49,Piper
+e221,2010/04/17,during lunch hours,17,"Lydia, Nevaeh, Piper, Kinsley"
+e231,2010/04/26,during lunch hours,39,"Piper, Avery, Hazel, Nora"
+e232,2010/04/28,late in the evening,46,Piper
+e234,2010/04/29,in the morning,28,"Piper, Claire, Hazel"
+e238,2010/05/02,during lunch hours,46,"Rylee, Piper"
+e239,2010/05/03,in the late afternoon,46,Eva
+e246,2010/05/07,during lunch hours,11,"Piper, Hazel"
+e248,2010/05/08,late in the evening,18,"Kinsley, Lydia"
+e249,2010/05/10,in the early afternoon,8,"Piper, Nora, Olivia, Kinsley"
+e253,2010/05/13,late in the evening,33,"Avery, Eva, Hazel, Olivia"
+e255,2010/05/14,in the early afternoon,46,"Claire, Lydia"
+e259,2010/05/17,late in the evening,18,"Avery, Hazel, Nevaeh"
+e264,2010/05/20,in the early afternoon,14,"Hazel, Avery, Kinsley, Eva"
+e267,2010/05/21,late in the evening,11,"Rylee, Layla, Olivia"
+e268,2010/05/22,in the morning,9,"Kinsley, Eva, Hazel, Piper"
+e274,2010/05/27,in the late afternoon,33,"Layla, Avery, Piper, Claire"
+e280,2010/06/01,late in the evening,38,Rylee
+e281,2010/06/02,in the early afternoon,42,"Eva, Nora, Olivia, Lydia"
+e293,2010/06/11,late in the evening,12,"Avery, Kinsley, Nevaeh"
+e296,2010/06/13,in the early afternoon,36,Piper
+e300,2010/06/15,in the late afternoon,40,"Claire, Layla, Piper, Hazel"
+e303,2010/06/16,in the early afternoon,11,Olivia
+e305,2010/06/17,in the early afternoon,48,"Eva, Rylee"
+e306,2010/06/18,late in the evening,15,"Eva, Lydia, Piper, Piper"
+e310,2010/06/21,in the morning,50,"Hazel, Avery, Kinsley"
+e320,2010/06/29,in the early afternoon,52,Layla
+e323,2010/07/03,in the early afternoon,27,"Avery, Hazel, Nevaeh"
+e327,2010/07/04,in the late afternoon,44,"Rylee, Piper, Piper"
+e350,2010/07/16,late in the evening,10,Piper
+e358,2010/07/21,during lunch hours,39,"Hazel, Lydia, Eva"
+e363,2010/07/24,during lunch hours,26,"Kinsley, Lydia"
+e377,2010/08/05,in the morning,16,"Layla, Nora"
+e384,2010/08/09,late in the evening,43,"Rylee, Kinsley, Nora"
+e387,2010/08/11,in the morning,29,Piper
+e395,2010/08/14,in the morning,34,"Claire, Piper, Avery, Olivia"
+e398,2010/08/16,late in the evening,55,"Layla, Rylee, Eva"
+e399,2010/08/17,in the early afternoon,37,Kinsley
+e401,2010/08/18,in the late afternoon,15,"Claire, Nevaeh, Kinsley, Piper"
+e404,2010/08/20,late in the evening,42,"Piper, Piper"
+e407,2010/08/22,in the early afternoon,20,"Piper, Claire, Hazel, Piper"
+e410,2010/08/23,late in the evening,43,"Claire, Layla, Piper, Hazel"
+e413,2010/08/25,in the late afternoon,23,"Kinsley, Eva, Olivia"
+e416,2010/08/27,during lunch hours,17,"Eva, Layla"
+e424,2010/09/01,late in the evening,38,"Layla, Kinsley, Rylee, Piper"
+e429,2010/09/03,during lunch hours,44,"Nora, Olivia, Eva, Claire"
+e431,2010/09/05,in the early afternoon,52,"Claire, Nora, Layla"
+e435,2010/09/09,in the late afternoon,19,"Nora, Piper"
+e437,2010/09/10,in the late afternoon,51,"Claire, Avery, Layla"
+e441,2010/09/11,in the early afternoon,11,"Lydia, Rylee, Piper, Hazel"
+e447,2010/09/16,in the early evening,10,"Eva, Nora, Kinsley, Claire"
+e453,2010/09/18,in the morning,14,"Eva, Lydia"
+e455,2010/09/19,during lunch hours,45,"Kinsley, Eva, Nevaeh"
+e457,2010/09/20,late in the evening,29,"Eva, Avery, Lydia, Piper"
+e460,2010/09/25,in the early evening,12,Piper
+e466,2010/09/27,in the early afternoon,45,"Kinsley, Layla"
+e474,2010/09/30,in the morning,39,"Olivia, Hazel, Piper, Piper"
+e479,2010/10/04,in the late afternoon,36,"Eva, Layla, Piper, Lydia"
+e487,2010/10/12,in the early afternoon,16,Olivia
+e488,2010/10/13,in the morning,32,"Rylee, Claire, Layla, Eva"
+e497,2010/10/18,in the early evening,14,"Kinsley, Piper"
+e505,2010/10/23,late in the evening,11,"Avery, Hazel, Olivia"
+e525,2010/11/07,in the early afternoon,5,Claire
+e528,2010/11/12,in the late afternoon,46,"Hazel, Lydia"
+e533,2010/11/15,during lunch hours,13,"Nora, Olivia, Nevaeh"
+e534,2010/11/16,in the early afternoon,16,"Layla, Olivia, Eva"
+e540,2010/11/24,during lunch hours,40,"Claire, Eva"
+e544,2010/11/27,during lunch hours,34,"Layla, Piper"
+e549,2010/12/03,late in the evening,22,"Nora, Eva, Nevaeh"
+e551,2010/12/04,in the late afternoon,28,Avery
+e558,2010/12/09,late in the evening,53,"Piper, Layla"
+e561,2010/12/10,late in the evening,46,"Kinsley, Nevaeh, Olivia, Piper"
+e562,2010/12/11,in the late afternoon,45,"Hazel, Eva"
+e563,2010/12/12,in the morning,20,"Kinsley, Nevaeh, Layla"
+e570,2010/12/16,in the morning,38,"Lydia, Olivia, Layla, Nora"
+e572,2010/12/17,in the morning,45,"Piper, Nevaeh, Olivia, Eva"
+e573,2010/12/18,in the morning,23,"Nevaeh, Rylee, Lydia, Piper"
+e580,2010/12/23,in the early afternoon,28,"Claire, Piper, Eva"
+e582,2010/12/25,in the late afternoon,18,Piper
+e584,2010/12/26,in the late afternoon,52,"Olivia, Piper"
+e586,2010/12/28,in the early afternoon,47,"Claire, Hazel, Eva, Kinsley"
+e589,2010/12/29,in the early afternoon,16,"Kinsley, Nevaeh"
+e592,2010/12/30,in the late afternoon,16,"Avery, Hazel, Claire, Olivia"
+e695,2011/01/06,during lunch hours,6,"Lydia, Hazel, Avery, Layla"
+e700,2011/01/08,late in the evening,42,"Eva, Piper, Kinsley, Olivia"
+e706,2011/01/11,in the late afternoon,22,"Claire, Lydia, Piper, Olivia"
+e708,2011/01/12,in the early evening,12,Hazel
+e711,2011/01/13,in the early afternoon,42,"Hazel, Avery"
+e712,2011/01/14,in the late afternoon,48,"Layla, Eva"
+e714,2011/01/18,in the late afternoon,45,"Piper, Lydia, Olivia"
+e715,2011/01/19,in the late afternoon,33,"Eva, Layla, Nevaeh, Piper"
+e717,2011/01/20,during lunch hours,7,"Layla, Nora, Nevaeh"
+e728,2011/01/27,in the early afternoon,16,"Lydia, Olivia, Piper"
+e731,2011/01/28,in the early afternoon,7,"Rylee, Lydia, Nevaeh, Nora"
+e737,2011/02/01,in the early evening,10,"Rylee, Piper, Nora, Olivia"
+e739,2011/02/02,in the morning,19,"Avery, Piper, Nora"
+e742,2011/02/04,in the morning,45,"Avery, Layla, Rylee, Piper"
+e746,2011/02/06,in the morning,7,"Olivia, Kinsley, Nevaeh, Nora"
+e747,2011/02/07,in the late afternoon,27,"Piper, Nora"
+e761,2011/02/13,in the early evening,11,Nevaeh
+e763,2011/02/16,during lunch hours,43,"Avery, Lydia"
+e770,2011/02/21,late in the evening,44,"Lydia, Rylee, Olivia, Nora"
+e782,2011/03/02,in the early evening,20,"Nevaeh, Hazel, Claire, Piper"
+e785,2011/03/04,in the early afternoon,11,Kinsley
+e789,2011/03/06,in the late afternoon,34,Kinsley
+e790,2011/03/07,in the late afternoon,20,"Nora, Kinsley, Hazel, Avery"
+e798,2011/03/15,in the early afternoon,26,"Lydia, Piper, Piper, Layla"
+e819,2011/03/27,during lunch hours,49,"Piper, Lydia"
+e824,2011/03/30,in the early afternoon,37,"Avery, Nora, Piper, Nevaeh"
+e828,2011/04/01,in the early evening,35,"Piper, Piper, Lydia"
+e831,2011/04/02,during lunch hours,25,"Kinsley, Eva"
+e834,2011/04/05,in the late afternoon,9,"Eva, Hazel, Rylee"
+e838,2011/04/06,during lunch hours,18,"Claire, Piper"
+e840,2011/04/07,in the morning,35,"Kinsley, Lydia"
+e845,2011/04/10,in the early afternoon,46,"Kinsley, Piper, Piper, Claire"
+e847,2011/04/11,in the late afternoon,10,"Kinsley, Rylee"
+e854,2011/04/14,late in the evening,14,Eva
+e864,2011/04/18,during lunch hours,44,"Piper, Kinsley, Nevaeh, Rylee"
+e866,2011/04/20,in the early afternoon,44,"Lydia, Layla"
+e867,2011/04/21,in the early afternoon,14,"Piper, Layla, Claire"
+e870,2011/04/25,late in the evening,43,"Olivia, Nora, Piper, Hazel"
+e872,2011/04/26,in the late afternoon,44,"Layla, Lydia, Avery"
+e876,2011/04/29,in the morning,6,"Hazel, Eva, Olivia"
+e880,2011/04/30,in the early afternoon,48,"Hazel, Lydia, Rylee, Avery"
+e885,2011/05/02,in the early evening,43,"Rylee, Kinsley, Claire, Piper"
+e886,2011/05/03,in the early afternoon,29,"Piper, Piper, Rylee"
+e890,2011/05/05,in the early afternoon,41,"Nora, Olivia, Claire, Layla"
+e894,2011/05/10,in the late afternoon,5,"Rylee, Lydia, Hazel, Olivia"
+e895,2011/05/11,in the early afternoon,20,"Hazel, Nora, Avery"
+e901,2011/05/16,in the morning,50,"Layla, Rylee, Nora, Nevaeh"
+e907,2011/05/21,in the early evening,18,"Nevaeh, Piper"
+e910,2011/05/23,in the early afternoon,52,"Eva, Nevaeh"
+e912,2011/05/25,in the morning,49,"Nora, Rylee"
+e913,2011/05/26,late in the evening,32,"Claire, Piper"
+e916,2011/05/30,during lunch hours,47,Rylee
+e919,2011/06/01,in the late afternoon,34,"Hazel, Kinsley, Lydia"
+e926,2011/06/05,late in the evening,11,"Piper, Nora"
+e940,2011/06/13,in the early afternoon,20,Nora
+e943,2011/06/14,late in the evening,40,"Avery, Rylee"
+e949,2011/06/17,late in the evening,33,"Nora, Hazel"
+e951,2011/06/18,in the early afternoon,41,"Hazel, Claire, Rylee, Olivia"
+e956,2011/06/21,late in the evening,45,"Kinsley, Rylee, Nevaeh, Nora"
+e958,2011/06/22,in the early afternoon,29,"Lydia, Eva"
+e964,2011/06/26,in the late afternoon,49,"Avery, Lydia"
+e966,2011/06/29,in the morning,46,"Piper, Layla"
+e971,2011/06/30,in the early evening,30,"Piper, Hazel, Piper, Layla"
+e978,2011/07/05,during lunch hours,9,"Kinsley, Claire, Eva, Olivia"
+e981,2011/07/07,in the early evening,30,"Rylee, Piper"
+e985,2011/07/09,during lunch hours,31,"Piper, Nevaeh, Layla"
+e993,2011/07/13,in the morning,46,"Nevaeh, Kinsley, Hazel"
+e994,2011/07/14,in the early afternoon,55,"Nevaeh, Nora, Claire"
+e998,2011/07/17,in the early afternoon,28,"Eva, Claire, Nevaeh"
+e999,2011/07/18,late in the evening,8,"Nevaeh, Lydia, Claire"
+e1005,2011/07/22,in the early evening,47,"Rylee, Piper, Layla"
+e1009,2011/07/25,in the early afternoon,23,"Layla, Avery, Olivia, Rylee"
+e1013,2011/07/29,in the early afternoon,27,"Nevaeh, Kinsley"
+e1014,2011/07/30,in the morning,10,Nevaeh
+e1016,2011/07/31,during lunch hours,40,Avery
+e1018,2011/08/01,during lunch hours,41,"Claire, Piper"
+e1028,2011/08/07,in the early afternoon,49,Rylee
+e1035,2011/08/13,in the early evening,17,"Lydia, Rylee, Eva"
+e1039,2011/08/15,in the morning,25,"Hazel, Kinsley, Rylee"
+e1043,2011/08/18,in the early evening,7,"Hazel, Layla, Kinsley, Piper"
+e1049,2011/08/22,in the early evening,8,"Claire, Eva"
+e1064,2011/08/31,late in the evening,15,"Claire, Kinsley, Olivia, Avery"
+e1067,2011/09/02,in the early afternoon,23,Claire
+e1074,2011/09/09,late in the evening,39,"Avery, Hazel, Olivia"
+e1078,2011/09/11,in the morning,40,"Claire, Hazel, Olivia, Piper"
+e1079,2011/09/12,during lunch hours,20,"Layla, Piper, Claire"
+e1085,2011/09/16,late in the evening,53,Hazel
+e1091,2011/09/18,late in the evening,12,"Hazel, Lydia, Nevaeh, Piper"
+e1094,2011/09/19,in the late afternoon,17,"Olivia, Layla, Eva"
+e1095,2011/09/20,during lunch hours,20,"Layla, Avery, Piper, Nora"
+e1098,2011/09/22,in the early afternoon,29,"Avery, Lydia, Rylee, Olivia"
+e1104,2011/09/25,during lunch hours,55,"Layla, Avery, Nora, Claire"
+e1110,2011/09/28,late in the evening,9,"Avery, Rylee"
+e1112,2011/09/30,late in the evening,23,"Olivia, Piper, Piper"
+e1116,2011/10/03,in the late afternoon,5,"Nevaeh, Rylee, Eva"
+e1126,2011/10/10,in the early afternoon,43,"Nevaeh, Lydia"
+e1132,2011/10/14,during lunch hours,55,"Rylee, Piper, Avery"
+e1140,2011/10/19,in the early evening,31,"Claire, Eva, Hazel, Avery"
+e1155,2011/11/01,in the late afternoon,27,"Kinsley, Piper"
+e1156,2011/11/02,in the early afternoon,22,"Piper, Claire, Nevaeh"
+e1161,2011/11/07,in the early evening,25,"Nevaeh, Nora, Avery, Rylee"
+e1163,2011/11/09,in the early evening,28,Kinsley
+e1166,2011/11/11,in the early evening,30,"Nora, Layla, Hazel"
+e1170,2011/11/16,during lunch hours,24,Piper
+e1175,2011/11/20,late in the evening,40,"Piper, Kinsley"
+e1185,2011/11/29,in the early evening,15,"Piper, Eva"
+e1196,2011/12/05,in the morning,30,"Avery, Eva, Nora"
+e1198,2011/12/06,in the morning,41,Avery
+e1199,2011/12/07,late in the evening,40,"Piper, Claire"
+e1202,2011/12/08,in the morning,29,"Nevaeh, Piper, Piper"
+e1203,2011/12/09,in the early afternoon,24,Lydia
+e1205,2011/12/11,late in the evening,28,Kinsley
+e1210,2011/12/15,in the morning,41,"Nora, Claire, Olivia, Kinsley"
+e1213,2011/12/18,during lunch hours,49,"Piper, Hazel, Kinsley, Eva"
+e1214,2011/12/19,late in the evening,15,Eva
+e1218,2011/12/22,in the early afternoon,44,"Olivia, Piper"
+e1219,2011/12/24,in the early afternoon,6,Nora
+e1322,2012/01/08,during lunch hours,42,"Nevaeh, Avery"
+e1326,2012/01/12,in the early afternoon,44,Rylee
+e1344,2012/01/31,late in the evening,5,"Hazel, Nevaeh"
+e1347,2012/02/02,during lunch hours,33,"Rylee, Eva, Kinsley"
+e1351,2012/02/06,in the early afternoon,39,Nevaeh
+e1353,2012/02/07,during lunch hours,37,"Eva, Kinsley"
+e1354,2012/02/08,in the early evening,29,"Nevaeh, Olivia, Piper"
+e1356,2012/02/09,in the early evening,35,"Piper, Lydia, Avery, Nora"
+e1364,2012/02/13,in the late afternoon,47,"Lydia, Nevaeh, Piper"
+e1366,2012/02/15,late in the evening,42,"Nora, Lydia, Kinsley, Layla"
+e1385,2012/03/04,late in the evening,9,"Hazel, Eva, Avery, Kinsley"
+e1396,2012/03/10,in the morning,11,Piper
+e1399,2012/03/12,in the morning,14,"Hazel, Piper, Kinsley, Avery"
+e1401,2012/03/14,in the morning,26,"Piper, Lydia, Olivia, Hazel"
+e1402,2012/03/15,in the early afternoon,36,"Hazel, Rylee"
+e1404,2012/03/16,in the late afternoon,29,"Nora, Claire, Rylee, Layla"
+e1407,2012/03/17,in the early evening,44,"Claire, Layla, Nevaeh"
+e1410,2012/03/20,in the morning,53,"Olivia, Nora, Lydia, Kinsley"
+e1421,2012/03/26,in the early afternoon,9,"Rylee, Piper"
+e1440,2012/04/11,in the early evening,12,"Piper, Hazel"
+e1447,2012/04/15,late in the evening,50,Lydia
+e1449,2012/04/18,in the early afternoon,40,"Layla, Eva, Nevaeh"
+e1468,2012/04/28,during lunch hours,50,Eva
+e1472,2012/05/01,in the early evening,9,Hazel
+e1476,2012/05/05,in the morning,19,"Nora, Piper"
+e1481,2012/05/07,in the early evening,53,Layla
+e1485,2012/05/12,in the early afternoon,29,"Piper, Kinsley, Avery, Nevaeh"
+e1491,2012/05/15,in the morning,41,"Nora, Nevaeh, Olivia"
+e1499,2012/05/20,in the early afternoon,32,"Olivia, Piper, Piper"
+e1504,2012/05/23,in the early afternoon,16,Lydia
+e1510,2012/05/27,in the early afternoon,21,"Piper, Eva"
+e1514,2012/05/28,in the early evening,22,Piper
+e1517,2012/05/30,late in the evening,40,"Nora, Rylee, Hazel, Olivia"
+e1518,2012/05/31,during lunch hours,53,"Kinsley, Nevaeh, Hazel, Eva"
+e1522,2012/06/03,in the morning,34,"Avery, Kinsley, Claire"
+e1523,2012/06/04,during lunch hours,18,"Kinsley, Layla"
+e1529,2012/06/07,in the early evening,39,Layla
+e1530,2012/06/08,in the morning,34,"Olivia, Eva, Nevaeh, Claire"
+e1535,2012/06/10,during lunch hours,36,"Olivia, Nora, Piper, Avery"
+e1537,2012/06/11,in the early evening,12,Olivia
+e1539,2012/06/12,in the morning,54,"Rylee, Lydia, Kinsley, Claire"
+e1541,2012/06/13,in the late afternoon,50,"Lydia, Hazel, Layla"
+e1542,2012/06/15,in the early afternoon,46,Hazel
+e1544,2012/06/16,in the morning,39,Claire
+e1551,2012/06/21,during lunch hours,5,"Avery, Olivia"
+e1553,2012/06/22,in the early afternoon,46,"Olivia, Hazel, Rylee"
+e1557,2012/06/26,in the morning,43,Layla
+e1563,2012/06/28,in the early afternoon,10,Rylee
+e1566,2012/06/30,during lunch hours,13,"Nevaeh, Olivia, Piper"
+e1569,2012/07/01,late in the evening,52,"Piper, Eva"
+e1572,2012/07/02,late in the evening,46,"Nevaeh, Olivia"
+e1576,2012/07/06,during lunch hours,34,"Hazel, Piper, Nora"
+e1581,2012/07/09,in the early evening,28,"Hazel, Olivia"
+e1584,2012/07/11,in the late afternoon,48,"Hazel, Nora, Lydia"
+e1585,2012/07/12,late in the evening,23,"Kinsley, Eva, Layla, Avery"
+e1587,2012/07/13,in the morning,51,"Piper, Lydia, Nevaeh"
+e1589,2012/07/14,in the early evening,31,"Eva, Nora"
+e1592,2012/07/17,in the early evening,5,"Nevaeh, Lydia"
+e1597,2012/07/23,in the early evening,9,"Nora, Piper"
+e1598,2012/07/24,in the late afternoon,11,"Lydia, Kinsley, Claire"
+e1607,2012/07/30,late in the evening,31,"Eva, Avery, Claire"
+e1613,2012/08/03,in the early afternoon,21,"Lydia, Eva, Olivia, Claire"
+e1616,2012/08/05,in the morning,19,"Olivia, Lydia, Rylee"
+e1622,2012/08/09,in the early evening,54,"Eva, Avery, Rylee"
+e1624,2012/08/10,late in the evening,7,"Lydia, Olivia"
+e1625,2012/08/11,in the morning,54,"Kinsley, Avery, Nora"
+e1627,2012/08/12,in the early afternoon,23,Piper
+e1631,2012/08/14,in the morning,14,"Nora, Olivia, Piper"
+e1638,2012/08/17,in the morning,44,"Kinsley, Nora, Eva, Layla"
+e1640,2012/08/19,in the morning,16,"Olivia, Claire"
+e1641,2012/08/20,in the early afternoon,48,"Piper, Piper, Nevaeh, Hazel"
+e1643,2012/08/22,late in the evening,51,"Kinsley, Olivia, Rylee, Piper"
+e1646,2012/08/23,in the early evening,50,"Hazel, Lydia"
+e1651,2012/08/27,in the early afternoon,20,"Layla, Eva, Claire, Avery"
+e1657,2012/09/01,in the early afternoon,12,"Avery, Piper"
+e1658,2012/09/02,late in the evening,27,Nevaeh
+e1663,2012/09/06,in the late afternoon,47,"Rylee, Nevaeh, Piper"
+e1669,2012/09/10,late in the evening,18,"Piper, Olivia, Nora"
+e1673,2012/09/11,in the morning,31,"Claire, Eva, Piper"
+e1677,2012/09/13,in the early evening,54,"Lydia, Nora, Hazel"
+e1680,2012/09/17,in the early evening,10,"Nevaeh, Hazel, Layla, Eva"
+e1681,2012/09/18,late in the evening,35,"Nevaeh, Lydia"
+e1686,2012/09/20,in the morning,51,"Olivia, Nora, Eva"
+e1687,2012/09/21,in the morning,29,"Rylee, Lydia, Olivia"
+e1690,2012/09/23,in the late afternoon,6,"Kinsley, Claire, Piper, Nevaeh"
+e1695,2012/09/25,late in the evening,16,"Nora, Eva, Avery, Rylee"
+e1698,2012/09/26,late in the evening,49,Piper
+e1700,2012/09/27,in the early evening,51,Eva
+e1703,2012/09/28,in the early afternoon,51,"Avery, Layla"
+e1707,2012/09/29,late in the evening,21,"Eva, Piper"
+e1711,2012/09/30,in the late afternoon,18,"Kinsley, Nora, Eva, Layla"
+e1717,2012/10/03,late in the evening,9,Piper
+e1722,2012/10/05,in the early afternoon,8,"Kinsley, Piper, Layla"
+e1725,2012/10/07,in the late afternoon,41,"Piper, Piper"
+e1738,2012/10/12,during lunch hours,51,"Lydia, Rylee"
+e1742,2012/10/13,during lunch hours,52,"Rylee, Eva, Layla, Nora"
+e1743,2012/10/15,in the morning,5,"Piper, Rylee, Hazel, Nevaeh"
+e1745,2012/10/16,in the early afternoon,50,"Nora, Hazel, Lydia, Claire"
+e1748,2012/10/18,in the early evening,22,Avery
+e1751,2012/10/22,in the early afternoon,44,"Piper, Rylee"
+e1766,2012/11/01,in the early afternoon,50,"Nevaeh, Olivia"
+e1769,2012/11/02,in the late afternoon,48,Olivia
+e1771,2012/11/04,in the early afternoon,45,"Nora, Olivia, Kinsley"
+e1774,2012/11/05,in the late afternoon,51,"Claire, Avery, Lydia, Nevaeh"
+e1787,2012/11/13,in the early evening,27,"Piper, Nora"
+e1798,2012/11/20,late in the evening,24,Layla
+e1804,2012/11/24,in the morning,54,"Avery, Piper"
+e1810,2012/11/28,in the early evening,32,Hazel
+e1814,2012/11/30,late in the evening,43,"Layla, Piper"
+e1817,2012/12/01,during lunch hours,32,"Avery, Piper"
+e1822,2012/12/08,in the morning,52,"Lydia, Rylee"
+e1829,2012/12/11,in the late afternoon,55,"Claire, Kinsley, Hazel"
+e1830,2012/12/12,during lunch hours,54,Nevaeh
+e1838,2012/12/15,in the late afternoon,34,"Claire, Eva"
+e1848,2012/12/20,in the morning,39,"Lydia, Eva, Layla, Nevaeh"
+e1849,2012/12/21,in the early evening,20,"Nora, Hazel"
+e1851,2012/12/22,in the morning,32,Kinsley
+e1857,2012/12/28,in the morning,19,Eva
+e1860,2012/12/29,late in the evening,9,"Piper, Kinsley, Avery, Lydia"
+e1863,2012/12/30,in the late afternoon,45,"Lydia, Hazel"
+e1952,2013/01/01,late in the evening,51,"Layla, Hazel, Piper, Nora"
+e1954,2013/01/02,in the early evening,33,Olivia
+e1963,2013/01/09,in the morning,44,Kinsley
+e1968,2013/01/11,in the early afternoon,25,"Nevaeh, Piper, Rylee, Layla"
+e1971,2013/01/12,in the early afternoon,18,"Nevaeh, Lydia, Piper, Rylee"
+e1975,2013/01/13,late in the evening,33,"Nevaeh, Rylee, Layla, Piper"
+e1981,2013/01/15,late in the evening,5,"Layla, Piper, Olivia, Hazel"
+e1991,2013/01/27,in the early evening,52,"Hazel, Olivia, Lydia, Piper"
+e1993,2013/01/28,in the late afternoon,39,"Nevaeh, Lydia"
+e1997,2013/01/31,late in the evening,20,"Layla, Hazel"
+e2009,2013/02/10,in the late afternoon,41,"Claire, Layla, Nora, Avery"
+e2011,2013/02/15,in the early afternoon,12,"Claire, Eva"
+e2014,2013/02/18,in the early evening,39,Avery
+e2017,2013/02/19,in the early afternoon,44,"Piper, Layla, Rylee, Hazel"
+e2029,2013/03/01,in the early afternoon,23,Hazel
+e2033,2013/03/03,in the morning,47,"Layla, Claire, Lydia, Nora"
+e2040,2013/03/09,in the early afternoon,28,Nora
+e2043,2013/03/11,in the late afternoon,41,"Lydia, Rylee, Olivia, Piper"
+e2045,2013/03/12,in the early afternoon,27,Hazel
+e2048,2013/03/14,during lunch hours,25,"Nevaeh, Nora, Rylee, Piper"
+e2051,2013/03/15,late in the evening,23,"Nora, Claire"
+e2053,2013/03/17,late in the evening,40,"Layla, Rylee"
+e2056,2013/03/18,in the early afternoon,40,"Olivia, Avery, Eva, Hazel"
+e2057,2013/03/19,in the late afternoon,20,Claire
+e2062,2013/03/21,during lunch hours,55,"Claire, Hazel, Piper, Nevaeh"
+e2065,2013/03/22,in the late afternoon,36,"Claire, Lydia, Hazel"
+e2066,2013/03/23,late in the evening,30,"Olivia, Nora, Nevaeh"
+e2067,2013/03/24,in the early afternoon,33,"Nevaeh, Piper, Layla, Olivia"
+e2071,2013/03/25,in the early afternoon,42,Olivia
+e2077,2013/03/27,during lunch hours,51,Claire
+e2082,2013/03/30,late in the evening,26,"Nevaeh, Hazel"
+e2083,2013/03/31,in the late afternoon,6,"Eva, Piper, Claire"
+e2084,2013/04/01,in the late afternoon,51,"Layla, Olivia, Kinsley, Piper"
+e2085,2013/04/02,late in the evening,49,"Nevaeh, Lydia, Eva, Kinsley"
+e2089,2013/04/04,in the late afternoon,25,"Rylee, Eva, Claire"
+e2097,2013/04/09,in the morning,32,"Eva, Rylee, Nevaeh"
+e2100,2013/04/11,in the early afternoon,35,"Eva, Claire, Layla, Kinsley"
+e2108,2013/04/15,during lunch hours,19,"Rylee, Claire"
+e2109,2013/04/17,in the early afternoon,38,"Kinsley, Eva, Rylee"
+e2112,2013/04/19,in the morning,46,"Layla, Kinsley, Eva, Rylee"
+e2120,2013/04/21,during lunch hours,29,"Claire, Kinsley, Nora"
+e2126,2013/04/25,in the early evening,11,"Olivia, Eva"
+e2130,2013/04/29,in the early afternoon,14,"Kinsley, Eva, Piper"
+e2134,2013/05/01,during lunch hours,5,"Nevaeh, Avery, Eva, Kinsley"
+e2140,2013/05/06,in the early afternoon,37,Piper
+e2146,2013/05/09,in the early evening,50,"Avery, Claire"
+e2150,2013/05/11,late in the evening,40,"Piper, Nora, Layla"
+e2153,2013/05/12,late in the evening,34,Nevaeh
+e2155,2013/05/13,in the early evening,24,Eva
+e2159,2013/05/17,in the early afternoon,52,"Claire, Hazel, Nevaeh, Rylee"
+e2160,2013/05/18,in the early afternoon,5,Hazel
+e2166,2013/05/23,in the early evening,52,Kinsley
+e2170,2013/05/25,during lunch hours,8,Piper
+e2176,2013/05/30,in the late afternoon,54,Avery
+e2184,2013/06/05,in the late afternoon,50,"Kinsley, Piper, Olivia"
+e2189,2013/06/07,in the early evening,53,"Olivia, Eva"
+e2194,2013/06/09,in the early evening,50,"Piper, Nora, Lydia, Piper"
+e2199,2013/06/10,during lunch hours,26,"Claire, Olivia"
+e2207,2013/06/14,during lunch hours,14,"Kinsley, Eva, Piper, Lydia"
+e2214,2013/06/16,in the early afternoon,52,"Lydia, Avery, Rylee"
+e2217,2013/06/17,in the morning,32,Layla
+e2226,2013/06/23,in the early afternoon,5,"Avery, Piper, Nora"
+e2230,2013/06/24,in the early afternoon,19,Hazel
+e2232,2013/06/26,in the early evening,7,"Layla, Nora, Kinsley"
+e2235,2013/06/29,in the morning,17,"Avery, Rylee, Layla"
+e2240,2013/07/01,during lunch hours,45,Nora
+e2244,2013/07/02,in the morning,54,"Avery, Lydia, Layla, Rylee"
+e2250,2013/07/04,in the morning,10,"Nevaeh, Piper, Rylee"
+e2252,2013/07/05,in the early evening,32,"Piper, Avery, Hazel, Piper"
+e2253,2013/07/07,during lunch hours,13,"Piper, Hazel, Piper, Nevaeh"
+e2255,2013/07/10,during lunch hours,23,"Avery, Claire, Piper, Eva"
+e2261,2013/07/15,late in the evening,26,"Eva, Rylee, Piper, Piper"
+e2263,2013/07/16,in the early afternoon,49,"Avery, Layla, Olivia"
+e2265,2013/07/18,late in the evening,14,Layla
+e2268,2013/07/20,during lunch hours,8,"Eva, Nora, Rylee, Piper"
+e2272,2013/07/27,late in the evening,11,"Eva, Lydia, Rylee, Nevaeh"
+e2274,2013/07/29,in the late afternoon,6,"Layla, Piper, Nora, Lydia"
+e2279,2013/07/31,late in the evening,24,Eva
+e2285,2013/08/02,during lunch hours,5,"Nevaeh, Piper, Kinsley"
+e2288,2013/08/04,in the early evening,54,"Eva, Rylee, Piper, Hazel"
+e2293,2013/08/07,in the morning,17,Nora
+e2296,2013/08/08,in the early evening,20,Layla
+e2305,2013/08/14,in the early afternoon,11,"Nora, Rylee, Olivia, Nevaeh"
+e2306,2013/08/15,in the early evening,36,Piper
+e2311,2013/08/17,in the early evening,39,"Avery, Piper, Lydia"
+e2318,2013/08/24,in the morning,51,"Hazel, Nora, Avery"
+e2319,2013/08/25,in the morning,33,"Nevaeh, Rylee"
+e2320,2013/08/26,in the early afternoon,53,"Rylee, Claire, Nevaeh, Layla"
+e2321,2013/08/27,in the late afternoon,5,"Piper, Layla, Olivia"
+e2322,2013/08/28,late in the evening,6,Avery
+e2324,2013/08/29,late in the evening,32,"Piper, Nevaeh, Olivia, Layla"
+e2327,2013/08/30,in the late afternoon,48,"Claire, Nora, Layla"
+e2330,2013/08/31,late in the evening,17,Olivia
+e2332,2013/09/01,in the early afternoon,39,Claire
+e2334,2013/09/03,in the morning,32,"Lydia, Hazel"
+e2335,2013/09/04,late in the evening,53,Lydia
+e2336,2013/09/06,in the late afternoon,47,"Hazel, Lydia"
+e2343,2013/09/12,in the early evening,25,"Nora, Piper, Avery, Eva"
+e2346,2013/09/13,during lunch hours,32,"Piper, Nevaeh, Piper, Hazel"
+e2357,2013/09/20,in the late afternoon,54,"Rylee, Hazel, Nora"
+e2360,2013/09/22,during lunch hours,28,"Eva, Olivia"
+e2362,2013/09/23,in the early evening,17,"Nora, Claire, Piper, Avery"
+e2364,2013/09/24,in the morning,5,Rylee
+e2369,2013/09/26,in the late afternoon,37,"Layla, Hazel, Rylee, Avery"
+e2371,2013/09/27,late in the evening,53,"Nora, Lydia"
+e2374,2013/09/28,in the late afternoon,55,"Piper, Eva, Layla, Piper"
+e2377,2013/09/29,in the early evening,43,"Piper, Nevaeh, Layla"
+e2386,2013/10/03,in the early afternoon,24,Claire
+e2392,2013/10/08,in the late afternoon,41,Hazel
+e2394,2013/10/11,in the late afternoon,20,"Olivia, Rylee, Nevaeh"
+e2396,2013/10/12,late in the evening,5,Olivia
+e2403,2013/10/16,in the early afternoon,19,"Piper, Rylee, Claire, Piper"
+e2407,2013/10/17,in the early afternoon,41,"Lydia, Hazel, Kinsley"
+e2410,2013/10/19,in the early evening,10,"Avery, Piper, Hazel, Rylee"
+e2418,2013/10/25,in the early afternoon,36,Rylee
+e2441,2013/11/10,in the late afternoon,28,"Lydia, Claire, Rylee, Hazel"
+e2444,2013/11/15,in the late afternoon,19,Avery
+e2446,2013/11/16,in the early evening,44,Eva
+e2448,2013/11/17,in the morning,42,"Layla, Nora"
+e2450,2013/11/18,in the early evening,12,"Eva, Kinsley, Layla, Piper"
+e2459,2013/11/27,in the morning,22,Claire
+e2462,2013/11/28,in the early afternoon,47,"Rylee, Hazel, Piper"
+e2466,2013/11/30,in the early evening,19,"Lydia, Claire"
+e2467,2013/12/01,in the early evening,7,Eva
+e2474,2013/12/07,during lunch hours,10,"Layla, Olivia"
+e2481,2013/12/11,during lunch hours,47,Eva
+e2485,2013/12/14,in the morning,31,"Layla, Avery, Piper"
+e2487,2013/12/15,during lunch hours,29,Hazel
+e2501,2013/12/27,in the late afternoon,52,Layla
+e2599,2014/01/04,in the morning,14,"Piper, Piper, Nevaeh"
+e2601,2014/01/05,in the early afternoon,25,"Kinsley, Claire"
+e2603,2014/01/06,in the early evening,6,Piper
+e2606,2014/01/07,in the early afternoon,6,Piper
+e2610,2014/01/09,in the morning,26,"Piper, Lydia, Olivia"
+e2612,2014/01/12,in the late afternoon,55,"Kinsley, Olivia, Lydia"
+e2615,2014/01/14,in the morning,38,Rylee
+e2620,2014/01/17,in the morning,11,"Avery, Olivia, Layla"
+e2625,2014/01/20,late in the evening,34,"Piper, Piper, Nora"
+e2627,2014/01/22,in the early evening,19,"Olivia, Avery, Piper, Layla"
+e2629,2014/01/23,late in the evening,43,"Avery, Rylee, Kinsley, Piper"
+e2632,2014/01/26,during lunch hours,42,Lydia
+e2637,2014/02/01,in the early evening,11,"Avery, Layla, Olivia"
+e2639,2014/02/03,in the late afternoon,45,"Olivia, Piper"
+e2643,2014/02/04,in the late afternoon,35,Piper
+e2646,2014/02/07,late in the evening,31,Eva
+e2648,2014/02/08,in the late afternoon,21,Avery
+e2652,2014/02/09,in the early afternoon,17,"Nevaeh, Piper"
+e2655,2014/02/13,late in the evening,40,"Hazel, Claire, Olivia, Layla"
+e2659,2014/02/16,late in the evening,10,"Lydia, Claire"
+e2664,2014/02/18,in the morning,45,"Rylee, Lydia, Eva, Avery"
+e2671,2014/02/25,late in the evening,15,"Olivia, Claire, Kinsley"
+e2672,2014/02/26,in the early evening,5,"Avery, Olivia, Lydia"
+e2675,2014/02/27,in the early afternoon,17,"Hazel, Rylee"
+e2678,2014/03/01,in the morning,13,"Eva, Kinsley, Piper"
+e2679,2014/03/02,in the morning,9,"Nevaeh, Kinsley"
+e2680,2014/03/04,late in the evening,41,"Olivia, Nevaeh, Lydia, Rylee"
+e2686,2014/03/09,in the early afternoon,49,"Piper, Nevaeh"
+e2688,2014/03/11,in the early evening,26,"Hazel, Avery, Nevaeh, Olivia"
+e2690,2014/03/12,during lunch hours,31,"Kinsley, Olivia, Nora, Hazel"
+e2696,2014/03/15,during lunch hours,53,"Hazel, Nevaeh"
+e2700,2014/03/16,in the early afternoon,45,Hazel
+e2701,2014/03/17,in the early afternoon,48,Piper
+e2705,2014/03/19,in the early evening,49,"Nevaeh, Hazel, Rylee, Claire"
+e2707,2014/03/20,in the late afternoon,53,"Hazel, Lydia"
+e2713,2014/03/22,in the early evening,32,"Layla, Nora, Hazel, Rylee"
+e2720,2014/03/26,in the late afternoon,45,"Layla, Lydia"
+e2725,2014/03/28,late in the evening,15,"Avery, Layla"
+e2729,2014/03/30,late in the evening,24,"Olivia, Rylee"
+e2732,2014/03/31,in the late afternoon,17,"Eva, Layla, Nevaeh"
+e2744,2014/04/06,in the morning,19,"Piper, Hazel"
+e2745,2014/04/07,in the early afternoon,5,"Avery, Rylee, Kinsley"
+e2752,2014/04/10,in the early evening,19,Hazel
+e2754,2014/04/11,in the early evening,40,"Eva, Claire"
+e2755,2014/04/12,in the early afternoon,54,"Lydia, Piper"
+e2766,2014/04/18,in the early evening,19,Avery
+e2769,2014/04/19,during lunch hours,17,"Eva, Piper, Rylee, Nora"
+e2771,2014/04/20,in the morning,48,"Lydia, Claire"
+e2780,2014/04/25,in the early evening,17,"Rylee, Piper"
+e2785,2014/04/29,late in the evening,51,Nora
+e2789,2014/05/02,during lunch hours,18,"Piper, Eva"
+e2796,2014/05/06,in the early evening,27,"Piper, Lydia, Eva"
+e2803,2014/05/10,during lunch hours,43,Olivia
+e2812,2014/05/15,in the morning,28,"Rylee, Olivia, Layla, Eva"
+e2813,2014/05/16,late in the evening,50,"Kinsley, Piper"
+e2816,2014/05/18,in the early evening,48,"Eva, Rylee"
+e2825,2014/05/23,in the early afternoon,12,"Nevaeh, Rylee, Eva, Layla"
+e2826,2014/05/24,during lunch hours,35,"Layla, Nora, Eva"
+e2833,2014/05/26,in the late afternoon,23,"Claire, Piper, Kinsley, Hazel"
+e2842,2014/06/01,late in the evening,36,"Kinsley, Layla"
+e2850,2014/06/05,in the morning,20,"Kinsley, Hazel, Rylee, Lydia"
+e2861,2014/06/13,in the morning,7,Claire
+e2870,2014/06/22,in the early evening,51,"Nora, Hazel, Piper"
+e2877,2014/06/27,in the late afternoon,16,"Piper, Nevaeh"
+e2882,2014/07/01,late in the evening,15,Olivia
+e2886,2014/07/03,during lunch hours,45,"Rylee, Kinsley, Lydia, Nevaeh"
+e2892,2014/07/09,in the early evening,28,"Eva, Layla"
+e2899,2014/07/14,in the late afternoon,47,"Layla, Rylee, Kinsley"
+e2907,2014/07/22,in the morning,20,Nevaeh
+e2910,2014/07/23,late in the evening,53,"Hazel, Claire"
+e2914,2014/07/29,during lunch hours,11,"Kinsley, Avery"
+e2917,2014/07/31,in the late afternoon,12,"Kinsley, Lydia, Avery"
+e2924,2014/08/04,during lunch hours,29,"Nevaeh, Lydia, Hazel"
+e2925,2014/08/06,in the early afternoon,45,"Lydia, Layla, Piper, Claire"
+e2933,2014/08/13,in the early afternoon,16,"Kinsley, Avery, Nora, Claire"
+e2946,2014/08/20,in the late afternoon,30,"Piper, Eva, Kinsley, Nevaeh"
+e2957,2014/08/26,in the late afternoon,42,Nevaeh
+e2965,2014/08/30,in the morning,44,"Piper, Eva, Olivia"
+e2967,2014/08/31,in the early evening,32,Rylee
+e2976,2014/09/07,late in the evening,19,"Lydia, Piper"
+e2979,2014/09/08,in the morning,13,"Layla, Kinsley, Avery, Piper"
+e2983,2014/09/10,in the early afternoon,40,"Layla, Avery, Eva, Lydia"
+e2992,2014/09/15,in the late afternoon,26,"Kinsley, Eva, Olivia"
+e2996,2014/09/16,late in the evening,12,"Hazel, Claire, Rylee"
+e3009,2014/09/24,in the early afternoon,53,Rylee
+e3014,2014/09/28,in the early evening,9,"Eva, Rylee, Nora"
+e3024,2014/10/06,in the morning,34,"Kinsley, Nora"
+e3029,2014/10/13,in the early evening,11,"Eva, Layla"
+e3031,2014/10/15,during lunch hours,52,Rylee
+e3033,2014/10/17,during lunch hours,5,"Nevaeh, Hazel, Nora"
+e3035,2014/10/22,late in the evening,21,Nora
+e3038,2014/10/24,in the early afternoon,53,"Piper, Olivia"
+e3043,2014/10/26,in the early evening,38,Rylee
+e3046,2014/10/27,in the morning,33,"Lydia, Olivia, Piper, Nora"
+e3053,2014/10/30,in the late afternoon,19,"Olivia, Rylee, Hazel"
+e3058,2014/11/03,in the early afternoon,26,"Layla, Nevaeh"
+e3068,2014/11/10,during lunch hours,40,"Piper, Layla, Rylee, Piper"
+e3076,2014/11/15,late in the evening,43,Kinsley
+e3080,2014/11/17,in the late afternoon,7,"Nora, Rylee"
+e3084,2014/11/20,in the morning,39,Piper
+e3090,2014/11/24,late in the evening,11,Claire
+e3093,2014/11/25,in the early afternoon,7,"Kinsley, Lydia, Avery, Piper"
+e3101,2014/11/29,during lunch hours,26,"Claire, Hazel, Lydia, Eva"
+e3106,2014/12/05,in the early afternoon,34,"Layla, Claire, Eva, Lydia"
+e3108,2014/12/06,late in the evening,36,"Avery, Rylee"
+e3110,2014/12/07,in the morning,6,Lydia
+e3114,2014/12/10,in the early afternoon,45,"Hazel, Layla"
+e3118,2014/12/12,in the late afternoon,52,"Rylee, Olivia, Piper, Nora"
+e3121,2014/12/14,in the early afternoon,49,"Nevaeh, Eva"
+e3126,2014/12/16,in the morning,27,Piper
+e3133,2014/12/19,in the early evening,21,"Claire, Layla"
+e3134,2014/12/20,during lunch hours,25,"Claire, Hazel, Lydia, Nevaeh"
+e3138,2014/12/22,in the early afternoon,5,"Nora, Hazel, Eva"
+e3141,2014/12/23,in the early afternoon,53,"Nora, Lydia, Hazel, Olivia"
+e3142,2014/12/24,during lunch hours,12,Eva
+e3147,2014/12/29,in the morning,35,Avery
+e3240,2015/01/04,during lunch hours,13,"Claire, Rylee, Kinsley, Layla"
+e3243,2015/01/06,in the late afternoon,12,"Eva, Piper, Kinsley"
+e3246,2015/01/07,in the morning,39,Lydia
+e3254,2015/01/13,in the late afternoon,49,"Hazel, Nora, Layla, Eva"
+e3256,2015/01/14,in the morning,42,"Olivia, Rylee, Kinsley, Nora"
+e3258,2015/01/15,late in the evening,11,"Eva, Nora"
+e3265,2015/01/22,during lunch hours,45,"Piper, Piper, Eva"
+e3267,2015/01/24,in the early evening,39,"Nora, Nevaeh, Rylee"
+e3270,2015/01/26,in the early afternoon,11,"Nevaeh, Nora"
+e3272,2015/01/28,during lunch hours,10,Claire
+e3275,2015/01/30,in the morning,36,Lydia
+e3278,2015/01/31,in the early evening,17,Kinsley
+e3280,2015/02/01,late in the evening,18,Nora
+e3289,2015/02/04,late in the evening,6,Claire
+e3292,2015/02/06,in the early evening,34,"Lydia, Rylee, Claire, Olivia"
+e3297,2015/02/09,in the early afternoon,38,"Layla, Hazel"
+e3300,2015/02/11,late in the evening,45,"Layla, Hazel, Rylee"
+e3309,2015/02/15,late in the evening,8,Nora
+e3311,2015/02/17,in the morning,21,Layla
+e3317,2015/02/26,in the late afternoon,37,Hazel
+e3321,2015/02/27,during lunch hours,9,Avery
+e3330,2015/03/03,in the early evening,34,"Avery, Piper, Eva, Kinsley"
+e3336,2015/03/08,during lunch hours,29,"Piper, Layla"
+e3341,2015/03/11,in the early evening,41,Piper
+e3345,2015/03/13,during lunch hours,35,"Lydia, Olivia"
+e3346,2015/03/14,in the morning,29,Hazel
+e3355,2015/03/20,in the early evening,6,Avery
+e3359,2015/03/22,in the morning,13,"Piper, Hazel, Layla, Claire"
+e3362,2015/03/25,in the early evening,9,"Nevaeh, Rylee, Kinsley"
+e3365,2015/03/27,during lunch hours,26,Hazel
+e3371,2015/03/30,in the late afternoon,7,Piper
+e3376,2015/04/03,in the early afternoon,11,"Eva, Layla"
+e3381,2015/04/07,in the morning,32,"Olivia, Avery"
+e3383,2015/04/08,late in the evening,28,"Kinsley, Claire, Nevaeh, Lydia"
+e3386,2015/04/09,late in the evening,34,"Lydia, Layla"
+e3388,2015/04/10,late in the evening,7,"Piper, Hazel, Eva"
+e3390,2015/04/11,in the morning,46,"Hazel, Layla"
+e3392,2015/04/12,in the early evening,29,"Nevaeh, Piper"
+e3401,2015/04/18,late in the evening,46,Layla
+e3405,2015/04/23,in the late afternoon,36,"Lydia, Kinsley"
+e3407,2015/04/25,in the morning,54,"Claire, Lydia, Layla"
+e3419,2015/05/04,in the early evening,52,"Nevaeh, Eva, Piper, Olivia"
+e3422,2015/05/06,in the early evening,29,"Lydia, Nevaeh, Layla, Piper"
+e3425,2015/05/07,late in the evening,36,Kinsley
+e3434,2015/05/14,late in the evening,41,"Olivia, Hazel, Rylee, Piper"
+e3437,2015/05/17,in the late afternoon,32,"Layla, Kinsley"
+e3439,2015/05/18,in the morning,39,Piper
+e3441,2015/05/21,in the early evening,54,"Claire, Eva, Lydia"
+e3443,2015/05/23,in the early evening,50,"Nora, Eva, Nevaeh, Layla"
+e3448,2015/05/26,in the early evening,27,"Piper, Olivia"
+e3461,2015/06/04,in the late afternoon,51,"Lydia, Rylee, Piper, Hazel"
+e3470,2015/06/10,in the morning,35,"Nora, Hazel, Piper"
+e3493,2015/06/26,in the early evening,42,"Nora, Olivia, Eva"
+e3502,2015/07/02,in the late afternoon,12,"Eva, Layla"
+e3512,2015/07/08,in the early evening,12,Layla
+e3514,2015/07/09,in the morning,11,"Nora, Olivia, Hazel"
+e3517,2015/07/12,in the late afternoon,9,Eva
+e3528,2015/07/19,late in the evening,18,"Piper, Rylee, Olivia"
+e3543,2015/07/29,during lunch hours,40,"Avery, Nora, Eva, Olivia"
+e3547,2015/07/31,in the morning,32,"Eva, Olivia"
+e3549,2015/08/02,in the early afternoon,13,"Avery, Piper"
+e3559,2015/08/10,in the morning,25,Rylee
+e3566,2015/08/15,in the late afternoon,30,"Piper, Lydia"
+e3568,2015/08/16,during lunch hours,32,"Eva, Olivia, Claire, Nora"
+e3577,2015/08/20,late in the evening,39,"Hazel, Piper, Lydia"
+e3581,2015/08/21,in the morning,54,"Piper, Rylee, Olivia, Piper"
+e3590,2015/08/26,in the morning,45,"Nevaeh, Olivia, Nora"
+e3594,2015/08/30,in the morning,54,Lydia
+e3595,2015/08/31,in the early afternoon,32,"Kinsley, Claire"
+e3599,2015/09/03,in the early evening,48,Nevaeh
+e3613,2015/09/12,in the morning,33,"Nevaeh, Piper"
+e3627,2015/09/23,in the late afternoon,48,"Piper, Rylee"
+e3631,2015/09/25,during lunch hours,27,"Rylee, Avery, Hazel, Nevaeh"
+e3632,2015/09/26,in the late afternoon,42,Hazel
+e3646,2015/10/06,in the late afternoon,22,Avery
+e3651,2015/10/08,in the early afternoon,41,"Avery, Claire"
+e3655,2015/10/14,in the morning,49,"Layla, Avery, Piper, Claire"
+e3662,2015/10/16,late in the evening,9,Claire
+e3665,2015/10/17,during lunch hours,36,Kinsley
+e3671,2015/10/23,late in the evening,49,"Claire, Hazel, Olivia, Nora"
+e3674,2015/10/24,in the morning,26,Eva
+e3677,2015/10/28,late in the evening,28,Layla
+e3681,2015/10/29,in the morning,38,"Hazel, Rylee"
+e3686,2015/11/01,in the morning,18,"Kinsley, Olivia, Claire"
+e3691,2015/11/04,during lunch hours,54,"Claire, Kinsley, Layla, Nevaeh"
+e3694,2015/11/06,in the early afternoon,9,Nevaeh
+e3697,2015/11/07,in the morning,34,Hazel
+e3699,2015/11/08,late in the evening,32,"Nevaeh, Piper, Claire, Nora"
+e3700,2015/11/09,in the late afternoon,30,"Olivia, Avery, Piper, Rylee"
+e3701,2015/11/10,in the early afternoon,50,Layla
+e3705,2015/11/11,in the late afternoon,46,"Layla, Rylee, Eva"
+e3713,2015/11/17,late in the evening,8,"Kinsley, Piper, Eva, Hazel"
+e3718,2015/11/20,in the early evening,5,"Piper, Olivia"
+e3720,2015/11/21,in the late afternoon,25,"Piper, Rylee"
+e3728,2015/11/26,in the morning,26,"Lydia, Olivia, Nevaeh"
+e3731,2015/11/28,late in the evening,54,"Avery, Olivia"
+e3736,2015/12/01,in the early afternoon,9,"Piper, Rylee, Eva, Nevaeh"
+e3742,2015/12/03,during lunch hours,44,"Kinsley, Piper"
+e3748,2015/12/05,during lunch hours,9,"Avery, Layla, Rylee"
+e3753,2015/12/07,late in the evening,15,"Rylee, Nevaeh, Layla, Eva"
+e3758,2015/12/09,in the late afternoon,13,"Lydia, Kinsley, Piper, Rylee"
+e3763,2015/12/11,in the morning,14,"Olivia, Nora, Layla"
+e3765,2015/12/12,in the morning,15,"Nora, Hazel, Kinsley"
+e3771,2015/12/16,during lunch hours,47,Avery
+e3773,2015/12/18,in the early evening,26,"Eva, Nevaeh, Piper"
+e3777,2015/12/20,late in the evening,26,"Avery, Nevaeh"
+e3779,2015/12/22,in the morning,38,"Nora, Lydia, Rylee, Olivia"
+e3782,2015/12/23,in the early evening,53,"Piper, Layla"
+e3786,2015/12/25,late in the evening,52,"Layla, Eva, Nora, Hazel"
+e3795,2015/12/28,in the early evening,46,"Olivia, Piper, Rylee, Eva"
+e3800,2015/12/30,in the morning,10,"Hazel, Kinsley"
+e3909,2016/01/03,in the early evening,15,Claire
+e3916,2016/01/07,in the early evening,36,"Hazel, Claire, Piper"
+e3920,2016/01/09,in the early afternoon,18,"Nevaeh, Avery, Eva, Claire"
+e3924,2016/01/11,during lunch hours,10,"Piper, Kinsley"
+e3935,2016/01/16,during lunch hours,39,Kinsley
+e3943,2016/01/22,in the early afternoon,16,"Layla, Piper, Nora, Piper"
+e3947,2016/01/25,in the early evening,24,Kinsley
+e3952,2016/01/29,in the early afternoon,47,"Kinsley, Layla, Lydia, Avery"
+e3966,2016/02/03,in the late afternoon,50,"Olivia, Layla, Piper"
+e3972,2016/02/06,in the late afternoon,25,Nora
+e3975,2016/02/09,late in the evening,27,"Eva, Olivia, Hazel, Piper"
+e3976,2016/02/10,late in the evening,18,Rylee
+e3989,2016/02/21,late in the evening,52,"Olivia, Nora"
+e3990,2016/02/22,during lunch hours,35,"Piper, Claire, Rylee"
+e3993,2016/02/23,in the morning,22,"Lydia, Avery, Eva, Kinsley"
+e3994,2016/02/24,late in the evening,17,"Hazel, Claire, Olivia"
+e3997,2016/02/26,during lunch hours,41,"Layla, Piper"
+e4015,2016/03/07,late in the evening,17,Piper
+e4024,2016/03/15,in the late afternoon,17,"Nora, Piper, Eva"
+e4029,2016/03/17,in the late afternoon,41,"Eva, Layla"
+e4030,2016/03/18,during lunch hours,30,Piper
+e4032,2016/03/19,in the early evening,40,"Olivia, Nevaeh, Lydia"
+e4040,2016/03/23,in the early evening,24,"Nora, Layla, Olivia, Nevaeh"
+e4045,2016/03/26,in the late afternoon,33,Eva
+e4046,2016/03/27,in the early evening,21,"Nevaeh, Piper, Avery"
+e4048,2016/03/28,in the early afternoon,38,Hazel
+e4050,2016/03/29,during lunch hours,41,"Eva, Layla, Lydia"
+e4066,2016/04/07,in the early afternoon,43,"Eva, Kinsley"
+e4067,2016/04/08,in the morning,54,"Eva, Layla, Piper, Kinsley"
+e4074,2016/04/12,in the early afternoon,20,Hazel
+e4084,2016/04/20,in the late afternoon,46,Piper
+e4086,2016/04/21,in the late afternoon,14,"Kinsley, Hazel, Olivia"
+e4089,2016/04/24,in the early afternoon,21,"Olivia, Rylee, Eva"
+e4091,2016/04/25,in the early evening,51,"Olivia, Layla, Lydia, Piper"
+e4093,2016/04/27,in the late afternoon,52,"Piper, Olivia, Piper"
+e4098,2016/04/29,in the early evening,20,Rylee
+e4100,2016/04/30,during lunch hours,25,"Avery, Lydia, Piper, Kinsley"
+e4106,2016/05/07,late in the evening,13,Piper
+e4108,2016/05/08,late in the evening,5,Kinsley
+e4111,2016/05/10,in the late afternoon,18,"Nora, Olivia"
+e4113,2016/05/12,during lunch hours,35,Nevaeh
+e4117,2016/05/14,in the early afternoon,31,Rylee
+e4121,2016/05/18,in the late afternoon,11,Piper
+e4126,2016/05/20,in the morning,11,"Hazel, Piper, Nevaeh, Layla"
+e4130,2016/05/22,late in the evening,21,Kinsley
+e4132,2016/05/25,late in the evening,28,"Claire, Kinsley, Rylee, Eva"
+e4138,2016/05/30,in the morning,38,Claire
+e4143,2016/06/03,in the morning,55,"Nora, Kinsley, Hazel, Rylee"
+e4144,2016/06/04,late in the evening,5,"Piper, Eva"
+e4150,2016/06/06,in the early evening,13,"Kinsley, Claire, Piper, Nevaeh"
+e4154,2016/06/10,in the early evening,23,"Layla, Piper, Lydia, Nevaeh"
+e4155,2016/06/11,in the morning,35,Nevaeh
+e4158,2016/06/13,in the early afternoon,14,"Layla, Avery"
+e4162,2016/06/16,in the morning,33,Claire
+e4178,2016/07/02,in the morning,46,Nevaeh
+e4186,2016/07/08,in the morning,48,"Hazel, Piper, Kinsley, Eva"
+e4193,2016/07/14,late in the evening,55,Eva
+e4195,2016/07/16,in the early afternoon,34,"Lydia, Nora, Rylee"
+e4197,2016/07/18,during lunch hours,18,"Piper, Rylee"
+e4206,2016/07/24,in the early afternoon,45,Nora
+e4208,2016/07/25,late in the evening,45,Avery
+e4214,2016/07/27,late in the evening,20,"Eva, Layla, Lydia, Olivia"
+e4229,2016/08/02,in the late afternoon,47,"Piper, Nevaeh, Olivia, Piper"
+e4237,2016/08/07,during lunch hours,52,"Lydia, Nora, Avery, Kinsley"
+e4238,2016/08/08,late in the evening,41,"Eva, Hazel, Rylee"
+e4240,2016/08/10,late in the evening,38,"Piper, Olivia"
+e4248,2016/08/15,in the morning,24,"Lydia, Hazel, Kinsley, Piper"
+e4250,2016/08/16,during lunch hours,45,"Piper, Piper, Avery, Nevaeh"
+e4254,2016/08/20,in the early evening,25,"Kinsley, Rylee"
+e4256,2016/08/21,late in the evening,22,Nevaeh
+e4258,2016/08/25,in the early afternoon,28,"Rylee, Piper, Piper, Layla"
+e4262,2016/08/26,late in the evening,30,"Olivia, Layla, Piper"
+e4264,2016/08/28,in the morning,45,"Kinsley, Avery, Nevaeh, Hazel"
+e4269,2016/09/02,in the early evening,42,"Rylee, Claire, Lydia, Nevaeh"
+e4278,2016/09/09,in the early evening,51,Piper
+e4284,2016/09/14,in the late afternoon,35,"Piper, Claire"
+e4288,2016/09/16,late in the evening,36,"Lydia, Nevaeh, Nora, Rylee"
+e4296,2016/09/20,late in the evening,55,"Nevaeh, Hazel, Eva, Kinsley"
+e4297,2016/09/21,in the early afternoon,26,"Piper, Lydia, Layla"
+e4307,2016/09/25,in the early afternoon,51,"Piper, Claire, Nevaeh"
+e4314,2016/09/29,in the early evening,7,Avery
+e4318,2016/10/01,in the early evening,50,"Piper, Nora, Claire"
+e4320,2016/10/02,in the morning,53,"Hazel, Olivia"
+e4326,2016/10/06,in the morning,51,Avery
+e4331,2016/10/09,in the early afternoon,5,"Piper, Avery, Piper, Nevaeh"
+e4332,2016/10/10,in the early evening,55,"Nora, Eva, Piper, Piper"
+e4335,2016/10/11,late in the evening,22,"Nora, Piper, Eva"
+e4340,2016/10/15,in the early afternoon,47,Layla
+e4342,2016/10/17,in the morning,43,"Kinsley, Hazel, Eva, Olivia"
+e4348,2016/10/23,in the morning,17,"Kinsley, Lydia, Nora, Piper"
+e4350,2016/10/24,in the early afternoon,47,"Olivia, Kinsley, Nevaeh"
+e4355,2016/10/26,in the morning,31,"Piper, Claire, Nora, Olivia"
+e4356,2016/10/28,in the morning,45,"Layla, Claire, Rylee"
+e4374,2016/11/11,late in the evening,11,"Layla, Kinsley"
+e4380,2016/11/15,in the early afternoon,33,"Piper, Layla, Hazel"
+e4383,2016/11/19,during lunch hours,54,Nora
+e4384,2016/11/20,during lunch hours,34,"Eva, Rylee, Nevaeh, Layla"
+e4386,2016/11/21,in the early evening,49,"Claire, Piper, Lydia"
+e4388,2016/11/22,in the early evening,53,Nevaeh
+e4391,2016/11/23,in the late afternoon,21,"Piper, Kinsley, Eva, Lydia"
+e4392,2016/11/24,during lunch hours,24,Nevaeh
+e4395,2016/11/25,late in the evening,9,"Rylee, Olivia, Lydia, Avery"
+e4398,2016/11/26,during lunch hours,48,"Nora, Eva, Piper, Layla"
+e4401,2016/11/27,in the late afternoon,15,"Nora, Kinsley, Hazel, Layla"
+e4402,2016/11/28,in the early evening,51,"Piper, Lydia, Claire"
+e4414,2016/12/09,in the late afternoon,23,"Piper, Rylee, Layla, Hazel"
+e4415,2016/12/10,during lunch hours,38,"Piper, Claire"
+e4424,2016/12/13,late in the evening,43,Kinsley
+e4426,2016/12/14,in the morning,24,"Claire, Layla"
+e4436,2016/12/21,in the morning,30,"Nora, Olivia, Claire"
+e4441,2016/12/27,in the morning,21,"Piper, Lydia, Avery, Nevaeh"
+e4447,2016/12/30,in the early evening,37,"Lydia, Piper, Kinsley"
+e4538,2017/01/02,during lunch hours,8,Layla
+e4543,2017/01/05,in the early evening,37,Olivia
+e4547,2017/01/08,in the early afternoon,14,Eva
+e4551,2017/01/10,in the morning,12,"Piper, Rylee, Kinsley, Layla"
+e4559,2017/01/13,in the early evening,43,Piper
+e4572,2017/01/23,in the late afternoon,48,"Kinsley, Avery"
+e4579,2017/01/26,during lunch hours,30,"Rylee, Eva"
+e4584,2017/01/31,late in the evening,48,"Avery, Hazel, Rylee"
+e4595,2017/02/07,in the late afternoon,44,"Claire, Lydia"
+e4598,2017/02/08,in the late afternoon,32,"Claire, Nora, Eva"
+e4603,2017/02/11,in the late afternoon,53,Nevaeh
+e4605,2017/02/12,during lunch hours,36,"Nora, Avery"
+e4607,2017/02/13,late in the evening,6,"Kinsley, Nevaeh, Piper"
+e4609,2017/02/15,in the morning,48,Rylee
+e4614,2017/02/18,in the early evening,37,"Nevaeh, Lydia, Claire, Piper"
+e4621,2017/02/25,late in the evening,44,Nora
+e4633,2017/03/03,in the morning,54,Layla
+e4635,2017/03/04,late in the evening,35,"Nora, Piper"
+e4636,2017/03/05,in the early afternoon,31,Rylee
+e4647,2017/03/14,in the early afternoon,5,"Olivia, Piper, Rylee, Piper"
+e4649,2017/03/16,late in the evening,8,"Nevaeh, Hazel, Rylee, Nora"
+e4650,2017/03/18,in the late afternoon,5,Avery
+e4653,2017/03/20,during lunch hours,55,"Lydia, Hazel"
+e4656,2017/03/23,in the late afternoon,35,"Nora, Avery, Nevaeh, Kinsley"
+e4666,2017/03/29,in the morning,37,Piper
+e4669,2017/03/30,in the morning,21,"Avery, Layla, Hazel"
+e4672,2017/04/01,late in the evening,17,Nevaeh
+e4675,2017/04/03,in the early evening,19,Nora
+e4677,2017/04/04,during lunch hours,47,"Rylee, Eva"
+e4682,2017/04/08,in the early afternoon,48,"Nora, Kinsley, Layla, Piper"
+e4684,2017/04/09,in the morning,20,"Kinsley, Rylee, Olivia"
+e4685,2017/04/11,during lunch hours,29,Eva
+e4688,2017/04/14,in the early afternoon,14,"Hazel, Rylee, Piper, Piper"
+e4692,2017/04/18,in the morning,12,Piper
+e4696,2017/04/21,in the late afternoon,50,"Lydia, Rylee, Layla, Nevaeh"
+e4698,2017/04/22,in the early evening,34,"Claire, Nora"
+e4700,2017/04/23,in the morning,22,"Piper, Nevaeh, Kinsley"
+e4704,2017/04/25,in the morning,42,Eva
+e4706,2017/04/26,in the early evening,44,"Piper, Kinsley, Nora, Hazel"
+e4709,2017/04/27,in the morning,29,"Nevaeh, Piper, Hazel"
+e4716,2017/05/01,in the early evening,36,Avery
+e4719,2017/05/02,in the morning,14,"Lydia, Piper, Nevaeh, Olivia"
+e4722,2017/05/03,in the morning,9,Lydia
+e4725,2017/05/05,during lunch hours,20,"Claire, Piper, Nora"
+e4730,2017/05/08,in the early afternoon,17,"Nora, Rylee, Piper"
+e4733,2017/05/11,in the early afternoon,45,"Claire, Rylee, Hazel, Layla"
+e4739,2017/05/18,late in the evening,29,"Kinsley, Rylee"
+e4746,2017/05/22,in the early afternoon,7,"Piper, Rylee, Hazel"
+e4748,2017/05/23,in the early evening,40,"Olivia, Layla, Eva"
+e4750,2017/05/25,in the early afternoon,24,"Layla, Avery"
+e4757,2017/05/31,in the early evening,7,Piper
+e4761,2017/06/01,in the late afternoon,43,"Nora, Hazel, Kinsley, Olivia"
+e4765,2017/06/03,in the late afternoon,8,"Eva, Layla"
+e4768,2017/06/05,during lunch hours,40,"Eva, Kinsley"
+e4769,2017/06/06,during lunch hours,11,"Eva, Rylee"
+e4771,2017/06/07,in the early evening,38,Lydia
+e4776,2017/06/11,in the early afternoon,16,"Piper, Hazel"
+e4780,2017/06/14,in the late afternoon,53,"Kinsley, Layla, Piper"
+e4782,2017/06/15,during lunch hours,19,"Claire, Avery, Nora"
+e4785,2017/06/16,during lunch hours,52,"Avery, Nevaeh, Piper, Olivia"
+e4786,2017/06/17,late in the evening,16,"Avery, Nora, Hazel"
+e4788,2017/06/18,in the late afternoon,53,"Avery, Eva, Nevaeh, Claire"
+e4790,2017/06/20,in the early afternoon,39,"Avery, Eva, Rylee"
+e4792,2017/06/21,during lunch hours,30,"Rylee, Piper, Piper"
+e4800,2017/06/27,in the late afternoon,51,"Avery, Layla"
+e4803,2017/06/29,in the early afternoon,33,Claire
+e4807,2017/07/05,late in the evening,49,Avery
+e4816,2017/07/08,in the early afternoon,42,"Eva, Nora"
+e4824,2017/07/16,during lunch hours,48,Eva
+e4827,2017/07/17,in the early evening,14,"Olivia, Hazel"
+e4830,2017/07/20,in the morning,39,Avery
+e4833,2017/07/24,in the morning,32,"Hazel, Rylee, Avery"
+e4836,2017/07/27,during lunch hours,10,"Rylee, Layla"
+e4850,2017/08/05,during lunch hours,32,Hazel
+e4852,2017/08/07,in the morning,39,"Avery, Kinsley, Nevaeh"
+e4854,2017/08/09,in the early afternoon,33,Claire
+e4871,2017/08/20,in the late afternoon,18,"Piper, Layla, Hazel, Claire"
+e4876,2017/08/23,during lunch hours,39,"Claire, Olivia, Nora"
+e4881,2017/08/25,in the early afternoon,36,"Rylee, Nora, Piper, Eva"
+e4888,2017/08/29,in the late afternoon,54,Piper
+e4889,2017/08/30,during lunch hours,21,"Piper, Nora, Layla"
+e4893,2017/09/02,late in the evening,29,Layla
+e4897,2017/09/04,late in the evening,46,Layla
+e4900,2017/09/06,in the early afternoon,34,"Avery, Piper"
+e4901,2017/09/07,in the morning,16,"Kinsley, Eva"
+e4902,2017/09/08,in the late afternoon,14,"Nora, Nevaeh, Kinsley"
+e4906,2017/09/10,in the late afternoon,23,Lydia
+e4914,2017/09/15,late in the evening,29,Piper
+e4917,2017/09/17,late in the evening,49,"Hazel, Nora, Lydia"
+e4923,2017/09/21,late in the evening,25,"Layla, Nora, Claire"
+e4927,2017/09/25,in the early afternoon,7,"Piper, Piper"
+e4934,2017/09/29,in the late afternoon,11,"Avery, Lydia, Claire"
+e4936,2017/10/02,in the early evening,15,"Kinsley, Piper"
+e4940,2017/10/06,in the early evening,33,"Piper, Avery"
+e4942,2017/10/07,in the morning,8,"Kinsley, Eva"
+e4946,2017/10/12,during lunch hours,12,Rylee
+e4950,2017/10/14,in the morning,45,"Avery, Kinsley"
+e4951,2017/10/15,in the early afternoon,52,Rylee
+e4959,2017/10/20,during lunch hours,54,Claire
+e4973,2017/10/29,in the early evening,28,"Layla, Claire"
+e4981,2017/11/02,in the early afternoon,13,"Olivia, Nevaeh, Rylee, Eva"
+e4983,2017/11/03,in the late afternoon,45,"Piper, Piper, Nevaeh"
+e4997,2017/11/09,in the early afternoon,5,"Nevaeh, Avery"
+e5000,2017/11/10,during lunch hours,50,"Lydia, Eva, Piper, Nora"
+e5005,2017/11/13,in the early afternoon,13,Lydia
+e5009,2017/11/14,during lunch hours,31,"Olivia, Kinsley, Hazel"
+e5011,2017/11/15,in the early afternoon,26,"Layla, Hazel, Lydia, Piper"
+e5019,2017/11/19,in the late afternoon,13,"Nevaeh, Eva"
+e5021,2017/11/20,in the morning,50,"Lydia, Nora"
+e5025,2017/11/21,late in the evening,13,"Hazel, Lydia, Nora, Claire"
+e5029,2017/11/23,during lunch hours,24,Olivia
+e5032,2017/11/24,during lunch hours,8,"Rylee, Layla, Avery"
+e5034,2017/11/25,in the early afternoon,36,Nora
+e5037,2017/11/28,in the early evening,10,Nevaeh
+e5042,2017/12/03,in the early evening,34,"Lydia, Kinsley, Rylee, Hazel"
+e5056,2017/12/11,in the early afternoon,53,"Kinsley, Piper, Eva"
+e5075,2017/12/22,late in the evening,11,"Piper, Eva, Avery, Nora"
+e5081,2017/12/25,in the early evening,55,"Hazel, Olivia, Nora, Avery"
+e5082,2017/12/26,during lunch hours,14,"Eva, Avery, Nevaeh, Lydia"
+e5085,2017/12/27,in the early afternoon,48,"Kinsley, Piper"
+e5090,2017/12/29,in the morning,15,Olivia
+e5093,2017/12/31,in the early afternoon,33,"Avery, Olivia, Nevaeh"
+e5198,2018/01/02,in the early evening,53,"Nevaeh, Layla"
+e5204,2018/01/06,in the morning,15,"Avery, Piper, Nevaeh, Rylee"
+e5215,2018/01/14,in the late afternoon,51,Olivia
+e5226,2018/01/20,late in the evening,7,"Claire, Lydia, Nora, Nevaeh"
+e5230,2018/01/22,in the early afternoon,44,"Olivia, Claire, Hazel"
+e5234,2018/01/25,in the early afternoon,19,"Olivia, Claire, Hazel"
+e5236,2018/01/26,in the early afternoon,19,Piper
+e5243,2018/02/01,in the early afternoon,51,"Avery, Olivia, Rylee"
+e5252,2018/02/06,in the morning,32,Piper
+e5258,2018/02/11,in the early afternoon,35,"Claire, Layla"
+e5262,2018/02/14,in the early evening,10,Hazel
+e5264,2018/02/17,late in the evening,39,"Lydia, Piper, Nora, Claire"
+e5267,2018/02/18,in the late afternoon,33,"Nora, Eva, Rylee"
+e5269,2018/02/20,in the late afternoon,48,"Olivia, Avery, Piper, Nora"
+e5271,2018/02/21,in the morning,44,"Avery, Nora, Nevaeh"
+e5280,2018/02/27,in the early afternoon,36,"Piper, Olivia"
+e5283,2018/03/01,in the late afternoon,26,"Claire, Lydia"
+e5285,2018/03/03,in the late afternoon,11,"Nora, Avery, Layla, Lydia"
+e5289,2018/03/07,in the late afternoon,13,"Claire, Olivia, Nora, Piper"
+e5301,2018/03/15,in the late afternoon,44,"Piper, Avery, Olivia, Rylee"
+e5302,2018/03/16,in the early afternoon,43,"Eva, Nevaeh, Hazel"
+e5310,2018/03/20,in the late afternoon,19,"Lydia, Avery"
+e5313,2018/03/22,in the early afternoon,42,Avery
+e5315,2018/03/23,in the early evening,46,"Lydia, Hazel"
+e5316,2018/03/24,in the late afternoon,9,Avery
+e5318,2018/03/25,during lunch hours,26,"Olivia, Nora, Nevaeh, Piper"
+e5320,2018/03/27,in the late afternoon,44,"Nora, Piper"
+e5321,2018/03/28,in the early evening,31,"Rylee, Lydia, Piper, Piper"
+e5326,2018/04/01,in the early evening,38,"Layla, Rylee, Kinsley"
+e5329,2018/04/03,in the early afternoon,7,"Claire, Piper, Kinsley, Avery"
+e5330,2018/04/06,during lunch hours,36,"Eva, Piper"
+e5342,2018/04/13,in the early evening,50,"Claire, Kinsley, Layla, Lydia"
+e5345,2018/04/14,in the early evening,41,"Piper, Nevaeh, Claire"
+e5351,2018/04/17,in the late afternoon,11,"Nora, Olivia"
+e5363,2018/04/26,in the morning,21,Avery
+e5368,2018/04/29,in the early evening,47,"Hazel, Lydia"
+e5370,2018/04/30,in the morning,44,"Hazel, Olivia, Claire, Piper"
+e5373,2018/05/01,late in the evening,39,"Lydia, Piper, Kinsley, Avery"
+e5374,2018/05/02,during lunch hours,22,"Hazel, Claire, Eva"
+e5376,2018/05/03,in the early afternoon,40,Claire
+e5389,2018/05/12,in the early afternoon,7,"Piper, Avery"
+e5393,2018/05/14,during lunch hours,38,"Eva, Rylee, Nora"
+e5396,2018/05/15,in the late afternoon,21,"Olivia, Lydia, Avery"
+e5398,2018/05/17,in the early evening,9,"Eva, Nevaeh, Rylee, Layla"
+e5401,2018/05/21,in the morning,27,"Nora, Rylee, Piper"
+e5403,2018/05/22,during lunch hours,31,"Claire, Piper, Nevaeh, Layla"
+e5405,2018/05/23,in the early evening,9,"Lydia, Claire, Piper"
+e5411,2018/05/26,during lunch hours,22,"Avery, Layla, Lydia"
+e5413,2018/05/27,late in the evening,16,"Piper, Eva, Layla"
+e5414,2018/05/28,during lunch hours,20,"Lydia, Eva, Layla, Nora"
+e5422,2018/06/01,in the late afternoon,24,"Avery, Rylee"
+e5424,2018/06/02,during lunch hours,33,Lydia
+e5427,2018/06/03,in the early afternoon,27,"Piper, Hazel, Eva"
+e5433,2018/06/07,during lunch hours,7,"Piper, Layla, Piper, Hazel"
+e5447,2018/06/20,in the late afternoon,55,"Piper, Avery, Eva"
+e5452,2018/06/26,in the early afternoon,28,"Kinsley, Layla, Eva, Claire"
+e5455,2018/06/28,late in the evening,36,"Piper, Kinsley"
+e5458,2018/07/02,in the early evening,49,Nevaeh
+e5472,2018/07/09,in the late afternoon,51,"Piper, Rylee"
+e5474,2018/07/11,during lunch hours,55,"Rylee, Piper, Kinsley, Piper"
+e5488,2018/07/22,late in the evening,17,"Avery, Layla, Nevaeh, Claire"
+e5494,2018/07/26,in the early evening,20,"Avery, Lydia"
+e5495,2018/07/27,in the morning,6,"Eva, Piper, Hazel"
+e5504,2018/08/01,late in the evening,12,"Claire, Avery"
+e5506,2018/08/04,in the late afternoon,29,Nora
+e5508,2018/08/05,during lunch hours,51,"Hazel, Piper, Layla"
+e5513,2018/08/09,during lunch hours,8,"Piper, Nora"
+e5521,2018/08/16,in the morning,39,"Rylee, Lydia, Olivia, Kinsley"
+e5524,2018/08/17,in the morning,33,"Rylee, Avery"
+e5528,2018/08/22,in the morning,45,"Nevaeh, Lydia, Avery, Rylee"
+e5533,2018/08/28,in the morning,20,"Claire, Nora, Piper, Kinsley"
+e5538,2018/08/30,in the early afternoon,32,"Claire, Rylee, Kinsley"
+e5543,2018/09/03,during lunch hours,43,"Claire, Piper, Piper"
+e5546,2018/09/04,late in the evening,55,Lydia
+e5547,2018/09/05,in the early afternoon,51,"Claire, Hazel"
+e5549,2018/09/08,late in the evening,25,"Rylee, Piper"
+e5552,2018/09/11,during lunch hours,35,"Layla, Piper, Hazel"
+e5555,2018/09/13,late in the evening,42,"Avery, Kinsley"
+e5563,2018/09/16,in the early evening,51,"Layla, Piper, Eva, Olivia"
+e5568,2018/09/22,late in the evening,47,"Lydia, Eva, Hazel, Nevaeh"
+e5570,2018/09/23,in the early afternoon,53,"Nora, Nevaeh, Avery, Claire"
+e5575,2018/09/26,in the early evening,29,"Layla, Piper"
+e5579,2018/09/27,late in the evening,45,"Rylee, Piper, Piper, Nevaeh"
+e5582,2018/09/29,in the morning,26,Avery
+e5594,2018/10/07,in the morning,8,"Hazel, Nevaeh"
+e5598,2018/10/11,in the early afternoon,25,"Lydia, Piper, Hazel"
+e5600,2018/10/12,in the late afternoon,38,"Nora, Rylee, Claire"
+e5601,2018/10/13,in the early afternoon,51,"Rylee, Piper, Layla, Olivia"
+e5608,2018/10/19,late in the evening,46,"Olivia, Layla, Eva"
+e5610,2018/10/20,in the late afternoon,54,"Piper, Kinsley"
+e5614,2018/10/23,in the early evening,31,"Rylee, Eva, Hazel, Kinsley"
+e5619,2018/10/25,in the late afternoon,18,Claire
+e5633,2018/11/06,during lunch hours,8,"Piper, Eva, Hazel, Piper"
+e5635,2018/11/07,in the late afternoon,32,"Piper, Kinsley, Nora"
+e5638,2018/11/10,during lunch hours,41,"Kinsley, Hazel, Rylee, Piper"
+e5641,2018/11/11,during lunch hours,13,"Hazel, Lydia, Claire, Piper"
+e5648,2018/11/15,in the early evening,19,"Piper, Nora, Olivia, Eva"
+e5658,2018/11/20,in the late afternoon,45,Rylee
+e5660,2018/11/22,late in the evening,41,"Layla, Nora, Lydia"
+e5663,2018/11/23,during lunch hours,12,Nevaeh
+e5670,2018/11/28,in the early afternoon,31,"Eva, Avery, Piper"
+e5672,2018/12/01,late in the evening,29,"Layla, Avery, Claire"
+e5677,2018/12/03,in the morning,42,"Kinsley, Piper"
+e5688,2018/12/08,in the early afternoon,30,"Olivia, Kinsley"
+e5696,2018/12/14,late in the evening,25,"Olivia, Rylee, Kinsley, Nora"
+e5702,2018/12/16,in the early afternoon,45,"Lydia, Piper, Hazel, Claire"
+e5716,2018/12/26,late in the evening,23,Rylee
+e5718,2018/12/27,late in the evening,14,"Lydia, Olivia, Hazel, Avery"
+e5721,2018/12/28,in the late afternoon,46,"Nevaeh, Avery"
+e5823,2019/01/04,in the morning,46,"Avery, Hazel, Rylee"
+e5825,2019/01/05,during lunch hours,10,"Eva, Rylee, Avery"
+e5833,2019/01/10,late in the evening,8,Layla
+e5834,2019/01/12,in the early evening,35,"Piper, Lydia, Rylee"
+e5838,2019/01/13,in the late afternoon,8,Claire
+e5842,2019/01/14,in the early evening,51,Avery
+e5844,2019/01/15,during lunch hours,34,"Piper, Eva"
+e5850,2019/01/19,in the early afternoon,36,Olivia
+e5853,2019/01/20,during lunch hours,46,"Hazel, Eva"
+e5856,2019/01/21,in the early afternoon,49,Avery
+e5860,2019/01/23,in the early afternoon,44,Avery
+e5861,2019/01/24,in the morning,50,"Layla, Avery, Nora"
+e5867,2019/01/27,in the early evening,33,"Eva, Hazel"
+e5871,2019/01/30,late in the evening,43,"Layla, Piper, Rylee, Eva"
+e5876,2019/02/02,in the early afternoon,48,Claire
+e5880,2019/02/04,in the late afternoon,36,"Nora, Piper, Eva"
+e5882,2019/02/05,in the late afternoon,50,"Piper, Piper, Olivia, Nevaeh"
+e5892,2019/02/12,during lunch hours,30,Piper
+e5896,2019/02/13,in the late afternoon,13,"Eva, Olivia, Avery"
+e5900,2019/02/14,in the early evening,48,"Piper, Claire, Olivia, Hazel"
+e5907,2019/02/18,in the early afternoon,30,"Kinsley, Layla, Nevaeh, Rylee"
+e5911,2019/02/22,late in the evening,41,"Hazel, Claire, Piper, Layla"
+e5913,2019/02/23,during lunch hours,38,Rylee
+e5918,2019/02/26,during lunch hours,9,"Piper, Nevaeh"
+e5926,2019/03/02,in the late afternoon,6,"Avery, Claire, Piper"
+e5927,2019/03/03,late in the evening,42,"Layla, Nora, Piper, Kinsley"
+e5939,2019/03/10,in the late afternoon,34,"Hazel, Eva, Nora, Claire"
+e5944,2019/03/16,during lunch hours,33,"Nora, Piper, Rylee, Lydia"
+e5946,2019/03/17,in the morning,28,"Claire, Olivia, Piper, Kinsley"
+e5953,2019/03/23,late in the evening,39,"Eva, Kinsley"
+e5956,2019/03/24,in the early evening,54,"Olivia, Piper, Lydia"
+e5963,2019/03/29,late in the evening,39,"Hazel, Rylee, Olivia, Eva"
+e5964,2019/03/30,during lunch hours,23,"Kinsley, Layla, Piper"
+e5968,2019/04/02,in the late afternoon,20,"Olivia, Eva, Nevaeh"
+e5975,2019/04/05,in the early afternoon,35,Eva
+e5978,2019/04/06,during lunch hours,9,"Avery, Rylee, Layla, Hazel"
+e5992,2019/04/19,in the early afternoon,35,Kinsley
+e5994,2019/04/20,in the late afternoon,39,Piper
+e5996,2019/04/21,late in the evening,21,"Rylee, Kinsley, Lydia"
+e6001,2019/04/23,in the early afternoon,41,Piper
+e6003,2019/04/24,in the early afternoon,7,"Nora, Lydia, Rylee"
+e6004,2019/04/25,in the early evening,10,"Claire, Olivia, Avery"
+e6009,2019/04/26,in the early evening,49,"Lydia, Avery, Layla"
+e6011,2019/04/27,late in the evening,53,"Kinsley, Olivia"
+e6014,2019/04/28,in the early afternoon,20,"Piper, Claire, Avery"
+e6020,2019/05/02,in the morning,55,"Rylee, Hazel, Avery"
+e6024,2019/05/05,in the late afternoon,52,"Olivia, Layla, Claire, Kinsley"
+e6036,2019/05/12,in the late afternoon,12,"Lydia, Piper, Olivia"
+e6045,2019/05/18,during lunch hours,45,Kinsley
+e6054,2019/05/26,in the morning,26,"Hazel, Olivia, Piper, Lydia"
+e6061,2019/05/29,in the morning,12,"Eva, Kinsley"
+e6062,2019/05/30,during lunch hours,6,"Olivia, Hazel"
+e6070,2019/06/04,in the morning,40,"Olivia, Nora, Rylee, Claire"
+e6079,2019/06/11,late in the evening,43,"Claire, Avery, Hazel"
+e6083,2019/06/13,in the late afternoon,6,"Piper, Lydia, Hazel"
+e6087,2019/06/14,in the early evening,52,"Hazel, Lydia, Kinsley, Eva"
+e6094,2019/06/17,in the early evening,46,"Olivia, Kinsley"
+e6095,2019/06/19,late in the evening,31,Rylee
+e6099,2019/06/21,in the morning,24,"Lydia, Eva"
+e6102,2019/06/25,in the morning,22,"Hazel, Layla"
+e6104,2019/06/26,in the early evening,33,"Claire, Hazel, Olivia"
+e6107,2019/06/29,in the early evening,54,Claire
+e6116,2019/07/07,in the early evening,33,"Olivia, Piper, Hazel, Kinsley"
+e6120,2019/07/10,in the morning,46,"Kinsley, Avery, Olivia"
+e6121,2019/07/11,during lunch hours,47,"Eva, Rylee"
+e6126,2019/07/14,in the early evening,38,"Hazel, Piper"
+e6136,2019/07/18,during lunch hours,37,Kinsley
+e6139,2019/07/19,during lunch hours,11,"Piper, Rylee, Eva, Claire"
+e6141,2019/07/20,late in the evening,18,"Eva, Piper"
+e6142,2019/07/21,late in the evening,55,"Olivia, Avery, Piper"
+e6147,2019/07/23,in the late afternoon,17,"Kinsley, Claire, Piper"
+e6150,2019/07/25,late in the evening,48,"Lydia, Nora, Nevaeh"
+e6153,2019/07/26,in the early evening,44,"Lydia, Rylee, Piper"
+e6154,2019/07/27,in the late afternoon,49,"Hazel, Claire"
+e6157,2019/07/30,in the early afternoon,10,"Rylee, Piper, Olivia, Piper"
+e6160,2019/07/31,in the morning,45,Nevaeh
+e6163,2019/08/01,late in the evening,34,Lydia
+e6165,2019/08/02,in the late afternoon,12,"Olivia, Claire, Layla"
+e6171,2019/08/05,in the morning,18,"Avery, Piper, Piper, Lydia"
+e6184,2019/08/17,during lunch hours,43,Olivia
+e6188,2019/08/19,in the early afternoon,8,"Piper, Olivia"
+e6194,2019/08/24,in the early evening,7,Hazel
+e6197,2019/08/25,in the late afternoon,26,Layla
+e6204,2019/09/01,in the late afternoon,37,"Avery, Layla, Nora"
+e6209,2019/09/04,during lunch hours,44,Kinsley
+e6219,2019/09/09,in the early afternoon,46,"Lydia, Hazel, Nevaeh, Nora"
+e6222,2019/09/10,in the early evening,52,Layla
+e6227,2019/09/13,in the early afternoon,11,"Olivia, Layla, Rylee, Kinsley"
+e6228,2019/09/14,in the early afternoon,33,Olivia
+e6235,2019/09/17,late in the evening,31,Piper
+e6237,2019/09/18,in the early afternoon,53,"Claire, Piper, Layla, Nevaeh"
+e6243,2019/09/24,in the late afternoon,12,Hazel
+e6244,2019/09/25,during lunch hours,37,"Rylee, Kinsley, Avery, Lydia"
+e6256,2019/10/03,in the early afternoon,10,Piper
+e6260,2019/10/07,in the morning,17,Lydia
+e6265,2019/10/10,late in the evening,54,"Layla, Rylee"
+e6267,2019/10/11,in the late afternoon,32,"Nora, Piper"
+e6272,2019/10/13,late in the evening,7,"Claire, Avery, Eva"
+e6275,2019/10/14,in the morning,14,Avery
+e6284,2019/10/18,late in the evening,7,"Eva, Nora"
+e6290,2019/10/20,during lunch hours,51,"Rylee, Kinsley, Claire, Piper"
+e6292,2019/10/21,during lunch hours,33,"Layla, Olivia, Hazel"
+e6295,2019/10/25,in the late afternoon,38,Claire
+e6296,2019/10/26,in the early afternoon,26,"Olivia, Hazel, Lydia"
+e6299,2019/10/28,in the early evening,32,"Kinsley, Nora, Layla"
+e6308,2019/11/03,during lunch hours,39,"Olivia, Nevaeh"
+e6319,2019/11/09,during lunch hours,31,"Layla, Kinsley, Claire"
+e6321,2019/11/10,in the early afternoon,42,"Piper, Layla, Olivia"
+e6324,2019/11/12,in the morning,13,"Hazel, Layla, Eva"
+e6328,2019/11/14,in the late afternoon,42,"Layla, Nora"
+e6339,2019/11/21,in the early evening,23,"Avery, Layla, Eva, Kinsley"
+e6345,2019/11/23,in the early afternoon,47,"Nora, Claire"
+e6349,2019/11/24,late in the evening,55,Claire
+e6351,2019/11/25,late in the evening,31,"Eva, Lydia, Piper"
+e6358,2019/11/29,in the morning,42,"Eva, Layla"
+e6359,2019/11/30,in the late afternoon,52,"Rylee, Avery, Layla"
+e6373,2019/12/10,late in the evening,24,"Piper, Rylee, Claire, Hazel"
+e6378,2019/12/13,late in the evening,32,"Layla, Hazel, Olivia"
+e6382,2019/12/14,late in the evening,17,"Hazel, Piper"
+e6383,2019/12/16,late in the evening,35,Nevaeh
+e6392,2019/12/20,in the morning,38,"Nevaeh, Piper, Eva"
+e6404,2019/12/29,in the early evening,10,Claire
+e6405,2019/12/30,in the late afternoon,6,"Piper, Nora, Lydia, Layla"
+e6407,2019/12/31,in the early afternoon,8,Rylee
+e6499,2020/01/02,late in the evening,21,"Nora, Olivia, Claire, Rylee"
+e6505,2020/01/05,late in the evening,31,"Avery, Layla, Eva"
+e6512,2020/01/09,late in the evening,28,"Nora, Claire, Lydia"
+e6523,2020/01/21,in the early afternoon,5,"Kinsley, Piper, Nora, Nevaeh"
+e6525,2020/01/22,in the morning,25,"Nevaeh, Piper, Lydia"
+e6528,2020/01/24,during lunch hours,50,"Nevaeh, Olivia"
+e6542,2020/01/31,in the late afternoon,37,Piper
+e6554,2020/02/14,late in the evening,47,"Rylee, Nora"
+e6557,2020/02/15,in the late afternoon,9,Claire
+e6564,2020/02/18,in the early afternoon,53,Kinsley
+e6569,2020/02/21,in the morning,35,"Avery, Claire"
+e6576,2020/02/23,late in the evening,17,"Lydia, Rylee"
+e6588,2020/03/01,during lunch hours,8,Olivia
+e6593,2020/03/04,in the late afternoon,35,"Avery, Olivia, Eva, Piper"
+e6597,2020/03/08,in the early evening,27,Nora
+e6600,2020/03/10,in the early evening,26,Olivia
+e6603,2020/03/13,in the early evening,27,Avery
+e6605,2020/03/17,in the early afternoon,12,"Lydia, Hazel, Avery, Nevaeh"
+e6609,2020/03/19,in the early afternoon,42,"Eva, Nora"
+e6613,2020/03/22,in the early afternoon,51,Layla
+e6625,2020/03/30,in the late afternoon,34,"Nora, Lydia, Nevaeh"
+e6637,2020/04/06,in the morning,48,Eva
+e6640,2020/04/07,in the morning,44,Hazel
+e6644,2020/04/10,late in the evening,7,"Nevaeh, Eva, Rylee, Hazel"
+e6646,2020/04/11,late in the evening,28,"Eva, Nora, Layla"
+e6648,2020/04/13,in the morning,10,"Layla, Rylee"
+e6663,2020/04/24,late in the evening,35,Lydia
+e6669,2020/04/26,in the early evening,29,"Lydia, Hazel, Kinsley, Nevaeh"
+e6671,2020/04/27,during lunch hours,29,Rylee
+e6674,2020/04/28,in the early evening,33,"Layla, Olivia, Kinsley, Avery"
+e6686,2020/05/07,during lunch hours,28,"Nora, Nevaeh"
+e6688,2020/05/08,in the late afternoon,51,"Eva, Piper, Hazel, Claire"
+e6698,2020/05/16,late in the evening,12,"Piper, Nevaeh"
+e6699,2020/05/17,in the early evening,54,"Nora, Rylee, Nevaeh"
+e6703,2020/05/18,in the early afternoon,25,"Lydia, Claire, Hazel, Layla"
+e6710,2020/05/23,in the late afternoon,43,"Rylee, Olivia, Piper, Avery"
+e6713,2020/05/25,in the early evening,34,"Rylee, Avery, Layla"
+e6715,2020/05/26,during lunch hours,8,Piper
+e6719,2020/05/30,in the early afternoon,47,"Avery, Olivia, Kinsley"
+e6721,2020/05/31,in the late afternoon,17,"Nora, Hazel, Layla"
+e6728,2020/06/02,in the early afternoon,26,Claire
+e6729,2020/06/03,in the morning,8,"Piper, Hazel"
+e6733,2020/06/06,during lunch hours,34,Eva
+e6735,2020/06/07,in the early afternoon,38,"Piper, Olivia, Hazel, Eva"
+e6737,2020/06/08,in the early evening,17,Avery
+e6740,2020/06/09,during lunch hours,33,Rylee
+e6746,2020/06/13,during lunch hours,40,"Nevaeh, Layla, Kinsley"
+e6755,2020/06/18,in the morning,55,"Piper, Kinsley"
+e6760,2020/06/21,during lunch hours,18,Lydia
+e6768,2020/06/26,late in the evening,41,Layla
+e6781,2020/07/03,late in the evening,21,"Lydia, Nevaeh, Piper"
+e6784,2020/07/05,in the early afternoon,26,"Lydia, Claire, Piper"
+e6787,2020/07/06,in the early afternoon,40,"Piper, Eva, Hazel"
+e6792,2020/07/09,in the early afternoon,26,"Layla, Piper"
+e6796,2020/07/13,during lunch hours,54,Kinsley
+e6803,2020/07/19,in the early evening,46,"Piper, Nora, Lydia"
+e6806,2020/07/26,during lunch hours,13,Hazel
+e6812,2020/07/29,in the late afternoon,28,Kinsley
+e6817,2020/08/01,during lunch hours,48,"Piper, Kinsley"
+e6828,2020/08/08,in the morning,44,"Lydia, Claire, Eva"
+e6834,2020/08/15,in the early evening,55,Nevaeh
+e6838,2020/08/17,in the early afternoon,26,"Claire, Nevaeh, Nora"
+e6840,2020/08/20,in the late afternoon,10,Nora
+e6851,2020/08/29,during lunch hours,19,"Hazel, Piper, Piper, Eva"
+e6853,2020/08/30,during lunch hours,24,Avery
+e6865,2020/09/07,in the late afternoon,31,"Nora, Eva"
+e6870,2020/09/09,in the late afternoon,40,"Claire, Nevaeh"
+e6891,2020/09/21,in the early evening,26,"Kinsley, Rylee, Hazel"
+e6893,2020/09/22,in the early afternoon,37,Kinsley
+e6901,2020/09/29,during lunch hours,49,"Piper, Layla, Avery, Nora"
+e6907,2020/10/03,during lunch hours,36,"Rylee, Nevaeh"
+e6908,2020/10/04,late in the evening,17,"Piper, Kinsley, Hazel, Avery"
+e6914,2020/10/08,in the early afternoon,34,"Layla, Claire, Kinsley"
+e6918,2020/10/12,during lunch hours,13,"Piper, Piper"
+e6930,2020/10/20,during lunch hours,52,"Hazel, Lydia"
+e6935,2020/10/23,in the early evening,30,"Layla, Avery, Piper"
+e6940,2020/10/25,in the early evening,17,"Lydia, Piper"
+e6941,2020/10/26,in the morning,39,"Hazel, Piper"
+e6945,2020/10/27,during lunch hours,39,"Eva, Piper, Layla, Claire"
+e6975,2020/11/12,late in the evening,15,"Piper, Rylee, Lydia"
+e6977,2020/11/13,in the late afternoon,14,"Olivia, Piper, Claire, Avery"
+e6981,2020/11/15,in the early afternoon,38,"Layla, Avery, Eva, Kinsley"
+e6987,2020/11/19,late in the evening,37,Layla
+e6992,2020/11/24,in the early afternoon,22,Piper
+e6994,2020/11/27,during lunch hours,31,"Kinsley, Claire"
+e6995,2020/11/28,in the early evening,49,"Rylee, Hazel"
+e6997,2020/11/29,in the early afternoon,50,"Piper, Nora, Layla, Eva"
+e7009,2020/12/08,in the morning,54,"Piper, Eva, Avery, Kinsley"
+e7013,2020/12/10,in the early afternoon,52,"Nevaeh, Nora, Layla, Hazel"
+e7017,2020/12/11,in the late afternoon,19,"Rylee, Piper"
+e7019,2020/12/13,late in the evening,53,Hazel
+e7021,2020/12/15,late in the evening,55,"Nora, Piper, Avery"
+e7031,2020/12/20,in the late afternoon,44,"Lydia, Claire"
+e7038,2020/12/26,in the morning,46,"Avery, Nevaeh"
+e7042,2020/12/27,in the early evening,44,"Nevaeh, Olivia, Layla"
+e7045,2020/12/30,in the early evening,54,"Hazel, Claire"
+e7142,2021/01/02,in the early afternoon,40,"Kinsley, Claire, Nevaeh, Lydia"
+e7146,2021/01/03,during lunch hours,29,"Piper, Kinsley, Hazel, Layla"
+e7152,2021/01/08,late in the evening,12,"Claire, Hazel, Lydia, Avery"
+e7158,2021/01/11,in the early evening,36,"Nora, Piper, Eva, Piper"
+e7160,2021/01/13,in the early afternoon,49,"Lydia, Hazel, Claire, Nevaeh"
+e7163,2021/01/15,in the late afternoon,52,"Rylee, Claire, Eva, Piper"
+e7177,2021/01/25,in the late afternoon,51,Rylee
+e7186,2021/01/31,during lunch hours,23,"Piper, Eva"
+e7193,2021/02/02,late in the evening,26,"Eva, Lydia"
+e7198,2021/02/04,in the early evening,38,Nevaeh
+e7206,2021/02/09,in the early evening,6,"Lydia, Nevaeh, Piper"
+e7208,2021/02/10,late in the evening,18,"Avery, Nevaeh, Kinsley, Piper"
+e7214,2021/02/15,in the morning,41,"Claire, Avery"
+e7221,2021/02/20,in the early evening,7,"Hazel, Nora, Claire, Eva"
+e7222,2021/02/21,during lunch hours,42,Olivia
+e7225,2021/02/24,in the late afternoon,40,"Hazel, Nevaeh"
+e7231,2021/02/27,in the morning,52,"Avery, Eva, Lydia"
+e7243,2021/03/07,late in the evening,44,"Kinsley, Nevaeh"
+e7250,2021/03/10,in the early afternoon,52,"Avery, Piper"
+e7257,2021/03/14,late in the evening,30,"Avery, Kinsley, Rylee"
+e7259,2021/03/15,in the morning,37,"Eva, Avery, Piper"
+e7267,2021/03/18,in the early evening,42,Layla
+e7272,2021/03/22,in the early afternoon,50,"Rylee, Kinsley, Claire"
+e7275,2021/03/24,during lunch hours,53,"Avery, Kinsley, Piper"
+e7279,2021/03/26,late in the evening,11,"Claire, Kinsley, Avery"
+e7284,2021/03/28,during lunch hours,44,"Layla, Eva, Piper, Nevaeh"
+e7287,2021/03/30,in the early evening,44,"Olivia, Eva, Layla"
+e7289,2021/04/01,in the early evening,10,"Kinsley, Piper"
+e7294,2021/04/03,in the early evening,5,"Eva, Nora"
+e7302,2021/04/08,in the early afternoon,9,"Piper, Lydia, Piper, Claire"
+e7305,2021/04/11,in the early evening,29,"Piper, Avery, Kinsley"
+e7310,2021/04/14,in the early evening,20,"Claire, Piper, Kinsley"
+e7311,2021/04/15,during lunch hours,37,Claire
+e7314,2021/04/18,in the morning,45,"Nora, Claire"
+e7317,2021/04/20,late in the evening,41,Rylee
+e7321,2021/04/23,late in the evening,12,"Lydia, Olivia, Hazel"
+e7324,2021/04/25,during lunch hours,41,"Eva, Nora, Claire, Rylee"
+e7329,2021/04/26,in the morning,14,"Piper, Layla, Piper, Eva"
+e7336,2021/05/01,in the early afternoon,22,"Rylee, Nevaeh, Eva"
+e7342,2021/05/05,in the early evening,55,"Nora, Kinsley, Eva, Nevaeh"
+e7347,2021/05/09,in the early afternoon,6,"Hazel, Rylee, Kinsley"
+e7350,2021/05/10,in the early evening,38,Layla
+e7355,2021/05/13,in the early afternoon,34,"Nevaeh, Hazel, Olivia"
+e7362,2021/05/18,in the late afternoon,42,"Rylee, Nevaeh, Kinsley"
+e7370,2021/05/24,in the late afternoon,39,"Nora, Claire, Piper"
+e7374,2021/05/25,in the late afternoon,20,Rylee
+e7377,2021/05/27,in the early afternoon,52,"Piper, Layla, Olivia"
+e7378,2021/05/29,in the early evening,49,"Rylee, Eva"
+e7388,2021/06/07,in the early evening,23,"Lydia, Hazel, Nora"
+e7392,2021/06/12,late in the evening,17,"Lydia, Nevaeh, Rylee, Hazel"
+e7394,2021/06/13,during lunch hours,46,Piper
+e7395,2021/06/14,during lunch hours,51,"Rylee, Lydia"
+e7400,2021/06/17,in the early evening,37,"Layla, Hazel, Claire"
+e7414,2021/06/27,during lunch hours,11,"Eva, Claire, Piper"
+e7415,2021/06/28,in the morning,51,"Layla, Claire"
+e7418,2021/06/30,in the early afternoon,15,Kinsley
+e7421,2021/07/01,in the late afternoon,11,"Olivia, Layla"
+e7427,2021/07/03,late in the evening,26,"Nora, Olivia, Rylee, Avery"
+e7430,2021/07/05,late in the evening,17,"Avery, Nevaeh"
+e7436,2021/07/07,in the late afternoon,24,"Hazel, Layla"
+e7439,2021/07/10,during lunch hours,30,"Piper, Rylee, Olivia"
+e7443,2021/07/12,in the morning,24,"Eva, Hazel, Rylee, Nevaeh"
+e7445,2021/07/14,late in the evening,10,"Hazel, Avery"
+e7446,2021/07/16,in the late afternoon,14,"Rylee, Nevaeh, Olivia, Layla"
+e7451,2021/07/19,in the morning,52,"Piper, Olivia, Kinsley"
+e7466,2021/07/27,in the early evening,43,"Rylee, Piper, Piper, Avery"
+e7469,2021/07/29,in the morning,10,"Avery, Hazel, Nora, Olivia"
+e7472,2021/07/31,in the late afternoon,12,"Layla, Piper, Lydia"
+e7475,2021/08/01,in the early afternoon,41,Claire
+e7480,2021/08/03,in the early afternoon,49,Claire
+e7504,2021/08/21,during lunch hours,31,"Piper, Lydia, Olivia, Rylee"
+e7511,2021/08/27,late in the evening,47,"Piper, Lydia"
+e7515,2021/08/29,in the early afternoon,21,"Eva, Rylee"
+e7521,2021/09/03,in the early afternoon,27,"Piper, Lydia"
+e7525,2021/09/04,in the late afternoon,35,"Kinsley, Hazel, Piper"
+e7527,2021/09/06,in the early evening,39,Nora
+e7539,2021/09/12,late in the evening,44,"Nevaeh, Rylee"
+e7543,2021/09/14,in the early afternoon,10,"Piper, Rylee, Kinsley"
+e7564,2021/09/26,in the early evening,17,"Nevaeh, Eva, Nora"
+e7565,2021/09/27,during lunch hours,25,Rylee
+e7566,2021/09/28,during lunch hours,7,Layla
+e7569,2021/09/29,during lunch hours,36,"Nevaeh, Avery, Layla, Olivia"
+e7582,2021/10/06,during lunch hours,29,"Layla, Avery"
+e7586,2021/10/10,in the morning,44,Lydia
+e7602,2021/10/23,in the early afternoon,44,"Nora, Eva"
+e7605,2021/10/24,late in the evening,10,"Hazel, Kinsley, Lydia"
+e7614,2021/10/28,in the morning,27,"Piper, Claire"
+e7617,2021/10/30,in the late afternoon,33,"Nevaeh, Rylee, Piper, Layla"
+e7622,2021/11/02,in the morning,30,"Olivia, Claire, Nora, Layla"
+e7626,2021/11/04,in the early evening,47,Claire
+e7634,2021/11/07,in the early afternoon,20,"Piper, Eva, Layla"
+e7636,2021/11/08,in the late afternoon,32,"Nevaeh, Piper"
+e7642,2021/11/12,late in the evening,39,"Nevaeh, Piper, Olivia, Nora"
+e7646,2021/11/15,during lunch hours,45,"Nora, Piper"
+e7657,2021/11/21,in the early evening,11,Avery
+e7659,2021/11/25,in the late afternoon,55,Piper
+e7669,2021/12/02,in the early afternoon,49,"Claire, Kinsley, Nevaeh, Piper"
+e7671,2021/12/03,in the early afternoon,21,Piper
+e7684,2021/12/13,in the late afternoon,25,Rylee
+e7693,2021/12/18,in the early afternoon,39,"Piper, Olivia"
+e7699,2021/12/22,in the early afternoon,6,"Nevaeh, Claire, Hazel"
+e7703,2021/12/25,during lunch hours,45,"Piper, Avery, Claire, Rylee"
+e7704,2021/12/27,late in the evening,14,"Hazel, Rylee, Claire"
+e7707,2021/12/28,in the early evening,18,"Claire, Piper"
+e7811,2022/01/11,late in the evening,28,"Kinsley, Olivia, Nora, Nevaeh"
+e7813,2022/01/12,in the early evening,32,"Eva, Layla"
+e7817,2022/01/17,in the morning,11,Claire
+e7821,2022/01/19,in the late afternoon,47,"Nevaeh, Eva, Lydia"
+e7828,2022/01/22,during lunch hours,37,Claire
+e7830,2022/01/24,late in the evening,5,"Hazel, Olivia, Nevaeh, Claire"
+e7832,2022/01/28,in the early afternoon,27,"Piper, Rylee, Hazel"
+e7836,2022/01/30,in the early afternoon,20,"Piper, Eva, Nora"
+e7838,2022/01/31,in the morning,14,Hazel
+e7849,2022/02/09,in the late afternoon,18,"Layla, Rylee, Avery, Eva"
+e7850,2022/02/10,in the morning,31,"Nora, Kinsley, Claire"
+e7851,2022/02/11,late in the evening,18,"Kinsley, Olivia, Hazel, Nora"
+e7852,2022/02/12,during lunch hours,54,"Claire, Avery, Nora, Piper"
+e7859,2022/02/16,late in the evening,24,"Hazel, Eva"
+e7862,2022/02/18,in the early evening,6,"Piper, Kinsley, Rylee"
+e7867,2022/02/22,in the late afternoon,9,Rylee
+e7870,2022/02/25,in the late afternoon,19,"Claire, Piper"
+e7877,2022/03/01,in the early afternoon,26,"Hazel, Piper, Eva, Olivia"
+e7881,2022/03/05,in the morning,6,"Kinsley, Piper, Piper"
+e7883,2022/03/07,in the early afternoon,38,"Olivia, Nora"
+e7887,2022/03/11,in the early evening,19,"Lydia, Olivia"
+e7890,2022/03/13,during lunch hours,9,"Eva, Nora"
+e7898,2022/03/16,during lunch hours,28,"Nora, Piper, Avery"
+e7900,2022/03/18,in the late afternoon,43,Kinsley
+e7906,2022/03/22,late in the evening,51,Nora
+e7908,2022/03/23,in the morning,45,Piper
+e7912,2022/03/28,in the early evening,20,"Avery, Piper"
+e7917,2022/04/03,late in the evening,23,"Claire, Piper, Piper"
+e7922,2022/04/05,in the early evening,39,"Olivia, Hazel, Nora"
+e7925,2022/04/07,late in the evening,45,"Nevaeh, Claire"
+e7927,2022/04/08,in the early afternoon,54,"Piper, Nevaeh, Kinsley"
+e7930,2022/04/11,in the morning,28,Rylee
+e7948,2022/04/21,during lunch hours,10,"Piper, Avery, Claire, Kinsley"
+e7954,2022/04/25,late in the evening,32,"Eva, Nora"
+e7955,2022/04/27,late in the evening,19,"Piper, Lydia, Hazel"
+e7958,2022/05/02,in the morning,37,Hazel
+e7969,2022/05/09,in the late afternoon,38,Rylee
+e7973,2022/05/10,during lunch hours,32,"Piper, Piper"
+e7980,2022/05/14,in the early evening,45,"Olivia, Lydia, Kinsley, Piper"
+e7982,2022/05/15,in the morning,7,"Hazel, Nora"
+e7989,2022/05/17,during lunch hours,44,"Hazel, Claire"
+e7991,2022/05/19,in the early afternoon,20,"Nora, Avery, Lydia, Rylee"
+e7993,2022/05/21,in the early evening,20,Piper
+e7998,2022/05/25,during lunch hours,33,Nevaeh
+e8003,2022/05/29,late in the evening,13,"Layla, Olivia, Nora, Piper"
+e8006,2022/05/30,in the early evening,22,"Nevaeh, Layla"
+e8009,2022/05/31,late in the evening,41,"Eva, Rylee, Avery"
+e8013,2022/06/04,during lunch hours,35,"Avery, Nora, Claire, Kinsley"
+e8020,2022/06/09,during lunch hours,39,"Nora, Claire, Piper"
+e8023,2022/06/10,during lunch hours,9,"Nevaeh, Piper, Kinsley"
+e8041,2022/06/28,late in the evening,6,Hazel
+e8047,2022/07/01,in the early afternoon,9,"Avery, Hazel"
+e8056,2022/07/06,in the early evening,47,"Nora, Rylee"
+e8059,2022/07/07,during lunch hours,40,"Avery, Lydia, Claire, Rylee"
+e8068,2022/07/14,in the morning,5,"Piper, Claire, Hazel, Eva"
+e8073,2022/07/21,in the late afternoon,45,"Avery, Piper, Claire, Hazel"
+e8079,2022/07/25,in the late afternoon,14,"Lydia, Layla"
+e8083,2022/07/27,in the late afternoon,30,Olivia
+e8090,2022/08/03,in the early afternoon,17,Layla
+e8099,2022/08/08,in the early evening,35,Nora
+e8106,2022/08/13,in the late afternoon,39,"Layla, Claire, Rylee, Piper"
+e8108,2022/08/14,during lunch hours,20,"Avery, Hazel"
+e8113,2022/08/20,in the morning,21,"Olivia, Avery, Nevaeh"
+e8116,2022/08/23,late in the evening,7,"Claire, Olivia, Rylee"
+e8119,2022/08/26,in the morning,15,"Lydia, Avery"
+e8122,2022/08/27,late in the evening,15,"Lydia, Avery, Kinsley"
+e8124,2022/08/28,in the morning,21,Piper
+e8127,2022/08/29,during lunch hours,26,"Nevaeh, Piper, Rylee"
+e8134,2022/09/01,in the early afternoon,10,Nora
+e8136,2022/09/02,in the late afternoon,37,Hazel
+e8148,2022/09/09,in the early afternoon,26,"Nevaeh, Layla, Rylee, Kinsley"
+e8151,2022/09/10,in the early evening,15,"Kinsley, Claire, Eva, Nora"
+e8153,2022/09/11,in the early afternoon,33,"Rylee, Piper, Nora"
+e8156,2022/09/13,late in the evening,55,"Lydia, Kinsley, Layla, Olivia"
+e8161,2022/09/15,in the early evening,23,"Piper, Layla, Olivia, Piper"
+e8166,2022/09/20,in the early evening,30,"Lydia, Nora, Nevaeh, Layla"
+e8168,2022/09/21,in the early evening,48,"Lydia, Eva, Nora"
+e8175,2022/09/24,in the early evening,14,"Eva, Layla, Kinsley, Nora"
+e8179,2022/09/26,in the early afternoon,15,"Claire, Piper"
+e8187,2022/10/01,during lunch hours,6,"Eva, Nora"
+e8189,2022/10/03,in the late afternoon,49,"Nora, Piper, Piper"
+e8192,2022/10/05,in the late afternoon,37,"Hazel, Rylee"
+e8197,2022/10/07,during lunch hours,53,Avery
+e8199,2022/10/09,in the early evening,22,Rylee
+e8243,2022/11/05,in the early evening,36,Rylee
+e8247,2022/11/06,in the late afternoon,19,Olivia
+e8250,2022/11/08,in the late afternoon,25,"Nora, Nevaeh, Rylee, Layla"
+e8257,2022/11/14,in the early afternoon,22,"Eva, Avery, Kinsley"
+e8260,2022/11/15,in the early evening,17,Hazel
+e8265,2022/11/17,late in the evening,42,"Layla, Lydia, Avery, Claire"
+e8269,2022/11/18,in the early evening,15,Avery
+e8275,2022/11/21,late in the evening,11,"Rylee, Piper, Eva"
+e8278,2022/11/22,in the late afternoon,48,"Lydia, Avery"
+e8283,2022/11/25,during lunch hours,28,"Avery, Olivia, Kinsley, Layla"
+e8287,2022/11/29,in the morning,37,"Avery, Claire, Eva, Layla"
+e8291,2022/12/04,in the early afternoon,30,Kinsley
+e8295,2022/12/08,late in the evening,9,Lydia
+e8298,2022/12/10,in the morning,30,"Nevaeh, Avery, Hazel, Claire"
+e8311,2022/12/21,in the morning,30,"Nevaeh, Eva, Piper, Rylee"
+e8318,2022/12/26,in the early afternoon,43,"Layla, Avery, Olivia"
+e8323,2022/12/30,during lunch hours,19,"Claire, Piper"

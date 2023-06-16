@@ -1,0 +1,9 @@
+.idea/*
+*__pycache__*
+*.pkl
+*.pt
+*.db
+*.pyc
+static/*
+personal-data
+env/

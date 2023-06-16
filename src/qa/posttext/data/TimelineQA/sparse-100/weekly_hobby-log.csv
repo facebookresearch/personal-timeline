@@ -1,0 +1,176 @@
+eid,date,hobbies,people_string
+e31,2010/04/03,learning a language,
+e35,2010/05/31,working out,"Avery, Willow"
+e39,2010/06/15,working out,
+e48,2010/07/22,meditation,
+e51,2010/08/01,gardening,
+e52,2010/08/03,gardening,
+e60,2010/09/17,meditation,
+e61,2010/09/29,gardening,
+e62,2010/10/15,learning a language,
+e69,2010/11/29,meditation,
+e71,2010/12/03,gardening,"Kayden, Carter"
+e614,2011/01/02,working out,
+e615,2011/01/07,meditation,
+e621,2011/02/20,meditation,Emily
+e622,2011/02/25,yoga,
+e624,2011/03/01,yoga,"Claire, Hazel"
+e634,2011/04/11,working out,
+e636,2011/04/17,working out,"Kinsley, Claire, Nevaeh"
+e637,2011/04/21,working out,
+e638,2011/04/25,yoga,"Avery, Willow"
+e639,2011/05/06,gardening,
+e651,2011/07/06,gardening,Willow
+e653,2011/07/10,gardening,
+e655,2011/07/29,learning a language,
+e668,2011/10/07,yoga,
+e674,2011/11/02,working out,Kayden
+e677,2011/11/08,meditation,
+e1255,2012/01/23,learning a language,
+e1258,2012/02/14,meditation,"Kayden, Carter, Andrew"
+e1272,2012/04/17,working out,"Carter, Andrew, Kayden"
+e1285,2012/06/27,learning a language,"Kayden, Emily, Carter"
+e1287,2012/07/05,meditation,
+e1289,2012/07/12,working out,"Carter, Andrew, Emily"
+e1293,2012/08/04,gardening,
+e1297,2012/08/25,working out,
+e1301,2012/09/27,learning a language,
+e1302,2012/10/03,gardening,
+e1306,2012/11/02,meditation,
+e1312,2012/12/07,learning a language,
+e1313,2012/12/11,learning a language,
+e1903,2013/04/26,working out,
+e1906,2013/04/30,gardening,
+e1909,2013/05/10,gardening,"Eva, Avery, Nora"
+e1912,2013/06/01,learning a language,Carter
+e1917,2013/06/28,gardening,"Jackson, Willow, Benjamin"
+e1921,2013/07/10,meditation,
+e1922,2013/07/12,yoga,
+e1926,2013/08/03,yoga,
+e1931,2013/08/22,meditation,
+e1936,2013/10/04,gardening,
+e1939,2013/10/28,yoga,
+e1945,2013/12/15,learning a language,"Piper, Layla"
+e1948,2013/12/20,gardening,
+e2519,2014/01/03,yoga,
+e2526,2014/02/15,gardening,
+e2530,2014/03/01,meditation,
+e2532,2014/03/17,meditation,
+e2536,2014/03/31,learning a language,"Piper, Olivia, Nevaeh"
+e2545,2014/04/28,working out,
+e2548,2014/05/19,working out,
+e2551,2014/06/07,gardening,
+e2555,2014/06/28,learning a language,
+e2564,2014/08/01,gardening,"Rylee, Piper"
+e2571,2014/08/27,yoga,Carter
+e2573,2014/09/12,working out,
+e2577,2014/10/12,learning a language,
+e2578,2014/10/18,meditation,"Andrew, Kayden"
+e3170,2015/01/21,gardening,
+e3180,2015/02/27,meditation,
+e3182,2015/03/16,gardening,"Nevaeh, Rylee, Kinsley"
+e3190,2015/05/23,meditation,
+e3191,2015/05/24,working out,
+e3192,2015/06/03,learning a language,
+e3193,2015/06/16,gardening,
+e3195,2015/07/01,meditation,
+e3199,2015/07/17,yoga,"Eva, Nevaeh, Rylee"
+e3200,2015/07/21,learning a language,
+e3203,2015/07/30,gardening,
+e3211,2015/09/21,yoga,"Carter, Andrew, Emily"
+e3214,2015/09/29,gardening,"Emily, Kayden"
+e3215,2015/10/01,working out,
+e3233,2015/12/27,meditation,"Nevaeh, Piper, Eva"
+e3827,2016/01/13,yoga,"Kayden, Carter, Emily"
+e3831,2016/01/25,working out,
+e3838,2016/02/14,gardening,
+e3849,2016/04/06,gardening,"Carter, Emily"
+e3850,2016/04/09,meditation,Hazel
+e3852,2016/04/25,meditation,
+e3867,2016/07/09,yoga,
+e3874,2016/08/07,learning a language,Andrew
+e3879,2016/09/14,learning a language,
+e3890,2016/10/21,learning a language,"Lydia, Rylee"
+e3894,2016/11/16,learning a language,
+e3902,2016/12/20,gardening,
+e4471,2017/01/14,meditation,Jackson
+e4473,2017/01/19,working out,
+e4475,2017/01/26,meditation,
+e4488,2017/05/04,yoga,"Emily, Carter, Andrew"
+e4489,2017/05/19,gardening,
+e4496,2017/06/17,yoga,Jackson
+e4501,2017/07/06,gardening,
+e4507,2017/08/16,working out,Eva
+e4516,2017/09/11,learning a language,
+e4523,2017/10/21,working out,
+e4529,2017/11/16,gardening,"Piper, Kinsley, Lydia"
+e4532,2017/11/27,gardening,
+e5116,2018/01/17,meditation,
+e5117,2018/01/20,gardening,
+e5124,2018/02/24,working out,
+e5126,2018/02/27,learning a language,
+e5130,2018/03/30,learning a language,Avery
+e5144,2018/05/22,gardening,
+e5145,2018/05/26,meditation,
+e5150,2018/06/19,yoga,Benjamin
+e5152,2018/06/28,meditation,
+e5158,2018/07/29,learning a language,"Willow, Avery"
+e5159,2018/08/06,gardening,
+e5163,2018/08/17,working out,"Kayden, Andrew"
+e5165,2018/08/21,yoga,
+e5172,2018/10/18,gardening,
+e5176,2018/10/23,working out,Carter
+e5178,2018/11/04,gardening,
+e5182,2018/11/16,yoga,
+e5190,2018/12/12,meditation,
+e5191,2018/12/16,working out,
+e5743,2019/01/04,learning a language,
+e5750,2019/02/07,yoga,
+e5755,2019/02/25,learning a language,
+e5770,2019/05/20,meditation,"Kayden, Emily, Carter"
+e5778,2019/06/26,working out,
+e5789,2019/08/30,working out,
+e5793,2019/09/15,gardening,
+e5795,2019/09/18,working out,"Carter, Kayden"
+e5796,2019/09/22,working out,
+e5804,2019/10/21,meditation,
+e5805,2019/10/29,meditation,
+e5808,2019/11/09,working out,"Claire, Kinsley"
+e5812,2019/11/17,working out,
+e5816,2019/12/16,working out,"Kayden, Carter, Andrew"
+e6430,2020/02/08,yoga,
+e6432,2020/02/18,learning a language,"Carter, Andrew"
+e6437,2020/03/21,meditation,
+e6439,2020/03/28,yoga,
+e6442,2020/04/10,working out,
+e6445,2020/04/18,working out,
+e6451,2020/05/16,gardening,
+e6454,2020/06/16,meditation,
+e6457,2020/07/07,working out,Carter
+e6459,2020/07/28,meditation,
+e6461,2020/08/10,yoga,Carter
+e6467,2020/08/24,yoga,"Kinsley, Hazel"
+e6470,2020/09/15,yoga,
+e6475,2020/09/28,meditation,Nora
+e6478,2020/10/04,learning a language,
+e6480,2020/10/07,yoga,Andrew
+e6484,2020/10/25,learning a language,"Carter, Emily"
+e6487,2020/11/08,yoga,
+e6490,2020/11/14,working out,"Andrew, Emily"
+e6498,2020/12/31,yoga,"Piper, Hazel, Piper"
+e7074,2021/01/30,working out,Jackson
+e7078,2021/02/24,gardening,
+e7081,2021/03/05,working out,
+e7099,2021/06/30,learning a language,
+e7107,2021/08/24,yoga,"Carter, Andrew, Kayden"
+e7110,2021/09/04,meditation,
+e7118,2021/10/13,learning a language,"Benjamin, Avery"
+e7136,2021/12/14,meditation,
+e7727,2022/01/31,learning a language,
+e7733,2022/03/09,gardening,Kinsley
+e7735,2022/03/24,yoga,Emily
+e7743,2022/04/19,learning a language,
+e7753,2022/06/07,yoga,
+e7772,2022/09/02,learning a language,Lydia
+e7793,2022/12/18,yoga,"Andrew, Carter, Kayden"
+e7794,2022/12/30,learning a language,

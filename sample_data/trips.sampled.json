@@ -1,0 +1,68 @@
+[
+  {
+    "Unnamed: 0":0,
+    "start_time":"2019-03-27 11:42:43+09:00",
+    "end_time":"2019-03-28 06:38:09+09:00",
+    "textDescription":"You have been to South Korea, Seoul, Seocho-gu, Jung-gu, Gwanak-gu, Yeongdeungpo-gu, and Unseo-dong. You have visited the Incheon International Airport Terminal 1, Seoul National University Gwanak Campus, Bangbae-ro, and Yangpyeong-ro 28da-gil.",
+    "country":"I visited South Korea.",
+    "states_provinces":"I visited Incheon, Seoul, and Yangpyeong.",
+    "cities_towns":"I visited Incheon International Airport Terminal 1, Seoul National University Gwanak Campus, and Yangpyeong-ro 28da-gil.",
+    "places":"I visited Bangbae-ro, Bangbae 4(sa)-dong, Gonghang-ro, Unseo-dong, Gwanak-ro, Daehak-dong, Yangpyeong-dong 6-ga, and Yangpyeong 2(i)-dong.",
+    "id":"trips_0"
+  },
+  {
+    "Unnamed: 0":1,
+    "start_time":"2019-03-28 20:38:13+09:00",
+    "end_time":"2019-03-30 14:15:37+09:00",
+    "textDescription":"Japan: Tokyo (Minato, Bunkyo, Meguro, Sanmu, Chiba Prefecture), Roppongi Hills, Tokyo Prince Hotel, Asahi Shokudo, University of Tokyo (Hongo Campus), \u4e2d\u91cc\u6a4b, Roppongi Hills Mori Tower, 191L, Grand Hyatt Tokyo.",
+    "country":"I visited Japan.",
+    "states_provinces":"I visited Tokyo, Sanmu, and Chiba Prefecture.",
+    "cities_towns":"I visited Shibakoen, Moto-Azabu, Roppongi Hills, Shibadaimon, Minami-Azabu, Hongo, Naka-Meguro, Narita, and Keyaki-zaka.",
+    "places":"I visited Tokyo Prince Hotel, Asahi Shokudo, University of Tokyo, \u4e2d\u91cc\u6a4b, Roppongi Hills Mori Tower, 191L, Grand Hyatt Tokyo, and Shiba Junior High School & Senior High School.",
+    "id":"trips_1"
+  },
+  {
+    "Unnamed: 0":2,
+    "start_time":"2019-03-31 10:51:04+08:00",
+    "end_time":"2019-04-01 18:54:00+08:00",
+    "textDescription":"Taiwan: Taipei (City Hall Rd., Dongmen Village, Huashan, Longtsakoo, Xingya, Xinyi Commercial Zone, Zhongzheng District, Zhongxiao East Road Section 2), Xinyi District (Chezeng, Liuhe Village, Sanli Village, Xinglong Village), Jinshan North Road.\n\nPlaces: Liberty Square, Democracy Boulevard, Dongmen Village, Chiang Kai-shek Memorial Hall, Cama Cafe, Xiangshan Tunnel, Six Boulders Photographing Platform, Sun Yat-sen Memorial Hall, Bigtom\u7f8e\u570b\u51b0\u6dc7\u6dcb\u5496\u5561\u9928, 101\u5854\u6a131\u865f\u651d\u5f71\u5e73\u53f0, \u6960\u6960\u76f8\u671b, \u8c61\u5c71\u81ea\u7136\u6b65\u9053, \u8c61\u5c71\u89aa\u5c71\u6b65\u9053\u6c38\u6625\u4ead\u7dda, \u8c61\u5c71\u89aa\u5c71\u6b65\u9053\u4e3b\u7dda(\u7a1c\u7dda), \u6885\u82b1",
+    "country":"I visited Taiwan.",
+    "states_provinces":"I visited Taipei.",
+    "cities_towns":"I visited Longtsakoo, Huashan, Xinyi District, Xingya, and Chezeng.",
+    "places":"I visited Liberty Square, Democracy Boulevard, Dongmen Village, Jinshan North Road, KuanHua Market, Meihua Village, Sanzhangli Branch Line Trail, Xinglong Village, \u6885\u82b1\u7403\u5834, \u8c61\u5c71\u89aa\u5c71\u6b65\u9053\u6c38\u6625\u4ead\u7dda, \u56db\u7378\u5c71\u6b65\u9053\u610f\u8c61\u62cd\u7167\u5ea7\u6905, \u5357\u5074\u6a13\u68af\u51fa\u53e3, Chiang Kai-shek Memorial Hall, cama cafe, Taipei City Hall, Xiangshan Tunnel, Six Boulders Photographing Platform, \u4e2d\u6b63\u7d00\u5ff5\u5802\u9285\u50cf\u5927\u5ef3, Eslite XinYi Store, \u8c61\u5c71\u770b\u53f0\u5317, 101\u5854\u6a132\u865f\u651d\u5f71\u5e73",
+    "id":"trips_2"
+  },
+  {
+    "Unnamed: 0":3,
+    "start_time":"2019-04-14 19:19:06-07:00",
+    "end_time":"2019-04-19 11:42:16-07:00",
+    "textDescription":"You have been to Canada, British Columbia, Vancouver, Gastown, Downtown, Canada Place, Seawall, Jack Poole Plaza, West Waterfront Road, West Cordova Street, Fairmont Pacific Rim, and Shaw Tower.",
+    "country":"I visited Canada.",
+    "states_provinces":"I visited British Columbia.",
+    "cities_towns":"I visited Vancouver.",
+    "places":"I visited Canada Place, Waterfront Nails & Waxing, 2010 Olympic Cauldron, Vancouver Convention Centre West, Fairmont Pacific Rim, Bellaggio Caf\u00e9 & Gelateria, and Shaw Tower.",
+    "id":"trips_3"
+  },
+  {
+    "Unnamed: 0":4,
+    "start_time":"2019-04-24 18:32:53-07:00",
+    "end_time":"2019-04-27 16:17:22-06:00",
+    "textDescription":"You have been to the United States (Arizona and Utah), Coconino County and Yavapai County in Arizona, Sedona City Limit in Arizona, Grand Canyon Village, Bitter Springs, Western Navajo Agency, Wahweap, Oak Creek Dev No. 1, Southwest Center, Garfield County in Utah, and Tropic in Garfield County in Utah. You have visited places such as Mather Point Amphitheatre, Airport Mesa Viewpoint, Lake Powell Resort, Sedona View Trail, Sedona Airport Overlook, AZ 89A, Brewer Trail, Navajo Viewpoint, Mather Point, Airport Loop Trail, Rim Trail, US 89, Casa Sedona Inn, UT-12, Yavapai East 7451-7483, Yavapai Geology Museum, Yavapai Point, 1.5 Mile Resthouse, Grand Canyon, Sedona Airport, 2 Emblem Place, and Crusty.",
+    "country":"I visited the United States.",
+    "states_provinces":"I visited Arizona and Utah.",
+    "cities_towns":"I visited Bitter Springs, Grand Canyon Village, Sedona, Wahweap, Oak Creek Dev No. 1, Southwest Center, Copper Vista Estates, and Tropic.",
+    "places":"I visited Mather Point Amphitheatre, Airport Mesa Viewpoint, Lake Powell Resort, Sedona View Trail, Sedona Airport Overlook, AZ 89A, Brewer Trail, Navajo Viewpoint, Mather Point, Airport Loop Trail, Rim Trail, US 89, Casa Sedona Inn, UT-12, Yavapai East 7451-7483, Yavapai Geology Museum, Yavapai Point, 1.5 Mile Resthouse, Grand Canyon, Sedona Airport, 2 Emblem Place, and Crusty.",
+    "id":"trips_4"
+  },
+  {
+    "Unnamed: 0":5,
+    "start_time":"2019-04-27 17:37:11-06:00",
+    "end_time":"2019-04-27 19:34:15-06:00",
+    "textDescription":"You have been to the United States in the states of Utah and Arizona. You have visited the cities\/towns of Tropic, Utah and the places Navajo Loop Trailhead, Sunset Point, Sunrise Point, Rim Trail, and Queen's Garden Trail.",
+    "country":"I visited the United States.",
+    "states_provinces":"I visited Utah.",
+    "cities_towns":"I visited Tropic and Garfield County.",
+    "places":"I visited Navajo Loop Trailhead, Sunset Point, Sunrise Point, Rim Trail, and Queen's Garden Trail.",
+    "id":"trips_5"
+  }
+]

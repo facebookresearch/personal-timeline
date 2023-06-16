@@ -1,0 +1,57 @@
+eid,start_date,end_date,city,place_visit_date,place,people,action,emotion
+e2,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/13,Liberty Bell,"Carter, Kayden",took a group photo,impressed
+e3,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/14,Philadelphia Museum of Art,"Carter, Kayden",recorded some videos,happy
+e4,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/15,Ipanema,"Carter, Kayden",bought some souvenirs,happy
+e5,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/16,Carnaval,"Carter, Kayden",took a selfie,impressed
+e6,2010/02/12,2010/02/18,"Philadelphia, US",2010/02/17,Independence Hall,"Carter, Kayden",recorded some videos,happy
+e3379,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/02/25,Wat Suthat,Andrew,took a group photo,special
+e3380,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/02/26,Grand Palace,Andrew,took a group photo,special
+e3381,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/02/27,Wat Traimit,Andrew,bought some souvenirs,impressed
+e3382,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/02/28,Wat Arun,Andrew,took a selfie,special
+e3383,2011/02/24,2011/03/06,"Bangkok, Thailand",2011/03/01,National Museum & Wang Na Palace,Andrew,took a selfie,special
+e6765,2012/03/07,2012/03/12,"Bangkok, Thailand",2012/03/08,Grand Palace,"Benjamin, Avery, Willow",bought some souvenirs,happy
+e6766,2012/03/07,2012/03/12,"Bangkok, Thailand",2012/03/09,Wat Traimit,"Benjamin, Avery, Willow",took a selfie,impressed
+e6767,2012/03/07,2012/03/12,"Bangkok, Thailand",2012/03/10,Wat Arun,"Benjamin, Avery, Willow",bought some souvenirs,happy
+e6768,2012/03/07,2012/03/12,"Bangkok, Thailand",2012/03/11,Wat Suthat,"Benjamin, Avery, Willow",took a group photo,impressed
+e6769,2012/03/07,2012/03/12,"Bangkok, Thailand",2012/03/12,National Museum & Wang Na Palace,"Benjamin, Avery, Willow",took a selfie,impressed
+e10176,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/04,Lotte World Tower,"Avery, Jackson",bought some souvenirs,special
+e10177,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/05,N Seoul Tower,"Avery, Jackson",took a selfie,impressed
+e10178,2013/05/03,2013/05/18,"Seoul, South Korea",2013/05/06,National Museum Of Korea,"Avery, Jackson",took a group photo,impressed
+e13494,2014/05/21,2014/05/24,"Los Angeles, US",2014/05/22,Hollywood Walk of Fame,"Willow, Jackson, Avery",recorded some videos,happy
+e13495,2014/05/21,2014/05/24,"Los Angeles, US",2014/05/23,Santa Monica Pier,"Willow, Jackson, Avery",took a group photo,special
+e13496,2014/05/21,2014/05/24,"Los Angeles, US",2014/05/24,Griffith Park and Observatory,"Willow, Jackson, Avery",recorded some videos,special
+e13497,2014/05/21,2014/05/24,"Los Angeles, US",2014/05/25,Getty Center,"Willow, Jackson, Avery",took a selfie,impressed
+e13498,2014/05/21,2014/05/24,"Los Angeles, US",2014/05/26,Universal Studios Hollywood,"Willow, Jackson, Avery",took a group photo,happy
+e16892,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/16,Ipanema,"Andrew, Carter",took a selfie,special
+e16893,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/17,Copacabana,"Andrew, Carter",took a selfie,impressed
+e16894,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/18,Sugarloaf,"Andrew, Carter",recorded some videos,special
+e16895,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/19,Cristo Redentor,"Andrew, Carter",took a group photo,happy
+e16896,2015/01/15,2015/01/26,"Rio, Brazil",2015/01/20,Carnaval,"Andrew, Carter",bought some souvenirs,happy
+e20244,2016/03/27,2016/04/02,"London, UK",2016/03/28,London Eye,Piper,bought some souvenirs,impressed
+e20245,2016/03/27,2016/04/02,"London, UK",2016/03/29,Westminster,Piper,took a group photo,impressed
+e20246,2016/03/27,2016/04/02,"London, UK",2016/03/30,Camden,Piper,took a selfie,happy
+e20247,2016/03/27,2016/04/02,"London, UK",2016/03/31,Tower of London,Piper,recorded some videos,special
+e20248,2016/03/27,2016/04/02,"London, UK",2016/04/01,Hyde Park,Piper,bought some souvenirs,special
+e23610,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/11,Bondi Beach,"Andrew, Kayden",took a selfie,happy
+e23611,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/12,Sydney Opera House,"Andrew, Kayden",bought some souvenirs,special
+e23612,2017/01/10,2017/01/21,"Sydney, Australia",2017/01/13,Sydney Harbour Bridge,"Andrew, Kayden",took a selfie,impressed
+e27007,2018/03/20,2018/03/26,"Seoul, South Korea",2018/03/21,Lotte World Tower,Avery,took a group photo,special
+e27008,2018/03/20,2018/03/26,"Seoul, South Korea",2018/03/22,National Museum Of Korea,Avery,bought some souvenirs,special
+e27009,2018/03/20,2018/03/26,"Seoul, South Korea",2018/03/23,N Seoul Tower,Avery,took a selfie,special
+e30416,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/02/22,Wat Traimit,"Lydia, Hazel",recorded some videos,happy
+e30417,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/02/23,Grand Palace,"Lydia, Hazel",took a group photo,impressed
+e30418,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/02/24,National Museum & Wang Na Palace,"Lydia, Hazel",recorded some videos,special
+e30419,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/02/25,Wat Suthat,"Lydia, Hazel",took a group photo,special
+e30420,2019/02/21,2019/03/02,"Bangkok, Thailand",2019/02/26,Wat Arun,"Lydia, Hazel",took a group photo,special
+e33785,2020/05/01,2020/05/12,"Paris, France",2020/05/02,Eiffel Tower,Piper,took a group photo,impressed
+e33786,2020/05/01,2020/05/12,"Paris, France",2020/05/03,Notre Dame Cathedral,Piper,recorded some videos,impressed
+e33787,2020/05/01,2020/05/12,"Paris, France",2020/05/04,Montmartre,Piper,took a group photo,impressed
+e33788,2020/05/01,2020/05/12,"Paris, France",2020/05/05,Champs Elysées,Piper,took a selfie,impressed
+e33789,2020/05/01,2020/05/12,"Paris, France",2020/05/06,Louvre Museum,Piper,recorded some videos,impressed
+e40551,2022/05/24,2022/05/27,"New York, US",2022/05/25,Statue of Liberty,"Claire, Piper",took a selfie,happy
+e40552,2022/05/24,2022/05/27,"New York, US",2022/05/26,Central Park,"Claire, Piper",took a selfie,impressed
+e40553,2022/05/24,2022/05/27,"New York, US",2022/05/27,Times Square,"Claire, Piper",took a selfie,impressed
+e40554,2022/05/24,2022/05/27,"New York, US",2022/05/28,Brooklyn Bridge,"Claire, Piper",took a selfie,happy
+e40555,2022/05/24,2022/05/27,"New York, US",2022/05/29,Rockefeller Center,"Claire, Piper",recorded some videos,special
+e40556,2022/05/24,2022/05/27,"New York, US",2022/05/30,Metropolitan Museum of Art,"Claire, Piper",took a group photo,happy
+e40557,2022/05/24,2022/05/27,"New York, US",2022/05/31,Empire State Building,"Claire, Piper",took a selfie,happy

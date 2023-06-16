@@ -1,0 +1,59 @@
+eid,date,for_whom,type_of_care
+e18129,2022/03/11,child_medical_care,annual physical checkup
+e18128,2022/11/27,child_medical_care,annual dental cleaning and checkup
+e18127,2022/10/01,child_medical_care,annual physical checkup
+e18126,2022/08/28,parent_medical_care,annual vision checkup
+e18125,2022/02/18,parent_medical_care,annual dental cleaning and checkup
+e18124,2022/07/26,parent_medical_care,annual physical checkup
+e18123,2022/09/01,personal_medical_care,annual vision checkup
+e18122,2022/05/20,personal_medical_care,annual dental cleaning and checkup
+e16611,2021/02/25,child_medical_care,annual physical checkup
+e16610,2021/04/28,child_medical_care,annual dental cleaning and checkup
+e16609,2021/06/04,parent_medical_care,annual dental cleaning and checkup
+e16608,2021/05/21,personal_medical_care,annual vision checkup
+e16607,2021/12/25,personal_medical_care,annual dental cleaning and checkup
+e15129,2020/06/27,child_medical_care,annual vision checkup
+e15128,2020/03/03,child_medical_care,annual dental cleaning and checkup
+e15127,2020/08/05,child_medical_care,annual physical checkup
+e15126,2020/05/15,parent_medical_care,annual dental cleaning and checkup
+e15125,2020/04/18,parent_medical_care,annual physical checkup
+e15124,2020/09/28,personal_medical_care,annual dental cleaning and checkup
+e15123,2020/07/06,personal_medical_care,annual physical checkup
+e13644,2019/12/02,child_medical_care,annual vision checkup
+e13643,2019/09/07,child_medical_care,annual dental cleaning and checkup
+e13642,2019/04/19,child_medical_care,annual physical checkup
+e13641,2019/07/13,parent_medical_care,annual physical checkup
+e13640,2019/03/23,personal_medical_care,annual dental cleaning and checkup
+e12168,2018/09/22,parent_medical_care,annual dental cleaning and checkup
+e12167,2018/05/22,parent_medical_care,annual physical checkup
+e12166,2018/05/06,personal_medical_care,annual dental cleaning and checkup
+e10658,2017/10/27,parent_medical_care,annual physical checkup
+e10657,2017/11/25,personal_medical_care,annual dental cleaning and checkup
+e9105,2016/11/28,parent_medical_care,annual dental cleaning and checkup
+e9104,2016/04/26,parent_medical_care,annual physical checkup
+e9103,2016/01/14,personal_medical_care,annual dental cleaning and checkup
+e9102,2016/05/06,personal_medical_care,annual physical checkup
+e7597,2015/09/08,parent_medical_care,annual dental cleaning and checkup
+e7596,2015/05/12,parent_medical_care,annual physical checkup
+e7595,2015/03/11,personal_medical_care,annual vision checkup
+e7594,2015/08/04,personal_medical_care,annual physical checkup
+e6057,2014/11/24,parent_medical_care,annual physical checkup
+e6056,2014/12/06,personal_medical_care,annual physical checkup
+e4599,2013/05/17,parent_medical_care,annual dental cleaning and checkup
+e4598,2013/09/19,parent_medical_care,annual physical checkup
+e4597,2013/06/26,personal_medical_care,annual vision checkup
+e4596,2013/12/27,personal_medical_care,annual dental cleaning and checkup
+e4595,2013/11/25,personal_medical_care,annual physical checkup
+e3066,2012/10/16,parent_medical_care,annual dental cleaning and checkup
+e3065,2012/10/24,parent_medical_care,annual physical checkup
+e3064,2012/02/24,personal_medical_care,annual vision checkup
+e3063,2012/01/08,personal_medical_care,annual dental cleaning and checkup
+e3062,2012/08/04,personal_medical_care,annual physical checkup
+e1529,2011/09/10,parent_medical_care,annual dental cleaning and checkup
+e1528,2011/12/14,parent_medical_care,annual physical checkup
+e1527,2011/03/07,personal_medical_care,annual dental cleaning and checkup
+e1526,2011/03/07,personal_medical_care,annual physical checkup
+e15,2010/01/18,parent_medical_care,annual dental cleaning and checkup
+e14,2010/07/16,parent_medical_care,annual physical checkup
+e13,2010/09/28,personal_medical_care,annual dental cleaning and checkup
+e12,2010/08/20,personal_medical_care,annual physical checkup
