@@ -77,13 +77,13 @@ We currently support 9 data sources. Here is a summary table:
 |------------------|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------|
 | Apple Health     | [Link](https://github.com/alonhalevy/personal-timeline#apple-health)  | personal-data/apple-health                                               | Exercise patterns, calorie counts                      |
 | Amazon           | [Link](https://github.com/alonhalevy/personal-timeline#amazon)        | personal-data/amazon                                                     | Product recommendation, purchase history summarization |
-| Amazon Kindle    | [Link](https://github.com/alonhalevy/personal-timeline#amazon)        | personal-data/amazon-kindle                                              | Book recommendation                                    |
-| Spotify          | [Link](https://github.com/alonhalevy/personal-timeline#spotify)       | personal-data/spotify                                                    | Music / streaming recommendation                       |
-| Venmo            | [Link](https://github.com/alonhalevy/personal-timeline#venmo)         | personal-data/venmo                                                      | Monthly spend summarization                            |
-| Libby            | [Link](https://github.com/alonhalevy/personal-timeline#libby)         | personal-data/libby                                                      | Book recommendation                                    |
-| Google Photos    | [Link](https://github.com/alonhalevy/personal-timeline#google-photos) | personal-data/google_photos                                              | Food recommendation, Object detections, and more               |
-| Google Location  | [Link](https://github.com/alonhalevy/personal-timeline#google-photos) | personal-data/google-timeline/Location History/Semantic Location History | Location tracking / visualization                      |
-| Facebook posts   | [Link](https://github.com/alonhalevy/personal-timeline#facebook-data) | personal-data/facebook                                                   | Question-Answering over FB posts / photos              |
+| Amazon Kindle    | [Link](https://github.com/StuartSwitzman/personal-timeline#amazon)        | personal-data/amazon-kindle                                              | Book recommendation                                    |
+| Spotify          | [Link](https://github.com/StuartSwitzman/personal-timeline#spotify)       | personal-data/spotify                                                    | Music / streaming recommendation                       |
+| Venmo            | [Link](https://github.com/StuartSwitzman/personal-timeline#venmo)         | personal-data/venmo                                                      | Monthly spend summarization                            |
+| Libby            | [Link](https://github.com/StuartSwitzman/personal-timeline#libby)         | personal-data/libby                                                      | Book recommendation                                    |
+| Google Photos    | [Link](https://github.com/StuartSwitzman/personal-timeline#google-photos) | personal-data/google_photos                                              | Food recommendation, Object detections, and more               |
+| Google Location  | [Link](https://github.com/StuartSwitzman/personal-timeline#google-photos) | personal-data/google-timeline/Location History/Semantic Location History | Location tracking / visualization                      |
+| Facebook posts   | [Link](https://github.com/StuartSwitzman/personal-timeline#facebook-data) | personal-data/facebook                                                   | Question-Answering over FB posts / photos              |
 
 If you have a different data source not listed above, follow the instructions [here](NEW_DATASOURCE.md)
 to add this data source to the importer.
@@ -101,7 +101,7 @@ The easiest way to do this on a Mac is:
 
 2. Move all the unzipped folders inside `~/personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.-->
 
-1. You can download your Google photos and location (also Gmail, map and google calendar) data from [Google Takeout](https://takeout.google.com/).
+1. You can download your Google photos and location (also Gmail, map and google calendar) data from [Google Takeout](https://takein.google.com/).
 2. The download from Google Takeout would be in multiple zip files. Unzip all the files.
 3. For Google photos, move all the unzipped folders inside `~/personal-data/google_photos/`. There can be any number of sub-folders under `google_photos`.
 4. For Google locations, move the unzipped files to `personal-data/google-timeline/Location History/Semantic Location History`.
@@ -116,7 +116,7 @@ The easiest way to do this on a Mac is:
 2. Move the downloaded file to this `~/personal-data/apple-health`
 
 ### AMAZON
-1. Request your data from Amazon here: https://www.amazon.com/gp/help/customer/display.html?nodeId=GXPU3YPMBZQRWZK2
+1. Request your data from Amazon here: https://www.amazon.com/gp/help/customer/display.html?nodeId=@GXPU3YPMBZQRWZK2
 They say it can take up to 30 days, but it took about 2 days. They'll email you when it's ready.
 
 They separate Amazon purchases from Kindle purchases into two different directories.
@@ -194,14 +194,6 @@ We provide an anonymized digital data [dataset](sample_data/) for testing the UI
 
 The QA engine is based on PostText, a QA system for answering queries that require computing aggregates over personal data.
 
-PostText Reference ---  [https://arxiv.org/abs/2306.01061](https://arxiv.org/abs/2306.01061):
-```
-@article{tan2023posttext,
-      title={Reimagining Retrieval Augmented Language Models for Answering Queries},
-      author={Wang-Chiew Tan and Yuliang Li and Pedro Rodriguez and Richard James and Xi Victoria Lin and Alon Halevy and Scott Yih},
-      journal={arXiv preprint:2306.01061},
-      year={2023},
-}
 ```
 
 To start the QA engine, run:
@@ -231,7 +223,7 @@ TimelineQA is a synthetic benchmark for accelerating progress on querying person
 TimelineQA generates lifelogs of imaginary people. The episodes in the lifelog range from major life episodes such as high
 school graduation to those that occur on a daily basis such as going for a run. We have evaluated SOTA models for atomic and multi-hop QA on the benchmark. 
 
-Please check out the TimelineQA github [repo](https://github.com/facebookresearch/TimelineQA) and the TimelineQA paper ---  [https://arxiv.org/abs/2306.01061](https://arxiv.org/abs/2306.01061):
+Please check out the TimelineQA github [repo](https://github.com/facebookresearch/TimelineQA) and the TimelineQA paper --- 
 ```
 @article{tan2023timelineqa,
   title={TimelineQA: A Benchmark for Question Answering over Timelines},
