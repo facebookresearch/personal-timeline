@@ -34,9 +34,9 @@ cd personal-timeline
 ```
 
 4. Run init script (needs python)
-    ```
-    sh src/init.sh
-    ```
+```
+sh src/init.sh
+```
 This will create a bunch of files/folders/symlinks needed for running the app.
 This will also create a new directory under your home folder `~/personal-data`, the directory where your personal data will reside.
 
