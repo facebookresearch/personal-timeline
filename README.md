@@ -21,9 +21,19 @@
 
 2. Follow install steps and use the Desktop app to start the docker engine.
 
-3. Make sure you have Python3 installed.
+3. Install `git-lfs` and clone the repo. You may need a conda env to do that:
+```
+conda create -n personal-timeline python=3.10
+conda activate personal-timeline
 
-4. Run init script
+conda install -c conda-forge git-lfs
+git lfs install
+
+git clone https://github.com/facebookresearch/personal-timeline
+cd personal-timeline
+```
+
+4. Run init script (needs python)
     ```
     sh src/init.sh
     ```
