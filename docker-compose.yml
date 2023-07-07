@@ -36,5 +36,5 @@ services:
     environment:
       - APP_DATA_DIR=/app/personal-data/app_data
     env_file:
-      - env/ingest.env.list
+      - env/frontend.env.list
       - conf/ingest.conf

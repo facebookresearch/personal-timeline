@@ -49,12 +49,6 @@ Ingestion configs are controlled via parameters in `conf/ingest.conf` file. The 
 are defaulted for optimized processing and don't need to be changed. 
 You can adjust values for these parameters to run importer with a different configuration.
 
-Set up an OpenAI API following these [instructions](https://openai.com/api/).
-
-Copy the following line to `env/ingest.env.list`:
-```
-OPENAI_API_KEY=<the API key goes here>
-```
 
 
 ## For Data visualization
@@ -76,7 +70,9 @@ SPOTIFY_SECRET=<the secret goes here>
 
 ## For Question-Answering
 
-Copy the OpenAI key to `env/frontend.env.list`:
+Set up an OpenAI API following these [instructions](https://openai.com/api/).
+
+Copy the following line to `env/frontend.env.list`:
 ```
 OPENAI_API_KEY=<the API key goes here>
 ```
