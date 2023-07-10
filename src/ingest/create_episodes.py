@@ -28,7 +28,7 @@ class EpisodeCreator:
 
     def __init__(self, app_path='personal-data/app_data/'):
         self.app_path = app_path
-        self.table = json.load(open(os.path.join(app_path, 'raw_data.db.json')))
+        self.table = json.load(open(os.path.join(app_path, 'enriched_data.json')))
 
         # index for amazon images
         self.product_image_index = {}
