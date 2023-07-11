@@ -106,7 +106,11 @@ class EpisodeCreator:
             elif rec['source'] == 'AmazonKindle':
                 if rec['productName'] in ['Kindle Unlimited', 'Prime Membership Fee', 'Audible Premium Plus']:
                     continue
-                asin = self.product_image_index[rec['productName']]
+                if 'productId' in rec:
+                    asin = rec['productId']
+                else:
+                    asin = self.product_image_index[rec['productName']]
+                
                 url = f'https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={asin}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=SL250'
                 output.append({'time': rec['startTime'],
                             'book_name': rec['productName'],

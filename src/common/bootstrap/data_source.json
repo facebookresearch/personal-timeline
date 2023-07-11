@@ -108,7 +108,7 @@
         "src": "ASIN/ISBN",
         "target": "productId",
         "src_type": "str",
-        "target_type": "number"
+        "target_type": "str"
       }
     ]
   },
@@ -150,10 +150,10 @@
         "target_type": "number"
       },
       {
-        "src": "ASIN/ISBN",
+        "src": "ASIN",
         "target": "productId",
         "src_type": "str",
-        "target_type": "number"
+        "target_type": "str"
       }
     ]
   },

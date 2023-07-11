@@ -153,7 +153,7 @@ class ImageEnricher:
         duplicates = set(self.deduplicate(img_paths))
         print("Found %d duplicates" % len(duplicates))
         for row_id, img_path in zip(row_ids, img_paths):
-            self.db.add_or_replace_personal_data({"active": int(img_path in duplicates),
+            self.db.add_or_replace_personal_data({"status": 'duplicate' if img_path in duplicates else 'active',
                                                   "dedup_done": 1,
                                                   "id": row_id}, "id")
 
