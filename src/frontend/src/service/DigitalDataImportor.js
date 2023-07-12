@@ -121,6 +121,7 @@ const _importDigitalData = async (tracks, setTracks, setSelectedDateRange, toast
 
     let maxDate = new Date(Math.max.apply(null, dates));
     let minDate = new Date(Math.min.apply(null, dates));
+    // maxDate = new Date(Math.min.apply(null, [addDays(minDate, 180), maxDate]))
     setSelectedDateRange([minDate, maxDate]);
 
     setTracks(new_tracks)

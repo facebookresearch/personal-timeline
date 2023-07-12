@@ -29,11 +29,11 @@ import { Tooltip } from 'primereact/tooltip';
 import { Toast } from 'primereact/toast';
 import { RadioButton } from 'primereact/radiobutton';
 import { Image } from 'primereact/image';
-import { Dialog } from 'primereact/dialog';
 import { Calendar } from 'primereact/calendar';
 import { Divider } from 'primereact/divider';
 import { Dropdown } from 'primereact/dropdown';
 import { Toolbar } from 'primereact/toolbar';
+import { Paginator } from 'primereact/paginator';
 
 
 import HeatMap from '@uiw/react-heat-map';
@@ -84,6 +84,10 @@ function App() {
     'id': 'none',
     'some_attribute': 'val'
   });
+
+  // Paginator related
+  const [paginatorFirst, setPaginatorFirst] = useState(0);
+  const [paginatorRows, setPaginatorRows] = useState(50);
 
   // events to be shown in the timeline
   const [events, setEvents] = useState([]);
@@ -555,9 +559,17 @@ function App() {
       </div>;
     }
 
-    // return <div>{events.map(customizedContent)} </div>
-    return <div>{new_events.map(to_content)} </div>
-    // to_content
+    const onPageChange = (event) => {
+      setPaginatorFirst(event.first);
+      setPaginatorRows(event.rows);
+  };
+    
+    return <div>{new_events.slice(paginatorFirst, paginatorFirst + paginatorRows).map(to_content)}
+      <Paginator first={paginatorFirst} rows={paginatorRows} 
+        totalRecords={new_events.length} 
+        rowsPerPageOptions={[50, 100, 200]} 
+        onPageChange={onPageChange} />
+    </div>
   }
 
   const generate_summaries = (tracks) => {
@@ -795,7 +807,6 @@ function App() {
                   <rect className={'rect' + data.date.replaceAll('/', '_')} {...props} onClick={() => {
                     let start = new Date(data.date);
                     let end = addDays(start, 1);
-                    setZoom(256);
                     setSelectedDateRange([start, end]);
                   }}>
                     {data.count > 0 && <Tooltip target={'.rect' + data.date.replaceAll('/', '_')} placement="top" content={showCount(data)} />}
