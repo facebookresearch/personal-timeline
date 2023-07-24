@@ -61,7 +61,8 @@ class AppleHealthImporter(GenericImporter):
         tag = "Workout"
         for entry in tqdm(entries):
             print(f"Reading entry File: {entry}\n")
-            for child in self.parse_large_xml_file(entry):
+            self.remove_lines_between(entry)
+            for child in self.parse_large_xml_file(entry + '.clean'):
                 obj = self.create_LLEntry(child, tag)
                 if obj is not None:
                     # Write Obj to personal-data
@@ -70,6 +71,25 @@ class AppleHealthImporter(GenericImporter):
                     # print(f"Written to DB. DedupKey: {data_entry['dedup_key']}")
                     count += 1
             print("Count:", count)
+
+    def remove_lines_between(self, xml_file_path):
+        """Clean up the input file by removing lines possibly with syntax error.
+        """
+        start_line = '<?xml version="1.0" encoding="UTF-8"?>'
+        end_line = '<HealthData locale="en_US">'
+
+        out_path = xml_file_path + '.clean'
+        fout = open(out_path, 'w')
+        fout.write(start_line + '\n')
+        start = False
+        with open(xml_file_path, 'r') as f_in:
+            for line in f_in:
+                if line.strip() == end_line:
+                    start = True
+                if start:
+                    fout.write(line)
+        fout.close()
+
 
     def parse_large_xml_file(self, xml_file_path):
         """
