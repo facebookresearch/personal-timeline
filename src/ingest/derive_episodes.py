@@ -23,10 +23,11 @@ import numpy as np
 from math import sin, cos, sqrt, atan2, radians
 from typing import List
 from langchain.llms import OpenAI
-from langchain.cache import InMemoryCache
+from langchain.cache import SQLiteCache
 from tqdm import tqdm
 
-langchain.llm_cache = InMemoryCache()
+langchain.llm_cache = SQLiteCache(database_path=".langchain.db")
+
 
 class EpisodeDeriver:
     def __init__(self, app_path='personal-data/app_data/'):
@@ -169,6 +170,46 @@ class EpisodeDeriver:
         """
         return self.llm(input + " Can you summarize the country, states/provinces, cities/towns, and places I have been to?")
 
+    def describe_place(self, address):
+        """Ask llm to describe what is in an address.
+        """
+        return self.llm("Can you describe what is in this address in one sentence: " + address)
+
+    def summarize_day(self, places, details="low"):
+        """Summarize places visited in a day.
+        """
+        prompt = "Here's the list of places that I have been to during a trip:\n"
+        idx = 0
+        places = places.to_dict('records')
+        while idx < len(places):
+            address = places[idx]['start_address']
+            start_time = places[idx]['start_time']
+            end_time = places[idx]['end_time']
+            while idx + 1 < len(places) and places[idx]['start_address'] == places[idx+1]['start_address']:
+                idx += 1
+                end_time = places[idx]['end_time']
+            
+            # process address
+            addr_desc = self.describe_place(address)
+            # print(addr_desc)
+            if start_time == end_time:
+                prompt += '%s: %s\n' % (start_time, addr_desc)
+            else:
+                prompt += 'from %s to %s: %s\n' % (start_time, end_time, addr_desc)
+            idx += 1
+        
+        prompt += "\nHelp me summarize my trip to another person. Highlight significant places (e.g., restaurants, attractions, cities, countries) that I have visited. Try to break down the trip summary by days.\n"
+        if details == 'high':
+            prompt += "Make sure to include as many details as possible."
+        else:
+            prompt += "Write a summary in at most 100 words."
+
+        # print(prompt)
+        res = self.llm(prompt)
+        # print(res)
+        return res
+
+
     def make_trip_table(self, trips, places):
         """Create the trip episodes.
         """
@@ -177,6 +218,10 @@ class EpisodeDeriver:
             if trip["tag"] == 'trip':
                 start_id = trip["ids"][0]
                 end_id = trip["ids"][-1]
+
+                trip_places = places[places['id'].isin(trip['ids'])]
+                text_summary_oneline = self.summarize_day(trip_places, details="low")
+                text_summary = self.summarize_day(trip_places, details="high")
 
                 descriptions = [str(places[places["id"] == idx]["textDescription"].values[0]) for idx in trip["ids"] if \
                                 "Google Photo" not in str(places[places["id"] == idx]["textDescription"].values[0])]
@@ -187,7 +232,7 @@ class EpisodeDeriver:
 
                 try:
                     summary = self.summarize("\n".join(descriptions)).strip()
-                    summary_oneline = self.summarize_oneline("\n".join(descriptions)).strip()
+                    # summary_oneline = self.summarize_oneline("\n".join(descriptions)).strip()
                 except:
                     print(descriptions)
                     continue
@@ -205,7 +250,8 @@ class EpisodeDeriver:
 
                 rec = {"start_time": str(places[places["id"] == start_id]["start_time"].values[0]),
                     "end_time": str(places[places["id"] == end_id]["end_time"].values[0]),
-                    "textDescription": summary_oneline,
+                    "textDescription": text_summary_oneline,
+                    "details": text_summary,
                     "country": country,
                     "states_provinces": states_provinces,
                     "cities_towns": cities_towns,
