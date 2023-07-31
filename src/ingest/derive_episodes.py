@@ -193,9 +193,9 @@ class EpisodeDeriver:
             addr_desc = self.describe_place(address)
             # print(addr_desc)
             if start_time == end_time:
-                prompt += '%s: %s\n' % (start_time, addr_desc)
+                prompt += '%s: %s\n\n' % (start_time, addr_desc.strip())
             else:
-                prompt += 'from %s to %s: %s\n' % (start_time, end_time, addr_desc)
+                prompt += 'from %s to %s: %s\n\n' % (start_time, end_time, addr_desc.strip())
             idx += 1
         
         prompt += "\nHelp me summarize my trip to another person. Highlight significant places (e.g., restaurants, attractions, cities, countries) that I have visited. Try to break down the trip summary by days.\n"
@@ -204,7 +204,7 @@ class EpisodeDeriver:
         else:
             prompt += "Write a summary in at most 100 words."
 
-        # print(prompt)
+        print(prompt)
         res = self.llm(prompt)
         # print(res)
         return res
