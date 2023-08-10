@@ -3,6 +3,6 @@ matplotlib
 scikit-learn
 openai
 flask
-langchain
+langchain==0.0.236
 faiss-cpu
 mlflow
