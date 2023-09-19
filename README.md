@@ -86,15 +86,15 @@ We currently support 9 data sources. Here is a summary table:
 
 | Digital Services | Instructions                                                                        | Destinations                                                             | Use cases                                              |
 |------------------|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------|
-| Apple Health     | [Link](https://github.com/alonhalevy/personal-timeline#apple-health)  | personal-data/apple-health                                               | Exercise patterns, calorie counts                      |
-| Amazon           | [Link](https://github.com/alonhalevy/personal-timeline#amazon)        | personal-data/amazon                                                     | Product recommendation, purchase history summarization |
-| Amazon Kindle    | [Link](https://github.com/alonhalevy/personal-timeline#amazon)        | personal-data/amazon-kindle                                              | Book recommendation                                    |
-| Spotify          | [Link](https://github.com/alonhalevy/personal-timeline#spotify)       | personal-data/spotify                                                    | Music / streaming recommendation                       |
-| Venmo            | [Link](https://github.com/alonhalevy/personal-timeline#venmo)         | personal-data/venmo                                                      | Monthly spend summarization                            |
-| Libby            | [Link](https://github.com/alonhalevy/personal-timeline#libby)         | personal-data/libby                                                      | Book recommendation                                    |
-| Google Photos    | [Link](https://github.com/alonhalevy/personal-timeline#google-photos) | personal-data/google_photos                                              | Food recommendation, Object detections, and more               |
-| Google Location  | [Link](https://github.com/alonhalevy/personal-timeline#google-photos) | personal-data/google-timeline/Location History/Semantic Location History | Location tracking / visualization                      |
-| Facebook posts   | [Link](https://github.com/alonhalevy/personal-timeline#facebook-data) | personal-data/facebook                                                   | Question-Answering over FB posts / photos              |
+| Apple Health     | [Link](https://github.com/facebookresearch/personal-timeline#apple-health)  | personal-data/apple-health                                               | Exercise patterns, calorie counts                      |
+| Amazon           | [Link](https://github.com/facebookresearch/personal-timeline#amazon)        | personal-data/amazon                                                     | Product recommendation, purchase history summarization |
+| Amazon Kindle    | [Link](https://github.com/facebookresearch/personal-timeline#amazon)        | personal-data/amazon-kindle                                              | Book recommendation                                    |
+| Spotify          | [Link](https://github.com/facebookresearch/personal-timeline#spotify)       | personal-data/spotify                                                    | Music / streaming recommendation                       |
+| Venmo            | [Link](https://github.com/facebookresearch/personal-timeline#venmo)         | personal-data/venmo                                                      | Monthly spend summarization                            |
+| Libby            | [Link](https://github.com/facebookresearch/personal-timeline#libby)         | personal-data/libby                                                      | Book recommendation                                    |
+| Google Photos    | [Link](https://github.com/facebookresearch/personal-timeline#google-photos) | personal-data/google_photos                                              | Food recommendation, Object detections, and more               |
+| Google Location  | [Link](https://github.com/facebookresearch/personal-timeline#google-photos) | personal-data/google-timeline/Location History/Semantic Location History | Location tracking / visualization                      |
+| Facebook posts   | [Link](https://github.com/facebookresearch/personal-timeline#facebook-data) | personal-data/facebook                                                   | Question-Answering over FB posts / photos              |
 
 If you have a different data source not listed above, follow the instructions [here](NEW_DATASOURCE.md)
 to add this data source to the importer.
