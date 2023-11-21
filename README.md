@@ -272,4 +272,4 @@ We'd like to thank the following contributors for their contributions to this pr
   - Contributing in Documentation
 - [Wang-Chiew Tan](https://github.com/wangchiew)
   - Implementation of the [PostText](https://arxiv.org/abs/2306.01061) query engine
-- [Pierre Moulon](https://github.com/pmoulon) for providing open-sourcing guidelines and suggestions
+- [Pierre Moulon](https://github.com/SeaOtocinclus) for providing open-sourcing guidelines and suggestions
