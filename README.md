@@ -259,3 +259,17 @@ The codebase is licensed under the [Apache 2.0 license](LICENSE).
 ## Contributing
 
 See [contributing](CONTRIBUTING.md) and the [code of conduct](CODE_OF_CONDUCT.md).
+
+## Contributor Attribution
+
+We'd like to thank the following contributors for their contributions to this project:
+- [Tripti Singh](https://github.com/tripti-singh)
+  - Design and implementation of the sqlite DB backend
+  - Designing a pluggable data import and enrichment layer and building the pipeline orchestrator.
+  - Importers for all six [data sources](​​https://github.com/facebookresearch/personal-timeline#digital-data-importers)
+  - Generic csv and json data sources importer with [instructions](https://github.com/facebookresearch/personal-timeline/blob/main/NEW_DATASOURCE.md)
+  - Dockerization
+  - Contributing in Documentation
+- [Wang-Chiew Tan](https://github.com/wangchiew)
+  - Implementation of the [PostText](https://arxiv.org/abs/2306.01061) query engine
+- [Pierre Moulon](https://github.com/pmoulon) for providing open-sourcing guidelines and suggestions
