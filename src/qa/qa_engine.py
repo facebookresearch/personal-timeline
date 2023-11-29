@@ -104,6 +104,10 @@ FINAL ANSWER:"""
 
         if method == 'View-based' and self.view_engine != None:
             res = self.view_engine.query(query)
+            if 'Error' in str(res['answer']):
+                res = self.chain({"question": query})
+                res['answer'] = res['answer'].replace('SOURCES:', '')
+                res['sources'] = res['sources'].split(', ')
         else:
             res = self.chain({"question": query})
             res['answer'] = res['answer'].replace('SOURCES:', '')
@@ -123,9 +127,7 @@ FINAL ANSWER:"""
 
 
 if __name__ == '__main__':
-    engine = QAEngine('public/digital_data')
-    for query in ["Did I run often?", 
-                  "How many harry potter books did I read?", 
-                  "Which cities did I visited when I traveled to Japan?"]:
+    engine = QAEngine('../../sample_data/')
+    for query in ["Show me some photos of plants in my neighborhood"]:
         # print(engine.query(query, method='Retrieval-based'))
         print(engine.query(query, method='View-based'))
