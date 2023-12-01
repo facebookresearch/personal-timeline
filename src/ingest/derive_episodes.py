@@ -100,7 +100,10 @@ class EpisodeDeriver:
             if not found:
                 known_centers.append([center, [idx]])
         
-        max_cnt = max([len(indices) for _, indices in known_centers])
+        max_cnt = -1
+        if known_centers:
+            max_cnt = max([len(indices) for _, indices in known_centers])
+        
         for _, indices in known_centers:
             if len(indices) == max_cnt:
                 for idx in indices:
