@@ -38,8 +38,13 @@ class PhotoExporter:
         res = self.db.search_personal_data(select_cols, where_clause)
         count = 0
         for row in tqdm(res.fetchall()):
-            count += 1
             data: LLEntry = pickle.loads(row[0])
+
+            if data is None:
+                print("Row None. Skipping...")
+                continue
+
+            count += 1
             self.export_list.append(data.toDict())
 
     def create_export_entity(self, incremental:bool=True):

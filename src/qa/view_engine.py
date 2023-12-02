@@ -78,5 +78,6 @@ class ViewEngine:
 
 
 if __name__ == '__main__':
-    engine = ViewEngine("public/digital_data/")
-    print(engine.query("How many cities did I visit when I travel to Japan?"))
+    # engine = ViewEngine("public/digital_data/")
+    engine = ViewEngine("personal-data/app_data/")
+    # print(engine.query("How many cities did I visit when I travel to Japan?"))

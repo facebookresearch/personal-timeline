@@ -35,7 +35,9 @@ const _importDigitalData = async (tracks, setTracks, setSelectedDateRange, toast
 
       try {
         data = await (
-          await fetch('digital_data/app_data/' + data_sources[data_id])
+          // await fetch('digital_data/app_data/' + data_sources[data_id])
+          // Fetching the data from the personal-data folder
+          await fetch('digital_data/personal-data/app_data/' + data_sources[data_id])
         ).json();
       } catch (error) {
         data = await (
