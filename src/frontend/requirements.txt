@@ -9,6 +9,6 @@ spotipy
 faiss-cpu
 pandas
 hydra-core==1.3.2
-langchain==0.0.236
+langchain==0.0.329
 sqlparse
 flask-cors

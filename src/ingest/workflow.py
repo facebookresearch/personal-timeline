@@ -76,8 +76,10 @@ if __name__ == '__main__':
             else:
                 ex.create_export_entity()
             print("Merge Complete. Enriched entities pushed to enriched_data column")
-            if os.getenv("export_enriched_data_to_json") is not None\
-                    and os.environ["export_enriched_data_to_json"] == "True":
+            # if os.getenv("export_enriched_data_to_json") is not None\
+            #         and os.environ["export_enriched_data_to_json"] == "True":
+            if os.getenv("enriched_data_to_json") is not None\
+                    and os.environ["enriched_data_to_json"] == "True":
                 export_path = os.path.join(os.environ["APP_DATA_DIR"], 'enriched_data.json')
                 json.dump(ex.get_all_data(), open(export_path, "w"))
                 print("Data exported as json to", export_path)

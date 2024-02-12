@@ -127,7 +127,8 @@ FINAL ANSWER:"""
 
 
 if __name__ == '__main__':
-    engine = QAEngine('../../sample_data/')
-    for query in ["Show me some photos of plants in my neighborhood"]:
-        # print(engine.query(query, method='Retrieval-based'))
-        print(engine.query(query, method='View-based'))
+    # engine = QAEngine('../../sample_data/')
+    engine = QAEngine('personal-data/app_data/')
+    # for query in ["Show me some photos of plants in my neighborhood"]:
+    #     # print(engine.query(query, method='Retrieval-based'))
+    #     print(engine.query(query, method='View-based'))

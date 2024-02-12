@@ -222,9 +222,12 @@ function App() {
       event.video = data.video_url;
     }
 
-    // Digital data: kindle and spotify
+    // Digital data: images, kindle and spotify
     if (data.img_url) { 
-      event.image = data.img_url; 
+      // Modify the image url to point to the right place
+      const urlArray = data.img_url.split("/");
+      urlArray[1] = "digital_data"
+      event.image = urlArray.slice(1).join("/");
     } else if (data.start_lat && data.start_long) {
       event.lat = data.start_lat;
       event.long = data.start_long;
