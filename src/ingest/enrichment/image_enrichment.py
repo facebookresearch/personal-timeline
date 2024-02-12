@@ -55,14 +55,16 @@ class ImageEnricher:
 
         with torch.no_grad():
             if os.path.exists(img_path + ".emb"):
-                image_features = pickle.load(open(img_path + ".emb", "rb"))
+                # image_features = pickle.load(open(img_path + ".emb", "rb"))
+                image_features = torch.load(img_path + ".pt")
             else:
                 if img == None:
                     img = Image.open(img_path)
                 image_input = model_dict['clip_preprocess'](img).unsqueeze(0).to(model_dict['device'])
                 image_features = model_dict['clip_model'].encode_image(image_input)
                 image_features /= image_features.norm(dim=-1, keepdim=True)
-                pickle.dump(image_features, open(img_path + ".emb", "wb"))
+                # pickle.dump(image_features, open(img_path + ".emb", "wb"))
+                torch.save(image_features, img_path + ".pt")
 
             sim = (100.0 * image_features @ model_dict['openimage_classifier_weights'].T).softmax(dim=-1)
             _, indices = [drop_gpu(tensor) for tensor in sim[0].topk(k)]
@@ -128,7 +130,7 @@ class ImageEnricher:
             print("No pending image enrichments")
             return
         # print("Total enrichments to be done: ", pending[0])
-        
+
         res = self.db.search_personal_data(select_cols, where_clause)
         count = 0
         img_paths = []
@@ -144,11 +146,11 @@ class ImageEnricher:
                 image_tags, _ = ImageEnricher.enhance(data.imageFilePath)
                 img_paths.append(data.imageFilePath)
                 data.imageCaptions = json.dumps(image_tags)
-                self.db.add_or_replace_personal_data({"captions": data.imageCaptions, 
+                self.db.add_or_replace_personal_data({"captions": data.imageCaptions,
                                                       "captions_done": 1,
                                                       "id": row_id}, "id")
                 count += 1
-        
+
         # deduplicate
         duplicates = set(self.deduplicate(img_paths))
         print("Found %d duplicates" % len(duplicates))
