@@ -54,8 +54,7 @@ class ImageEnricher:
         drop_gpu = socratic.drop_gpu
 
         with torch.no_grad():
-            if os.path.exists(img_path + ".emb"):
-                # image_features = pickle.load(open(img_path + ".emb", "rb"))
+            if os.path.exists(img_path + ".pt"):
                 image_features = torch.load(img_path + ".pt")
             else:
                 if img == None:
@@ -63,7 +62,6 @@ class ImageEnricher:
                 image_input = model_dict['clip_preprocess'](img).unsqueeze(0).to(model_dict['device'])
                 image_features = model_dict['clip_model'].encode_image(image_input)
                 image_features /= image_features.norm(dim=-1, keepdim=True)
-                # pickle.dump(image_features, open(img_path + ".emb", "wb"))
                 torch.save(image_features, img_path + ".pt")
 
             sim = (100.0 * image_features @ model_dict['openimage_classifier_weights'].T).softmax(dim=-1)
