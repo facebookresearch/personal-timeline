@@ -28,7 +28,7 @@ plotly
 transformers
 faiss-cpu
 hydra-core==1.3.2
-langchain==0.1.0
+langchain==0.1.11
 sqlparse
 flask-cors
 git+https://github.com/openai/CLIP.git
